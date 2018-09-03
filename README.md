@@ -1,4 +1,3 @@
-## WEB700 course content (weekly notes etc.)
+## WEB700 - Course Name
 
-The WEB422 course content is here:  
-[WEB700 course content](https://sictweb.github.io/web700/)
+This is the home page for the WEB700 course.
