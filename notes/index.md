@@ -18,6 +18,7 @@ layout: default
 <td>
 Welcome to WEB700:<br><br>
 <ul>
+  <li>Course Introduction</li>
 <li>Development Environment / Technology / Tools</li>
   <li>Internet Architecture</li>
   <li>Introduction to JavaScript</li>
