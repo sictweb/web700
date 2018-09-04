@@ -28,7 +28,7 @@ Welcome to WEB700:<br><br>
 <tr>
 <td><a href="/web422/notes/week02">2 - Notes</a></td>
 <td>
-Big Topic:<br><br>
+JavaScript Continued...:<br><br>
 <ul>
 <li>Topic(s)</li>
 </ul>
@@ -37,7 +37,7 @@ Big Topic:<br><br>
 <tr>
 <td><a href="/web422/notes/week03">3 - Notes</a></td>
 <td>
-Big Topic:<br><br>
+Object Oriented JavaScript / ES6 Features<br><br>
 <ul>
 <li>Topic(s)</li>
 </ul>
@@ -46,16 +46,16 @@ Big Topic:<br><br>
 <tr>
 <td><a href="/web422/notes/week04">4 - Notes</a></td>
 <td>
-Bit Topic:<br><br>
+Node.js Introduction<br><br>
 <ul>
-<li>Topic(s)</li>
+<li></li>
 </ul>
 </td>
 </tr>
 <tr>
 <td><a href="/web422/notes/week05">5 - Notes</a></td>
 <td>
-Big Topic:<br><br>
+Express.js Introduction:<br><br>
 <ul>
 <li>Topic(s)</li>
 </ul>
@@ -64,25 +64,25 @@ Big Topic:<br><br>
 <tr>
 <td><a href="/web422/notes/week06">6 - Notes</a></td>
 <td>
-Big Topic:<br><br>
+HTML / DOM Introduction:<br><br>
 <ul>
-<li>Topic(s)</li>
+<li>(NOTE: Will have to show a "static" server here)</li>
 </ul>
 </td>
 </tr>
 <tr>
 <td><a href="/web422/notes/week07">7 - Notes</a></td>
 <td>
-Big Topic:<br><br>
+CSS / SASS Introduction:<br><br>
 <ul>
-<li>Topic(s)</li>
+<li>(NOTE: Can include Bootstrap CSS only here - link to jQuery / bootsrap js components?)</li>
 </ul>
 </td>
 </tr>
 <tr>
 <td><a href="/web422/notes/week08">8 - Notes</a></td>
 <td>
-Big Topic:<br><br>
+Forms Introduction / Processing Forms with Express.js<br><br>
 <ul>
 <li>Topic(s)</li>
 </ul>
@@ -91,7 +91,7 @@ Big Topic:<br><br>
   <tr>
 <td><a href="/web422/notes/week09">9 - Notes</a></td>
 <td>
-Big Topic:<br><br>
+Template Engines – Handlebars.js<br><br>
 <ul>
 <li>Topic(s)</li>
 </ul>
@@ -100,7 +100,7 @@ Big Topic:<br><br>
   <tr>
 <td><a href="/web422/notes/week10">10 - Notes</a></td>
 <td>
-Big Topic:<br><br>
+Introduction to AJAX & "REST" API:<br><br>
 <ul>
 <li>Topic(s)</li>
 </ul>
@@ -109,7 +109,7 @@ Big Topic:<br><br>
     <tr>
 <td><a href="/web422/notes/week11">11 - Notes</a></td>
 <td>
-  Big Topic:<br><br>
+  Introduction to MongoDB:<br><br>
 <ul>
   <li>Topic(s)</li>
   </ul>
@@ -118,7 +118,7 @@ Big Topic:<br><br>
   <tr>
 <td><a href="/web422/notes/week12">12 - Notes</a></td>
 <td>
-Big Topic:<br><br>
+Security Considerations:<br><br>
 <ul>
 <li>Topic(s)</li>
 </ul>  
