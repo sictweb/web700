@@ -3,9 +3,9 @@ title: Graded work
 layout: default
 ---
 
-## Graded work
+## Graded work (<mark>TO BE CONFIRMED</mark>)
 
-This page has details about the graded work in WEB422, for the current academic term.
+This page has details about the graded work in WEB700, for the current academic term.
 
 <br>
 
