@@ -55,9 +55,9 @@ Node.js Introduction<br><br>
 <tr>
 <td><a href="/web422/notes/week05">5 - Notes</a></td>
 <td>
-Express.js Introduction:<br><br>
+Express.js Introduction &amp; Deployment:<br><br>
 <ul>
-<li>Topic(s)</li>
+<li>Git &amp; Heroku</li>
 </ul>
 </td>
 </tr>
