@@ -21,6 +21,7 @@ Welcome to WEB700:<br><br>
   <li>Course Introduction</li>
 <li>Development Environment / Technology / Tools</li>
   <li>Internet Architecture</li>
+  <li>Quick Node.js Introduction (enough to execute JavaScript)</li>
   <li>Introduction to JavaScript</li>
 </ul>
 </td>
@@ -46,7 +47,7 @@ Object Oriented JavaScript / ES6 Features<br><br>
 <tr>
 <td><a href="/web422/notes/week04">4 - Notes</a></td>
 <td>
-Node.js Introduction<br><br>
+Formal Node.js Introduction<br><br>
 <ul>
 <li></li>
 </ul>
