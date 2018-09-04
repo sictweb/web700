@@ -109,7 +109,7 @@ Introduction to AJAX & "REST" API:<br><br>
     <tr>
 <td><a href="/web422/notes/week11">11 - Notes</a></td>
 <td>
-  Introduction to MongoDB:<br><br>
+  Introduction to MongoDB (Or maybe just Postgres??? - this might not be the place for MongodB):<br><br>
 <ul>
   <li>Topic(s)</li>
   </ul>
