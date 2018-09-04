@@ -16,7 +16,7 @@ layout: default
 <tr>
 <td><a href="/web422/notes/week01">1 - Notes</a></td>
 <td>
-Big Topic:<br><br>
+Welcome to WEB700:<br><br>
 <ul>
 <li>Topic(s)</li>
 </ul>
