@@ -80,9 +80,7 @@ Each test will commence at the start of the corresponding **Lecture** period (we
 
 <tr>
 <td>5</td>
-<td>
 <td><ul><li>Express.js Introduction & Deployment</li></ul></td>
-</td>
 <td>
 <ul>
 <li>Test 2
