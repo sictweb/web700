@@ -25,7 +25,7 @@ Each test will commence at the start of the corresponding **Lecture** period (we
 <td>1</td>
 <td>
 <ul>
-<li>Topic</li>
+<li>Welcome to WEB700</li>
 </ul>
 </td>
 <td>
@@ -38,7 +38,7 @@ Each test will commence at the start of the corresponding **Lecture** period (we
 
 <tr>
 <td>2</td>
-  <td><ul><li>Topic</li></ul></td>
+  <td><ul><li>JavaScript Continued</li></ul></td>
 <td>
 <ul>
 <li>Assignment&nbsp;2</li>
@@ -53,7 +53,7 @@ Each test will commence at the start of the corresponding **Lecture** period (we
 
 <tr>
 <td>3</td>
-  <td><ul><li>Topic</li></ul></td>
+  <td><ul><li>Object Oriented JavaScript / ES6 Features</li></ul></td>
 <td>
 <ul>
 <li>Test 1
@@ -65,7 +65,7 @@ Each test will commence at the start of the corresponding **Lecture** period (we
 
 <tr>
 <td>4</td>
-  <td><ul><li>Topic</li></ul></td>
+  <td><ul><li>Node.js Introduction</li></ul></td>
 <td>
 <ul>
 <li>Assignment&nbsp;3</li>
@@ -81,7 +81,7 @@ Each test will commence at the start of the corresponding **Lecture** period (we
 <tr>
 <td>5</td>
 <td>
-<td><ul><li>Topic</li></ul></td>
+<td><ul><li>Express.js Introduction & Deployment</li></ul></td>
 </td>
 <td>
 <ul>
@@ -94,7 +94,7 @@ Each test will commence at the start of the corresponding **Lecture** period (we
 
 <tr>
 <td>6</td>
-  <td><ul><li>Topic</li></ul></td>
+  <td><ul><li>HTML / DOM Introduction</li></ul></td>
 <td>
 <ul>
 <li>Assignment&nbsp;4</li>
@@ -111,7 +111,7 @@ Each test will commence at the start of the corresponding **Lecture** period (we
 
 <tr>
 <td>7</td>
-<td><ul><li>Topic</li></ul></td>
+<td><ul><li>CSS / SASS Introduction</li></ul></td>
 <td>
 <ul>
 <li>Test 3
@@ -132,7 +132,7 @@ Each test will commence at the start of the corresponding **Lecture** period (we
 
 <tr>
 <td>8</td>
-<td><ul><li>Topic</li></ul></td>
+<td><ul><li>Forms Introduction / Processing Forms with Express.js</li></ul></td>
 <td>
 <ul>
 <li>Assignment&nbsp;5</li>
@@ -147,7 +147,7 @@ Each test will commence at the start of the corresponding **Lecture** period (we
 
 <tr>
 <td>9</td>
-<td><ul><li>Topic</li></ul></td>
+<td><ul><li>Template Engines – Handlebars.js</li></ul></td>
 <td>
 <ul>
 <li>Test 4
@@ -159,7 +159,7 @@ Each test will commence at the start of the corresponding **Lecture** period (we
 
 <tr>
 <td>10</td>
-<td><ul><li>Topic</li></ul></td>
+<td><ul><li>Introduction to AJAX & "REST" API</li></ul></td>
 <td>
 <ul>
 <li>Assignment&nbsp;6</li>
@@ -174,7 +174,7 @@ Each test will commence at the start of the corresponding **Lecture** period (we
 
 <tr>
 <td>11</td>
-<td><ul><li>Topic</li></ul></td>
+<td><ul><li>Introduction to Postgres / Sequelize ORM</li></ul></td>
 <td>
 <ul>
 <li>Test 5
@@ -186,7 +186,7 @@ Each test will commence at the start of the corresponding **Lecture** period (we
 
 <tr>
 <td>12</td>
-  <td><ul><li>Topic</li></ul></td>
+  <td><ul><li>Security Considerations</li></ul></td>
 <td></td>
 <td>
 <ul>
