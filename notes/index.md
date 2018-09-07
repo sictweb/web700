@@ -29,7 +29,7 @@ Welcome to WEB700:<br><br>
 <tr>
 <td><a href="/web422/notes/week02">2 - Notes</a></td>
 <td>
-JavaScript Continued...:<br><br>
+JavaScript Continued:<br><br>
 <ul>
 <li>Topic(s)</li>
 </ul>
@@ -38,7 +38,7 @@ JavaScript Continued...:<br><br>
 <tr>
 <td><a href="/web422/notes/week03">3 - Notes</a></td>
 <td>
-Object Oriented JavaScript / ES6 Features<br><br>
+Object Oriented JavaScript / ES6 Features:<br><br>
 <ul>
 <li>Topic(s)</li>
 </ul>
@@ -47,7 +47,7 @@ Object Oriented JavaScript / ES6 Features<br><br>
 <tr>
 <td><a href="/web422/notes/week04">4 - Notes</a></td>
 <td>
-Formal Node.js Introduction<br><br>
+Node.js Introduction:<br><br>
 <ul>
 <li></li>
 </ul>
@@ -83,7 +83,7 @@ CSS / SASS Introduction:<br><br>
 <tr>
 <td><a href="/web422/notes/week08">8 - Notes</a></td>
 <td>
-Forms Introduction / Processing Forms with Express.js<br><br>
+Forms Introduction / Processing Forms with Express.js:<br><br>
 <ul>
 <li>Topic(s)</li>
 </ul>
@@ -92,7 +92,7 @@ Forms Introduction / Processing Forms with Express.js<br><br>
   <tr>
 <td><a href="/web422/notes/week09">9 - Notes</a></td>
 <td>
-Template Engines – Handlebars.js<br><br>
+Template Engines – Handlebars.js:<br><br>
 <ul>
 <li>Topic(s)</li>
 </ul>
@@ -110,7 +110,7 @@ Introduction to AJAX & "REST" API:<br><br>
     <tr>
 <td><a href="/web422/notes/week11">11 - Notes</a></td>
 <td>
-  Introduction to MongoDB (Or maybe just Postgres??? - this might not be the place for MongodB):<br><br>
+  Introduction to Postgres / Sequelize ORM:<br><br>
 <ul>
   <li>Topic(s)</li>
   </ul>
