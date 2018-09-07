@@ -2,11 +2,8 @@
 
 ![Working on a Laptop](https://raw.githubusercontent.com/sictweb/resources/master/computer-image-2.jpg) 
 
-<br>
 
-This is the home page for the WEB700 course.
-
-> Welcome Message Here.
+Welcome Message &amp; Short introduction here...
 
 <br>
 
