@@ -3,7 +3,7 @@ title: Learning resources
 layout: default
 ---
 
-## Learning resources (<mark>TO BE UPDATED - swap out Angular, etc for Node Resources</mark>)
+## Learning resources
 
 This page has information about and links to learning resources that you will use in this course.
 
