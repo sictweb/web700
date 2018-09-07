@@ -195,7 +195,7 @@ Each test will commence at the start of the corresponding **Lecture** period (we
 
 <tr>
 <td>13</td>
-  <td><ul><li>Topic ("Course Review"?)</li></ul></td>
+  <td><ul><li>Course Review</li></ul></td>
 <td>
 <ul>
 <li>Test 6
