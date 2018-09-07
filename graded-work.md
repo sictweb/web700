@@ -3,7 +3,7 @@ title: Graded work
 layout: default
 ---
 
-## Graded work (<mark>TO BE CONFIRMED</mark>)
+## Graded work
 
 This page has details about the graded work in WEB700, for the current academic term.
 
