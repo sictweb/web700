@@ -63,9 +63,7 @@ There are several required online resources:
 * [Bootstrap (version 3) CSS documentation](https://getbootstrap.com/docs/3.3/css/)  
 Links to other topics (e.g. Getting started, etc.) are on that page
 
-* Official [Angular Documentation](https://angular.io/docs)
-
-* Angular CLI videos on YouTube, by [Codevolution](https://www.youtube.com/channel/UC80PWRj_ZU8Zu0HSMNVwKWw/videos)
+* [SASS Documentation](https://sass-lang.com/)
 
 * Node Reference
   * [Node.js Documentation](https://nodejs.org/en/docs/)
@@ -73,7 +71,9 @@ Links to other topics (e.g. Getting started, etc.) are on that page
 
 * [Express.js Documentation](https://expressjs.com/en/4x/api.html)
 
-* [TypesScript Reference](https://www.typescriptlang.org/docs/home.html)
+* [Express Handlebars Documentation](https://www.npmjs.com/package/express-handlebars)
+
+* [Sequelize Documentation](http://docs.sequelizejs.com/)
 
 <br>
 
@@ -86,28 +86,6 @@ Oh, and you should must know (and love!) the series of RFCs that describe HTTP, 
 * [W3C Standards](https://www.w3.org/standards/) 
 
 * Google [web developers](https://developers.google.com/web/fundamentals/) content
-
-* [Angular 4: From Theory to Practice](https://www.amazon.ca/dp/B01N9S0CZN/ref=docs-os-doi_0) - Asim Hussain (free!)
-
-* [Beginning Angular 2](https://www.amazon.com/Beginning-Angular-Typescript-updated-ebook/dp/B01N9ZUHBA/) - Greg Lim
-
-**Front end frameworks**  
-* [Angular](https://angular.io/docs) (which is NOT AngularJS, a legacy technology)  
-
-Alternatives:
-* [Knockout](http://knockoutjs.com/documentation/introduction.html)  
-* [React](https://facebook.github.io/react/docs/hello-world.html)  
-* [Ember](https://www.emberjs.com/api)
-* and many others...  
-
-**State management**  
-* [Our own "Teams" API](https://github.com/sictweb/web422)
-* [JSON data API - jsonplaceholder](http://jsonplaceholder.typicode.com)  
-
-<!--**To be categorized**  
-RxJS (ReactiveX library for JavaScript) - compose async and event-based programs using observables and LINQ-style queries  
-Was known as "Reactive Extensions"  
-[reactivex.io - official docs](http://reactivex.io/rxjs/manual/overview.html#introduction) --> 
 
 **HTML and CSS**  
 * [CSS Selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors) - MDN  
