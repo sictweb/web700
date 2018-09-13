@@ -112,7 +112,7 @@ Introduction to AJAX & "REST" API:<br><br>
 </td>
 </tr>
     <tr>
-<td><a href="/web700/notes/week11">11 - Notes</a></td>
+<td><a href="/web700/notes/week11">11 - Notes (<mark>First Version Added from WEB322</mark>)</a></td>
 <td>
   Introduction to Postgres / Sequelize ORM:<br><br>
 <ul>
