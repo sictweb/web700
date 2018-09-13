@@ -40,7 +40,7 @@ JavaScript Continued:<br><br>
 </td>
 </tr>
 <tr>
-<td><a href="/web700/notes/week03">3 - Notes</a></td>
+  <td><a href="/web700/notes/week03">3 - Notes (<mark>First Version Added from WEB322</mark>)</a></td>
 <td>
 Object Oriented JavaScript / ES6 Features:<br><br>
 <ul>
@@ -49,7 +49,7 @@ Object Oriented JavaScript / ES6 Features:<br><br>
 </td>
 </tr>
 <tr>
-<td><a href="/web700/notes/week04">4 - Notes</a></td>
+<td><a href="/web700/notes/week04">4 - Notes (<mark>First Version Added from WEB322</mark>)</a></td>
 <td>
 Node.js Introduction:<br><br>
 <ul>
@@ -58,7 +58,7 @@ Node.js Introduction:<br><br>
 </td>
 </tr>
 <tr>
-<td><a href="/web700/notes/week05">5 - Notes</a></td>
+<td><a href="/web700/notes/week05">5 - Notes (<mark>First Version Added from WEB322</mark>)</a></td>
 <td>
 Express.js Introduction &amp; Deployment:<br><br>
 <ul>
