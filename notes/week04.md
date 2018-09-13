@@ -3,7 +3,7 @@ title: WEB700 Week 4
 layout: default
 ---
 
-## WEB700 Week 4 Notes
+## WEB700 Week 4 Notes (<mark>TODO: Fix Formatting & move images using WEB322 as a Guide</mark>)
 
 
 ### Introduction to Node.js
