@@ -230,11 +230,12 @@ As we know, JavaScript is a **dynamically typed language** and we declare our va
 <table>
 <tr>
 <td>
-**[  var  ](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/var)**
+<strong><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/var">var</a></strong>
 </td>
 <td>
-*   Declares a variable, optionally initializing it to a value.
-*   The scope of a variable declared with var is its current execution context, which is either the enclosing function or, for variables declared outside any function, global.
+<ul>
+<li>Declares a variable, optionally initializing it to a value.</li>
+<li>The scope of a variable declared with var is its current execution context, which is either the enclosing function or, for variables declared outside any function, global.</li>
 
 ```javascript
 for(var i =0; i < 5; i++){
