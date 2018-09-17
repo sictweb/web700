@@ -40,7 +40,7 @@ JavaScript Continued:<br><br>
 </td>
 </tr>
 <tr>
-  <td><a href="/web700/notes/week03">3 - Notes (<mark>First Version Added from WEB322</mark>)</a></td>
+  <td><a href="/web700/notes/week03">3 - Notes (<mark>TODO: Mostly Done - Review to make sure</mark>)</a></td>
 <td>
 Object Oriented JavaScript / ES6 Features:<br><br>
 <ul>
