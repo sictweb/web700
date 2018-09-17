@@ -227,9 +227,10 @@ So far, we have learned quite a bit about JavaScript; from how it handles simple
 
 As we know, JavaScript is a **dynamically typed language** and we declare our variables using the keyword **var**. However, when we use the "var" keyword, we're actually creating our variables on the **function scope** (effectively allowing access to the variable outside the scope in which it was declared). Fortunately ES6 has introduced the [let](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/let) & [const](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/const) keywords to solve this problem. See the below table for a comparison of **var**,**let** & **const**
 
-**[  var  ](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/var)**
-
-*   Declares a variable, optionally initializing it to a value.
+<table>
+<tr>
+<td>**[  var  ](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/var)**</td>
+<td>*   Declares a variable, optionally initializing it to a value.
 *   The scope of a variable declared with var is its current execution context, which is either the enclosing function or, for variables declared outside any function, global.
 
 ```javascript
@@ -238,11 +239,12 @@ for(var i =0; i < 5; i++){
 }
 
 console.log(i); // 5
-``` 
-
-**[  let  ](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/let)**
-
-*   Declares a block scope local variable, optionally initializing it to a value.
+```
+</td>
+</tr>
+<tr>
+<td>**[  let  ](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/let)**</td>
+<td>*   Declares a block scope local variable, optionally initializing it to a value.
 *   The scope of a variable declared with "let" is limited to the block, statement, or expression on which it is used.
 
 ```javascript
@@ -252,10 +254,11 @@ for(let j=0; j < 5; j++){
 
 console.log(j); // ReferenceError: j is not defined
 ``` 
-
-**[  const  ](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/const)**
-
-*   Declares an immutable block scope local variable, optionally initializing it to a value.
+</td>
+</tr>
+<tr>
+<td>**[  const  ](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/const)**</td>
+<td>*   Declares an immutable block scope local variable, optionally initializing it to a value.
 *   The scope of a variable declared with "const" is limited to the block, statement, or expression on which it is used. However, the value of a variable declared with "const" cannot change through re-assignment and cannot be redeclared.
 
 ```javascript
@@ -265,6 +268,9 @@ for(const k=0; k < 5; k++){ // TypeError: Assignment to constant variable.
 
 console.log(k);
 ```
+</td>
+</tr>
+</table>
 
 As we can see from the above examples, **let** & **const** behave more like variable declarations in C / C++. While still being dynamically typed, they will respect the scope in which they are declared and cannot be referenced before they are declared.
 
