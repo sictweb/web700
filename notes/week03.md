@@ -13,10 +13,12 @@ Now that we have our development environment all set up and are comfortable maki
 
 The most simple and straight-forward way to create an object in JavaScript is to use "Object Literal Notation" (sometimes referred to as "object initializer" notation). The syntax for creating an object using this notation is as follows:
 
-`var obj = { property_1:   value_1,   
+```javascript
+var obj = { property_1:   value_1,   
             property_2:   value_2,   
             // ...,
             "property n": value_n }; // properties can also be defined as a string` 
+```
 
 So, if we wanted to create an object with the following properties:
 
