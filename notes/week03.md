@@ -645,7 +645,7 @@ One new concept that you will notice right away (or may have already noticed), i
 
 ```javascript
 var outputMessage = function(message){
-  console.log(message);
+  console.log(message);
 };
 
 // is the same as:
@@ -666,15 +666,15 @@ However, if we have more than one parameter, or more than one line of logic, we 
 
 ```javascript
 var outputMessage = function(message1, message2) {
-    console.log(message1);
-    console.log(message2);
+  console.log(message1);
+  console.log(message2);
 };
 
 // is the same as:
 
 var outputMessageArrow = (message1, message2) => {
-    console.log(message1);
-    console.log(message2);
+  console.log(message1);
+  console.log(message2);
 };
 
 // invoke each function to see the result
@@ -687,7 +687,7 @@ This still simplifies things from a syntax point of view, however both methods o
 
 ```javascript
 var outputMessage = function() {
-    console.log("Hello Function Expression");
+  console.log("Hello Function Expression");
 };
 
 // is the same as:
@@ -735,15 +735,15 @@ Be careful when using arrow functions, as not every situation calls for a "lexic
 
 ```javascript
 var test1obj = {
-    a: "a",
-    b: () => console.log(this.a)
+  a: "a",
+  b: () => console.log(this.a)
 }
 
 test1obj.b(); // undefined
 
 var test2obj = {
-    a: "a",
-    b: function() { console.log(this.a); }
+  a: "a",
+  b: function() { console.log(this.a); }
 }
 
 test2obj.b(); // "a"
