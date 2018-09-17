@@ -229,7 +229,10 @@ As we know, JavaScript is a **dynamically typed language** and we declare our va
 
 <table>
 <tr>
-<td>table test</td>
+<td>table test</td><td>col2</td>
+</tr>
+<tr>
+<td>table test</td><td>col2</td>
 </tr>
 </table>
 
