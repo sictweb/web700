@@ -299,7 +299,7 @@ var architect2 = new architect("Mary", 49);
 console.log(architect1.name); // "Joe"
 
 console.log(architect1.getName()); // "Joe"
-console.log(architect2.getName()); // "Mary"*/
+console.log(architect2.getName()); // "Mary"
 ```
 
 Notice how we specify a "constructor" function to take initialization parameters, as well as specify all of the methods within the "class" block. We are still creating objects using the method illustrated in the "Function Constructor" pattern (above), however this syntax is much more intuitive. Additionally, we can leverage the ["extends"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/extends) and ["super"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super) keywords to create objects which inherit from other objects easily (for a detailed example, see [this great article from medium.com](https://medium.com/ecmascript-2015/es6-classes-and-inheritance-607804080906)).
