@@ -404,7 +404,7 @@ console.log("Alas, it cannot be done, PI remains: " + PI);
 
 <br>
 
-##### Throwing Errors
+#### Throwing Errors
 
 Now that we know how to correctly handle errors that have been thrown by the Node.js runtime environment or by other code / modules included in our solutions, why don't we try throwing our **own exceptions**? This is very straightforward and only requires the use of the **["throw"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw)** keyword and (typically) an **[Error](https://nodejs.org/dist/latest-v6.x/docs/api/errors.html#errors_class_error)** Object:
 
@@ -479,7 +479,7 @@ In the above example, we can invoke the outputA() function (which will output th
 
 <br>
 
-##### Resolve & Then
+#### Resolve & Then
 
 Fortunately, JavaScript has the notion of the **["Promise"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)** that can help us solve this type of situation. Put simply, a Promise object is used for asynchronous computations (like the situation in the example above) and represents a value which may be available now, or in the future, or never. Basically, what this means is that we can place our asynchronous code inside a Promise object as a function with specific parameters ("resolve" and "reject"). When our code is complete, we invoke the ["resolve" function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve) and if our code encounters an error, we can invoke the ["reject" function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject). We can handle both of these situations later with the [.then()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) method or (in the case of an error that we wish to handle) the [.catch()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch) method. To see how this concept is implemented in practice, consider the following addition to the outputA() method from above:
 
@@ -508,7 +508,7 @@ Our "outputA()" function still behaves as it did before (outputs "A" to the cons
 
 <br>
 
-##### Adding Data
+#### Adding Data
 
 Now that we have the Promise structure in place and are able to **"resolve"** the Promise when it has completed it's task and **"then"** execute another function using the returned Promise object (as above), we can begin to think about how to pass data from the asynchronous function to the "then" method. Fortunately, it only requires a little tweak to the above the above example to enable this functionality:
 
@@ -536,7 +536,7 @@ Notice how we are able to invoke the **resolve()** function with a single parame
 
 <br>
 
-##### Reject & Catch
+#### Reject & Catch
 
 It is not always safe to assume that our asynchronous calls will complete successfully. What if we're in the middle of an XHR (XMLHttpRequest) request and our connection is dropped or a database connection fails? To ensure that we handle this type of scenario gracefully, we can invoke the "reject" method instead of the "resolve" method and provide a reason why our asynchronous operation failed. This causes the flow of execution to move into the ".catch" function, where we can gracefully handle the error. The typical syntax for handling both "then" and "catch" in a Promise is as follows:
 
@@ -566,7 +566,7 @@ outputA()
 
 <br>
 
-##### Chaining Promises
+#### Chaining Promises
 
 As we have seen, the Promise object and pattern for dealing with asynchronous code (of any kind) is extremely powerful. We are able to effectively process the result of executing an asynchronous block of code whether it completes successfully (using .resolve & .then) or fails / gives undesired results (using .reject & .catch). However, there is one last feature that we should discuss before moving on, ie: "chaining" promises. Recall, when we first began discussing promises we saw an example with 3 asynchronous functions ("outputA()", "outputB()" and "outputC()") that always completed in a different order even though they were always invoked in the same order. This could potentially cause problems if one function depended on another for data.
 
@@ -696,7 +696,7 @@ outputMessageArrow();
 
 <br>
 
-##### Lexical "this"
+#### Lexical "this"
 
 Arrow functions are great for creating simplified code that is easier to read (sometimes referred to as "syntax sugar"), however there is another very useful and slightly misleading feature that we have yet to discuss: the notion of a "lexical 'this'". Recall that when we added the "outputNameDelay" method to the architect prototype, we had to overcome the issue with "this" pointing at the incorrect object by introducing a new local variable, "that":
 
@@ -723,7 +723,7 @@ This is a typical use of arrow functions, ie to simplify a scenario in which we 
 
 <br>
 
-##### A Word of Warning
+#### A Word of Warning
 
 Be careful when using arrow functions, as not every situation calls for a "lexical this". For example, when we declare methods on an object, we always want "this" to point to the current object, so "lexical this" doesn't make sense and arrow functions will actually fail to behave as expected:
 
