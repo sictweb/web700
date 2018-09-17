@@ -131,11 +131,9 @@ A few key things to note when using the above method to create objects:
 
 As we have seen, when we create objects in JavaScript, we make regular use of the "this" keyword. This is an important concept in JavaScript, so before we move on to Prototypal Inheritance, let's just do a quick review:
 
-**
-
+```
 "this" always holds a reference to the "context" of the function (ie: the object actually invoking the function).
-
-**
+```
 
 So, when we declare an object with methods, we always make sure that each method refers to the properties in the object with the "this" keyword. This is because we wish to be specific about which property that we wish to reference and "this" always points to the object invoking the method. So, the **architect1.setName()** method will always work with the **architect1.name** property and similarly, the **architect2.setName()** method will always work with the architect2.name
 
@@ -178,40 +176,42 @@ So far, we have seen how to create our "architect" object using this notation. W
 
 So, why is this so important for us? Well, when you make a call to a method or reference a property on any object, the JavaScript runtime will actually check for their existence on the object's prototype as well as the object itself. Therefore, it can be said that "architect1" and "architect2" **inherit** getName(), setName(), getAge() and setAge() from their prototype and any future properties or methods declared on the prototype will be automatically picked up by each new / existing instance! This is easy to verify using the built in Object.getPrototypeof() function, for example:
 
-    // ...
-    console.log(architect2); // outputs: { name: 'Mary', age: 49, occupation: 'architect' }
-    
-    console.log(Object.getPrototypeOf(architect2)); // outputs: { setName: [Function], 
-                                                    //            setAge: [Function],
-                                                    //            getName: [Function],
-                                                    //            getAge: [Function] }
-    // ...
-    
+```javascript
+// ...
+console.log(architect2); // outputs: { name: 'Mary', age: 49, occupation: 'architect' }
+
+console.log(Object.getPrototypeOf(architect2)); // outputs: { setName: [Function], 
+                                                //            setAge: [Function],
+                                                //            getName: [Function],
+                                                //            getAge: [Function] }
+// ...
+```
 
 From the above code, it is clear that the "architect2" instance does not actually have it's **own** methods, but we can invoke them on the architect2 object and the JavaScript runtime will check its prototype for their existence and execute them as though they were. This actually happens often in JavaScript and is the reason that when we create a String (for example), we have access to properties like .length or methods like .split(), .slice(), .substr(), etc. (see: [String.prototype on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/prototype)). We didn't have to specify each of those properties / methods, however we automatically **inherited them** from the global String Object's prototype.
 
 To see why this concept is so powerful, why don't we add a new method to the architect prototype **after** we create our architect1 & architect2 instances:
 
-    function architect(setName, setAge){
-      this.name = setName;
-      this.age = setAge;
-      this.occupation = "architect";
-    }
-    
-    architect.prototype.setName = function(newName){this.name = newName},
-    architect.prototype.setAge = function(newAge){this.age = newAge},
-    architect.prototype.getName = function(){return this.name},
-    architect.prototype.getAge = function(){return this.age}
-    
-    var architect1 = new architect("Joe", 34);
-    var architect2 = new architect("Mary", 49);
-    
-    architect.prototype.newMethod = function(){ 
-      return "Hello: " + this.name; 
-    };
-    
-    console.log(architect2.newMethod()); // outputs: "Hello: Mary"
-    
+```javascript
+function architect(setName, setAge){
+    this.name = setName;
+    this.age = setAge;
+    this.occupation = "architect";
+}
+
+architect.prototype.setName = function(newName){this.name = newName},
+architect.prototype.setAge = function(newAge){this.age = newAge},
+architect.prototype.getName = function(){return this.name},
+architect.prototype.getAge = function(){return this.age}
+
+var architect1 = new architect("Joe", 34);
+var architect2 = new architect("Mary", 49);
+
+architect.prototype.newMethod = function(){ 
+    return "Hello: " + this.name; 
+};
+
+console.log(architect2.newMethod()); // outputs: "Hello: Mary"
+``` 
 
 As you can see from above, we are able to add a new method (newMethod) to the architect prototype at any time and because all architect instances (ie: architect2) use that prototype, they automatically get access to the method!
 
@@ -266,7 +266,6 @@ for(const k=0; k < 5; k++){ // TypeError: Assignment to constant variable.
 console.log(k);
 ```
 
-
 As we can see from the above examples, **let** & **const** behave more like variable declarations in C / C++. While still being dynamically typed, they will respect the scope in which they are declared and cannot be referenced before they are declared.
 
 <br>
@@ -311,16 +310,17 @@ Notice how we specify a "constructor" function to take initialization parameters
 
 One of the most important aspects of writing any program is elegantly handling errors. It is important to never let your program suddenly crash or enter an unknown state due to an unanticipated error. Up until now we have seen numerous mechanisms in JavaScript to handle certain types of logical errors; for example the global [isNaN()](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/isNaN) function is a way to elegantly respond to a situation in which a number was expected, but not returned:
 
-    let x = "twenty";
-    
-    let y = parseInt(x);
-    
-    if(isNaN(y)){
-      console.log("x cannot be converted to a number");
-    }else{
-      console.log("success! the numeric value of x is: " + y);
-    }
-    
+```javascript
+let x = "twenty";
+
+let y = parseInt(x);
+
+if(isNaN(y)){
+    console.log("x cannot be converted to a number");
+}else{
+    console.log("success! the numeric value of x is: " + y);
+}
+```    
 
 Similarly, we can use the global [isFinite()](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/isFinite) function to handle a situation where division by zero has occurred:
 
