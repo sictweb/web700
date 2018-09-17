@@ -131,9 +131,9 @@ A few key things to note when using the above method to create objects:
 
 As we have seen, when we create objects in JavaScript, we make regular use of the "this" keyword. This is an important concept in JavaScript, so before we move on to Prototypal Inheritance, let's just do a quick review:
 
-```
+`
 "this" always holds a reference to the "context" of the function (ie: the object actually invoking the function).
-```
+`
 
 So, when we declare an object with methods, we always make sure that each method refers to the properties in the object with the "this" keyword. This is because we wish to be specific about which property that we wish to reference and "this" always points to the object invoking the method. So, the **architect1.setName()** method will always work with the **architect1.name** property and similarly, the **architect2.setName()** method will always work with the architect2.name
 
