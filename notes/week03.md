@@ -227,7 +227,15 @@ So far, we have learned quite a bit about JavaScript; from how it handles simple
 
 As we know, JavaScript is a **dynamically typed language** and we declare our variables using the keyword **var**. However, when we use the "var" keyword, we're actually creating our variables on the **function scope** (effectively allowing access to the variable outside the scope in which it was declared). Fortunately ES6 has introduced the [let](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/let) & [const](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/const) keywords to solve this problem. See the below table for a comparison of **var**,**let** & **const**
 
-**[  var  ](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/var)** | *   Declares a variable, optionally initializing it to a value.
+<table>
+<tr>
+<td>table test</td>
+</tr>
+</table>
+
+**[  var  ](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/var)**
+
+*   Declares a variable, optionally initializing it to a value.
 *   The scope of a variable declared with var is its current execution context, which is either the enclosing function or, for variables declared outside any function, global.
 
 ```javascript
