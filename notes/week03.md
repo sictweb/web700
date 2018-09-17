@@ -3,7 +3,7 @@ title: WEB700 Week 3
 layout: default
 ---
 
-## WEB700 Week 3 Notes (<mark>TODO: Fix Formatting & move images using WEB322 as a Guide</mark>)
+## WEB700 Week 3 Notes (<mark>TODO: Mostly Done - Review to make sure</mark>)
 
 <br>
 
