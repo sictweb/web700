@@ -5,6 +5,8 @@ layout: default
 
 ## WEB700 Week 3 Notes (<mark>TODO: Fix Formatting & move images using WEB322 as a Guide</mark>)
 
+<br>
+
 ### Object-Oriented JavaScript Review
 
 Now that we have our development environment all set up and are comfortable making a simple web server (with [Node.js](https://nodejs.org/en/) & [Express.js](http://expressjs.com/)), we can start making some real progress with our web applications. However, before we can dive into the deeper topics, we need to review some of the advanced Object-oriented JavaScript topics that we first discussed in WEB222.
