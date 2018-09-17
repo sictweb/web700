@@ -9,6 +9,8 @@ layout: default
 
 Now that we have our development environment all set up and are comfortable making a simple web server (with [Node.js](https://nodejs.org/en/) & [Express.js](http://expressjs.com/)), we can start making some real progress with our web applications. However, before we can dive into the deeper topics, we need to review some of the advanced Object-oriented JavaScript topics that we first discussed in WEB222.
 
+<br>
+
 ### Creating Objects (Object Literal)
 
 The most simple and straight-forward way to create an object in JavaScript is to use "Object Literal Notation" (sometimes referred to as "object initializer" notation). The syntax for creating an object using this notation is as follows:
@@ -66,6 +68,8 @@ console.log(architect1.name); // "Joe"
 console.log(architect2.name); // "Mary"
 ``` 
 
+<br>
+
 ### Creating Objects (Function Constructor)
 
 One of the more advanced & powerful ways of creating complex objects in JavaScript is by using **"Function Constructors"** and the ["new" operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new). Essentially, we can specify how instances of each "new" object will be created by writing a function that follows a specific pattern - for example:
@@ -119,6 +123,8 @@ A few key things to note when using the above method to create objects:
 *   New "architect" objects (ie: "architect1" & "architect2") have their own **name**, **age**, & **occupation** properties
 *   New "architect" objects do not have any methods directly, however they all refer to the same prototype (architect.prototype) which contains all of the methods. These methods can work with the correct data for each new architect object, because they are utilizing the "this" keyword.
 
+<br>
+
 ### "this" keyword
 
 As we have seen, when we create objects in JavaScript, we make regular use of the "this" keyword. This is an important concept in JavaScript, so before we move on to Prototypal Inheritance, let's just do a quick review:
@@ -159,6 +165,8 @@ architect2.outputNameDelay(); // outputs "Mary"
 ```
     
 Now, we aren't using the "this" keyword from within the setTimeout() function, but rather "that" from our outputNameDelay function and everything works as it should! (ie, "that" points to architect2, since it was the architect2 that invoked the outputNameDelay method).
+
+<br>
 
 ### Prototypal Inheritance
 
@@ -205,9 +213,13 @@ To see why this concept is so powerful, why don't we add a new method to the arc
 
 As you can see from above, we are able to add a new method (newMethod) to the architect prototype at any time and because all architect instances (ie: architect2) use that prototype, they automatically get access to the method!
 
+<br>
+
 ### Advanced JavaScript / ES6 Features
 
 So far, we have learned quite a bit about JavaScript; from how it handles simple and complex custom / built-in Objects to design patterns like closures, modules, callback functions, etc. However, for us to properly understand some of the examples in the upcoming weeks, we need to discuss a few advanced techniques as well as new syntax / methods from the new ES6 (ECMAScript 6) standard. An important thing to note however, is that **ES6** is **still being implemented** across desktop & mobile browsers as well as JavaScript runtimes. Most of what we will discuss will be understood by modern browsers and 100% of the topics below will be understood by Node.js. However, it is a good idea to reference the following [ES6 Compatibility Table](https://kangax.github.io/compat-table/es6/) if you are unsure whether your target browser will fully understand the feature that you wish to use.
+
+<br>
 
 ### "var" vs "let" vs "const"
 
@@ -255,6 +267,8 @@ console.log(k);
 
 As we can see from the above examples, **let** & **const** behave more like variable declarations in C / C++. While still being dynamically typed, they will respect the scope in which they are declared and cannot be referenced before they are declared.
 
+<br>
+
 ### Creating Objects ("class" keyword)
 
 ES6 has introduced some "syntax sugar" to allow us to create objects in a more intuitive, familiar way using the "class" keyword. It's important to note however, that we are still using prototypal inheritance and the process of creating objects is still the same (see "Creating Objects (Function Constructor)" above). If we take the example from "Creating Objects (Function Constructor)" and use the "class" keyword instead, we can use the following code:
@@ -288,6 +302,8 @@ console.log(architect2.getName()); // "Mary"*/
 ```
 
 Notice how we specify a "constructor" function to take initialization parameters, as well as specify all of the methods within the "class" block. We are still creating objects using the method illustrated in the "Function Constructor" pattern (above), however this syntax is much more intuitive. Additionally, we can leverage the ["extends"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/extends) and ["super"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super) keywords to create objects which inherit from other objects easily (for a detailed example, see [this great article from medium.com](https://medium.com/ecmascript-2015/es6-classes-and-inheritance-607804080906)).
+
+<br>
 
 ### Error / Exception handling
 
@@ -367,48 +383,53 @@ By utilizing properties such as [Error.message](https://nodejs.org/dist/latest-v
 
 Lastly, if we have some code that we would like to execute regardless of whether or not the code in our "try" block is successful, we can use a "finally" block:
 
-    const PI = 3.14159;
-    
-    console.log("trying to change PI!");
-    
-    try{
-      PI = 99;
-    }catch(ex){
-      console.log("uh oh, an error occurred: " + ex.message); 
-      // outputs: uh oh, an error occurred: Assignment to constant variable.
-    }finally{
-      console.log("always execute code in this block");
-    }
-    
-    console.log("Alas, it cannot be done, PI remains: " + PI);
-    
+```javascript
+const PI = 3.14159;
+
+console.log("trying to change PI!");
+
+try{
+    PI = 99;
+}catch(ex){
+    console.log("uh oh, an error occurred: " + ex.message); 
+    // outputs: uh oh, an error occurred: Assignment to constant variable.
+}finally{
+    console.log("always execute code in this block");
+}
+
+console.log("Alas, it cannot be done, PI remains: " + PI);
+```    
+
+<br>
 
 ##### Throwing Errors
 
 Now that we know how to correctly handle errors that have been thrown by the Node.js runtime environment or by other code / modules included in our solutions, why don't we try throwing our **own exceptions**? This is very straightforward and only requires the use of the **["throw"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw)** keyword and (typically) an **[Error](https://nodejs.org/dist/latest-v6.x/docs/api/errors.html#errors_class_error)** Object:
 
-    function divide(x,y){
-      if(y == 0){
-        throw new Error("Division by Zero!");
-      }
-      return x / y;
+```javascript
+function divide(x,y){
+    if(y == 0){
+    throw new Error("Division by Zero!");
     }
-    
-    let a = 3, b = 0, c;
-    
-    try{
-      c = divide(a,b);
-    }catch(ex){
-      console.log("uh oh, an error occurred: " + ex.message); 
-      // outputs: uh oh, an error occurred: Division by Zero!
-      c = NaN;
-    }
-    
-    console.log(a + " / " + b + " = " + c); // 3 / 0 = NaN
-    
-    
+    return x / y;
+}
+
+let a = 3, b = 0, c;
+
+try{
+    c = divide(a,b);
+}catch(ex){
+    console.log("uh oh, an error occurred: " + ex.message); 
+    // outputs: uh oh, an error occurred: Division by Zero!
+    c = NaN;
+}
+
+console.log(a + " / " + b + " = " + c); // 3 / 0 = NaN
+```
 
 Notice how the code below the "throw" statement does not get executed, and the flow of execution goes directly into the catch block. This prevents the error from propagating and ensures that it is handled immediately. As you can see, we can throw a new error whenever we detect that an error _may_ occur anywhere in our code. In the above example, we check if our second parameter (y) is zero (0) and rather than trying to do the division, we immediately throw a custom error with the message "Division by Zero!". If the function call exists in a "try" block ( as above ), the execution of the code will immediately continue in the "catch" block and we mitigate the error by setting "c" to NaN.
+
+<br>
 
 ### Promises
 
@@ -416,118 +437,132 @@ So far, while learning JavaScript, we have seen a number of circumstances where 
 
 To see this in action, we can invoke the global [setTimeout](https://nodejs.org/api/timers.html#timers_settimeout_callback_delay_args) function (as we did in our architect.prototype.outputNameDelay function) to create a situation in which the execution of code takes some time to complete, ie:
 
-    // output "A" after a random time between 0 & 3 seconds
-    function outputA(){
-        var randomTime = Math.floor(Math.random() * 3000) + 1;
-    
-        setTimeout(function(){
-            console.log("A");
-        },randomTime);
-    }
-    
-    // output "B" after a random time between 0 & 3 seconds
-    function outputB(){
-        var randomTime = Math.floor(Math.random() * 3000) + 1;
-    
-        setTimeout(function(){
-            console.log("B");
-        },randomTime);
-    }
-    
-    // output "C" after a random time between 0 & 3 seconds
-    function outputC(){
-        var randomTime = Math.floor(Math.random() * 3000) + 1;
-    
-        setTimeout(function(){
-            console.log("C");
-        },randomTime);
-    }
-    
-    // invoke the functions in order
-    
-    outputA();
-    outputB();
-    outputC();
-    
+
+```javascript
+// output "A" after a random time between 0 & 3 seconds
+function outputA(){
+    var randomTime = Math.floor(Math.random() * 3000) + 1;
+
+    setTimeout(function(){
+        console.log("A");
+    },randomTime);
+}
+
+// output "B" after a random time between 0 & 3 seconds
+function outputB(){
+    var randomTime = Math.floor(Math.random() * 3000) + 1;
+
+    setTimeout(function(){
+        console.log("B");
+    },randomTime);
+}
+
+// output "C" after a random time between 0 & 3 seconds
+function outputC(){
+    var randomTime = Math.floor(Math.random() * 3000) + 1;
+
+    setTimeout(function(){
+        console.log("C");
+    },randomTime);
+}
+
+// invoke the functions in order
+
+outputA();
+outputB();
+outputC();
+```    
 
 In the above example, we can invoke the outputA() function (which will output the character "A" after a random delay between 0 & 3 seconds) and then immediately invoke the following "outputB()" and "outputC()" functions in order. Each function is said to be "non-blocking" because even though it will take some time to perform it's function (ie: output a letter to the browser), it does not stop the main flow of execution when it is invoked. Essentially, what we are doing is kickstarting 3 separate functions that will each output their value to the console after a random amount of time. When this example is executed, there is absolutely no way to know what order the functions will output their content to the browser - ie it could be "ACB", "BCA", "CAB", etc. However, what if that order was important? For example, what if one of the functions relies on the output from one of the other functions? If this were the case they would have to be executed in a specific order.
+
+<br>
 
 ##### Resolve & Then
 
 Fortunately, JavaScript has the notion of the **["Promise"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)** that can help us solve this type of situation. Put simply, a Promise object is used for asynchronous computations (like the situation in the example above) and represents a value which may be available now, or in the future, or never. Basically, what this means is that we can place our asynchronous code inside a Promise object as a function with specific parameters ("resolve" and "reject"). When our code is complete, we invoke the ["resolve" function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve) and if our code encounters an error, we can invoke the ["reject" function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject). We can handle both of these situations later with the [.then()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) method or (in the case of an error that we wish to handle) the [.catch()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch) method. To see how this concept is implemented in practice, consider the following addition to the outputA() method from above:
 
-    // output "A" after a random time between 0 & 3 seconds
-    function outputA(){
-        var randomTime = Math.floor(Math.random() * 3000) + 1;
-    
-        return new Promise(function(resolve, reject){ // place our code inside a "Promise" function
-            setTimeout(function(){
-                console.log("A");
-                resolve(); // call "resolve" because we have completed the function successfully
-            },randomTime);
-        });   
-    }
-    
-    // call the outputA function and when it is "resolved", output a confirmation to the console
-    
-    outputA().then(function(){
-        console.log("outputA resolved!");
-    });
-    
+```javascript
 
+// output "A" after a random time between 0 & 3 seconds
+function outputA(){
+    var randomTime = Math.floor(Math.random() * 3000) + 1;
+
+    return new Promise(function(resolve, reject){ // place our code inside a "Promise" function
+        setTimeout(function(){
+            console.log("A");
+            resolve(); // call "resolve" because we have completed the function successfully
+        },randomTime);
+    });   
+}
+
+// call the outputA function and when it is "resolved", output a confirmation to the console
+
+outputA().then(function(){
+    console.log("outputA resolved!");
+});
+```
+    
 Our "outputA()" function still behaves as it did before (outputs "A" to the console after a random period of time). However, our outputA() function now additionally returns a **new Promise** object that contains all of our asynchronous logic and its status. The container function for our logic always uses the two parameters mentioned above, ie: **resolve** and **reject**. By invoking the **resolve** method we are setting the promise into the fulfilled state, meaning that the operation completed successfully and the character "A" was successfully output to the browser. We can respond to this situation using the ["then"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) function on the returned promise object to execute some code **after** the asynchronous operation is complete! This gives us a mechanism to react to asynchronous functions that have completed successfully so that we can perform additional tasks.
+
+<br>
 
 ##### Adding Data
 
 Now that we have the Promise structure in place and are able to **"resolve"** the Promise when it has completed it's task and **"then"** execute another function using the returned Promise object (as above), we can begin to think about how to pass data from the asynchronous function to the "then" method. Fortunately, it only requires a little tweak to the above the above example to enable this functionality:
 
-    // output "A" after a random time between 0 & 3 seconds
-    function outputA(){
-        var randomTime = Math.floor(Math.random() * 3000) + 1;
-    
-        return new Promise(function(resolve, reject){ // place our code inside a "Promise" function
-            setTimeout(function(){
-                console.log("A");
-                resolve("outputA resolved!"); // call "resolve" because we have completed the function successfully
-            },randomTime);
-        });   
-    }
-    
-    // call the outputA function and when it is "resolved", output a confirmation to the console
-    
-    outputA().then(function(data){
-        console.log(data);
-    });
-    
+```javascript
+// output "A" after a random time between 0 & 3 seconds
+function outputA(){
+    var randomTime = Math.floor(Math.random() * 3000) + 1;
+
+    return new Promise(function(resolve, reject){ // place our code inside a "Promise" function
+        setTimeout(function(){
+            console.log("A");
+            resolve("outputA resolved!"); // call "resolve" because we have completed the function successfully
+        },randomTime);
+    });   
+}
+
+// call the outputA function and when it is "resolved", output a confirmation to the console
+
+outputA().then(function(data){
+    console.log(data);
+});
+``` 
 
 Notice how we are able to invoke the **resolve()** function with a single parameter that stores some data (in this case a string with the text "outputA resolved!"). This is typically where we would place our freshly returned data from an asynchronous call to a web service / database, etc. The reason for this is that we will have access to it as the first parameter to the anonymous function declared inside the **.then** method and this is the perfect place to process the data.
+
+<br>
 
 ##### Reject & Catch
 
 It is not always safe to assume that our asynchronous calls will complete successfully. What if we're in the middle of an XHR (XMLHttpRequest) request and our connection is dropped or a database connection fails? To ensure that we handle this type of scenario gracefully, we can invoke the "reject" method instead of the "resolve" method and provide a reason why our asynchronous operation failed. This causes the flow of execution to move into the ".catch" function, where we can gracefully handle the error. The typical syntax for handling both "then" and "catch" in a Promise is as follows:
 
-    // output "A" after a random time between 0 & 3 seconds
-    function outputA(){
-        var randomTime = Math.floor(Math.random() * 3000) + 1;
-    
-        return new Promise(function(resolve, reject){ // place our code inside a "Promise" function
-            setTimeout(function(){
-                console.log("-");
-                reject("outputA rejected!"); // call "reject" because the function encountered an error
-            },randomTime);
-        });   
-    }
-    
-    // call the outputA function and when it is "resolved" or "rejected, output a confirmation to the console
-    
-    outputA()
-    .then(function(data){
-        console.log(data);
-    })
-    .catch(function(reason){
-        console.log(reason);
-    });
-    
+```javascript
+// output "A" after a random time between 0 & 3 seconds
+function outputA(){
+    var randomTime = Math.floor(Math.random() * 3000) + 1;
+
+    return new Promise(function(resolve, reject){ // place our code inside a "Promise" function
+        setTimeout(function(){
+            console.log("-");
+            reject("outputA rejected!"); // call "reject" because the function encountered an error
+        },randomTime);
+    });   
+}
+
+// call the outputA function and when it is "resolved" or "rejected, output a confirmation to the console
+
+outputA()
+.then(function(data){
+    console.log(data);
+})
+.catch(function(reason){
+    console.log(reason);
+});
+```
+
+<br>
 
 ##### Chaining Promises
 
@@ -535,61 +570,64 @@ As we have seen, the Promise object and pattern for dealing with asynchronous co
 
 With promises, we can reliably detect when an asynchronous block of code completes, so why not use this to invoke a second (dependant) asynchronous function? This is the notion of "chaining" promises - executing one piece of asynchronous code after another and optionally passing data. For example, if we wish to ensure that "outputA()", "outputB()" and "outputC()" always execute in the same order, regardless of how long each task takes, we can update the code to use Promises in the following way:
 
-    // output "A" after a random time between 0 & 3 seconds
-    function outputA(){
-        
-        var randomTime = Math.floor(Math.random() * 3000) + 1;
+```javascript
+// output "A" after a random time between 0 & 3 seconds
+function outputA(){
     
-        return new Promise(function(resolve, reject){
-            setTimeout(function(){
-                console.log("A");
-                resolve("outputA() complete");
-            },randomTime);
-        });   
-    }
-    
-    // output "B" after a random time between 0 & 3 seconds
-    function outputB(msg){
-        // NOTE: msg holds the 'resolve' message from the 
-        // previous function in the chain
-        var randomTime = Math.floor(Math.random() * 3000) + 1;
-    
-        return new Promise(function(resolve, reject){
-            setTimeout(function(){
-                console.log("B");
-               resolve("outputB() complete");
-            },randomTime);
-        });   
-    }
-    
-    // output "C" after a random time between 0 & 3 seconds
-    function outputC(msg){
-        // NOTE: msg holds the 'resolve' message from the 
-        // previous function in the chain
-        var randomTime = Math.floor(Math.random() * 3000) + 1;
-    
-        return new Promise(function(resolve, reject){
-            setTimeout(function(){
-                console.log("C");
-                resolve("outputA() complete");
-            },randomTime);
-        });   
-    }
-    
-    // invoke the functions in order
-    
-    outputA()
-    .then(outputB)
-    .then(outputC)
-    .catch(function(rejectMsg){
-        // catch any errors here
-        console.log(rejectMsg);
-    });
-    
+    var randomTime = Math.floor(Math.random() * 3000) + 1;
+
+    return new Promise(function(resolve, reject){
+        setTimeout(function(){
+            console.log("A");
+            resolve("outputA() complete");
+        },randomTime);
+    });   
+}
+
+// output "B" after a random time between 0 & 3 seconds
+function outputB(msg){
+    // NOTE: msg holds the 'resolve' message from the 
+    // previous function in the chain
+    var randomTime = Math.floor(Math.random() * 3000) + 1;
+
+    return new Promise(function(resolve, reject){
+        setTimeout(function(){
+            console.log("B");
+            resolve("outputB() complete");
+        },randomTime);
+    });   
+}
+
+// output "C" after a random time between 0 & 3 seconds
+function outputC(msg){
+    // NOTE: msg holds the 'resolve' message from the 
+    // previous function in the chain
+    var randomTime = Math.floor(Math.random() * 3000) + 1;
+
+    return new Promise(function(resolve, reject){
+        setTimeout(function(){
+            console.log("C");
+            resolve("outputA() complete");
+        },randomTime);
+    });   
+}
+
+// invoke the functions in order
+
+outputA()
+.then(outputB)
+.then(outputC)
+.catch(function(rejectMsg){
+    // catch any errors here
+    console.log(rejectMsg);
+});
+```    
 
 Now, all three functions ("outputA()", "outputB()" & outputC()") have been updated to use promises and each return a new Promise object. Each promise is "resolved" once it's message has been written to the console – ie: "outputA()"'s promise is resolved once "A" is written to the, console, etc. We don't have to alter the functions to be aware of each other by passing in any related functions / callbacks and each function is treated as it's own isolated "promise" to output it's message to the browser.
 
 The chaining actually occurs further down in the ".then()" method of each promise. Recall the ".then()" method of the promise accepts a function that is invoked once the promise is "resolved". So, we can first invoke the "outputA()" method, "then" when it is resolved, invoke the "outputB()" method. The trick that makes chaining work is that we must ensure the next function "in the chain", returns it's promise. We can continue this pattern to execute as many asynchronous functions (Promises) we like and be confident that they will always be executed in the order we invoke them.
+
+<br>
 
 ### Arrow Functions
 
@@ -654,53 +692,64 @@ outputMessage();
 outputMessageArrow();
 ``` 
 
+<br>
+
 ##### Lexical "this"
 
 Arrow functions are great for creating simplified code that is easier to read (sometimes referred to as "syntax sugar"), however there is another very useful and slightly misleading feature that we have yet to discuss: the notion of a "lexical 'this'". Recall that when we added the "outputNameDelay" method to the architect prototype, we had to overcome the issue with "this" pointing at the incorrect object by introducing a new local variable, "that":
 
-    architect.prototype.outputNameDelay = function(){
-      var that = this;
-      setTimeout(function(){
-        console.log(that.name);
-      },1000);
-    };
-    
+```javascript
+architect.prototype.outputNameDelay = function(){
+    var that = this;
+    setTimeout(function(){
+    console.log(that.name);
+    },1000);
+};
+``` 
 
 While this does solve the problem, wouldn't it be better if we didn't have to always create a new local variable to sit in for "this"? Fortunately, arrow functions actually use a "lexical this" instead of their own value for "this", so functions defined using the arrow notation use the "this" value of their parent scope. This insures that if an arrow function is invoked in a different context than the one in which it is defined (like the above example), the value of "this" will not change.
 
 Now, we can re-write the above function using an arrow function to achieve the same result without having to introduce any new variables to handle the "this" issue. Additionally, because it's such a simple function, we can transform it into a single line:
 
-    architect.prototype.outputNameDelay = function(){
-      setTimeout(() => { console.log(this.name); }, 1000);
-    };
-    
+```javascript
+architect.prototype.outputNameDelay = function(){
+    setTimeout(() => { console.log(this.name); }, 1000);
+};
+``` 
 
 This is a typical use of arrow functions, ie to simplify a scenario in which we need to declare a function in place, often as a parameter to other functions. We don't have to concern ourselves with how "this" will behave in the new context and the added "syntax sugar" makes the operation much simpler to read and shorter to code.
+
+<br>
 
 ##### A Word of Warning
 
 Be careful when using arrow functions, as not every situation calls for a "lexical this". For example, when we declare methods on an object, we always want "this" to point to the current object, so "lexical this" doesn't make sense and arrow functions will actually fail to behave as expected:
 
-    var test1obj = {
-        a: "a",
-        b: () => console.log(this.a)
-    }
-    
-    test1obj.b(); // undefined
-    
-    var test2obj = {
-        a: "a",
-        b: function() { console.log(this.a); }
-    }
-    
-    test2obj.b(); // "a"
-    
+```javascript
+var test1obj = {
+    a: "a",
+    b: () => console.log(this.a)
+}
+
+test1obj.b(); // undefined
+
+var test2obj = {
+    a: "a",
+    b: function() { console.log(this.a); }
+}
+
+test2obj.b(); // "a"
+```  
 
 In addition, arrow functions **do not** have any notion of the [arguments](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments) object and also **cannot** be used as function constructors and will throw an error when using the new operator (ie: Function is not a constructor).
+
+<br>
 
 ### Announcements
 
 *   N/A
+
+<br>
 
 ### Sources
 
