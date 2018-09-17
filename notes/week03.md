@@ -31,27 +31,47 @@ and methods...
 *   **setAge** (simple "setter" to set a new value for the "age" property)
 *   **setName** (simple "setter" to set a new value for the "name" property)
 
-using "Object Literal" notation, we would write the code:`var architect = {name: "Joe",
+using "Object Literal" notation, we would write the code:
+
+
+```javascript
+var architect = {name: "Joe",
                   age: 34,
                   occupation: "Architect",
                   setAge: function(newAge){this.age = newAge},
                   setName: function(newName){this.name = newName}
-                 };` which creates a simple "architect" objet. Recall that we must use the **"this"** keyword whenever we refer to one of the properties of the object inside one of it's methods. This is due to the fact that when a method is executed, "age" (for example) might already exist in the global scope, or within the scope of the function as a local variable. To be absolutely sure that we are referring to the correct "age" property of the current object, we must refer to the "execution context" - ie: the object that is actually making a call to this method. We know the object has an "age" property, so in order to be more specific about _which_ age variable that we want to change, we leverage the keyword **this**. "this" will refer to the "execution context", ie: the object that called the function! So, **"this.age"** can be read literally as **"the age property on this object"**, which is exactly the property that we wish to edit.
+                 };
+``` 
+
+which creates a simple "architect" objet. Recall that we must use the **"this"** keyword whenever we refer to one of the properties of the object inside one of it's methods. This is due to the fact that when a method is executed, "age" (for example) might already exist in the global scope, or within the scope of the function as a local variable. To be absolutely sure that we are referring to the correct "age" property of the current object, we must refer to the "execution context" - ie: the object that is actually making a call to this method. We know the object has an "age" property, so in order to be more specific about _which_ age variable that we want to change, we leverage the keyword **this**. "this" will refer to the "execution context", ie: the object that called the function! So, **"this.age"** can be read literally as **"the age property on this object"**, which is exactly the property that we wish to edit.
 
 Now, if we want to create more objects with these same properties & methods, we can leverage JavaScripts native [Object.create()](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/create) method:
 
     Object.create(proto[, propertiesObject])
     
 
-This method will create a brand new object and use an existing object as it's **prototype** (explained further down). In practice, this will give the new object all of the properties, methods and values of the existing object while still being it's own, new instance. For example, if we wish to create two new _architect_ objects, we can simply call **Object.create()** with our previous **architect** object as the first parameter:`var architect1 = Object.create(architect);
-var architect2 = Object.create(architect);` Now both **architect1** and **architect2** are new objects that have the same properties, methods and values as the original **architect** object. However, because they are each their own instance, we can change their properties and manipulate their data as single entities:`architect2.setName("Mary");
+This method will create a brand new object and use an existing object as it's **prototype** (explained further down). In practice, this will give the new object all of the properties, methods and values of the existing object while still being it's own, new instance. For example, if we wish to create two new _architect_ objects, we can simply call **Object.create()** with our previous **architect** object as the first parameter:
+
+```javascript
+var architect1 = Object.create(architect);
+var architect2 = Object.create(architect);
+```
+
+Now both **architect1** and **architect2** are new objects that have the same properties, methods and values as the original **architect** object. However, because they are each their own instance, we can change their properties and manipulate their data as single entities:
+
+```javascript
+architect2.setName("Mary");
 
 console.log(architect1.name); // "Joe"
-console.log(architect2.name); // "Mary"` 
+console.log(architect2.name); // "Mary"
+``` 
 
 ### Creating Objects (Function Constructor)
 
-One of the more advanced & powerful ways of creating complex objects in JavaScript is by using **"Function Constructors"** and the ["new" operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new). Essentially, we can specify how instances of each "new" object will be created by writing a function that follows a specific pattern - for example:`// Declare a function to initialize our "new" object with
+One of the more advanced & powerful ways of creating complex objects in JavaScript is by using **"Function Constructors"** and the ["new" operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new). Essentially, we can specify how instances of each "new" object will be created by writing a function that follows a specific pattern - for example:
+
+```javascript
+// Declare a function to initialize our "new" object with
 // properties (ie: "objectProperty")
 function myObjectInitializer(initialVal){
   this.objectProperty = initialVal;
@@ -64,13 +84,17 @@ myObjectInitializer.prototype.objectMethod = function(){ return this.objectPrope
 var myObject = new myObjectInitializer("Hello");
 
 // execute the "objectMethod" on the new object
-console.log(myObject.objectMethod()); // "Hello"` In the above example, we are using a function to define all of the properties of the object (later created using the "new" operator), in the same way that we declare properties in a "class" in C++. These properties (declared using the "this" keyword) will get added to the new object once the "new" operator is used to create a new "instance". Additionally, because we are using a function to define the new object, we can leverage the function properties to initialize the new object with some values - in this case, we set "objectProperty" to "Hello".
+console.log(myObject.objectMethod()); // "Hello"
+```
+
+In the above example, we are using a function to define all of the properties of the object (later created using the "new" operator), in the same way that we declare properties in a "class" in C++. These properties (declared using the "this" keyword) will get added to the new object once the "new" operator is used to create a new "instance". Additionally, because we are using a function to define the new object, we can leverage the function properties to initialize the new object with some values - in this case, we set "objectProperty" to "Hello".
 
 We can define the methods of the new object in either the function (using this.functionName = function(){};) or on the prototype of the function (as in the above example). It is generally preferred to add the methods to the function prototype, since all new objects created using this function constructor (ie: myObjectInitializer) will have access to it's prototype once they are created (using "new"). A second added benefit is if we were to change this function later in the code, all of our objects would be updated to use the new code (since they're all referring to the method in the prototype).
 
 To illustrate this concept, why don’t we recreate our “architect” object using this method:
 
-`function architect(setName, setAge){
+```javascript
+function architect(setName, setAge){
   this.name = setName;
   this.age = setAge;
   this.occupation = "architect";
@@ -87,7 +111,10 @@ var architect2 = new architect("Mary", 49);
 console.log(architect1.name); // "Joe"
 
 console.log(architect1.getName()); // "Joe"
-console.log(architect2.getName()); // "Mary"` A few key things to note when using the above method to create objects:
+console.log(architect2.getName()); // "Mary"
+```
+
+A few key things to note when using the above method to create objects:
 
 *   New "architect" objects (ie: "architect1" & "architect2") have their own **name**, **age**, & **occupation** properties
 *   New "architect" objects do not have any methods directly, however they all refer to the same prototype (architect.prototype) which contains all of the methods. These methods can work with the correct data for each new architect object, because they are utilizing the "this" keyword.
@@ -106,28 +133,31 @@ So, when we declare an object with methods, we always make sure that each method
 
 While "this" allows us to be specific with which **properties** that we refer to in our **methods**, it can lead to some confusing scenarios. For example, what if we added a new "outputNameDelay()" method to our architect object that writes the architect's name to the console after 1 second (1000 milliseconds):
 
-`// ...
+```javascript
+// ...
 architect.prototype.outputNameDelay = function(){
   setTimeout(function(){
     console.log(this.name);
   },1000);
 }
 // ...
-architect2.outputNameDelay(); // outputs undefined` 
+architect2.outputNameDelay(); // outputs undefined
+``` 
 
 Everything looks correct and we have made proper use of the "this", however because the setTimeout function is not executed as a method of our architect object, we end up with "undefined" being output to the console. There are a number of fixes for this issue (most noteworthy is the new "arrow function" syntax - discussed below), however one common way is to introduce a local variable (often named "that") into the current scope that **holds a reference to "this"**
 
-    // ...
-    architect.prototype.outputNameDelay = function(){
-      var that = this;
-      setTimeout(function(){
-        console.log(that.name);
-      },1000);
-    };
-    // ...
-    architect2.outputNameDelay(); // outputs "Mary"
+```javascript
+// ...
+architect.prototype.outputNameDelay = function(){
+    var that = this;
+    setTimeout(function(){
+    console.log(that.name);
+    },1000);
+};
+// ...
+architect2.outputNameDelay(); // outputs "Mary"
+```
     
-
 Now, we aren't using the "this" keyword from within the setTimeout() function, but rather "that" from our outputNameDelay function and everything works as it should! (ie, "that" points to architect2, since it was the architect2 that invoked the outputNameDelay method).
 
 ### Prototypal Inheritance
@@ -188,35 +218,40 @@ As we know, JavaScript is a **dynamically typed language** and we declare our va
 *   Declares a variable, optionally initializing it to a value.
 *   The scope of a variable declared with var is its current execution context, which is either the enclosing function or, for variables declared outside any function, global.
 
-`for(var i =0; i < 5; i++){
+```javascript
+for(var i =0; i < 5; i++){
   // ...
 }
 
-console.log(i); // 5` 
+console.log(i); // 5
+``` 
 
 **[  let  ](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/let)**
 
 *   Declares a block scope local variable, optionally initializing it to a value.
 *   The scope of a variable declared with "let" is limited to the block, statement, or expression on which it is used.
 
-`for(let j=0; j < 5; j++){
+```javascript
+for(let j=0; j < 5; j++){
   // ...
 }
 
-console.log(j); // ReferenceError: j is not defined` 
+console.log(j); // ReferenceError: j is not defined
+``` 
 
 **[  const  ](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/const)**
 
 *   Declares an immutable block scope local variable, optionally initializing it to a value.
 *   The scope of a variable declared with "const" is limited to the block, statement, or expression on which it is used. However, the value of a variable declared with "const" cannot change through re-assignment and cannot be redeclared.
 
-`for(const k=0; k < 5; k++){ // TypeError: Assignment to constant variable.
+```javascript
+for(const k=0; k < 5; k++){ // TypeError: Assignment to constant variable.
   // ...
 }
 
-console.log(k);` 
+console.log(k);
+```
 
-  
 
 As we can see from the above examples, **let** & **const** behave more like variable declarations in C / C++. While still being dynamically typed, they will respect the scope in which they are declared and cannot be referenced before they are declared.
 
@@ -224,7 +259,8 @@ As we can see from the above examples, **let** & **const** behave more like vari
 
 ES6 has introduced some "syntax sugar" to allow us to create objects in a more intuitive, familiar way using the "class" keyword. It's important to note however, that we are still using prototypal inheritance and the process of creating objects is still the same (see "Creating Objects (Function Constructor)" above). If we take the example from "Creating Objects (Function Constructor)" and use the "class" keyword instead, we can use the following code:
 
-`class architect{
+```javascript
+class architect{
   
   constructor(setName, setAge){
       this.name = setName;
@@ -248,7 +284,10 @@ var architect2 = new architect("Mary", 49);
 console.log(architect1.name); // "Joe"
 
 console.log(architect1.getName()); // "Joe"
-console.log(architect2.getName()); // "Mary"*/` Notice how we specify a "constructor" function to take initialization parameters, as well as specify all of the methods within the "class" block. We are still creating objects using the method illustrated in the "Function Constructor" pattern (above), however this syntax is much more intuitive. Additionally, we can leverage the ["extends"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/extends) and ["super"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super) keywords to create objects which inherit from other objects easily (for a detailed example, see [this great article from medium.com](https://medium.com/ecmascript-2015/es6-classes-and-inheritance-607804080906)).
+console.log(architect2.getName()); // "Mary"*/
+```
+
+Notice how we specify a "constructor" function to take initialization parameters, as well as specify all of the methods within the "class" block. We are still creating objects using the method illustrated in the "Function Constructor" pattern (above), however this syntax is much more intuitive. Additionally, we can leverage the ["extends"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/extends) and ["super"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super) keywords to create objects which inherit from other objects easily (for a detailed example, see [this great article from medium.com](https://medium.com/ecmascript-2015/es6-classes-and-inheritance-607804080906)).
 
 ### Error / Exception handling
 
@@ -265,7 +304,10 @@ One of the most important aspects of writing any program is elegantly handling e
     }
     
 
-Similarly, we can use the global [isFinite()](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/isFinite) function to handle a situation where division by zero has occurred:`let x = 30, y = 0;
+Similarly, we can use the global [isFinite()](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/isFinite) function to handle a situation where division by zero has occurred:
+
+```javascript
+let x = 30, y = 0;
 
 let z = x / y;
 
@@ -273,13 +315,25 @@ if(isFinite(z)){
   console.log("success! " + x + "/" + y + "=" + z);
 }else{
   console.log(x + " is not divisible by " + y);
-}` However, while these functions are extremely useful for handling logical errors, they are not sophisticated enough to handle a situation that would completely break your code and cause the program to fail. For example, consider the following example that uses our new "const" keyword:`const PI = 3.14159;
+}
+```
+
+However, while these functions are extremely useful for handling logical errors, they are not sophisticated enough to handle a situation that would completely break your code and cause the program to fail. For example, consider the following example that uses our new "const" keyword:
+
+```javascript
+const PI = 3.14159;
 
 console.log("trying to change PI!");
 
 PI = 99;
 
-console.log("Haha! PI is now: " + PI );` Here, we are trying to change the value of a constant: PI. If we try to run this short program in Node.js, the program will crash before we get a chance to see the string "Haha! PI is now: 99", or even "Haha! PI is now: 3.14159". There is no elegant recovery and we do not get to exit the program gracefully. This can be a huge problem if, for example we were working with a live connection to a service and an unexpected error occurred. Our program would crash and we would not be able to respond to the error by alerting the user and properly closing the connection. Fortunately, before our program crashes in such a way, Node.js will **"throw"** an **["Error"](https://nodejs.org/dist/latest-v6.x/docs/api/errors.html#errors_class_error)** object that we can intercept using the **["try...catch"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch)** statement:`const PI = 3.14159;
+console.log("Haha! PI is now: " + PI );
+```
+
+Here, we are trying to change the value of a constant: PI. If we try to run this short program in Node.js, the program will crash before we get a chance to see the string "Haha! PI is now: 99", or even "Haha! PI is now: 3.14159". There is no elegant recovery and we do not get to exit the program gracefully. This can be a huge problem if, for example we were working with a live connection to a service and an unexpected error occurred. Our program would crash and we would not be able to respond to the error by alerting the user and properly closing the connection. Fortunately, before our program crashes in such a way, Node.js will **"throw"** an **["Error"](https://nodejs.org/dist/latest-v6.x/docs/api/errors.html#errors_class_error)** object that we can intercept using the **["try...catch"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch)** statement:
+
+```javascript
+const PI = 3.14159;
 
 console.log("trying to change PI!");
 
@@ -289,7 +343,13 @@ try{
   console.log("uh oh, an error occurred!");
 }
 
-console.log("Alas, it cannot be done, PI remains: " + PI);` If we execute the above code in Node.js we will find that our program doesn't crash and that our string: "Alas, it cannot be done, PI remains: 3.14159" gets correctly logged to the terminal! Additionally, we can execute a specific block of code right when the error is encountered; in this case we output "uh oh, an error occurred!". This is not very useful to help us debug the error, but it better than having the program crash and at least we know that an error did indeed occur. If we wish to obtain additional information about the error, we can make use of some of the properties / methods of the **[Error](https://nodejs.org/dist/latest-v6.x/docs/api/errors.html#errors_class_error)** object that was thrown as an exception and caught in our "catch" block. For example, we can alter the code to use the "message" property of the caught exception (ex) to display a more helpful error:`const PI = 3.14159;
+console.log("Alas, it cannot be done, PI remains: " + PI);
+```
+
+If we execute the above code in Node.js we will find that our program doesn't crash and that our string: "Alas, it cannot be done, PI remains: 3.14159" gets correctly logged to the terminal! Additionally, we can execute a specific block of code right when the error is encountered; in this case we output "uh oh, an error occurred!". This is not very useful to help us debug the error, but it better than having the program crash and at least we know that an error did indeed occur. If we wish to obtain additional information about the error, we can make use of some of the properties / methods of the **[Error](https://nodejs.org/dist/latest-v6.x/docs/api/errors.html#errors_class_error)** object that was thrown as an exception and caught in our "catch" block. For example, we can alter the code to use the "message" property of the caught exception (ex) to display a more helpful error:
+
+```javascript
+const PI = 3.14159;
 
 console.log("trying to change PI!");
 
@@ -300,7 +360,10 @@ try{
   // outputs: uh oh, an error occurred: Assignment to constant variable.
 }
 
-console.log("Alas, it cannot be done, PI remains: " + PI);` By utilizing properties such as [Error.message](https://nodejs.org/dist/latest-v6.x/docs/api/errors.html#errors_error_message) & [Error.stack](https://nodejs.org/dist/latest-v6.x/docs/api/errors.html#errors_error_stack), we can gain further insight to exactly what went wrong and we can either refactor our code to remedy the error, or acknowledge that the error will happen and handle it gracefully.
+console.log("Alas, it cannot be done, PI remains: " + PI);
+```
+
+By utilizing properties such as [Error.message](https://nodejs.org/dist/latest-v6.x/docs/api/errors.html#errors_error_message) & [Error.stack](https://nodejs.org/dist/latest-v6.x/docs/api/errors.html#errors_error_stack), we can gain further insight to exactly what went wrong and we can either refactor our code to remedy the error, or acknowledge that the error will happen and handle it gracefully.
 
 Lastly, if we have some code that we would like to execute regardless of whether or not the code in our "try" block is successful, we can use a "finally" block:
 
@@ -534,7 +597,8 @@ ES6 has introduced many new keywords, constructs, syntax and functionality to th
 
 One new concept that you will notice right away (or may have already noticed), is that there's a new operator: "=>" that we can use to declare anonymous functions – or "arrow functions":
 
-`var outputMessage = function(message){
+```javascript
+var outputMessage = function(message){
   console.log(message);
 };
 
@@ -545,11 +609,17 @@ var outputMessageArrow = message => console.log(message);
 // invoke each function to see the result
 
 outputMessage("Function Expression");
-outputMessageArrow("Arrow Function");` When we use the arrow (=>) syntax to create functions, we no longer need the "function" keyword and simple, one parameter / one line functions or methods can be greatly simplified as:
+outputMessageArrow("Arrow Function");
+```
+
+When we use the arrow (=>) syntax to create functions, we no longer need the "function" keyword and simple, one parameter / one line functions or methods can be greatly simplified as:
 
 parameter => logic
 
-However, if we have more than one parameter, or more than one line of logic, we can still use arrow functions to simplify the creation of anonymous functions by eliminating the "function" keyword:`var outputMessage = function(message1, message2) {
+However, if we have more than one parameter, or more than one line of logic, we can still use arrow functions to simplify the creation of anonymous functions by eliminating the "function" keyword:
+
+```javascript
+var outputMessage = function(message1, message2) {
     console.log(message1);
     console.log(message2);
 };
@@ -564,7 +634,13 @@ var outputMessageArrow = (message1, message2) => {
 // invoke each function to see the result
 
 outputMessage("Function", "Expression");
-outputMessageArrow("Arrow", "Function");` This still simplifies things from a syntax point of view, however both methods of declaring anonymous functions are still very similar. The syntax difference is most noticeable when we have simple functions that accept zero (0) parameters and perform a single line of logic, for example:`var outputMessage = function() {
+outputMessageArrow("Arrow", "Function");
+```
+
+This still simplifies things from a syntax point of view, however both methods of declaring anonymous functions are still very similar. The syntax difference is most noticeable when we have simple functions that accept zero (0) parameters and perform a single line of logic, for example:
+
+```javascript
+var outputMessage = function() {
     console.log("Hello Function Expression");
 };
 
@@ -575,7 +651,8 @@ var outputMessageArrow = () => console.log("Hello Arrow Function");
 // invoke each function to see the result
 
 outputMessage();
-outputMessageArrow();` 
+outputMessageArrow();
+``` 
 
 ##### Lexical "this"
 
