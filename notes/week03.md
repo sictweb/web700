@@ -544,7 +544,7 @@ Notice how we are able to invoke the **resolve()** function with a single parame
 
 #### Reject & Catch
 
-It is not always safe to assume that our asynchronous calls will complete successfully. What if we're in the middle of an XHR (XMLHttpRequest) request and our connection is dropped or a database connection fails? To ensure that we handle this type of scenario gracefully, we can invoke the "reject" method instead of the "resolve" method and provide a reason why our asynchronous operation failed. This causes the flow of execution to move into the ".catch" function, where we can gracefully handle the error. The typical syntax for handling both "then" and "catch" in a Promise is as follows:
+It is not always safe to assume that our asynchronous calls will complete successfully. What if we're in the middle of an XHR (XMLHttpRequest) request and our connection is dropped or a database connection fails? To ensure that we handle this type of scenario gracefully, we can invoke the "reject" method instead of the "resolve" method and provide a reason why our asynchronous operation failed. This causes the promise to be in a "rejected" state and the ".catch" function will be invoked, where we can gracefully handle the error. The typical syntax for handling both "then" and "catch" in a Promise is as follows:
 
 ```javascript
 // output "A" after a random time between 0 & 3 seconds
@@ -634,6 +634,26 @@ outputA()
 Now, all three functions ("outputA()", "outputB()" & outputC()") have been updated to use promises and each return a new Promise object. Each promise is "resolved" once it's message has been written to the console – ie: "outputA()"'s promise is resolved once "A" is written to the, console, etc. We don't have to alter the functions to be aware of each other by passing in any related functions / callbacks and each function is treated as it's own isolated "promise" to output it's message to the browser.
 
 The chaining actually occurs further down in the ".then()" method of each promise. Recall the ".then()" method of the promise accepts a function that is invoked once the promise is "resolved". So, we can first invoke the "outputA()" method, "then" when it is resolved, invoke the "outputB()" method. The trick that makes chaining work is that we must ensure the next function "in the chain", returns it's promise. We can continue this pattern to execute as many asynchronous functions (Promises) we like and be confident that they will always be executed in the order we invoke them.
+
+<br>
+
+**NOTE:** calling "resolve()" or "reject()" won't immediately exit the promise and invoke the related ".then()" or ".catch()" callback - it simply puts the promise in a "resolved" or "rejected" state and code immediately following the statement will still run, ie:
+
+```javascript
+// ...
+reject();
+console.log("I will still be executed");
+// ...
+```
+
+If we want to immediately exit the function and prevent further execution of the code within the Promise, we can invoke the "return" statement, immediately following the "resolve()" or "reject()" call, ie:
+
+```javascript
+// ...
+reject(); return;
+console.log("I will not be executed");
+// ...
+```
 
 <br>
 
