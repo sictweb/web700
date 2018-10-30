@@ -10,21 +10,21 @@ layout: default
 
 [![](http://zenit.senecac.on.ca/~patrick.crawford/wp-content/uploads/2016/08/node-logo.jpg)](https://nodejs.org)<br><br> As we learned last week, Node.js is actually a JavaScript runtime environment based on Chrome's V8 engine. It is a command-line program (written in C++) that you can install on your local machine or on a web-server that will take your JavaScript code and execute it. This means that we don't actually need a web browser to execute JavaScript at all - we just need a JavaScript engine. Why don't we try a short example:
 
-1.  If you haven't already, be sure to [download](https://nodejs.org) and install the current release of Node.js. If you're not sure whether or not you have Node.js installed, open the **Command Prompt** and type **node -v**. If Node.js has been installed, this will output the version.<br>
-2.  Make sure you have Visual Studio Code installed. As we discussed last week, this is an open-source, cross-platform development environment provided by Microsoft. While it is true that you can write your code in any text editor, Visual Studio Code works very nicely alongside Node.js and all examples going forward will assume that you are using Visual Studio Code. You can[download it here](https://code.visualstudio.com/download)
-3.  On your Local computer, navigate to your desktop and **create a folder** called **Ex1**
-4.  Open **Visual Studio Code** and select **File -> Open Folder**. Choose your newly created **"Ex1"** Folder and click **"Select Folder"**
-5.  You should see an "Explorer" pane open on the left side with two items: "Open Editors" and "Ex1". Click to expand "Ex1" and locate the "New File" button ( ![](http://zenit.senecac.on.ca/~patrick.crawford/wp-content/uploads/2016/09/vscode-new-file.jpg) ). Click this and type **"hello.js".**
+1.  If you haven't already, be sure to [download](https://nodejs.org) and install the current release of Node.js. If you're not sure whether or not you have Node.js installed, open the **Command Prompt** and type **node -v**. If Node.js has been installed, this will output the version.<br><br>
+2.  Make sure you have Visual Studio Code installed. As we discussed last week, this is an open-source, cross-platform development environment provided by Microsoft. While it is true that you can write your code in any text editor, Visual Studio Code works very nicely alongside Node.js and all examples going forward will assume that you are using Visual Studio Code. You can [download it here](https://code.visualstudio.com/download) <br><br>
+3.  On your Local computer, navigate to your desktop and **create a folder** called **Ex1**<br><br>
+4.  Open **Visual Studio Code** and select **File -> Open Folder**. Choose your newly created **"Ex1"** Folder and click **"Select Folder"**<br><br>
+5.  You should see an "Explorer" pane open on the left side with two items: "Open Editors" and "Ex1". Click to expand "Ex1" and locate the "New File" button ( ![](http://zenit.senecac.on.ca/~patrick.crawford/wp-content/uploads/2016/09/vscode-new-file.jpg) ). Click this and type **"hello.js".**<br><br>
 6.  You should now see your newly created "Hello.js" file in the editor. Enter the following line of code:
     
         console.log("Hello World!");
     
-    and click **File -> Save (Ctrl + S)**
+    and click **File -> Save (Ctrl + S)**<br><br>
 7.  Open the **Integrated Terminal** by selecting **View -> Integrated Terminal (Ctrl + \`)** and type:
     
         node hello.js
     
-
+<br><br>
 **Hello World!** This is the most basic example in Node.js - notice how we didn't need to open a web browser, scratchpad, devtools, etc? It's also important to note that the command **"node hello.js"** can be executed in any command prompt as long as the active working directory is set to wherever your **hello.js** file is located (Ex1 in this case). The Integrated Terminal is just a quick, easy way to get a command prompt running in the correct location without leaving the development environment. Regarding the code that we wrote, it's very simple; however we have made an important assumption: that we have access to a global **"console"** object. In Node.js we have access to [a number of global objects / variables](https://nodejs.org/api/globals.html) in addition to [the built-in objects that are built into the JavaScript language](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects). Some of the Node.js Globals that we will be using include:
 
 **[Console](https://nodejs.org/api/console.html)**
