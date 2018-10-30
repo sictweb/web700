@@ -16,14 +16,18 @@ layout: default
 4.  Open **Visual Studio Code** and select **File -> Open Folder**. Choose your newly created **"Ex1"** Folder and click **"Select Folder"**<br><br>
 5.  You should see an "Explorer" pane open on the left side with two items: "Open Editors" and "Ex1". Click to expand "Ex1" and locate the "New File" button ( ![](http://zenit.senecac.on.ca/~patrick.crawford/wp-content/uploads/2016/09/vscode-new-file.jpg) ). Click this and type **"hello.js".**<br><br>
 6.  You should now see your newly created "Hello.js" file in the editor. Enter the following line of code:
-    
-        console.log("Hello World!");
-    
-    and click **File -> Save (Ctrl + S)**<br><br>
+
+```javascript
+console.log("Hello World!");
+```
+
+and click **File -> Save (Ctrl + S)**<br><br>
 7.  Open the **Integrated Terminal** by selecting **View -> Integrated Terminal (Ctrl + \`)** and type:
-    
-        node hello.js
-    
+
+```bash    
+node hello.js
+```
+
 <br><br>
 **Hello World!** This is the most basic example in Node.js - notice how we didn't need to open a web browser, scratchpad, devtools, etc? It's also important to note that the command **"node hello.js"** can be executed in any command prompt as long as the active working directory is set to wherever your **hello.js** file is located (Ex1 in this case). The Integrated Terminal is just a quick, easy way to get a command prompt running in the correct location without leaving the development environment. Regarding the code that we wrote, it's very simple; however we have made an important assumption: that we have access to a global **"console"** object. In Node.js we have access to [a number of global objects / variables](https://nodejs.org/api/globals.html) in addition to [the built-in objects that are built into the JavaScript language](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects). Some of the Node.js Globals that we will be using include:
 
@@ -90,6 +94,7 @@ This function will execute a piece of code (function) after a certain delay and 
 **Note:** Unless you want the interval to continue forever, you need to call [clearInterval()](https://nodejs.org/api/timers.html#timers_clearinterval_timeout) with the timeout object as a parameter to halt the interval  
 For example:
 
+```javascript
     var count = 1; // global counter
     var maxCount = 5; // global maximum
     
@@ -103,13 +108,16 @@ For example:
             clearInterval(myCountInterval);
         }
     }
+```
 
 **[require()](https://nodejs.org/api/globals.html#globals_require)**
 
 The require function is the easiest way to include modules that exist in separate files. The basic functionality of require is that it reads a javascript file, executes the file, and then proceeds to return the exports object. More about modules and the require() function discussed below.
 
-Now that we have written and executed our very first program with JavaScript using Node.js - why don't we try another example. This time, lets add some user input. Recall when we first discussed JavaScript in the previous course, we did not capture user input using JavaScript, but instead relied on explicitly setting test values at the top of our programs. This allowed us to have specific control over the type of input we were testing. However, it might be interesting to deal with "live data" in a pure JS environment and fortunately for us, we have access to the extensive collection of [modules](https://nodejs.org/api/modules.html) that come bundled with Node.js - more specifically, we have access to the [readline](https://nodejs.org/api/readline.html#readline_readline) module, which can be used for this purpose, for example:`
+Now that we have written and executed our very first program with JavaScript using Node.js - why don't we try another example. This time, lets add some user input. Recall when we first discussed JavaScript in the previous course, we did not capture user input using JavaScript, but instead relied on explicitly setting test values at the top of our programs. This allowed us to have specific control over the type of input we were testing. However, it might be interesting to deal with "live data" in a pure JS environment and fortunately for us, we have access to the extensive collection of [modules](https://nodejs.org/api/modules.html) that come bundled with Node.js - more specifically, we have access to the [readline](https://nodejs.org/api/readline.html#readline_readline) module, which can be used for this purpose, for example:
 
+
+```javascript
 var readline = require('readline');
 
 var rl = readline.createInterface({
@@ -121,8 +129,9 @@ rl.question('Enter Your Name: ', function(answer){
   console.log('Hello ' +  answer);
   rl.close();
 });
+```
 
-`Notice the first line of our code invokes the global **require()** function which returns an object from the core ["readline"](https://nodejs.org/api/readline.html#readline_readline) module, which we store in a variable named "readline". Now we have access to all of the functionality from the **readline** module, including an input/output mechanism via the [createInterface()](https://nodejs.org/api/readline.html#readline_readline_createinterface_options) method which creates a new [Interface](https://nodejs.org/api/readline.html#readline_class_interface) instance (named "r1" from above). This exposes a handy method called [question()](https://nodejs.org/api/readline.html#readline_rl_question_query_callback) that we can use to capture and output user data at the command prompt. Node also includes a number of other extremely useful core ["modules"](https://nodejs.org/api/modules.html#modules_modules), including:
+Notice the first line of our code invokes the global **require()** function which returns an object from the core ["readline"](https://nodejs.org/api/readline.html#readline_readline) module, which we store in a variable named "readline". Now we have access to all of the functionality from the **readline** module, including an input/output mechanism via the [createInterface()](https://nodejs.org/api/readline.html#readline_readline_createinterface_options) method which creates a new [Interface](https://nodejs.org/api/readline.html#readline_class_interface) instance (named "r1" from above). This exposes a handy method called [question()](https://nodejs.org/api/readline.html#readline_rl_question_query_callback) that we can use to capture and output user data at the command prompt. Node also includes a number of other extremely useful core ["modules"](https://nodejs.org/api/modules.html#modules_modules), including:
 
 **[util](https://nodejs.org/api/util.html#util_util)**
 
@@ -150,16 +159,19 @@ Similar to the url module the queryString module has utility methods for parsing
 
 ##### Modules
 
-We can also create our own Modules that work the same way, by making use of a global ["module"](https://nodejs.org/api/globals.html#globals_module) object - which isn't truly "global" in the same sense as "console", but instead global to each of your modules, which are located in separate .js files. For example, consider the two following files (modEx1.js: the main file that node will execute, and message.js: the file containing the module): **file ./modEx1.js**`
+We can also create our own Modules that work the same way, by making use of a global ["module"](https://nodejs.org/api/globals.html#globals_module) object - which isn't truly "global" in the same sense as "console", but instead global to each of your modules, which are located in separate .js files. For example, consider the two following files (modEx1.js: the main file that node will execute, and message.js: the file containing the module): **file ./modEx1.js**
 
+```javascript
 var message = require("./modules/message.js");
 
 message.writeMessage("Hello World!");
 
 message.readMessage();
+```
 
-`**file: ./modules/message.js**`
+**file: ./modules/message.js**
 
+```javascript
 // NOTE: Node.js wraps the contents of this file in a function:
 // (function (exports, require, module, __filename, __dirname) { ... });
 // so that we have access to the working file/directory names as well
@@ -179,8 +191,9 @@ module.exports.writeMessage = function(msg){
 module.exports.readMessage = function () {
   console.log(localMessage + " from " +  __filename);
 }
+```
 
-`Executing the code in modEx1.js (ie: **node modEx1.js**) should output:  
+Executing the code in modEx1.js (ie: **node modEx1.js**) should output:  
   
 **"Hello World" from ...**  
   
@@ -233,7 +246,9 @@ Another example is [grunt-cli](https://www.npmjs.com/package/grunt-cli) so that 
 
 A third example is [bower](https://www.npmjs.com/package/bower). Bower is a package manager similar to npm but typically used for client side package management. To install a package globally you just add the -g switch to your npm install command. For example:
 
+```bash
 npm install bower -g
+```
 
 Globally installed packages do not get install in your node\_modules folder and instead are installed in a folder in your user directory. The folder uses for global packages varies for Windows, Mac, and Linux. See the documentation if you need to find globally installed packages on your machine.
 
@@ -255,42 +270,43 @@ The [npm documentation for the package.json file](https://docs.npmjs.com/getting
 
 Let's look at a simple package.json example file  
 
-    $ npm init
-    This utility will walk you through creating a package.json file.
-    It only covers the most common items, and tries to guess sensible defaults.
-    
-    See `npm help json` for definitive documentation on these fields
-    and exactly what they do.
-    
-    Use `npm install <pkg>` afterwards to install a package and
-    save it as a dependency in the package.json file.
-    
-    Press ^C at any time to quit.
-    name: (seneca) seneca
-    version: (1.0.0)
-    description:
-    entry point: (index.js) week2.js
-    test command:
-    git repository:
-    keywords:
-    author:
-    license: (ISC) MIT
-    About to write to C:\seneca\package.json:
-    
-    {
-      "name": "seneca",
-      "version": "1.0.0",
-      "description": "",
-      "main": "week2.js",
-      "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-      },
-      "author": "",
-      "license": "MIT"
-    }
-    
-    Is this ok? (yes) yes
-    
+```bash
+$ npm init
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help json` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install <pkg>` afterwards to install a package and
+save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.
+name: (seneca) seneca
+version: (1.0.0)
+description:
+entry point: (index.js) week2.js
+test command:
+git repository:
+keywords:
+author:
+license: (ISC) MIT
+About to write to C:\seneca\package.json:
+
+{
+  "name": "seneca",
+  "version": "1.0.0",
+  "description": "",
+  "main": "week2.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}
+
+Is this ok? (yes) yes
+```
 
 You can start your own package.json file from scratch but it is much easier to run an **npm init** in your project folder, answer a few questions, and your initialized package.json file will be generated for you. Once generated, you can edit it if you decide to change the name or version (for example). Once you decide to add packages to your app you can simply install the package with **npm install**. This will save the package and version into the package.json file for you so that when others want to work on your app, they will have the package.json file and can use **npm install** to install all the required dependencies with the right version. Think of package.json as a checklist for your application for all of its dependencies.
 
@@ -300,6 +316,7 @@ In week 4, your going to learn more about express.js but for now let's introduce
 
 First, we will install the package to our app before we even start building our server
 
+```bash
 $ npm install express
 seneca@1.0.0 C:\\seneca
 \`-- express@4.14.0
@@ -344,49 +361,54 @@ seneca@1.0.0 C:\\seneca
   | \`-- media-typer@0.3.0
   +-- utils-merge@1.0.0
   \`-- vary@1.1.0
+```
 
 npm WARN seneca@1.0.0 No description
 npm WARN seneca@1.0.0 No repository field.
 
 Now if we take a look at the package.json file you can see that it has a new section that has been added for the express dependency.
 
-    "dependencies": {
-      "express": "^4.14.0"
-    }
+```json
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+```
     
-
 This means that if we give our project to someone else now they can just type **npm install** and it will install the dependencies listed here and the app should be able to run and have everything it needs.
 
 Now let's start our week2.js file and create a web server in 13 lines of code! Create a new week2.js that looks like this:
 
-    var express = require("express");
-    var app = express();
-    
-    var HTTP_PORT = process.env.PORT || 8080;
-    
-    // call this function after the http server starts listening for requests
-    function onHttpStart() {
-      console.log("Express http server listening on: " + HTTP_PORT);
-    }
-    
-    // setup a 'route' to listen on the default url path (http://localhost)
-    app.get("/", function(req,res){
-       res.send("Hello World<br /><a href='/about'>Go to the about page</a>");
-    });
-    
-    // setup another route to listen on /about
-    app.get("/about", function(req,res){
-       res.send("<h3>About</h3>");
-    });
-    
-    // setup http server to listen on HTTP_PORT
-    app.listen(HTTP_PORT, onHttpStart);
-    
+```javascript
+var express = require("express");
+var app = express();
+
+var HTTP_PORT = process.env.PORT || 8080;
+
+// call this function after the http server starts listening for requests
+function onHttpStart() {
+  console.log("Express http server listening on: " + HTTP_PORT);
+}
+
+// setup a 'route' to listen on the default url path (http://localhost)
+app.get("/", function(req,res){
+    res.send("Hello World<br /><a href='/about'>Go to the about page</a>");
+});
+
+// setup another route to listen on /about
+app.get("/about", function(req,res){
+    res.send("<h3>About</h3>");
+});
+
+// setup http server to listen on HTTP_PORT
+app.listen(HTTP_PORT, onHttpStart);
+```  
 
 You can now run this web server by typing **node week2** from the commandline.  
 
+```bash
 $ node week2
 Express http server listening on: 8080
+```
 
 and visit the website by navigating to **http://localhost:8080**
 
@@ -403,24 +425,27 @@ package.json
 
 Next, we must add a new require for the path module at the top of our week2.js file.
 
+```javascript
 var path = require("path");
+```
 
 And most importantly, add the new about.html page inside our new views folder:
 
-    <!doctype html>
-    <html>
-    
-    <head>
-      <title>About</title>
-    </head>
-    
-    <body>
-      <h1>About</h1>
-      <p>This is what it's all about.<br /><a href='/'>Go back to home</a></p>
-    </body>
-    
-    </html>
-    
+```html
+<!doctype html>
+<html>
+
+<head>
+  <title>About</title>
+</head>
+
+<body>
+  <h1>About</h1>
+  <p>This is what it's all about.<br /><a href='/'>Go back to home</a></p>
+</body>
+
+</html>
+``` 
 
 Your project folder should now look something like the below:  
 
@@ -432,11 +457,12 @@ package.json
 
 In order to serve this page, we make a small change to our "/about" route (ie; use the **sendFile** method instead of the send method on the response object).
 
-    // setup another route to listen on /about
-    app.get("/about", function(req,res){
-      res.sendFile(path.join(__dirname,"/views/about.html"));
-    });
-    
+```javascript
+// setup another route to listen on /about
+app.get("/about", function(req,res){
+  res.sendFile(path.join(__dirname,"/views/about.html"));
+});
+```
 
 To test your server, run **node week2** to see the results on **http://localhost:8080**
 
@@ -448,6 +474,7 @@ However, there is one small change that we can make to our package.json file to 
 
 Fortunately, when you push your code to Heroku, the automated build process will run the command **npm start** once it is complete. This command (npm start) looks in the package.json file for the "start" property within the "scripts" property and run that command (ie, **node somefile.js**). Let’s make sure there is a start property on the scripts property of the package.json file for this example.
 
+```json
 {
   "name": "seneca",
   "version": "1.0.0",
@@ -462,6 +489,7 @@ Fortunately, when you push your code to Heroku, the automated build process will
     "express": "^4.14.0"
   }
 }
+```
 
 This will ensure that Heroku runs the week2.js file when you push your code to the new app!
 
@@ -475,11 +503,6 @@ From the Heroku website in your account, you can view the logs of your app and y
 2017-03-11T21:32:30.214156+00:00 app\[web.1\]: > node week2.js
 2017-03-11T21:32:30.214157+00:00 app\[web.1\]: 
 2017-03-11T21:32:30.594484+00:00 app\[web.1\]: Express http server listening on: 54172
-
-### Announcements
-
-*   Test 1 Next Week
-*   Assignment 1 Due this Friday at 11:59pm
 
 ### Sources
 
