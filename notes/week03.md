@@ -771,12 +771,6 @@ In addition, arrow functions **do not** have any notion of the [arguments](https
 
 <br>
 
-### Announcements
-
-*   N/A
-
-<br>
-
 ### Sources
 
 *   [MDN - Working with Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects)
