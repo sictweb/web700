@@ -27,17 +27,17 @@
             <!-- <p>{{ site.description | default: site.github.project_tagline }}</p> -->
 
             <p><img src="https://raw.githubusercontent.com/sictweb/resources/master/logo-sict-v1.png" alt="SICT" /></p>
-            <h1><a href="/">WEB700</a></h1>
+            <h1><a href="/web700">WEB700</a></h1>
             <p>Course Name</p>
 
             {% assign current = page.url | downcase | split: '/' %}
 
             <!-- <p>current - {{ current[1] }}</p> -->
 
-            <a href="/weekly-schedule" {% if current[1] == 'weekly-schedule.html' %}class='btn active'{% else %}class='btn'{% endif %}>Schedule</a>
-        <a href="/notes/" {% if current[1] == 'notes' %}class='btn active'{% else %}class='btn'{% endif %}>Notes</a>
-        <a href="/resources" {% if current[1] == 'resources.html' %}class='btn active'{% else %}class='btn'{% endif %}>Resources</a>
-        <a href="/graded-work" {% if current[1] == 'graded-work.html' %}class='btn active'{% else %}class='btn'{% endif %}>Graded Work</a>
+            <a href="/web700/weekly-schedule" {% if current[1] == 'weekly-schedule.html' %}class='btn active'{% else %}class='btn'{% endif %}>Schedule</a>
+        <a href="/web700/notes/" {% if current[1] == 'notes' %}class='btn active'{% else %}class='btn'{% endif %}>Notes</a>
+        <a href="/web700/resources" {% if current[1] == 'resources.html' %}class='btn active'{% else %}class='btn'{% endif %}>Resources</a>
+        <a href="/web700/graded-work" {% if current[1] == 'graded-work.html' %}class='btn active'{% else %}class='btn'{% endif %}>Graded Work</a>
             <a href="{{ site.github.repository_url }}" class='btn' target="_blank">Code examples</a>
 
             

@@ -18,7 +18,7 @@ Here, you will find the links to the weekly notes.  Please also remember to refe
 </thead>
 <tbody>
 <tr>
-<td><a href="/notes/week01">1 - Notes</a></td>
+<td><a href="/web700/notes/week01">1 - Notes</a></td>
 <td>
 Welcome to WEB700:<br><br>
 <ul>
@@ -31,7 +31,7 @@ Welcome to WEB700:<br><br>
 </td>
 </tr>
 <tr>
-<td><a href="/notes/week02">2 - Notes</a></td>
+<td><a href="/web700/notes/week02">2 - Notes</a></td>
 <td>
 JavaScript Continued:<br><br>
 <ul>
@@ -40,7 +40,7 @@ JavaScript Continued:<br><br>
 </td>
 </tr>
 <tr>
-  <td><a href="/notes/week03">3 - Notes (<mark>TODO: Mostly Done - Review to make sure</mark>)</a></td>
+  <td><a href="/web700/notes/week03">3 - Notes (<mark>TODO: Mostly Done - Review to make sure</mark>)</a></td>
 <td>
 Object Oriented JavaScript / ES6 Features:<br><br>
 <ul>
@@ -49,7 +49,7 @@ Object Oriented JavaScript / ES6 Features:<br><br>
 </td>
 </tr>
 <tr>
-<td><a href="/notes/week04">4 - Notes (<mark>First Version Added from WEB322</mark>)</a></td>
+<td><a href="/web700/notes/week04">4 - Notes (<mark>First Version Added from WEB322</mark>)</a></td>
 <td>
 Node.js Introduction:<br><br>
 <ul>
@@ -58,7 +58,7 @@ Node.js Introduction:<br><br>
 </td>
 </tr>
 <tr>
-<td><a href="/notes/week05">5 - Notes (<mark>First Version Added from WEB322</mark>)</a></td>
+<td><a href="/web700/notes/week05">5 - Notes (<mark>First Version Added from WEB322</mark>)</a></td>
 <td>
 Express.js Introduction &amp; Deployment:<br><br>
 <ul>
@@ -67,7 +67,7 @@ Express.js Introduction &amp; Deployment:<br><br>
 </td>
 </tr>
 <tr>
-<td><a href="/notes/week06">6 - Notes</a></td>
+<td><a href="/web700/notes/week06">6 - Notes</a></td>
 <td>
 HTML / DOM Introduction:<br><br>
 <ul>
@@ -76,7 +76,7 @@ HTML / DOM Introduction:<br><br>
 </td>
 </tr>
 <tr>
-<td><a href="/notes/week07">7 - Notes</a></td>
+<td><a href="/web700/notes/week07">7 - Notes</a></td>
 <td>
 CSS / SASS Introduction:<br><br>
 <ul>
@@ -85,7 +85,7 @@ CSS / SASS Introduction:<br><br>
 </td>
 </tr>
 <tr>
-<td><a href="/notes/week08">8 - Notes (<mark>First Version Added from WEB322</mark>)</a></td>
+<td><a href="/web700/notes/week08">8 - Notes (<mark>First Version Added from WEB322</mark>)</a></td>
 <td>
 Forms Introduction / Processing Forms with Express.js:<br><br>
 <ul>
@@ -94,7 +94,7 @@ Forms Introduction / Processing Forms with Express.js:<br><br>
 </td>
 </tr>
   <tr>
-<td><a href="/notes/week09">9 - Notes (<mark>First Version Added from WEB322</mark>)</a></td>
+<td><a href="/web700/notes/week09">9 - Notes (<mark>First Version Added from WEB322</mark>)</a></td>
 <td>
 Template Engines – Handlebars.js:<br><br>
 <ul>
@@ -103,7 +103,7 @@ Template Engines – Handlebars.js:<br><br>
 </td>
 </tr>
   <tr>
-<td><a href="/notes/week10">10 - Notes (<mark>First Version Added from WEB322</mark>)</a></td>
+<td><a href="/web700/notes/week10">10 - Notes (<mark>First Version Added from WEB322</mark>)</a></td>
 <td>
 Introduction to AJAX & "REST" API:<br><br>
 <ul>
@@ -112,7 +112,7 @@ Introduction to AJAX & "REST" API:<br><br>
 </td>
 </tr>
     <tr>
-<td><a href="/notes/week11">11 - Notes (<mark>First Version Added from WEB322</mark>)</a></td>
+<td><a href="/web700/notes/week11">11 - Notes (<mark>First Version Added from WEB322</mark>)</a></td>
 <td>
   Introduction to Postgres / Sequelize ORM:<br><br>
 <ul>
@@ -121,7 +121,7 @@ Introduction to AJAX & "REST" API:<br><br>
 </td>
 </tr>
   <tr>
-<td><a href="/notes/week12">12 - Notes (<mark>First Version Added from WEB322</mark>)</a></td>
+<td><a href="/web700/notes/week12">12 - Notes (<mark>First Version Added from WEB322</mark>)</a></td>
 <td>
 Security Considerations:<br><br>
 <ul>
