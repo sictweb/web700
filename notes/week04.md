@@ -16,17 +16,17 @@ layout: default
 4.  Open **Visual Studio Code** and select **File -> Open Folder**. Choose your newly created **"Ex1"** Folder and click **"Select Folder"**<br><br>
 5.  You should see an "Explorer" pane open on the left side with two items: "Open Editors" and "Ex1". Click to expand "Ex1" and locate the "New File" button ( ![](http://zenit.senecac.on.ca/~patrick.crawford/wp-content/uploads/2016/09/vscode-new-file.jpg) ). Click this and type **"hello.js".**<br><br>
 6.  You should now see your newly created "Hello.js" file in the editor. Enter the following line of code:
-
-```javascript
-console.log("Hello World!");
-```
-
-and click **File -> Save (Ctrl + S)**<br><br>
+    
+    ```javascript
+    console.log("Hello World!");
+    ```
+    
+    and click **File -> Save (Ctrl + S)**<br><br>
 7.  Open the **Integrated Terminal** by selecting **View -> Integrated Terminal (Ctrl + \`)** and type:
-
-```bash    
-node hello.js
-```
+    
+    ```bash    
+    node hello.js
+    ```
 
 **Hello World!** This is the most basic example in Node.js - notice how we didn't need to open a web browser, scratchpad, devtools, etc? It's also important to note that the command **"node hello.js"** can be executed in any command prompt as long as the active working directory is set to wherever your **hello.js** file is located (Ex1 in this case). The Integrated Terminal is just a quick, easy way to get a command prompt running in the correct location without leaving the development environment. Regarding the code that we wrote, it's very simple; however we have made an important assumption: that we have access to a global **"console"** object. In Node.js we have access to [a number of global objects / variables](https://nodejs.org/api/globals.html) in addition to [the built-in objects that are built into the JavaScript language](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects). Some of the Node.js Globals that we will be using include:
 
