@@ -78,10 +78,10 @@ This function will execute a piece of code (function) after a certain delay. It 
 For example:
 
 ```javascript
-    // outputs "Hello after 1 second" to the console
-    setTimeout(function(){
-        console.log("Hello after 1 second");
-    }, 1000);
+// outputs "Hello after 1 second" to the console
+setTimeout(function(){
+    console.log("Hello after 1 second");
+}, 1000);
 ```
     
 
