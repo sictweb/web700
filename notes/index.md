@@ -53,7 +53,7 @@ Object Oriented JavaScript / ES6 Features:<br><br>
 <td>
 Node.js Introduction:<br><br>
 <ul>
-<li></li>
+<li>Topic(s)</li>
 </ul>
 </td>
 </tr>
