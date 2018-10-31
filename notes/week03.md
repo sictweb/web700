@@ -3,7 +3,7 @@ title: WEB700 Week 3
 layout: default
 ---
 
-## WEB700 Week 3 Notes (<mark>TODO: Mostly Done - Review to make sure</mark>)
+## WEB700 Week 3 Notes
 
 <br>
 
@@ -51,8 +51,9 @@ which creates a simple "architect" objet. Recall that we must use the **"this"**
 
 Now, if we want to create more objects with these same properties & methods, we can leverage JavaScripts native [Object.create()](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/create) method:
 
-    Object.create(proto[, propertiesObject])
-    
+```javascript
+Object.create(proto[, propertiesObject])
+```
 
 This method will create a brand new object and use an existing object as it's **prototype** (explained further down). In practice, this will give the new object all of the properties, methods and values of the existing object while still being it's own, new instance. For example, if we wish to create two new _architect_ objects, we can simply call **Object.create()** with our previous **architect** object as the first parameter:
 
@@ -131,9 +132,9 @@ A few key things to note when using the above method to create objects:
 
 As we have seen, when we create objects in JavaScript, we make regular use of the "this" keyword. This is an important concept in JavaScript, so before we move on to Prototypal Inheritance, let's just do a quick review:
 
-`
-"this" always holds a reference to the "context" of the function (ie: the object actually invoking the function).
-`
+
+**"this" always holds a reference to the "context" of the function (ie: the object actually invoking the function).**
+
 
 So, when we declare an object with methods, we always make sure that each method refers to the properties in the object with the "this" keyword. This is because we wish to be specific about which property that we wish to reference and "this" always points to the object invoking the method. So, the **architect1.setName()** method will always work with the **architect1.name** property and similarly, the **architect2.setName()** method will always work with the architect2.name
 
@@ -227,50 +228,45 @@ So far, we have learned quite a bit about JavaScript; from how it handles simple
 
 As we know, JavaScript is a **dynamically typed language** and we declare our variables using the keyword **var**. However, when we use the "var" keyword, we're actually creating our variables on the **function scope** (effectively allowing access to the variable outside the scope in which it was declared). Fortunately ES6 has introduced the [let](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/let) & [const](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/const) keywords to solve this problem. See the below table for a comparison of **var**,**let** & **const**
 
-<br>
-
-#### [  var  ](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/var)
+**[  var  ](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/var)**
 
 *   Declares a variable, optionally initializing it to a value.
 *   The scope of a variable declared with var is its current execution context, which is either the enclosing function or, for variables declared outside any function, global.
 
-```javascript
-for(var i =0; i < 5; i++){
-  // ...
-}
+    ```javascript
+    for(var i =0; i < 5; i++){
+      // ...
+    }
+    
+    console.log(i); // 5
+    ``` 
 
-console.log(i); // 5
-``` 
-
-<br>
-
-#### [  let  ](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/let)
+**[  let  ](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/let)**
 
 *   Declares a block scope local variable, optionally initializing it to a value.
 *   The scope of a variable declared with "let" is limited to the block, statement, or expression on which it is used.
 
-```javascript
-for(let j=0; j < 5; j++){
-  // ...
-}
+    ```javascript
+    for(let j=0; j < 5; j++){
+      // ...
+    }
+    
+    console.log(j); // ReferenceError: j is not defined
+    ``` 
 
-console.log(j); // ReferenceError: j is not defined
-``` 
 
-<br>
-
-#### [  const  ](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/const)
+**[  const  ](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/const)**
 
 *   Declares an immutable block scope local variable, optionally initializing it to a value.
 *   The scope of a variable declared with "const" is limited to the block, statement, or expression on which it is used. However, the value of a variable declared with "const" cannot change through re-assignment and cannot be redeclared.
 
-```javascript
-for(const k=0; k < 5; k++){ // TypeError: Assignment to constant variable.
-  // ...
-}
-
-console.log(k);
-```
+    ```javascript
+    for(const k=0; k < 5; k++){ // TypeError: Assignment to constant variable.
+      // ...
+    }
+    
+    console.log(k);
+    ```
 
 As we can see from the above examples, **let** & **const** behave more like variable declarations in C / C++. While still being dynamically typed, they will respect the scope in which they are declared and cannot be referenced before they are declared.
 
