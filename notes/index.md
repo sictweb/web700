@@ -58,7 +58,7 @@ Node.js Introduction:<br><br>
 </td>
 </tr>
 <tr>
-<td><a href="/web700/notes/week05">5 - Notes (<mark>FConversion Complete</mark>)</a></td>
+<td><a href="/web700/notes/week05">5 - Notes (<mark>Conversion Complete</mark>)</a></td>
 <td>
 Express.js Introduction &amp; Deployment:<br><br>
 <ul>
@@ -85,7 +85,7 @@ CSS / SASS Introduction:<br><br>
 </td>
 </tr>
 <tr>
-<td><a href="/web700/notes/week08">8 - Notes (<mark>First Version Added from WEB322</mark>)</a></td>
+<td><a href="/web700/notes/week08">8 - Notes (<mark>Conversion Complete</mark>)</a></td>
 <td>
 Forms Introduction / Processing Forms with Express.js:<br><br>
 <ul>
