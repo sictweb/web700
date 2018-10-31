@@ -3,7 +3,7 @@ title: WEB700 Week 4
 layout: default
 ---
 
-## WEB700 Week 4 Notes (<mark>TODO: Fix Formatting & move images using WEB322 as a Guide</mark>)
+## WEB700 Week 4 Notes (<mark>TODO: Update "Getting Started With Heroku" Link</mark>)
 
 
 ### Introduction to Node.js
@@ -55,16 +55,20 @@ Some of the key elements that we will be using are:
 The name of the directory that the currently executing script resides in.  
 For example: if our .js file is located in /Users/pcrawford/ex1.js:
 
-    console.log(__dirname);
-    // outputs /Users/pcrawford
+```javascript
+console.log(__dirname);
+// outputs /Users/pcrawford
+```
 
 **[\_\_filename](https://nodejs.org/api/globals.html#globals_filename)**
 
 The filename of the code being executed. This is the resolved absolute path of this code file.  
 For example: if our .js file is located in /Users/pcrawford/ex1.js:
 
-    console.log(__filename);
-    // outputs /Users/pcrawford/ex1.js
+```javascript
+console.log(__filename);
+// outputs /Users/pcrawford/ex1.js
+```
 
 **[setTimeout()](https://nodejs.org/api/timers.html#timers_settimeout_callback_delay_arg)**
 
@@ -98,19 +102,19 @@ This function will execute a piece of code (function) after a certain delay and 
 For example:
 
 ```javascript
-    var count = 1; // global counter
-    var maxCount = 5; // global maximum
-    
-    var myCountInterval = setInterval(function () {
-        console.log("Hello after " + (count++) + " second(s)");
-        checkMaximum();
-    }, 1000);
-    
-    var checkMaximum = function () {
-        if (count > maxCount) {
-            clearInterval(myCountInterval);
-        }
+var count = 1; // global counter
+var maxCount = 5; // global maximum
+
+var myCountInterval = setInterval(function () {
+    console.log("Hello after " + (count++) + " second(s)");
+    checkMaximum();
+}, 1000);
+
+var checkMaximum = function () {
+    if (count > maxCount) {
+        clearInterval(myCountInterval);
     }
+}
 ```
 
 **[require()](https://nodejs.org/api/globals.html#globals_require)**
@@ -134,7 +138,9 @@ rl.question('Enter Your Name: ', function(answer){
 });
 ```
 
-Notice the first line of our code invokes the global **require()** function which returns an object from the core ["readline"](https://nodejs.org/api/readline.html#readline_readline) module, which we store in a variable named "readline". Now we have access to all of the functionality from the **readline** module, including an input/output mechanism via the [createInterface()](https://nodejs.org/api/readline.html#readline_readline_createinterface_options) method which creates a new [Interface](https://nodejs.org/api/readline.html#readline_class_interface) instance (named "r1" from above). This exposes a handy method called [question()](https://nodejs.org/api/readline.html#readline_rl_question_query_callback) that we can use to capture and output user data at the command prompt. Node also includes a number of other extremely useful core ["modules"](https://nodejs.org/api/modules.html#modules_modules), including:
+Notice the first line of our code invokes the global **require()** function which returns an object from the core ["readline"](https://nodejs.org/api/readline.html#readline_readline) module, which we store in a variable named "readline". Now we have access to all of the functionality from the **readline** module, including an input/output mechanism via the [createInterface()](https://nodejs.org/api/readline.html#readline_readline_createinterface_options) method which creates a new [Interface](https://nodejs.org/api/readline.html#readline_class_interface) instance (named "r1" from above). This exposes a handy method called [question()](https://nodejs.org/api/readline.html#readline_rl_question_query_callback) that we can use to capture and output user data at the command prompt. 
+
+Node also includes a number of other extremely useful core ["modules"](https://nodejs.org/api/modules.html#modules_modules), including:
 
 **[util](https://nodejs.org/api/util.html#util_util)**
 
@@ -160,9 +166,13 @@ The url utility module provides methods for parsing and working with a url. You 
 
 Similar to the url module the queryString module has utility methods for parsing and working with the query string part of a url. It can convert a query string into an object of the key value pairs and more.
 
-##### Modules
+<br>
 
-We can also create our own Modules that work the same way, by making use of a global ["module"](https://nodejs.org/api/globals.html#globals_module) object - which isn't truly "global" in the same sense as "console", but instead global to each of your modules, which are located in separate .js files. For example, consider the two following files (modEx1.js: the main file that node will execute, and message.js: the file containing the module): **file ./modEx1.js**
+#### Modules
+
+We can also create our own Modules that work the same way, by making use of a global ["module"](https://nodejs.org/api/globals.html#globals_module) object - which isn't truly "global" in the same sense as "console", but instead global to each of your modules, which are located in separate .js files. For example, consider the two following files (modEx1.js: the main file that node will execute, and message.js: the file containing the module): 
+
+**file ./modEx1.js**
 
 ```javascript
 var message = require("./modules/message.js");
@@ -202,9 +212,13 @@ Executing the code in modEx1.js (ie: **node modEx1.js**) should output:
   
 where ... is the absolute location of the message.js file in your system, for example: **C:\\Users\\patrick.crawford\\ModTest\\modules\\message.js**  
   
-Notice how our "message" module uses the [exports](https://nodejs.org/api/modules.html#modules_module_exports) property of the ["module"](https://nodejs.org/api/globals.html#globals_module) object to store functions and data that we want to be accessible in the object returned from the require("./modules/message.js"); function call from modEx1.js. Generally speaking, if you want to add anything to the object returned by "require" for your module, it's added to the module.exports object from within your module. In this case, we only added two functions (readMessage() and writeMessage()). Using this methodology, we can safely create reusable code in an isolated way that can easily be added (plugged in) to another .js file.
+Notice how our "message" module uses the [exports](https://nodejs.org/api/modules.html#modules_module_exports) property of the ["module"](https://nodejs.org/api/globals.html#globals_module) object to store functions and data that we want to be accessible in the object returned from the require("./modules/message.js"); function call from modEx1.js. Generally speaking, if you want to add anything to the object returned by "require" for your module, it's added to the module.exports object from within your module. In this case, we only added two functions (readMessage() and writeMessage()). 
 
-##### NPM – Node Package Manager
+Using this methodology, we can safely create reusable code in an isolated way that can easily be added (plugged in) to another .js file.
+
+<br>
+
+#### NPM – Node Package Manager
 
 The Node package manager is a core piece of the module based node ecosystem. The package manager allows us to create reusable modules that can be packaged and put on the npm repository for others to use. We will make heavy use of the Node Package Manager in this course.
 
@@ -214,32 +228,30 @@ All npm packages that you install locally for your application will be installed
 
 Here are the most common npm commands you will use:
 
-Command
 
-Description
-
-npm install \[Module Name\]  
-EX: npm install express
+**npm install \[Module Name\] ( ie: npm install express )**
 
 install is used to install a package from the npm repository so that you can use it with your application. EX: var express = require("express");
 
-npm uninstall \[module name\]
+**npm uninstall \[module name\]**
 
 uninstall does exactly what you would think, it uninstalls a module from the node\_modules folder and your application will no longer be able to require() it.
 
-npm init
+**npm init**
 
 create a new package.json file for a fresh application. More on this part later.
 
-npm prune
+**npm prune**
 
 The prune command will look through your package.json file and remove any npm modules that are installed that are not required for your project. More on this part later.
 
-npm list
+**npm list**
 
 Show a list of all packages installed for use by this application.
 
-###### Globally installing packages
+<br>
+
+#### Globally installing packages
 
 Every so often, you will want to install a package globally. Installing a package globally means you will install it like an application on your computer which you can run from the command line, not use it in your application code. For example, some npm packages are tools that are used as part of your development process on your application:
 
@@ -255,7 +267,9 @@ npm install bower -g
 
 Globally installed packages do not get install in your node\_modules folder and instead are installed in a folder in your user directory. The folder uses for global packages varies for Windows, Mac, and Linux. See the documentation if you need to find globally installed packages on your machine.
 
-##### package.json explained
+<br>
+
+#### package.json explained
 
 The Node Package Manager is great. It provides an easy way to download reusable packages or publish your own for other developers to use. However, there are a few problems with sharing modules and using other modules, once you want to work on an application with someone else. For example:
 
@@ -313,7 +327,9 @@ Is this ok? (yes) yes
 
 You can start your own package.json file from scratch but it is much easier to run an **npm init** in your project folder, answer a few questions, and your initialized package.json file will be generated for you. Once generated, you can edit it if you decide to change the name or version (for example). Once you decide to add packages to your app you can simply install the package with **npm install**. This will save the package and version into the package.json file for you so that when others want to work on your app, they will have the package.json file and can use **npm install** to install all the required dependencies with the right version. Think of package.json as a checklist for your application for all of its dependencies.
 
-##### Building a simple web server using Node.js with Express.js
+<br>
+
+#### Building a simple web server using Node.js with Express.js
 
 In week 4, your going to learn more about express.js but for now let's introduce it as a module you can install from NPM that has lot's of code that wraps up more complicated code and as a result it makes writing your own web server MUCH easier than writing it from scratch in node.js
 
@@ -415,16 +431,20 @@ Express http server listening on: 8080
 
 and visit the website by navigating to **http://localhost:8080**
 
-###### Sending a HTML page back from a "get" request
+<br>
+
+#### Sending a HTML page back from a "get" request
 
 Now that we know how to send messages back from our server, it's very simple to extend this functionality to return files (ie, HTML pages) instead.
 
 To begin, we must first create a "views" folder for our HTML files inside the working (open) folder.
 
+```
 /node\_modules
 /views
 week2.js
 package.json
+```
 
 Next, we must add a new require for the path module at the top of our week2.js file.
 
@@ -452,11 +472,13 @@ And most importantly, add the new about.html page inside our new views folder:
 
 Your project folder should now look something like the below:  
 
+```
 /node\_modules
 /views
   about.html
 week2.js
 package.json
+```
 
 In order to serve this page, we make a small change to our "/about" route (ie; use the **sendFile** method instead of the send method on the response object).
 
@@ -469,7 +491,9 @@ app.get("/about", function(req,res){
 
 To test your server, run **node week2** to see the results on **http://localhost:8080**
 
-##### Running this example on Heroku
+<br>
+
+#### Running this example on Heroku
 
 If we wish to see this code run on Heroku, we follow the same procedure highlighted in the [Getting Started with Heroku](http://zenit.senecac.on.ca/~patrick.crawford/index.php/web322/course-notes/getting-started-with-heroku/) guide, ie, logging in to heroku (**heroku login**), creating an app (**heroku create**) and pushing our code to the server using **git push heroku master**.
 
@@ -500,12 +524,16 @@ If all goes well you should see a link to your project, allowing you to see this
 
 From the Heroku website in your account, you can view the logs of your app and you should see something like this:  
 
+```
 2017-03-11T21:32:25.893498+00:00 heroku\[web.1\]: Starting process with command \`npm start\`
 2017-03-11T21:32:30.214137+00:00 app\[web.1\]: 
 2017-03-11T21:32:30.214155+00:00 app\[web.1\]: > seneca@1.0.0 start /app
 2017-03-11T21:32:30.214156+00:00 app\[web.1\]: > node week2.js
 2017-03-11T21:32:30.214157+00:00 app\[web.1\]: 
 2017-03-11T21:32:30.594484+00:00 app\[web.1\]: Express http server listening on: 54172
+```
+
+<br>
 
 ### Sources
 

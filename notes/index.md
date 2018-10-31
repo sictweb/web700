@@ -49,7 +49,7 @@ Object Oriented JavaScript / ES6 Features:<br><br>
 </td>
 </tr>
 <tr>
-<td><a href="/web700/notes/week04">4 - Notes (<mark>First Version Added from WEB322</mark>)</a></td>
+<td><a href="/web700/notes/week04">4 - Notes (<mark>TODO: Update "Getting Started With Heroku" Link</mark>)</a></td>
 <td>
 Node.js Introduction:<br><br>
 <ul>
