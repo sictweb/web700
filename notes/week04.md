@@ -8,7 +8,7 @@ layout: default
 
 ### Introduction to Node.js
 
-[![](http://zenit.senecac.on.ca/~patrick.crawford/wp-content/uploads/2016/08/node-logo.jpg)](https://nodejs.org)<br><br> As we learned last week, Node.js is actually a JavaScript runtime environment based on Chrome's V8 engine. It is a command-line program (written in C++) that you can install on your local machine or on a web-server that will take your JavaScript code and execute it. This means that we don't actually need a web browser to execute JavaScript at all - we just need a JavaScript engine. Why don't we try a short example:
+[![](/web700/media/node-logo.jpg)](https://nodejs.org)<br><br> As we learned last week, Node.js is actually a JavaScript runtime environment based on Chrome's V8 engine. It is a command-line program (written in C++) that you can install on your local machine or on a web-server that will take your JavaScript code and execute it. This means that we don't actually need a web browser to execute JavaScript at all - we just need a JavaScript engine. Why don't we try a short example:
 
 1.  If you haven't already, be sure to [download](https://nodejs.org) and install the current release of Node.js. If you're not sure whether or not you have Node.js installed, open the **Command Prompt** and type **node -v**. If Node.js has been installed, this will output the version.<br><br>
 2.  Make sure you have Visual Studio Code installed. As we discussed last week, this is an open-source, cross-platform development environment provided by Microsoft. While it is true that you can write your code in any text editor, Visual Studio Code works very nicely alongside Node.js and all examples going forward will assume that you are using Visual Studio Code. You can [download it here](https://code.visualstudio.com/download) <br><br>
@@ -333,49 +333,49 @@ First, we will install the package to our app before we even start building our 
 
 ```bash
 $ npm install express
-seneca@1.0.0 C:\\seneca
-\`-- express@4.14.0
+seneca@1.0.0 C:\seneca
+`-- express@4.14.0
   +-- accepts@1.3.3
   | +-- mime-types@2.1.13
-  | | \`-- mime-db@1.25.0
-  | \`-- negotiator@0.6.1
+  | | `-- mime-db@1.25.0
+  | `-- negotiator@0.6.1
   +-- array-flatten@1.1.1
   +-- content-disposition@0.5.1
   +-- content-type@1.0.2
   +-- cookie@0.3.1
   +-- cookie-signature@1.0.6
   +-- debug@2.2.0
-  | \`-- ms@0.7.1
+  | `-- ms@0.7.1
   +-- depd@1.1.0
   +-- encodeurl@1.0.1
   +-- escape-html@1.0.3
   +-- etag@1.7.0
   +-- finalhandler@0.5.0
   | +-- statuses@1.3.1
-  | \`-- unpipe@1.0.0
+  | `-- unpipe@1.0.0
   +-- fresh@0.3.0
   +-- merge-descriptors@1.0.1
   +-- methods@1.1.2
   +-- on-finished@2.3.0
-  | \`-- ee-first@1.1.1
+  | `-- ee-first@1.1.1
   +-- parseurl@1.3.1
   +-- path-to-regexp@0.1.7
   +-- proxy-addr@1.1.2
   | +-- forwarded@0.1.0
-  | \`-- ipaddr.js@1.1.1
+  | `-- ipaddr.js@1.1.1
   +-- qs@6.2.0
   +-- range-parser@1.2.0
   +-- send@0.14.1
   | +-- destroy@1.0.4
   | +-- http-errors@1.5.1
   | | +-- inherits@2.0.3
-  | | \`-- setprototypeof@1.0.2
-  | \`-- mime@1.3.4
+  | | `-- setprototypeof@1.0.2
+  | `-- mime@1.3.4
   +-- serve-static@1.11.1
   +-- type-is@1.6.14
-  | \`-- media-typer@0.3.0
+  | `-- media-typer@0.3.0
   +-- utils-merge@1.0.0
-  \`-- vary@1.1.0
+  `-- vary@1.1.0
 ```
 
 npm WARN seneca@1.0.0 No description
@@ -436,7 +436,7 @@ Now that we know how to send messages back from our server, it's very simple to 
 To begin, we must first create a "views" folder for our HTML files inside the working (open) folder.
 
 ```
-/node\_modules
+/node_modules
 /views
 week2.js
 package.json
@@ -469,7 +469,7 @@ And most importantly, add the new about.html page inside our new views folder:
 Your project folder should now look something like the below:  
 
 ```
-/node\_modules
+/node_modules
 /views
   about.html
 week2.js
@@ -521,12 +521,12 @@ If all goes well you should see a link to your project, allowing you to see this
 From the Heroku website in your account, you can view the logs of your app and you should see something like this:  
 
 ```
-2017-03-11T21:32:25.893498+00:00 heroku\[web.1\]: Starting process with command \`npm start\`
-2017-03-11T21:32:30.214137+00:00 app\[web.1\]: 
-2017-03-11T21:32:30.214155+00:00 app\[web.1\]: > seneca@1.0.0 start /app
-2017-03-11T21:32:30.214156+00:00 app\[web.1\]: > node week2.js
-2017-03-11T21:32:30.214157+00:00 app\[web.1\]: 
-2017-03-11T21:32:30.594484+00:00 app\[web.1\]: Express http server listening on: 54172
+2017-03-11T21:32:25.893498+00:00 heroku[web.1]: Starting process with command `npm start`
+2017-03-11T21:32:30.214137+00:00 app[web.1]: 
+2017-03-11T21:32:30.214155+00:00 app[web.1]: > seneca@1.0.0 start /app
+2017-03-11T21:32:30.214156+00:00 app[web.1]: > node week2.js
+2017-03-11T21:32:30.214157+00:00 app[web.1]: 
+2017-03-11T21:32:30.594484+00:00 app[web.1]: Express http server listening on: 54172
 ```
 
 <br>
