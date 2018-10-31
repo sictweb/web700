@@ -7,7 +7,7 @@ layout: default
 
 ### Introduction to Express.js
 
-##### What is express.js?
+#### What is express.js?
 
 Taken directly from the express.js website:
 
@@ -19,25 +19,28 @@ Express is a node module that takes a lot of the leg work out of creating a fr
 
 The express website has very good documentation and we will refer to it frequently in this week's notes for examples and documentation.
 
-##### API docs and code examples
+<br>
+
+#### API docs and code examples
 
 The current major version of Express is 4.x. [The documentation is available here](http://expressjs.com/en/4x/api.html) - they do a great job keeping it up to date and provide excellent code examples to explain the concepts.
 
 In the lecture for this week we will go over most of the main features of express in the API, which will enable you to setup a basic web server with node and express that can accept requests and send responses from a client for various url ‘routes’. A url route is a piece of the url that comes after the host. For example, in the url http://www.seneca.ca/courses/ the host is www.seneca.ca, the route (in Express terms) is /courses.
 
-###### [The Application object](http://expressjs.com/en/4x/api.html#app)
+#### [The Application object](http://expressjs.com/en/4x/api.html#app)
 
 [Taken directly from the Express API documentation](http://expressjs.com/en/4x/api.html#app) ( updated to use ES6 style syntax) - here is a very simple example on how to start a web server on localhost, listening on port 8080 on the main 'root' route.
 
-    const express = require("express");
-    const app = express();
-    
-    app.get("/", (req, res) => {
-      res.send("hello world");
-    });
-    
-    app.listen(8080);
-    
+```javascript
+const express = require("express");
+const app = express();
+
+app.get("/", (req, res) => {
+  res.send("hello world");
+});
+
+app.listen(8080);
+```    
 
 The app variable in the example above represents the express main application object. It contains several methods for routing requests, setting up middleware, and managing html views or view engines.
 
@@ -47,128 +50,114 @@ All the other common HTTP verbs are supported as well. POST, PUT, DELETE, etc. Y
 
 Here are some of the commonly used application properties and methods you will typically make use of.
 
-property or method
-
-Description
-
-[app.locals](https://expressjs.com/en/api.html#app.locals)
+**[app.locals](https://expressjs.com/en/api.html#app.locals)**
 
 This property allows you to attach local variables to the application, which persist throughout the life of the app. You can access local variables in templates rendered within the application (discussed in week 6 - "Template Engines – Handlebars.js").
 
-[app.all()](https://expressjs.com/en/api.html#app.all)
+**[app.all()](https://expressjs.com/en/api.html#app.all)**
 
 This method will catch all HTTP requests for all verbs. IE: GET, PUT, POST, DELETE, etc. for a matching path.
 
-[app.delete()](https://expressjs.com/en/api.html#app.delete.method)
+**[app.delete()](https://expressjs.com/en/api.html#app.delete.method)**
 
 Routes a HTTP DELETE request for a matching path to a callback function specified.
 
-[app.engine()](https://expressjs.com/en/api.html#app.engine)
+**[app.engine()](https://expressjs.com/en/api.html#app.engine)**
 
 The engine method is used to map a specific view extension to a template engine. For example if you want to map all html view templates to a specific engine you would register it here.
 
-[app.get()](https://expressjs.com/en/api.html#app.get)
+**[app.get()](https://expressjs.com/en/api.html#app.get)**
 
 Routes a HTTP GET request for a matching path to a callback function specified.
 
-[app.listen()](https://expressjs.com/en/api.html#app.listen)
+**[app.listen()](https://expressjs.com/en/api.html#app.listen)**
 
 The function is typically called once to setup a port and optionally a host to listen on for requests. This is the core method on the express application that helps setup a https server and allows it to listen on a specified port. HTTP default port is 80, HTTPS default port is 443.
 
-[app.post()](https://expressjs.com/en/api.html#app.post.method)
+**[app.post()](https://expressjs.com/en/api.html#app.post.method)**
 
 Routes a HTTP POST request for a matching path to a callback function specified.
 
-[app.put()](https://expressjs.com/en/api.html#app.put.method)
+**[app.put()](https://expressjs.com/en/api.html#app.put.method)**
 
 Routes a HTTP PUT request for a matching path to a callback function specified.
 
-[app.use()](https://expressjs.com/en/api.html#app.use)
+**[app.use()](https://expressjs.com/en/api.html#app.use)**
 
 The **use** method is used to add middleware to your application. Middleware consists of functions (typically placed before the routing methods) that automatically execute either when a specified path is matched or globally before every request. This is very useful when you want to do something with every request like add properties to the request object or check if a user is logged in.
 
-  
+<br>
 
-###### [The Request object](http://expressjs.com/en/4x/api.html#req)
+#### [The Request object](http://expressjs.com/en/4x/api.html#req)
 
 The req object represents the object that contains all the information and metadata for a request to the server. When you see examples of the request object in use it will always typically be referred to as ‘req’ (short for request object).
 
 There are several ways to send data from the client to the server. Four of the more common ways are: send a POST request with data in the body of the request, send data in cookies, send the data in the url, or send the data in the query string.  
 Here is a table of the common properties and methods used on the request object (req).  
 
-property or method
-
-Description
-
-[req.body](http://expressjs.com/en/4x/api.html#req.body)
+**[req.body](http://expressjs.com/en/4x/api.html#req.body)**
 
 The req.body property contains the data submitted from a request. It requires that you use a body parsing middleware first which will attach the parameters to req.body. If you post data in your request then this is how you access that data. See the example in the docs on how it's used.
 
-[req.cookies](http://expressjs.com/en/4x/api.html#req.cookies)
+**[req.cookies](http://expressjs.com/en/4x/api.html#req.cookies)**
 
 The second way of sending data is through a cookie. If you are using a cookie and you use cookie parsing middleware, then the cookie data will be available on the req.cookie object.
 
-[req.params](http://expressjs.com/en/4x/api.html#req.params)
+**[req.params](http://expressjs.com/en/4x/api.html#req.params)**
 
 The third way of sending data is in the url. For example, if you want to have a url in the pattern /user/:name where the :name is dynamic; ie: for ‘Bob’ it’s /user/bob and for ‘Mary’ it’s /user/mary. You can have one route which can accept an infinite number of requests with different user names and dynamically handle / access each differing username through req.params (ie: request.params.user).
 
-[req.query](http://expressjs.com/en/4x/api.html#req.query)
+**[req.query](http://expressjs.com/en/4x/api.html#req.query)**
 
 The fourth way of sending data from the client to the server is in the query string. If you send data for a user using a url like /user?user=bob then you can access that username with req.query.user. 'query' will be an object with key value pairs matching the key value pairs sent in the query string of the request.
 
-[req.get()](http://expressjs.com/en/4x/api.html#req.get)
+**[req.get()](http://expressjs.com/en/4x/api.html#req.get)**
 
 req.get() is useful for checking what the values are of any of the headers sent with the request. If you need to check the 'content-type' for example or the 'referer' or 'user-agent' headers.
 
-  
+<br>
 
-###### [The Response object](http://expressjs.com/en/4x/api.html#res)
+#### [The Response object](http://expressjs.com/en/4x/api.html#res)
 
 The response object represents the object that contains all the information and metadata for a response from the server. When you see examples of the response object in use it will always typically be referred to as ‘res’ (short for response object). The data you send back from the server can one of several different formats -the most common are HTML, JSON, CSS, JS and plain files (.pdf, .txt, etc).
 
 Here is a table of the common properties and methods used on the response object (res).
 
-  
-
-property or method
-
-Description
-
-[res.cookie()](http://expressjs.com/en/4x/api.html#res.cookie)
+**[res.cookie()](http://expressjs.com/en/4x/api.html#res.cookie)**
 
 This allows you to set a cookie on the response with a name = value key pair. You can set the value of the name to a string or an object in JSON notation and it will be attached to the response header of the response.
 
-[res.download()](http://expressjs.com/en/4x/api.html#res.download)
+**[res.download()](http://expressjs.com/en/4x/api.html#res.download)**
 
 This allows you to send a file back as a response. The user's browser will display a download prompt and the response will set the Content-Type and Content-Disposition headers for you. Use this to send files back to a user.
 
-[res.end()](http://expressjs.com/en/4x/api.html#res.end)
+**[res.end()](http://expressjs.com/en/4x/api.html#res.end)**
 
 Use this if you want to end a response immediately and send nothing back. You can also chain .end() off of .status to send a status code and end the response, ie: res.status(400).end();
 
-[res.get()](http://expressjs.com/en/4x/api.html#res.get)
+**[res.get()](http://expressjs.com/en/4x/api.html#res.get)**
 
 You can use res.get() to lookup any header that is outgoing on the response. This can be useful to check if certain headers are set to certain values and respond accordingly.
 
-[res.json()](http://expressjs.com/en/4x/api.html#res.json)
+**[res.json()](http://expressjs.com/en/4x/api.html#res.json)**
 
 You can use res.json() to send back a JSON object with key value pairs of data. The values can be any valid JSON type, even Arrays and other objects. This method also automatically "stringifies" a JavaScript object, so no conversion is needed before an object is provided. Additionally, The json() method will automatically set the correct Content-Type header.
 
-[res.redirect()](http://expressjs.com/en/4x/api.html#res.redirect)
+**[res.redirect()](http://expressjs.com/en/4x/api.html#res.redirect)**
 
 Use this to perform a redirect to another page on your site, go back to the previous page, or redirect to another domain all together.
 
-[res.send()](http://expressjs.com/en/4x/api.html#res.send)
+**[res.send()](http://expressjs.com/en/4x/api.html#res.send)**
 
 This is the bread and butter response method to send back a response to the client. You can send a String, an object, an Array, or even a Buffer object back to the client. The send() method will automatically set the Content-Type header for you based on the type of data sent.
 
-[res.status()](http://expressjs.com/en/4x/api.html#res.status)
+**[res.status()](http://expressjs.com/en/4x/api.html#res.status)**
 
 You can use this to send back a specific status code and appropriate response to go with it. status() is chainable before a send() so you can do operations such as: res.status(404).send(“Page Not Found”); to send a 404 response code for a resource that is not found or invalid.
 
   
 
-##### Routing, static files
+#### Routing, static files
 
 Now that we've gone over the three core objects related to express let's show some examples of them in use by writing a few functions and building out a basic web server with a few routes and some statically served files.
 
@@ -224,7 +213,7 @@ Try visiting a route that is not the home route "/" or "/headers". You should se
 
 Now that we have covered handling basic routes for a page and how to accept get requests that can respond with data; the next question is: "how do we respond to requests for things like images, or css files?"
 
-###### Serving static files
+#### Serving static files
 
 Static file serving refers to responding back to a client for a request to a static resource. A static resource is a resource (file) that is not going to change and is required as part of the content for the site. Perfect examples are images and css files that need to be requested from the site and loaded on the page. We can’t make a route to handle loading each image for the website -that would be tedious and impossible to maintain. Instead, it would be better to just specify a folder that contains all those static resources and allow express to handle sending those files back to the client when they are requested.
 
@@ -241,7 +230,7 @@ Now we can put images or css files in the /static folder, and link to them from 
   
 Try adding an image to the static folder, and including it in an <img> element for the main route response.
 
-##### Middleware
+#### Middleware
 
 Middleware in Express refers to functions that can execute in the 'middle' of a request/response cycle typically before a matching route function is executed.  
   
@@ -278,7 +267,7 @@ With express 4.x, previously included middleware that did common things like han
 
   
 
-##### Error Handling
+#### Error Handling
 
 Error handling in Express is typically done through middleware. As mentioned above, when you write a middleware function with 4 parameters, it will be interpreted by express as an error handler function. You can write multiple error handlers for handling different states of errors and use them in the same way you use middleware. By calling next(), it will invoke the next error handler in the chain and by sending a response it will terminate the chain. [The error handling page on Express's website has great examples.](http://expressjs.com/en/guide/error-handling.html) A common errorHandling procedure would be to log the error in the server console or database, return a 500 status code to the client, and send them to a 500 page or something else appropriate for your app.
 
@@ -296,7 +285,7 @@ Error handling in Express is typically done through middleware. As mentioned abo
     }
     
 
-##### Debugging in Visual Studio Code
+#### Debugging in Visual Studio Code
 
 Visual Studio Code has great debugging support for the node.js/express ecosystem. There is a tab on the left side of VS Code to open the debugger panel.  
   
@@ -342,7 +331,7 @@ When you are finished inspecting, you can press play to continue with execution 
   
 ![debuggercontrols](http://zenit.senecac.on.ca/~patrick.crawford/wp-content/uploads/2016/08/debuggercontrols.png)
 
-##### The browser network tab
+#### The browser network tab
 
 Chrome, Firefox, and IE all include developer tool and each of those tools has a network tab. The network tab of the dev tools allows you to see all requests going out from the browser to another server and the responses you get back from them.  
 In Firefox, you can inspect the headers from the headers tab:  
@@ -353,10 +342,6 @@ And the response from the server in the response tab. The Google Chrome network 
 ![networktab-response](http://zenit.senecac.on.ca/~patrick.crawford/wp-content/uploads/2016/08/networktab-response.png)  
 The network tab in the dev tools is one of the core tools for debugging on the client side. You can check the returned status code, see all the api requests being made, filter by just XHR requests, examine the cookies involved in the request and response, see request and response headers, and examine the data returned from a request.
 
-### Announcements
-
-*   Test 2 Next Week
-*   Assignment 2 Due this Friday at 11:59pm
 
 ### Sources
 

@@ -34,137 +34,133 @@ Regarding the code that we wrote, it's very simple; however we have made an impo
 
 **[Console](https://nodejs.org/api/console.html)**
 
-The console object provides a simple debugging console that is similar to the JavaScript console mechanism provided by web browsers.  
-Some of the key methods that we will be using are:
+* The console object provides a simple debugging console that is similar to the JavaScript console mechanism provided by web browsers.  
+* Some of the key methods that we will be using are:
 
-*   [console.log()](https://nodejs.org/api/console.html#console_console_log_data)
-*   [console.time()](https://nodejs.org/api/console.html#console_console_time_label) / [console.timeEnd()](https://nodejs.org/api/console.html#console_console_timeend_label)
-*   [console.dir()](https://nodejs.org/api/console.html#console_console_dir_obj_options)
+    *   [console.log()](https://nodejs.org/api/console.html#console_console_log_data)
+    *   [console.time()](https://nodejs.org/api/console.html#console_console_time_label) / [console.timeEnd()](https://nodejs.org/api/console.html#console_console_timeend_label)
+    *   [console.dir()](https://nodejs.org/api/console.html#console_console_dir_obj_options)
 
 **[Process](https://nodejs.org/api/process.html#process_process)**
 
-The process object is a global instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class that provides information about, and control over, the current Node.js process. It exposes many properties, methods and events related to controlling system interactions.  
+* The process object is a global instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class that provides information about, and control over, the current Node.js process. It exposes many properties, methods and events related to controlling system interactions.  
 Some of the key elements that we will be using are:
 
-*   Methods: process.on() (see: [eventEmitter.on()](https://nodejs.org/api/events.html#events_emitter_on_eventname_listener) & [process events](https://nodejs.org/api/process.html#process_process_events)), [process.abort()](https://nodejs.org/api/process.html#process_process_abort), [process.kill()](https://nodejs.org/api/process.html#process_process_kill_pid_signal), [process.exit()](https://nodejs.org/api/process.html#process_process_exit_code)
-*   Properties: [process.stdin](https://nodejs.org/api/process.html#process_process_stdin), [process.stdout](https://nodejs.org/api/process.html#process_process_stdout), [process.stderr](https://nodejs.org/api/process.html#process_process_stderr), [process.pid](https://nodejs.org/api/process.html#process_process_pid), [process.env](https://nodejs.org/api/process.html#process_process_env)
-*   Events: [beforeExit](https://nodejs.org/api/process.html#process_event_beforeexit), [Exit](https://nodejs.org/api/process.html#process_event_exit), [uncaughtException](https://nodejs.org/api/process.html#process_event_uncaughtexception)
+    *   Methods: process.on() (see: [eventEmitter.on()](https://nodejs.org/api/events.html#events_emitter_on_eventname_listener) & [process events](https://nodejs.org/api/process.html#process_process_events)), [process.abort()](https://nodejs.org/api/process.html#process_process_abort), [process.kill()](https://nodejs.org/api/process.html#process_process_kill_pid_signal), [process.exit()](https://nodejs.org/api/process.html#process_process_exit_code)
+    *   Properties: [process.stdin](https://nodejs.org/api/process.html#process_process_stdin), [process.stdout](https://nodejs.org/api/process.html#process_process_stdout), [process.stderr](https://nodejs.org/api/process.html#process_process_stderr), [process.pid](https://nodejs.org/api/process.html#process_process_pid), [process.env](https://nodejs.org/api/process.html#process_process_env)
+    *   Events: [beforeExit](https://nodejs.org/api/process.html#process_event_beforeexit), [Exit](https://nodejs.org/api/process.html#process_event_exit), [uncaughtException](https://nodejs.org/api/process.html#process_event_uncaughtexception)
 
 **[\_\_dirname](https://nodejs.org/api/globals.html#globals_dirname)**
 
-The name of the directory that the currently executing script resides in.  
-For example: if our .js file is located in /Users/pcrawford/ex1.js:
+* The name of the directory that the currently executing script resides in.  
+* For example: if our .js file is located in /Users/pcrawford/ex1.js:
 
-```javascript
-console.log(__dirname);
-// outputs /Users/pcrawford
-```
+    ```javascript
+    console.log(__dirname);
+    // outputs /Users/pcrawford
+    ```
 
 **[\_\_filename](https://nodejs.org/api/globals.html#globals_filename)**
 
-The filename of the code being executed. This is the resolved absolute path of this code file.  
-For example: if our .js file is located in /Users/pcrawford/ex1.js:
+* The filename of the code being executed. This is the resolved absolute path of this code file.  
+* For example: if our .js file is located in /Users/pcrawford/ex1.js:
 
-```javascript
-console.log(__filename);
-// outputs /Users/pcrawford/ex1.js
-```
+    ```javascript
+    console.log(__filename);
+    // outputs /Users/pcrawford/ex1.js
+    ```
 
 **[setTimeout()](https://nodejs.org/api/timers.html#timers_settimeout_callback_delay_arg)**
 
-This function will execute a piece of code (function) after a certain delay. It accepts 3 parameters:
+* This function will execute a piece of code (function) after a certain delay. It accepts 3 parameters:
 
-*   **callback** Function: The function to call when the timer elapses.
-*   **delay** number: The number of milliseconds to wait before calling the callback
-*   **\[, ...arg\]** Optional arguments to pass when the callback is called.
+    *   **callback** Function: The function to call when the timer elapses.
+    *   **delay** number: The number of milliseconds to wait before calling the callback
+    *   **\[, ...arg\]** Optional arguments to pass when the callback is called.
 
-  
-For example:
+* For example:
 
-```javascript
-// outputs "Hello after 1 second" to the console
-setTimeout(function(){
-    console.log("Hello after 1 second");
-}, 1000);
-```
+    ```javascript
+    // outputs "Hello after 1 second" to the console
+    setTimeout(function(){
+        console.log("Hello after 1 second");
+    }, 1000); 
+    ```
     
-
 **[setInterval()](https://nodejs.org/api/timers.html#timers_setinterval_callback_delay_arg)**
 
-This function will execute a piece of code (function) after a certain delay and continue to call it repeatedly. It accepts 3 parameters (below) and returns a [timeout](https://nodejs.org/api/timers.html#timers_class_timeout) object
+* This function will execute a piece of code (function) after a certain delay and continue to call it repeatedly. It accepts 3 parameters (below) and returns a [timeout](https://nodejs.org/api/timers.html#timers_class_timeout) object
 
-*   **callback** Function: The function to call when the timer elapses.
-*   **delay** number: The number of milliseconds to wait before calling the callback
-*   **\[, ...arg\]** Optional arguments to pass when the callback is called.
+    *   **callback** Function: The function to call when the timer elapses.
+    *   **delay** number: The number of milliseconds to wait before calling the callback
+    *   **\[, ...arg\]** Optional arguments to pass when the callback is called.
 
-  
-**Note:** Unless you want the interval to continue forever, you need to call [clearInterval()](https://nodejs.org/api/timers.html#timers_clearinterval_timeout) with the timeout object as a parameter to halt the interval  
+* **Note:** Unless you want the interval to continue forever, you need to call [clearInterval()](https://nodejs.org/api/timers.html#timers_clearinterval_timeout) with the timeout object as a parameter to halt the interval  
 For example:
 
-```javascript
-var count = 1; // global counter
-var maxCount = 5; // global maximum
+    ```javascript
+    var count = 1; // global counter
+    var maxCount = 5; // global maximum
 
-var myCountInterval = setInterval(function () {
-    console.log("Hello after " + (count++) + " second(s)");
-    checkMaximum();
-}, 1000);
+    var myCountInterval = setInterval(function () {
+        console.log("Hello after " + (count++) + " second(s)");
+        checkMaximum();
+    }, 1000);
 
-var checkMaximum = function () {
-    if (count > maxCount) {
-        clearInterval(myCountInterval);
+    var checkMaximum = function () {
+        if (count > maxCount) {
+            clearInterval(myCountInterval);
+        }
     }
-}
-```
+    ```
 
 **[require()](https://nodejs.org/api/globals.html#globals_require)**
 
-The require function is the easiest way to include modules that exist in separate files. The basic functionality of require is that it reads a javascript file, executes the file, and then proceeds to return the exports object. More about modules and the require() function discussed below.
+* The require function is the easiest way to include modules that exist in separate files. The basic functionality of require is that it reads a javascript file, executes the file, and then proceeds to return the exports object. More about modules and the require() function discussed below.
 
-Now that we have written and executed our very first program with JavaScript using Node.js - why don't we try another example. This time, lets add some user input. Recall when we first discussed JavaScript in the previous course, we did not capture user input using JavaScript, but instead relied on explicitly setting test values at the top of our programs. This allowed us to have specific control over the type of input we were testing. However, it might be interesting to deal with "live data" in a pure JS environment and fortunately for us, we have access to the extensive collection of [modules](https://nodejs.org/api/modules.html) that come bundled with Node.js - more specifically, we have access to the [readline](https://nodejs.org/api/readline.html#readline_readline) module, which can be used for this purpose, for example:
+* Now that we have written and executed our very first program with JavaScript using Node.js - why don't we try another example. This time, lets add some user input. Recall when we first discussed JavaScript in the previous course, we did not capture user input using JavaScript, but instead relied on explicitly setting test values at the top of our programs. This allowed us to have specific control over the type of input we were testing. However, it might be interesting to deal with "live data" in a pure JS environment and fortunately for us, we have access to the extensive collection of [modules](https://nodejs.org/api/modules.html) that come bundled with Node.js - more specifically, we have access to the [readline](https://nodejs.org/api/readline.html#readline_readline) module, which can be used for this purpose, for example:
 
+    ```javascript
+    var readline = require('readline');
 
-```javascript
-var readline = require('readline');
+    var rl = readline.createInterface({
+      input: process.stdin,
+      output: process.stdout
+    });
 
-var rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+    rl.question('Enter Your Name: ', function(answer){
+      console.log('Hello ' +  answer);
+      rl.close();
+    });
+    ```
 
-rl.question('Enter Your Name: ', function(answer){
-  console.log('Hello ' +  answer);
-  rl.close();
-});
-```
-
-Notice the first line of our code invokes the global **require()** function which returns an object from the core ["readline"](https://nodejs.org/api/readline.html#readline_readline) module, which we store in a variable named "readline". Now we have access to all of the functionality from the **readline** module, including an input/output mechanism via the [createInterface()](https://nodejs.org/api/readline.html#readline_readline_createinterface_options) method which creates a new [Interface](https://nodejs.org/api/readline.html#readline_class_interface) instance (named "r1" from above). This exposes a handy method called [question()](https://nodejs.org/api/readline.html#readline_rl_question_query_callback) that we can use to capture and output user data at the command prompt. 
+* Notice the first line of our code invokes the global **require()** function which returns an object from the core ["readline"](https://nodejs.org/api/readline.html#readline_readline) module, which we store in a variable named "readline". Now we have access to all of the functionality from the **readline** module, including an input/output mechanism via the [createInterface()](https://nodejs.org/api/readline.html#readline_readline_createinterface_options) method which creates a new [Interface](https://nodejs.org/api/readline.html#readline_class_interface) instance (named "r1" from above). This exposes a handy method called [question()](https://nodejs.org/api/readline.html#readline_rl_question_query_callback) that we can use to capture and output user data at the command prompt. 
 
 Node also includes a number of other extremely useful core ["modules"](https://nodejs.org/api/modules.html#modules_modules), including:
 
 **[util](https://nodejs.org/api/util.html#util_util)**
 
-A collection of helper utility methods you can use with your applications in node.js
+* A collection of helper utility methods you can use with your applications in node.js
 
 **[path](https://nodejs.org/api/path.html#path_path)**
 
-The path module provides utilities for working with file and directory paths. This will come in quite handy when working with reading template files or writing uploaded files for example.
+* The path module provides utilities for working with file and directory paths. This will come in quite handy when working with reading template files or writing uploaded files for example.
 
 **[events](https://nodejs.org/api/events.html#events_events)**
 
-The events module allows you to register an event 'listener' and act on those events within node. You can emit an event when a certain condition happens and node will automatically call a function connected to the listening event.
+* The events module allows you to register an event 'listener' and act on those events within node. You can emit an event when a certain condition happens and node will automatically call a function connected to the listening event.
 
 **[fs](https://nodejs.org/api/fs.html#fs_file_system)**
 
-This module is used to work directly with the file system to read and write files. All methods of fs have synchronous and asynchronous versions of the methods. Depending on your needs, you can make use of either type but typically it is best to use the async versions to avoid blocking the node event loop.
+* This module is used to work directly with the file system to read and write files. All methods of fs have synchronous and asynchronous versions of the methods. Depending on your needs, you can make use of either type but typically it is best to use the async versions to avoid blocking the node event loop.
 
 **[url](https://nodejs.org/api/url.html#url_url)**
 
-The url utility module provides methods for parsing and working with a url. You can use it to get pieces of a given url string like the protocol, hostname, port, querystring parameters, anchor hash, etc
+* The url utility module provides methods for parsing and working with a url. You can use it to get pieces of a given url string like the protocol, hostname, port, querystring parameters, anchor hash, etc
 
 **[queryString](https://nodejs.org/api/querystring.html#querystring_query_string)**
 
-Similar to the url module the queryString module has utility methods for parsing and working with the query string part of a url. It can convert a query string into an object of the key value pairs and more.
+* Similar to the url module the queryString module has utility methods for parsing and working with the query string part of a url. It can convert a query string into an object of the key value pairs and more.
 
 <br>
 
@@ -231,23 +227,23 @@ Here are the most common npm commands you will use:
 
 **npm install \[Module Name\] ( ie: npm install express )**
 
-install is used to install a package from the npm repository so that you can use it with your application. EX: var express = require("express");
+* install is used to install a package from the npm repository so that you can use it with your application. EX: var express = require("express");
 
 **npm uninstall \[module name\]**
 
-uninstall does exactly what you would think, it uninstalls a module from the node\_modules folder and your application will no longer be able to require() it.
+* uninstall does exactly what you would think, it uninstalls a module from the node\_modules folder and your application will no longer be able to require() it.
 
 **npm init**
 
-create a new package.json file for a fresh application. More on this part later.
+* create a new package.json file for a fresh application. More on this part later.
 
 **npm prune**
 
-The prune command will look through your package.json file and remove any npm modules that are installed that are not required for your project. More on this part later.
+* The prune command will look through your package.json file and remove any npm modules that are installed that are not required for your project. More on this part later.
 
 **npm list**
 
-Show a list of all packages installed for use by this application.
+* Show a list of all packages installed for use by this application.
 
 <br>
 
