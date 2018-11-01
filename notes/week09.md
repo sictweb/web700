@@ -274,7 +274,7 @@ var someData = {
 };
 ```
 
-Notice, we have added a "visible" property that we can reference before we render "someData" in our view. Using the {{#if variable}} ... {{else}} ... {{/if}} construct, we can easily hide or show rows in the table:
+Notice, we have added a "visible" property that we can reference before we render "someData" in our view. Using the {% raw %}{{#if variable}} ... {{else}} ... {{/if}}{% endraw %} construct, we can easily hide or show rows in the table:
 
 {% raw %}
 ```html
@@ -569,7 +569,7 @@ One of the most convenient features that express handlebars provides in terms of
 
 Layouts are specified using the ".hbs" extension and are located by default in a directory called "layouts" within your "views" directory. If we place our layouts within this directory, or server will have no problem locating them. Once again, if we decide to store them in a different directory, we must set the "layoutsDir" property in the Express Handlebars configuration object (the same place where we specified our helpers) using the syntax: layoutsDir: "some/path/to/layouts".
 
-As before, we will be using the standard locations for our files in the server, so we must first create the layouts directory ("views/layouts") before adding files to it. Once this is done, we will add the file "main.hbs" to this directory, which contains the bulk of the html for our page, plus a {{{body}}} placeholder:
+As before, we will be using the standard locations for our files in the server, so we must first create the layouts directory ("views/layouts") before adding files to it. Once this is done, we will add the file "main.hbs" to this directory, which contains the bulk of the html for our page, plus a {% raw %}{{{body}}}{% endraw %} placeholder:
 
 {% raw %}
 ```html
