@@ -298,7 +298,7 @@ Press ^C at any time to quit.
 name: (seneca) seneca
 version: (1.0.0)
 description:
-entry point: (index.js) week2.js
+entry point: (index.js) week4.js
 test command:
 git repository:
 keywords:
@@ -310,7 +310,7 @@ About to write to C:\seneca\package.json:
   "name": "seneca",
   "version": "1.0.0",
   "description": "",
-  "main": "week2.js",
+  "main": "week4.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -391,7 +391,7 @@ Now if we take a look at the package.json file you can see that it has a new sec
     
 This means that if we give our project to someone else now they can just type **npm install** and it will install the dependencies listed here and the app should be able to run and have everything it needs.
 
-Now let's start our week2.js file and create a web server in 13 lines of code! Create a new week2.js that looks like this:
+Now let's start our week4.js file and create a web server in 13 lines of code! Create a new week4.js that looks like this:
 
 ```javascript
 var express = require("express");
@@ -438,11 +438,11 @@ To begin, we must first create a "views" folder for our HTML files inside the wo
 ```
 /node_modules
 /views
-week2.js
+week4.js
 package.json
 ```
 
-Next, we must add a new require for the path module at the top of our week2.js file.
+Next, we must add a new require for the path module at the top of our week4.js file.
 
 ```javascript
 var path = require("path");
@@ -472,7 +472,7 @@ Your project folder should now look something like the below:
 /node_modules
 /views
   about.html
-week2.js
+week4.js
 package.json
 ```
 
@@ -504,7 +504,7 @@ Fortunately, when you push your code to Heroku, the automated build process will
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node week2.js"
+    "start": "node week4.js"
   },
   "author": "",
   "license": "MIT",
@@ -514,7 +514,7 @@ Fortunately, when you push your code to Heroku, the automated build process will
 }
 ```
 
-This will ensure that Heroku runs the week2.js file when you push your code to the new app!
+This will ensure that Heroku runs the week4.js file when you push your code to the new app!
 
 If all goes well you should see a link to your project, allowing you to see this example running live on the web.
 
@@ -524,7 +524,7 @@ From the Heroku website in your account, you can view the logs of your app and y
 2017-03-11T21:32:25.893498+00:00 heroku[web.1]: Starting process with command `npm start`
 2017-03-11T21:32:30.214137+00:00 app[web.1]: 
 2017-03-11T21:32:30.214155+00:00 app[web.1]: > seneca@1.0.0 start /app
-2017-03-11T21:32:30.214156+00:00 app[web.1]: > node week2.js
+2017-03-11T21:32:30.214156+00:00 app[web.1]: > node week4.js
 2017-03-11T21:32:30.214157+00:00 app[web.1]: 
 2017-03-11T21:32:30.594484+00:00 app[web.1]: Express http server listening on: 54172
 ```

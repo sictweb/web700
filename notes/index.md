@@ -121,7 +121,7 @@ Introduction to AJAX & "REST" API:<br><br>
 </td>
 </tr>
   <tr>
-<td><a href="/web700/notes/week12">12 - Notes (<mark>First Version Added from WEB322</mark>)</a></td>
+<td><a href="/web700/notes/week12">12 - Notes (<mark>Conversion Complete</mark>)</a></td>
 <td>
 Security Considerations:<br><br>
 <ul>
