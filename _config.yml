@@ -1,2 +1,5 @@
 theme: jekyll-theme-minimal
+title: WEB700
+description: Course Name
 baseurl: /web700
+encoding: UTF-8

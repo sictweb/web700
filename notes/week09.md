@@ -3,7 +3,7 @@ title: WEB700 Week 9
 layout: default
 ---
 
-## WEB700 Week 9 Notes (<mark>TODO: Fix Formatting & move images using WEB322 as a Guide - Started</mark>)
+## WEB700 Week 9 Notes
 
 ### Review: Communicating to the Client
 
@@ -153,69 +153,39 @@ This is a much cleaner approach. We no longer have to generate the full page as 
 In order to set this up correctly and get express to understand the file above, we need to modify our server code slightly:
 
 1.  The first thing that we need to do is download / install the Handlebars.js package using NPM. Open a terminal in Visual Studio Code (ctrl + \` or View -> Integrated Terminal) and make sure that your working directory is somewhere within your project and run the command
-    
+
+    ```bash
     npm install --save express-handlebars
+    ```
     
     This will install the "handlebars" package in the same way that we installed the "express" package and update the dependencies in our package.json file:
-    
-        "dependencies": {
-            "express": "^4.14.0",
-            "express-handlebars": "^3.0.0"
-          }
+    ```json
+    "dependencies": {
+        "express": "^4.14.0",
+        "express-handlebars": "^3.0.0"
+    }
+    ```
     
 2.  Next, we need to update our server.js file to use our newly installed Handlebars.js module, by adding the line:
-    
-        const exphbs = require('express-handlebars');
-    
-    at the top of our server file.  
-      
+
+    ```javascript    
+    const exphbs = require('express-handlebars');
+    ```    
+
+    at the top of our server file.    
     
 3.  Our server needs to know how to handle HTML files that are formatted using handlebars, so near the top of our code (after we define our "app"), add the lines:
     
-        app.engine('.hbs', exphbs({ extname: '.hbs' }));
-        app.set('view engine', '.hbs');
-        
+    ```javascript
+    app.engine('.hbs', exphbs({ extname: '.hbs' }));
+    app.set('view engine', '.hbs');
+    ``` 
     
     This will tell our server that any file with the ".hbs" extension (instead of ".html") will use the handlebars "engine" (template engine).  
-      
     
 4.  The next step involves updating our "/viewData" route to "render" our handlebars file with the data:
     
-        app.get("/viewData", function(req,res){
-        
-            var someData = {
-                name: "John",
-                age: 23,
-                occupation: "developer",
-                company: "Scotiabank"
-            };
-        
-            res.render('viewData', {
-                data: someData
-            });
-            
-        });
-    
-    Now, the route no longer returns a string consisting of our HTML + data using res.send(), but instead invokes the [render](http://expressjs.com/en/api.html#res.render) method on the [response](http://expressjs.com/en/api.html#res) object (res). We pass the name of our new file without the extension (ie: "viewData" instead of "viewData.hbs"), and "data" object to hold all of our data (someData).
-
-If you have followed all of the steps above, your server.js should look something like this:
-
-    // setup our requires
-    const HTTP_PORT = 8080;
-    const express = require("express");
-    const exphbs = require("express-handlebars");
-    
-    const app = express();
-    
-    // call this function after the http server starts listening for requests
-    function onHttpStart() {
-      console.log("Express http server listening on: " + HTTP_PORT);
-    }
-    
-    // Register handlebars as the rendering engine for views
-    app.engine(".hbs", exphbs({ extname: ".hbs" }));
-    app.set("view engine", ".hbs");
-    
+    ```javascript
     app.get("/viewData", function(req,res){
     
         var someData = {
@@ -228,79 +198,127 @@ If you have followed all of the steps above, your server.js should look somethin
         res.render('viewData', {
             data: someData
         });
-    
+        
     });
+    ```
     
-    // start the server to listen on HTTP_PORT
-    app.listen(HTTP_PORT, onHttpStart);
-    
+    Now, the route no longer returns a string consisting of our HTML + data using res.send(), but instead invokes the [render](http://expressjs.com/en/api.html#res.render) method on the [response](http://expressjs.com/en/api.html#res) object (res). We pass the name of our new file without the extension (ie: "viewData" instead of "viewData.hbs"), and "data" object to hold all of our data (someData).
 
-You should also have a "viewData.hbs" file in your "views" directory.
+If you have followed all of the steps above, your server.js should look something like this:
 
-Now, when you navigate to the **/viewData** route, you should see an HTML table rendered with all of your data!
+```javascript
+// setup our requires
+const HTTP_PORT = 8080;
+const express = require("express");
+const exphbs = require("express-handlebars");
 
-### Adding Logic to Templates
+const app = express();
 
-Handlebars not only provides us with a mechanism to serve static HTML files with data from the server; it also has a number of [Built-In Helpers](http://handlebarsjs.com/builtin_helpers.html) that we can use within our templates to help render the data. Helpers in Handlebars use the following pattern:
+// call this function after the http server starts listening for requests
+function onHttpStart() {
+    console.log("Express http server listening on: " + HTTP_PORT);
+}
 
-{% raw %}{{#helperName context}} block {{/helperName}}{% endraw %}
+// Register handlebars as the rendering engine for views
+app.engine(".hbs", exphbs({ extname: ".hbs" }));
+app.set("view engine", ".hbs");
 
-where **helperName** represents the name of the helper (built-in or custom), **context** represents a (optional) variable passed in to the helper and **block** is the block of HTML / Handlebars logic affected by the helper.
-
-#### "if" Helper
-
-The "if" helper is used when we wish to conditionally render a block of HTML. It works by looking at the variable passed into its "context" argument and if it holds **true**, render the block. It also has the notion of an {% raw %}{{else}}{% endraw %} clause which will cause a separate block of HTML to render if the argument holds false. It is important to note that comparison operators cannot be used here and code like {% raw %}{{#if data.name == "Joe"}}{% endraw %} will not work. This is designed to take a variable and check for true / false. For example, say we wish to conditionally show our developer "John":
-
-    var someData = {
-       name: "John",
-       age: 23,
-       occupation: "developer",
-       company: "Scotiabank",
-       visible: true
-    };
-    
-
-Notice, we have added a "visible" property that we can reference before we render "someData" in our view. Using the {{#if variable}} ... {{else}} ... {{/if}} construct, we can easily hide or show rows in the table:
-
-{% raw %}
-```html
-    <table border='1'>
-        <tr>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Occupation</th>
-            <th>Company</th>
-        </tr>
-        {{#if data.visible}}
-            <tr>
-                <td>{{data.name}}</td>
-                <td>{{data.age}}</td>
-                <td>{{data.occupation}}</td>
-                <td>{{data.company}}</td>
-            </tr>
-        {{else}}
-            <tr>
-                <td colspan="4">User: '{{data.name}}' has hidden their information</td>
-            </tr>
-        {{/if}}
-    </table>
-```
-{% endraw %}
-
-#### "unless" Helper
-
-The "unless" helper functions in the same way as the "if" helper, only it renders the block if the "context" variable holds **false** instead of true. For example, say we add another property to our "someData" object; in this case, we wish to store whether or not "John" is a contract employee:
+app.get("/viewData", function(req,res){
 
     var someData = {
         name: "John",
         age: 23,
         occupation: "developer",
-        company: "Scotiabank",
-        visible: true,
-        contract: false
+        company: "Scotiabank"
     };
 
-We can add the {{#unless}} helper to only show the "Full-Time employee" table row if the "contract" property is explicitly set to **false**. So, instead of needing true to show the block (like the "if" helper), we must have a **false** value to show the block.
+    res.render('viewData', {
+        data: someData
+    });
+
+});
+
+// start the server to listen on HTTP_PORT
+app.listen(HTTP_PORT, onHttpStart);
+```  
+
+You should also have a "viewData.hbs" file in your "views" directory.
+
+Now, when you navigate to the **/viewData** route, you should see an HTML table rendered with all of your data!
+
+<br>
+
+### Adding Logic to Templates
+
+Handlebars not only provides us with a mechanism to serve static HTML files with data from the server; it also has a number of [Built-In Helpers](http://handlebarsjs.com/builtin_helpers.html) that we can use within our templates to help render the data. Helpers in Handlebars use the following pattern:
+
+```html
+{% raw %}{{#helperName context}} block {{/helperName}}{% endraw %}
+```
+
+where **helperName** represents the name of the helper (built-in or custom), **context** represents a (optional) variable passed in to the helper and **block** is the block of HTML / Handlebars logic affected by the helper.
+
+<br>
+
+#### "if" Helper
+
+The "if" helper is used when we wish to conditionally render a block of HTML. It works by looking at the variable passed into its "context" argument and if it holds **true**, render the block. It also has the notion of an {% raw %}{{else}}{% endraw %} clause which will cause a separate block of HTML to render if the argument holds false. It is important to note that comparison operators cannot be used here and code like {% raw %}{{#if data.name == "Joe"}}{% endraw %} will not work. This is designed to take a variable and check for true / false. For example, say we wish to conditionally show our developer "John":
+
+```javascript
+var someData = {
+    name: "John",
+    age: 23,
+    occupation: "developer",
+    company: "Scotiabank",
+    visible: true
+};
+```
+
+Notice, we have added a "visible" property that we can reference before we render "someData" in our view. Using the {{#if variable}} ... {{else}} ... {{/if}} construct, we can easily hide or show rows in the table:
+
+{% raw %}
+```html
+<table border='1'>
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Occupation</th>
+        <th>Company</th>
+    </tr>
+    {{#if data.visible}}
+        <tr>
+            <td>{{data.name}}</td>
+            <td>{{data.age}}</td>
+            <td>{{data.occupation}}</td>
+            <td>{{data.company}}</td>
+        </tr>
+    {{else}}
+        <tr>
+            <td colspan="4">User: '{{data.name}}' has hidden their information</td>
+        </tr>
+    {{/if}}
+</table>
+```
+{% endraw %}
+
+<br>
+
+#### "unless" Helper
+
+The "unless" helper functions in the same way as the "if" helper, only it renders the block if the "context" variable holds **false** instead of true. For example, say we add another property to our "someData" object; in this case, we wish to store whether or not "John" is a contract employee:
+
+```javascript
+var someData = {
+    name: "John",
+    age: 23,
+    occupation: "developer",
+    company: "Scotiabank",
+    visible: true,
+    contract: false
+};
+```
+
+We can add the {% raw %}{{#unless}}{% endraw %} helper to only show the "Full-Time employee" table row if the "contract" property is explicitly set to **false**. So, instead of needing true to show the block (like the "if" helper), we must have a **false** value to show the block.
 
 {% raw %}
 ```html
@@ -312,6 +330,8 @@ We can add the {{#unless}} helper to only show the "Full-Time employee" table ro
 ```
 {% endraw %}
 
+<br>
+
 #### "each" Helper
 
 The "each" helper is one of the most useful built-in helpers available to us in Handlebars. It is often the case that the data we wish to render belongs to a collection / array, rather than a single object. The "each" helper automatically repeats a block for every element in the collection (specified by the "context" variable) and gives us a mechanism to render the values in the current iteration. For example, any variables (properties) referenced within the #each block will automatically use the current iteration as the working object.
@@ -320,20 +340,22 @@ Additionally, we can specify an {% raw %}{{else}}{% endraw %} clause that will r
 
 To see how this works in practice, let's make someData an array of objects:
 
-    var someData = [{
-        name: "John",
-        age: 23,
-        occupation: "developer",
-        company: "Scotiabank"
-    },
-    {
-        name: "Sarah",
-        age: 32,
-        occupation: "manager",
-        company: "TD"
-    }];
+```javascript
+var someData = [{
+    name: "John",
+    age: 23,
+    occupation: "developer",
+    company: "Scotiabank"
+},
+{
+    name: "Sarah",
+    age: 32,
+    occupation: "manager",
+    company: "TD"
+}];
+```
 
-In order for us to reference each object in the array, we need to use the #each helper to iterate over each element. We can create a <tr> element that will repeat for every element in the "data" collection and reference each property we want to show within a <td>:
+In order for us to reference each object in the array, we need to use the #each helper to iterate over each element. We can create a \<tr\> element that will repeat for every element in the "data" collection and reference each property we want to show within a \<td\>:
 
 {% raw %}
 ```html
@@ -376,18 +398,21 @@ The "each" helper also exposes an "@index" variable that allows us to reference 
 ```
 {% endraw %}
 
+<br>
+
 ### Writing Custom Helpers
 
 While the built-in helpers mentioned above simplify working with data in our HTML (.hbs) files, there are many situations where it is preferable to code our _own_ helpers. For example, maybe we wish to define a container that always uses the same html pattern, such as the ["Warning" alert](https://getbootstrap.com/components/#alerts-dismissible) used in the Bootstrap framework:
 
-    <div class="alert alert-warning alert-dismissible" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        ... Some Warning Text ...
-    </div>
+```html
+<div class="alert alert-warning alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    ... Some Warning Text ...
+</div>
+```
     
-
 Rather than writing out this same block of code every time we wish to create a dismissible warning, it would be much easier to create a helper to do it for us:
 
 {% raw %}
@@ -422,15 +447,21 @@ The name of each property belonging to the "helpers" object corresponds to the n
     
     In short, referencing "options.fn(this)" allows us to build a string containing new data/html in addition to the existing content within the helper. If we return this new string from the function, Handlebars will use this string in place of the helper in our view!
     
-    For example, consider the following helper that wraps text in a "<strong>" element:
+    For example, consider the following helper that wraps text in a "\<strong\>" element:
     
+    ```javascript
         strong: function(options){
             return '<strong>' + options.fn(this) + '</strong>';
         }
+    ```
     
     To use this helper within our .hbs files, we use the syntax:
     
-        name: {{#strong}}{{data.name}}{{/strong}}
+    {% raw %}
+    ```html
+    name: {{#strong}}{{data.name}}{{/strong}}
+    ```
+    {% endraw %}
     
 *   **helper2: function(context, options)**
     
@@ -438,28 +469,31 @@ The name of each property belonging to the "helpers" object corresponds to the n
     
     For example, consider the following helper that works to create an unordered list:
     
-        list: function(context, options) {
-            var ret = "<ul>";
-        
-            for(var i = 0; i < context.length; i++) {
-                ret = ret + "<li>" + options.fn(context[i]) + "</li>";
-            }
-        
-            return ret + "</ul>";
+    ```javascript
+    list: function(context, options) {
+        var ret = "<ul>";
+    
+        for(var i = 0; i < context.length; i++) {
+            ret = ret + "<li>" + options.fn(context[i]) + "</li>";
         }
+    
+        return ret + "</ul>";
+    }
+    ```
     
     To use this helper within our .hbs files, we use the syntax:
 
-{% raw %}   
-```html
+    {% raw %}   
+    ```html
     {{#list data}}
         Name: {{name}} Age: {{age}} Occupation: {{occupation}} Company: {{company}}
     {{/list}}
-```
-{% endraw %}
+    ```
+    {% endraw %}
     
     This will result in two list items nested within an unordered list.
     
+<br>
 
 ### "Partial" Templates
 
@@ -469,20 +503,24 @@ Partial Templates are separate .hbs files that are included dynamically within y
 
 Since we will just be using the standard locations for our files in the server, we must first create the partials directory ("views/partials") before adding files to it. Once this is done, we will add the file "welcome.hbs" to this directory, which contains some simple html:
 
-    <div>
-        <strong><em>Welcome!</em></strong>
-    </div>
+```html
+<div>
+    <strong><em>Welcome!</em></strong>
+</div>
+```
 
 Now, if we want to use this partial in our viewData.hbs view, we simply need to include it with the following syntax:  
-**{{> partialfilename }}**. In our case, we wish to include our newly created "welcome.hbs" template, which can be done using the following line of code:
+{% raw %}**{{> partialfilename }}**{% endraw %}. In our case, we wish to include our newly created "welcome.hbs" template, which can be done using the following line of code:
 
 {% raw %}
 ```html
-    {{> welcome }}
+{{> welcome }}
 ```
 {% endraw %}
 
 This will dynamically pick up the content from our "welcome.hbs" template and insert it in place!
+
+<br>
 
 #### Passing Data to "Partial" Templates
 
@@ -490,16 +528,18 @@ Partial templates are great for reusing large chunks of html or logically dividi
 
 Recall, we were working with the "someData" variable in our viewData.hbs view:
 
-    var someData = {
-        name: "John",
-        age: 23,
-        occupation: "developer",
-        company: "Scotiabank"
-    };
-    
-    res.render('viewData', {
-        data: someData
-    });
+```javascript
+var someData = {
+    name: "John",
+    age: 23,
+    occupation: "developer",
+    company: "Scotiabank"
+};
+
+res.render('viewData', {
+    data: someData
+});
+```
 
 So, if we update our "welcome.hbs" file to use the "name" property:
 
@@ -511,7 +551,7 @@ So, if we update our "welcome.hbs" file to use the "name" property:
 ```
 {% endraw %}
 
-We can pass the partial view the "context" (so that {% raw %}{{name}}{% rendaw %} makes sense) by passing "data" as the "context variable:
+We can pass the partial view the "context" (so that {% raw %}{{name}}{% endraw %} makes sense) by passing "data" as the "context variable:
 
 {% raw %}
 ```html
@@ -519,7 +559,9 @@ We can pass the partial view the "context" (so that {% raw %}{{name}}{% rendaw %
 ```
 {% endraw %}
 
-Essentially this tells our "welcome" partial view to access any properties on the "data" object, so {% raw %}{{name}}{% endraw %} is really {% raw %}{{data.name}}{% raw %}.
+Essentially this tells our "welcome" partial view to access any properties on the "data" object, so {% raw %}{{name}}{% endraw %} is really {% raw %}{{data.name}}{% endraw %}.
+
+<br>
 
 ### Layouts / Default Layout
 
@@ -553,32 +595,35 @@ It is within this {% raw %}{{{body}}}{% endraw %} placeholder that our view (.hb
 
 To set this up correctly and ensure that our new "main.hbs" file is the "default" layout, we need to make a simple addition to our familiar express handlebars configuration object.
 
-    app.engine('.hbs', exphbs({ 
-        //...
-        defaultLayout: 'main'
-        //...
-    }));
+```javascript
+app.engine('.hbs', exphbs({ 
+    //...
+    defaultLayout: 'main'
+    //...
+}));
+```
 
-By setting the "defaultLayout" property to our "main.hbs" layout, we can ensure that every time we "render" our .hbs files, the result will be placed within the {{{body}}} placeholder of our "main" layout.
+By setting the "defaultLayout" property to our "main.hbs" layout, we can ensure that every time we "render" our .hbs files, the result will be placed within the {% raw %}{{{body}}}{% endraw %} placeholder of our "main" layout.
 
 If we don't wish to use the default layout for a particular view, we must explicitly set "layout: false" when we invoke the "render" function:
 
-    res.render('viewData', {
-        data: someData,
-        layout: false // do not use the default Layout (main.hbs)
-    });
+```javascript
+res.render('viewData', {
+    data: someData,
+    layout: false // do not use the default Layout (main.hbs)
+});
+```
 
 Similairly, we can use a different layout by specifying it in the "layout" property, ie:
 
-    res.render('viewData', {
-        data: someData,
-        layout: "otherLayout" // use "otherLayout.hbs" as a layout
-    });
+```javascript
+res.render('viewData', {
+    data: someData,
+    layout: "otherLayout" // use "otherLayout.hbs" as a layout
+});
+```
 
-### Announcements
-
-*   Test 3 Next Week
-*   Assignment 3 Due this Friday at 11:59pm
+<br>
 
 ### Sources
 
