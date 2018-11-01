@@ -363,7 +363,7 @@ Finally - our server is setup and ready to serve the index.html file at our main
 
 Once you have entered the above code, save the changes and try running your server locally to see what happens. You will see that All of the routes tested return a JSON formatted message! Now we know that our REST API will correctly respond to AJAX requests made by the client. Additionally, If you open the **Network tab** (Google Chrome) before initiating one of the calls to **Update** or **Add a New User**, you will see that our request is also carrying a payload of information, ie:  
   
-![AJAX Request Payload](/web700/media//ajax-send2.png)
+![AJAX Request Payload](/web700/media/ajax-send2.png)
 
 If we wish to capture this information in our routes (so that we can make the appropriate updates to our data source), we must make some small modifications to our server.js file and individual routes (ie: POST to "/api/users" & PUT to "/api/users/:userId"). The first thing that we must do is include the [body-parser](https://www.npmjs.com/package/body-parser) module. Recall from week 5 - we require this module if we wish to access the "body" component of the request.
 
