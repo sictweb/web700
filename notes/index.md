@@ -103,7 +103,7 @@ Template Engines – Handlebars.js:<br><br>
 </td>
 </tr>
   <tr>
-<td><a href="/web700/notes/week10">10 - Notes (<mark>First Version Added from WEB322</mark>)</a></td>
+<td><a href="/web700/notes/week10">10 - Notes (<mark>Conversion Complete</mark>)</a></td>
 <td>
 Introduction to AJAX & "REST" API:<br><br>
 <ul>
