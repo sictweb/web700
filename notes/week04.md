@@ -491,7 +491,7 @@ To test your server, run **node week2** to see the results on **http://localhost
 
 #### Running this example on Heroku
 
-If we wish to see this code run on Heroku, we follow the same procedure highlighted in the [Getting Started with Heroku](http://zenit.senecac.on.ca/~patrick.crawford/index.php/web322/course-notes/getting-started-with-heroku/) guide, ie, logging in to heroku (**heroku login**), creating an app (**heroku create**) and pushing our code to the server using **git push heroku master**.
+If we wish to see this code run on Heroku, we follow the same procedure highlighted in the [Getting Started with Heroku](/web700/getting-started-with-heroku) guide, ie, logging in to heroku (**heroku login**), creating an app (**heroku create**) and pushing our code to the server using **git push heroku master**.
 
 However, there is one small change that we can make to our package.json file to ensure that the correct .js file is started on Heroku when we deploy our app. This is necessary if we have multiple server files for debugging and testing; as is the case with the "example code" from github - it contains multiple servers, one for each week!
 

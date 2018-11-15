@@ -109,7 +109,7 @@ Introduction to AJAX &amp; "REST" API:<br /><br />
 </td>
 </tr>
 <tr>
-<td headers="tbl6"><a href="/web700/notes/week11">11 - Notes (<mark>TODO: Update "Getting Started With Heroku" Link</mark>)</a></td>
+<td headers="tbl6"><a href="/web700/notes/week11">11 - Notes (<mark>Conversion Complete</mark>)</a></td>
 <td headers="tbl7">
 Introduction to Postgres / Sequelize ORM:<br /><br />
 <ul>
