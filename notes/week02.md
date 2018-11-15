@@ -7,7 +7,7 @@ layout: default
 
 <br>
 
-#WEB222 WEEK 2
+# WEB222 WEEK 2
 <br>
 <br>
 <br>
@@ -840,7 +840,7 @@ or produces (e.g., `console.log`) the given result.
 <br>
 <br>
 <br>
-#WEB222 WEEK 3
+# WEB222 WEEK 3
 <br>
 <br>
 <br>
@@ -1196,7 +1196,7 @@ A sample solution is provided in [solution.js](solution.js).
 <br>
 <br>
 <br>
-#WEB222 WEEK 4
+# WEB222 WEEK 4
 <br>
 <br>
 <br>
