@@ -18,7 +18,7 @@ Here, you will find the links to the weekly notes.  Please also remember to refe
 </thead>
 <tbody>
 <tr>
-<td><a href="/web700/notes/week01">1 - Notes</a></td>
+<td><a href="/web700/notes/week01">1 - Notes (<mark>Copied Directly from WEB222 Week 1 - No Changes Made Yet)</mark></a></td>
 <td>
 Welcome to WEB700:<br><br>
 <ul>
@@ -31,7 +31,7 @@ Welcome to WEB700:<br><br>
 </td>
 </tr>
 <tr>
-<td><a href="/web700/notes/week02">2 - Notes</a></td>
+<td><a href="/web700/notes/week02">2 - Notes (<mark>Copied Directly from WEB222 Week 2, 3 and 4 - No Changes Made Yet)</a></td>
 <td>
 JavaScript Continued:<br><br>
 <ul>
