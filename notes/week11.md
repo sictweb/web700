@@ -245,6 +245,8 @@ sequelize.sync().then(function () {
 
 The [sequelize.sync()](http://docs.sequelizejs.com/class/lib/sequelize.js~Sequelize.html#instance-method-sync) operation needs to be completed before we can do anything else. This ensures that all of our models are represented in the database as tables. If we have defined a model in our code that doesn't correspond to a table in the database, **sequelize.sync()** will automatically create it (as we have seen).
 
+> **Important Note:** We **do not** have to sync() the database before every operation. Only once when the server starts to ensure that the models are correctly represented as tables within the database.
+
 Once our models have been successfully sync()'d with the database, we can start working with the data. You will notice that we use the familiar **then()** and **catch()** functions; this is because both sync() and create() return a **promise** (see "Promises" in the "JavaScript Concept Review" weekly notes) and as we stated above, we must work with the data **after** the sync() operation has successfully completed.
 
 If sync() resolves successfully, we then wish to create a new record in the "Project" table, so we use **Project.create()** method and pass it some data (**title** and **description**). If the operation completed successfully, we see the message "success!" in the console - otherwise we catch the error and output "something went wrong!"
