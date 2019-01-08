@@ -15,7 +15,7 @@ Here, you will find the links to the weekly notes.  Please also remember to refe
 <th id="tbl7">Theme</th>
 </tr>
 <tr>
-<td headers="tbl6"><a href="/web700/notes/week01">1 - Notes (<mark>Copied Directly from WEB222 Week 1 - No Changes Made Yet and no Examples Added</mark>)</a></td>
+<td headers="tbl6"><a href="/web700/notes/week01">1 - Notes (<mark>Copied Directly from WEB222 Week 1 - No Changes Made Yet and no Examples Added - need to update with newer version of week1</mark>)</a></td>
 <td headers="tbl7">
 Welcome to WEB700:<br /><br />
 <ul>
