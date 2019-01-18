@@ -1,4 +1,4 @@
-## WEB700 - Course Name
+## WEB700 - Web Programming Tools and Principles
 
 ![Working on a Laptop](https://raw.githubusercontent.com/sictweb/resources/master/computer-image-2.jpg) 
 
