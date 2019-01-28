@@ -161,6 +161,34 @@ fetch(myRequest).then(function(response) {
     
 <br>
 
+#### AJAX: The Fetch API (Compressed)
+
+To save lines and make your code more readable and concise, the above two pieces of code can be combined, ie:  
+
+```javascript    
+fetch('https://reqres.in/api/users/', { 
+    method: 'POST',
+    body: JSON.stringify({user:"John Doe", job:"unknown"}),
+    headers: { 'Content-Type': 'application/json'} 
+})
+.then(response => response.json())
+.then(json => {
+    console.log(json);   
+});
+```
+
+**NOTE:** Our code is even shorter if we're simply doing a "GET" request, ie:  
+
+```javascript
+fetch('https://reqres.in/api/users/')
+.then(response => response.json())
+.then(json => {
+    console.log(json);   
+});
+```
+
+<br>
+
 ### JSON Review
 
 As we have seen from above, the format of choice when sending data to/from a webserver using AJAX is **JSON (JavaScript Object Notation)**. This is a plain-text format that easily converts to a JavaScript object in memory. Essentially, JSON is a way to define an object using "Object Literal" notation, **outside** your application. Using the native JavaScript built-in [JSON Object](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON), we can preform the conversion from plain-text (JSON) to JavaScript Object (and vice-versa) easily. For example:
