@@ -15,14 +15,13 @@ Here, you will find the links to the weekly notes.  Please also remember to refe
 <th id="tbl7">Theme</th>
 </tr>
 <tr>
-<td headers="tbl6"><a href="/web700/notes/week01">1 - Notes (<mark>Copied Directly from WEB222 Week 1 - No Changes Made Yet and no Examples Added - need to update with newer version of week1</mark>)</a></td>
+<td headers="tbl6"><a href="/web700/notes/week01">1 - Notes (<mark>First Draft Complete - extremely similar to WEB222 intro</mark>)</a></td>
 <td headers="tbl7">
 Welcome to WEB700:<br /><br />
 <ul>
 <li>Course Introduction</li>
-<li>Development Environment / Technology / Tools</li>
 <li>Internet Architecture</li>
-<li>Quick Node.js Introduction (enough to execute JavaScript)</li>
+<li>Development Environment / Technology / Tools</li>
 <li>Introduction to JavaScript</li>
 </ul>
 </td>
