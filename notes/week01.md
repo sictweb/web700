@@ -323,39 +323,11 @@ The web allows users to access and run remote applications *without* needing to 
 
 The web works on *every* computing platform.  You can access and use the web on desktop and mobile computers, on TVs and smartwatches, on Windows and Mac, in e-Readers and video game consoles.  The web works everywhere, and learning how to develop software for the web extends your reach into all those platforms.
 
-### Front-End Web Development: HTML5, CSS, JavaScript, and friends
-
-When we talk about programming for the web in a browser, we often refer to this as
-*Front-End Web Development*.  This is in contrast to server-side, or *Back-End Development*.
-In this course we will be focused on the front-end, leaving back-end for subsequent courses.
-
-The modern web, and modern web browsers, are incredibly powerful.  What was once possible
-only on native operating systems can now be done within browsers using only web technologies (cf. [running Windows 2000](https://bellard.org/jslinux/vm.html?url=https://bellard.org/jslinux/win2k.cfg&mem=192&graphic=1&w=1024&h=768) or [Doom 3](http://continuation-labs.com/d3wasm/) in a browser window!)
-
-The set of front-end technologies that make this possible, and are commonly referred to as the Web Platform, include:
-
-* [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5) - the Hypertext Markup Language, and its associated APIs, provide a way to define and structure content
-* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) - Cascading Style Sheets allow developers and designers to create beautiful and functional UIs for the web
-* [JS](https://developer.mozilla.org/bm/docs/Web/JavaScript) - JavaScript allows complex user interaction with web content, and dynamic behaviours in documents and applications.
-* [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) - the Document Object Model and its APIs allows scripts and web content to interact at runtime.
-* [Web APIs](https://developer.mozilla.org/en-US/docs/Web/API) - hundreds of APIs provide access to hardware devices, networking, files, 2D and 3D graphics, databases, and so much more.
-
-In addition to these primary technologies, an increasingly important set of secondary,
-or third-party technologies are also in play:
-
-* Libraries, Modules - [Bootstrap](https://getbootstrap.com/), [Leaflet](http://leafletjs.com/), [Three.js](http://threejs.org/), [Lodash](http://lodash.com/), ...
-* Frameworks - [React](https://reactjs.org/), [Angular](https://angular.io/), [Vue.js](https://vuejs.org/), ...
-* Tooling - [Babel](https://babeljs.io/), [webpack](https://webpack.js.org/), [ESLint](https://eslint.org/), [TypeScript](https://www.typescriptlang.org/), ...
-
-The front-end web stack is also increasingly being used to build software outside
-the browser, both on desktop and mobile using things like [Electron](https://electronjs.org/) and [Progressive Web Apps (PWA)](https://developers.google.com/web/progressive-web-apps/).
-[Visual Studio Code](https://code.visualstudio.com/), for example, is written using web technologies and runs on Electron, which is one of the reasons it works across so many platforms.
 
 ## Introduction to JavaScript
 
-The first front-end web technology we will learn is JavaScript.  JavaScript (often shortened to JS)
-is a lightweight, interpreted or JIT (i.e., Just In Time) compiled language meant to be
-embedded in host environments, for example, web browsers.
+The first web technology we will learn is JavaScript.  JavaScript (often shortened to JS)
+is a lightweight, interpreted or JIT (i.e., Just In Time) compiled language.
 
 JavaScript looks [similar to C/C++ or Java](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction#JavaScript_and_the_ECMAScript_Specification#JavaScript_and_Java) in some of its syntax, but is quite different
 in philosophy; it is more closely related to [Scheme](https://en.wikipedia.org/wiki/Scheme_(programming_language)) than C. For example, JavaScript is a dynamic scripting language supporting
@@ -389,7 +361,7 @@ environment.  There are many possible environments, but we will focus on the fol
 * Web Browsers, and their associated developer tools, primarily:
     * [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/)
     * [Firefox Developer Tools](https://developer.mozilla.org/en-US/docs/Tools)
-* [node.js](https://nodejs.org/), and its [command line REPL (Read-Eval-Print-Loop)](http://www.tutorialsteacher.com/nodejs/nodejs-console-repl)
+* [Node.js](https://nodejs.org/), and its [command line REPL (Read-Eval-Print-Loop)](http://www.tutorialsteacher.com/nodejs/nodejs-console-repl)
 
 If you haven't done so already, you should install all of the above.
 
@@ -398,13 +370,13 @@ If you haven't done so already, you should install all of the above.
 JavaScript is parsed, executed, and managed (i.e., memory, garbage collection, etc) by an [engine](https://en.wikipedia.org/wiki/JavaScript_engine) written in C/C++.
 There are a number of JavaScript engines available, the most common of which are:
 
-* [V8](https://developers.google.com/v8/), maintained an used by Google in Chrome and in node.js
+* [V8](https://developers.google.com/v8/), maintained an used by Google in Chrome and in Node.js
 * [SpiderMonkey](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey), maintained and used by Mozilla in Firefox
 * [ChakraCore](https://github.com/microsoft/chakracore), maintained and used by Microsoft in Edge
 * [JavaScriptCore](https://trac.webkit.org/wiki/JavaScriptCore), maintained and used by Apple in Safari
 
 These engines, much like car engines, are meant to be used within a larger context.  We will
-encounter them indirectly via web browsers and in node.js.
+encounter them indirectly via web browsers and in Node.js.
 
 It's not important to understand a lot about each of these engines at this point,
 other than to be aware that each has its own implementation of the ECMAScript standards, its own performance characteristics (i.e., some are faster at certain things), as well as its own set of bugs.
@@ -412,18 +384,38 @@ other than to be aware that each has its own implementation of the ECMAScript st
 #### Running JavaScript Programs
 
 JavaScript statements can be stored in an external file with a `.js` file extension,
-or embedded within HTML code via the HTML `<script>` element.  As a developer, you also
-have a number of options for writing and executing JavaScript statements or files:
+or embedded within HTML code via the HTML `<script>` element.  For the first part of this course, we will use [Node.js](https://nodejs.org/en/) to execute our JavaScript code from the command line within our development environment, [Visual Studio Code](https://code.visualstudio.com/)
 
-1. From the command line via [node.js](https://nodejs.org/en/).  You'll learn more about node.js in subsequent courses, but we'll also use it sometimes in this course to quickly try test JavaScript expressions, and to run JavaScript programs outside the browser.
+1. If you have not yet done so, download and install [Visual Studio Code](https://code.visualstudio.com/) and [Node.js](https://nodejs.org/)
 
-2. Using [Firefox's Developer Tools](https://developer.mozilla.org/en-US/docs/Tools), and in particular the [Web Console](https://developer.mozilla.org/en-US/docs/Tools/Web_Console), [JavaScript Debugger](https://developer.mozilla.org/en-US/docs/Tools/Debugger), and [Scratchpad](https://developer.mozilla.org/en-US/docs/Tools/Scratchpad).
+2. Create a folder somewhere on your local machine and give it a relavent name, ie: "Ex1" (**Note** Before starting any coding project in Visual Studio Code, it's important to first create a containing folder).
 
-3. Using [Chrome's DevTools](https://developers.google.com/web/tools/chrome-devtools/), and in particular the [Console](https://developers.google.com/web/tools/chrome-devtools/console/get-started) and [Sources Debugger](https://developers.google.com/web/tools/chrome-devtools/javascript/)
+3. Open Visual Studio Code 
 
-4. Finally, we'll eventually write JavaScript that connects with HTML and CSS to create dynamic web pages and applications.
+4. You should see a large, "Open Folder" button in the left pane.  If the left pane is not visible click the top-left icon (it should look like two files overlapping)
 
-Take some time to install and familiarize yourself with all of the methods listed above.
+5. Click the "Open Folder" button and choose your newly-created "Ex1" folder.
+
+6. Next, hover your moue over the "EX1" text in the left pane; this will cause 4 icons to appear.  Click the first one (It looks like a little file with a plus (+) icon) to create a new file within the "Ex1" folder.
+
+7. Name this file "Hello.js" and press enter.  Once this is complete, "Hello.js" should be open and ready for editing.
+
+8. Enter the following line of code: 
+    
+    ```js 
+    console.log("Hello World!");
+    ```
+
+9. Save the file and open the "Integrated Terminal" using either the "View" menu and choosing "Terminal" or using the key combination ctrl + `
+
+10. You should now see a terminal / Command Prompt at the bottom of your code.  Within this terminal, execute the following command:
+   
+    ```
+    node Hello.js
+    ```
+
+11. "Hello World!" - you have just executed your first line of JavaScript code!
+
 
 ### JavaScript Syntax
 
@@ -475,6 +467,7 @@ function add(a, b) {
 ```
 
 * JavaScript statements: a JavaScript program typically consists of a series of statements. A statement is a single-line of instruction made up of objects, expressions, variables, and events/event handlers.
+
 * Block statement: a block statement, or compound statement, is a group of statements that are treated as a single entity and are grouped within curly brackets `{...}`. Opening and closing braces need to work in pairs. For example, if you use the left brace `{` to indicate the start of a block, then you must use the right brace `}` to end it. The same matching pairs applies to single `'......'` and double `"......."` quotes to designate text strings.
 
 * [Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions) are one of the primary building blocks of JavaScript.  A function defines a subprogram that can be called by other parts of your code.  JavaScript treats functions like other built-in types, and they can be stored in variables passed to functions, returned from functions or generated at run-time.  Learning how to write code in terms of functions will be one of your primary goals as you get used to JavaScript.
@@ -714,21 +707,3 @@ var total;
 total = add(56);            // invoking the add function with a single argument
 total = add(total, 92);     // invoking the add function with two arguments
 ```
-
-## Practice Exercises
-
-Try to solve each of the following using JavaScript.  If you need to `print` something,
-use `console.log()`, which will print the argument(s) you give it.
-
-1. Create a variable `label` and assign it the value `"senecacollege"`.  Create another variable `tld` and assign it `"ca"`.  Create a third variable `domainName` that combines `label` and `tld` to produce the value `"senecacollege.ca"`.
-1. Create a variable `isSeneca` and assign it a boolean value (`true` or `false`) depending on whether or not `domainName` is equal to `"senecacollege.ca"`.  HINT: use `===` and don't write `true` or `false` directly.
-1. Create a variable `isNotSeneca` and assign it the inverse boolean value of `isSeneca`.  HINT: if `isSeneca` is `true`, `isNotSeneca` should be `false`.
-1. Create four variables `byte1`, `byte2`, `byte3`, `byte4`, and assign each of these a value in the range `0-255`.
-1. Convert `byte1` to a `String` using `.toString()`, and `console.log()` the result.  What happens if you use `toString(2)` or `toString(16)` instead?
-1. Create a variable `ipAddress` and assign it the value of combining your four `byteN` variables together, separated by `"."`.  For example: `"192.168.2.1"`.
-1. Create a variable `ipInt` and assign it the integer value of bit-shifting (`<<`) and adding your `byteN` variables.  HINT: your `ipInt` will contain 32 bits, the first byte needs to be shifted 24 bit positions (`<< 24`) so it occupies 32-25, the second shifted 16, the third 8.
-1. Create a variable `ipBinary` that contains the binary representation of the `ipInt` value.  HINT: use `.toString(2)` to display the number with `1` and `0` only.
-1. Create a variable `statusCode`, and assign it the value for the "I'm a teapot" HTTP status code.  HINT: see [https://developer.mozilla.org/en-US/docs/Web/HTTP/Status](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
-1. Write an `If` statement that checks to see if your `statusCode` is a [`4xx` client error](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#Client_error_responses). HINT: use the `<`, `>`, `>=`, and/or `<=` operators to test the value
-1. Write a `switch` statement that checks your `statusCode` for all possible [`1xx` information responses](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#Information_responses).  In each case, you should `console.log()` the response text associated with the status code, or `"unknown information response"` if the status code is not known.
-1. Write a function `is2xx(status)` which takes a status code `status` (e.g., `200`) and returns `true` if the status code is a [valid 2xx code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#Successful_responses).
