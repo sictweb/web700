@@ -20,6 +20,8 @@ layout: default
 * [SpeakingJS,  Chapter 15. Functions](http://speakingjs.com/es5/ch15.html) and [Chapter 16. Variables: Scopes, Environments, and Closures](http://speakingjs.com/es5/ch16.html)
 * [Eloquent JavaScript, Chapter 3. Functions](https://eloquentjavascript.net/2nd_edition/02_program_structure.html)
 * [Functions Guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions) and [Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions) on MDN.
+* [SpeakingJS, Chapter 12. Strings](speakingjs.com/es5/ch12.html)
+* [SpeakingJS, Chapter 18. Arrays](speakingjs.com/es5/ch18.html)
 
 ## Functions
 
@@ -54,11 +56,16 @@ Before we dive into that , we'll try to teach you that writing many smaller func
 is often [better than having a few large ones](https://martinfowler.com/bliki/FunctionLength.html).  Smaller code is [easier to test, easier to understand](https://dzone.com/articles/rule-30-%E2%80%93-when-method-class-or),
 and generally [has fewer bugs](https://dubroy.com/blog/method-length-are-short-methods-actually-worse/).
 
+<br>
+
 ### User-defined Functions
 
 JavaScript has many built-in functions, which we'll get to below; however, it also
 allows you to write your own and/or use ones written by other developers (libraries, frameworks).
 These user-defined functions can take a number of forms.
+
+> Important Note: Functions are typically named using the same rules we learned for naming any
+variable: `camelCase` and using the set of valid letters, numbers, etc. and avoiding language keywords.
 
 #### Function Declarations
 
@@ -110,7 +117,7 @@ A few things to note:
 
 > JavaScript version note: newer versions of JavaScript also include the new `=>` notation, which denotes an [Arrow Function](https://eloquentjavascript.net/03_functions.html#h_/G0LSjQxoo).  When you see `var add = (a, b) => a + b;` it is short-hand for `var add = function(a, b) { return a + b; }`, where `=>` replaces the `function` keyword and comes *after* the parameter list, and the `return` keyword is optional when functions return a single value).  Arrow functions also introduce some new semantics for the `this` keyword, which we'll address later.
 
-#### Parameters and `arguments`
+#### Parameters and arguments
 
 Function definitions in both cases take parameter lists, which can be empty, single, or multiple
 in length.  Just as with variable declaration, no type information is given:
@@ -130,8 +137,8 @@ A function can *accept* any number of arguments when it is called, including non
 break in many other languages, but not JavaScript:
 
 ```js
-function(a) {
-    console.log(a);
+var a = function(msg) {
+    console.log(msg);
 }
 
 a("correct");          // logs "correct"
@@ -150,8 +157,8 @@ obtain the actual number of arguments passed to the function at runtime, and use
 notation (e.g., `arguments[0]`) to access an argument:
 
 ```js
-function(a) {
-    console.log(arguments.length, a, arguments[0]);
+var a = function(msg) {
+    console.log(arguments.length, msg, arguments[0]);
 }
 
 a("correct");          // 1, "correct", "correct"
@@ -193,81 +200,30 @@ function sum(...numbers) {
 }
 ```
 
-#### Dealing with Optional and Missing Arguments
+#### Passing Functions as Parameters
 
-Because we *can* change the number of arguments we pass to a function at runtime, we
-also have to deal with missing data, or optional parameters.  Consider the case of
-a function to calculate a player's score in a video game.  In some cases we may want to
-double a value, for example, as a bonus for doing some action a third time in a row:
-
-```js
-function updateScore(currentScore, value, bonus) {
-    return bonus ? currentScore + value * bonus : currentScore + value;
-}
-
-updateScore(10, 3);
-updateScore(10, 3);
-updateScore(10, 3, 2);
-```
-
-Here we call `updateScore` three different times, sometimes with 2 arguments, and
-once with 3.  Our `updateScore` function has been written so it will work in both cases.
-We've used a [conditional ternary operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) to
-decide whether or not to add an extra bonus score.  When we say `bonus ? ... : ...` we are
-checking to see if the `bonus` argument is *truthy* or *falsy*--did the caller provide a value for it?
-If they did, we do one thing, if not, we do another.
-
-Here's another common way you'll see code like this written, using a default value:
+Because JavaScript allows us to bind function objects (i.e., result of function expressions)
+to variables, it is common to create functions without names, but immediately pass them
+to functions as arguments.  The only way to use this function is via the argument name:
 
 ```js
-function updateScore(currentScore, value, bonus) {
-    // See if `bonus` is truthy (has a value or is undefined) and use it, or default to 1
-    bonus = bonus || 1;
-    return currentScore + value * bonus;
-}
-```
-
-In this case, before we use the value of `bonus`, we do an extra check to see if it
-actually has a value or not.  If it does, we use that value as is; but if it doesn't, we
-instead assign it a value of `1`.  Then, our calculation will always work, since multiplying
-the value by `1` will be the same as not using a bonus.
-
-The idiom `bonus = bonus || 1` is very common in JavaScript.  It uses the
-[Logical Or Operator `||`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_Operators#Logical_OR_()) to test whether `bonus` evaluates to a value or not, and prefers that value if possible
-to the fallback default of `1`.  We could also have written it out using an `if` statements like these:
-
-```js
-function updateScore(currentScore, value, bonus) {
-    if(bonus) {
-        return currentScore + value * bonus;
-    }
-    return currentScore + value;
+// The parameter `fn` will be a function, and `n` a number
+function execute(fn, n) {
+    // Call the function referred to by the argument (i.e, variable) `fn`, passing `n` as its argument
+    return fn(n);
 }
 
-function updateScore(currentScore, value, bonus) {
-    if(!bonus) {
-        bonus = 1;
-    }
-    return currentScore + value * bonus;
+// 1. Call the `execute` function, passing an anonymous function, which squares its argument, and the value 3
+execute(function(n) {
+    return n * n;
+}, 3);
+
+var doubleIt = function(num) {
+    return num * 2;
 }
-```
 
-JavaScript programmers tend to use the `bonus = bonus || 1` pattern because it is
-less repetitive, using less code, and therefore less likely to introduce bugs.  We could
-shorten it even further to this:
-
-```js
-function updateScore(currentScore, value, bonus) {
-    return currentScore + value * (bonus || 1);
-}
-```
-
-> JavaScript version note: newer versions of JavaScript also support [Default Parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters), which allows us to specify a default value for any named parameter when declared.  This frees us from having to check for, and set default values in the function body.  Using default parameters, we could convert our code above to this:
-
-```js
-function updateScore(currentScore, value, bonus = 1) {
-    return currentScore + value * bonus;
-}
+// 2. Again call `execute`, but this time pass `doubleIt` as the function argument
+execute(doubleIt, 3); // returns 6
 ```
 
 #### Return Value
@@ -297,192 +253,10 @@ function explicitReturn2() {
 }
 ```
 
-#### Function Naming
-
-Functions are typically named using the same rules we learned for naming any
-variable: `camelCase` and using the set of valid letters, numbers, etc. and avoiding
-language keywords.
-
-Function declarations always give a name to the function, while function expressions
-often omit it, using a variable name instead:
-
-```js
-// Name goes after the `function` keyword in a declaration
-function validateUser() {
-    ...
-}
-
-// Name is used only at the level of the bound variable, function is anonymous
-var validateUser = function() {
-    ...
-};
-
-// Name is repeated, which is correct but not common. Used with recursive functions
-var validateUser = function validateUser() {
-    ...
-};
-
-// Names are different, which is also correct, but not common as it can lead to confusion
-var validateUser = function validate() {
-    // the validate name is only accessible here, within the function body
-    ...
-};
-```
-
-Because JavaScript allows us to bind function objects (i.e., result of function expressions)
-to variables, it is common to create functions without names, but immediately pass them
-to functions as arguments.  The only way to use this function is via the argument name:
-
-```js
-// The parameter `fn` will be a function, and `n` a number
-function execute(fn, n) {
-    // Call the function referred to by the argument (i.e, variable) `fn`, passing `n` as its argument
-    return fn(n);
-}
-
-// 1. Call the `execute` function, passing an anonymous function, which squares its argument, and the value 3
-execute(function(n) {
-    return n * n;
-}, 3);
-
-
-// 2. Same thing as above, but with different formatting
-execute(function(n) { return n * n;}, 3);
-
-// 3. Using ES6 Arrow Function syntax
-execute((n) => n * n, 3);
-
-var doubleIt = function(num) {
-    return num * 2;
-}
-
-// 4. Again call `execute`, but this time pass `doubleIt` as the function argument
-execute(doubleIt, 3); 
-```
-
-We can also use functions declared via function declarations used this way, and 
-bind them to variables:
-
-```js
-function greeting(greeting, name) {
-    return greeting + " " + name;
-}
-
-var sayHi = greeting;  // also bind a reference to greeting to sayHi
-
-// We can now call `greeting` either with `greeting()` or `sayHi()`
-console.log(greeting("Hello", "Steven"));
-console.log(sayHi("Hi", "Kim"));
-```
-
-JavaScript treats functions like other languages treat numbers or booleans, and lets
-you use them as values.  This is a very powerful feature, but can cause some confusion
-as you get started with JavaScript.
-
-You might ask why we would ever choose to define functions using variables.  One common reason is to swap function implementations at runtime, depending on the state of the program.  Consider the following code for displaying the user interface depending on whether the user is logged in or not:
-
-```js
-// Display partial UI for guests and non-authenticated users, hiding some features
-function showUnauthenticatedUI() {
-    ...
-}
-
-// Display full UI for authenticated users
-function showAuthenticatedUI() {
-    ...
-}
-
-// We will never call showUnauthenticatedUI or showAauthenticatedUI directly.
-// Instead, we will use showUI to hold a reference to one or the other,
-// and default to the unauthenticated version at first (i.e., until the user logs in).
-var showUI = showUnauthenticatedUI;
-
-...
-
-// Later in the program, when a user logs in, we can swap the implemenation
-// without touching any of our UI code.
-function authenticate(user) {
-    ...
-    showUI = showAuthenticatedUI;
-}
-
-...
-
-// Whenever we need to refresh/display the UI, we can always safely call
-// whichever function is currently bound to `showUI`.
-showUI();
-```
-
-#### Invoking Functions, the Execution Operator
-
-In many of the examples above, we've been invoking (calling, running, executing) functions
-but haven't said much about it.  We invoke a function by using the `()` operator:
-
-```js
-var f = function() { console.log('f was invoked'); };
-f();
-```
-
-In the code above, `f` is a variable that is assigned the value returned by 
-a function expression.  This means `f` is a regular variable, and we can use it 
-like any other variable.  For example, we could create another variable and share
-its value:
-
-```js
-var f = function() { console.log('f was invoked'); };
-var f2 = f;
-f();       // invokes the function
-f2();      // also invokes the function
-```
-
-Both `f` and `f2` refer to the the same function object.  What is the difference
-between saying `f` vs. `f()` in the line `var f2 = f;`?  When we write `f()`
-we are really saying, "Get the value of `f` (the function referred to) and invoke it."  However,
-when we write `f` (without `()`), we are saying, "Get the value of `f` (the function referred to)"
-so that we can do something with it (assign it to another variable, pass it to a function, etc).
-
-The same thing is true of function declarations, which also produce `function` Objects:
-
-```js
-function f() { console.log('f was invoked'); };
-var f2 = f;
-f2();      // also invokes the function
-```
-
-The distinction between referring to a function object via its bound variable name (`f`) vs
-invoking that same function (`f()`) is important, because JavaScript programs treat functions
-as *data*, just as you would a `Number`.  Consider the following:
-
-```js
-function checkUserName(userName, customValidationFn) {
-    // If `customValidationFn` exists, and is a function, use that to validate `userName`
-    if(customValidationFn && typeof customValidationFn === 'function') {
-        return customValidationFn(userName);
-    }
-    // Otherwise, use a default validation function
-    return defaultValidationFn(userName);
-}
-```
-
-Here the `checkUserName` function takes two arguments: the first a `String` for a username;
-the second an optional (i.e., may not exist) function to use when validating this username.
-Depending on whether or not we are passed a function for `customValidationFn`, we will either
-use it, or use a default validation function (defined somewhere else).
-
-Notice the line `if(customValidationFn && typeof customValidationFn === 'function') {` where
-`customValidationFn` is used like any other variable (accessing the value it refers to vs. doing an invocation), to check if it has a value, and if its value is actually a function.  Only then is it save to invoke it.
-
-It's important to remember that JavaScript functions aren't executed until they are called
-via the invocation operator, and may also be used as values without being called. 
 
 
 
-
-
-
-
-
-
+<br>
 
 ### Built-in/Global Functions
 
@@ -560,32 +334,6 @@ console.log("New Total", add(16)) // Works, because `add` is defined in the same
 Unlike most programming languages, which use *block scope*, JavaScript variables
 have *function scope*:
 
-```c
-int main()
-{
-  {
-      int x = 10;       // x is declared with block scope
-  }
-  {
-      printf("%d", x);  // Error: x is not accessible here
-  }
-  return 0;
-}
-```
-
-Now in JavaScript:
-
-```js
-function main() {
-    {
-        var x = 10;     // x is declared in a block, but is scoped to `main`
-    }
-    {
-        console.log(x); // works, because `x` is accessible everywhere in `main`
-    }
-}
-```
-
 In many languages, we are told to declare variables when we need them.  However,
 in JavaScript we tend to define our variables at the top of our functions.  We
 don't strictly need to do this, due to *hoisting*.  JavaScript will *hoist* or
@@ -644,6 +392,8 @@ var g = function() {};
 ```
 
 In general, declare and define things *before* you need them.
+
+<br>
 
 ### Overwriting Variables in Child Scopes
 
@@ -807,111 +557,23 @@ This is an advanced technique to be aware of at this point, but not one you need
 right away.  We'll see it used, and use it ourselves, in later weeks to to avoid global variables,
 simulate block scope in JavaScript, and to choose or generate function implementations at runtime (e.g., [polyfill](https://remysharp.com/2010/10/08/what-is-a-polyfill)).
 
-## Practice Exercises
-
-For each of the following, write a function that takes the given arguments, and returns
-or produces (e.g., `console.log`) the given result.
-
-1. Given `r` (radius) of a circle, calculate the area of a circle (A = π * r * r).
-1. Simulate rolling a dice using `random()`.  The function should allow the caller to specify any number of sides, but default to 6 if no side count is given: `roll()` (assume 6 sided, return random number between 1 and 6) vs. `roll(50)` (50 sided, return number between 1 and 50).
-1. Write a function that converts values in Celcius to Farenheit: `convert(0)` should return `"32 F"`.
-1. Modify your solution to the previous function to allow a second argument: `"F"` or `"C"`, and use that to determine what the scale of the value is, converting to the opposite: `convert(122, "F")` should return `"50 C"`. 
-1.  Function taking any number of arguments (`Number`s), returning `true` if they are all less than 50: `isUnder50(1, 2, 3, 5, 4, 65)` should return `false`.
-1. Function allowing any number of arguments (`Number`s), returning their sum: `sum(1, 2, 3)` should return `6`.
-1. Function allowing any number of arguments of any type, returns `true` only if none of the arguments is falsy. `allExist(true, true, 1)` should return `true`, but `allExist(1, "1", 0)` should return `false`.
-1. Function to create a JavaScript library name generator: `generateName("dog")` should return `"dog.js"`
-1. Function to check if a number is a multiple of 3 (returns `true` or `false`)
-1. Check if a number is between two other numbers, being inclusive if the final argument is true: `checkBetween(66, 1, 50, true)` should return `false`.
-1. Function to calculate the HST (13%) on a purchase amount
-1. Function to subtract a discount % from a total.  If no % is given, return the original value.
-1. Function that takes a number of seconds as a `Number`, returning a `String` formatted like `"X Days, Y Hours, Z Minutes"` rounded to the nearest minute.
-1. Modify your solution above to only include units that make sense: `"1 Minute"` vs. `"3 Hours, 5 Minutes"` vs. `"1 Day, 1 Hour, 56 Minutes"` etc
-1. Function that takes any number of arguments (`Number`s), and returns them in reverse order, concatenated together as a String: `flip(1, 2, 3)` should return `"321"`
-1. Function that takes two `Number`s and returns their sum as an `Integer` value (i.e., no decimal portion): `intSum(1.6, 3.333333)` should return `4`
-1. Function that returns the number of matches found for the first argument in the remaining arguments: `findMatches(66, 1, 345, 2334, 66, 67, 66)` should return `2`
-1. Function to log all arguments larger than `255`: `showOutsideByteRange(1, 5, 233, 255, 256, 0)` should log `256` to the `console`
-1. Function that takes a `String` and returns its value properly encoded for use in a URL. `prepareString("hello world")` should return `"hello%20world"`
-1. Using the previous function, write an enclosing function that takes any number of `String` arguments and returns them in encoded form, concatenated together like so: `"?...&...&..."` where "..." are the encoded strings.  `buildQueryString("hello world", "goodnight moon")` should return `"?hello%20world&goodnight%20moon"`
-1. Function that takes a `Function` followed by any number of `Number`s, and applies the function to all the numbers, returning the total: `applyFn(function(x) { return x * x;}, 1, 2, 3)` should return 14.
-
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-# WEB222 WEEK 3
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-## Suggested Readings
-
-* [SpeakingJS, Chapter 12. Strings](speakingjs.com/es5/ch12.html)
-* [SpeakingJS, Chapter 18. Arrays](speakingjs.com/es5/ch18.html)
-* [SpeakingJS, Chapter 19. Regular Expressions](speakingjs.com/es5/ch19.html)
 
 ## Introduction to Objects and Object-Oriented Programming
-
-In languages like C, we are used to thinking about data types separately from the functions
-that operate upon them.  We declare variables to hold data in memory, and call functions passing them
-variables as arguments to operate on their values.
 
 In object-oriented languages like JavaScript, we are able to combine data and functionality into
 higher order types, which both contain data and allow us to work with that data.  In other words,
 we can pass data around in a program, and all the functionality that works on that data travels with it.
 
-Let's consider this idea by looking at strings in C vs. JavaScript.  In C a string is
-a null terminated (`\0`) array of `char` elements, for example:
+One way to think about `Object`s is to imagine that the data and the functions for working with that data are combined into one more powerful type.  
 
-```c
-const char name1[31] = "My name is Arnold";
-const char name2[31] = {'M','y',' ','n','a','m','e',' ','i','s',' ','A','r','n','o','l','d','\0'};
-```
+Fortunately for us, the JavaScript language comes with a number of [standard, "built-in" Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects) that we use regularly.  Today, we will discuss built-in [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) and [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) Objects.
 
-With C-style strings, we perform operations using standard library functions, for example `string.h`:
-
-```c
-#include <string.h>
-
-int main(void)
-{
-    char str[31];        // declare a string
-    ...
-    strlen(str);         // find the length of a string str
-    strcpy(str2, str);   // copy a string
-    strcmp(str2, str);   // compare two strings
-    strcat(str, "...");  // concatenate a string with another string
-}
-```
-
-JavaScript also allows us to work with strings, but because JavaScript is an object-oriented language, a JavaScript [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) is an `Object` with various [properties and methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/prototype#Properties) we can use for working with text.
-
-One way to think about `Object`s like `String` is to imagine combining a C-string's data type with the functions that operate on that data.  Instead of needing to specify *which* string we want to work with, all functions would operate a particular *instance* of a string.  Another way to look at this would be to imagine that the data and the functions for working with that data are combined into one more powerful type.  If we could do this in C, we would be able to write code that looked more like this:
-
-```c
-String str = "Hello"; // declare a string
-
-int len = str.len;    // get the length of str
-str.cmp(str2);        // compare str and str2
-str = str.cat("..."); // concatenate "..." onto str
-```
-
-In the made-up code above, the *data* (`str`) is attached to functionality that we can call
-via the `.*` notation. Using `str.*`, we no longer need to indicate to the functions which string
-to work with: all string functions work on the string data to which they are attached.
-
-This is very much how `String` and other `Object` types work in JavaScript.  By combining
-the string character data and functionality into one type (i.e., a `String`), we can
-easily create and work with text in our programs.
-
-Also, because we work with strings at a higher level of abstraction (i.e., not as arrays of `char`),
-JavaScript deals with memory management for us, allowing our strings to grow or shrink at runtime.
+<br>
 
 ## JavaScript's [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+
+<br>
 
 ### Declaring JavaScript Strings
 
@@ -946,6 +608,8 @@ var s3 = x.toString(); // use a type's .toString() method
 Whether you use a literal or the constructor function, in all cases you will be able to use
 the various [functionality](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/prototype#Properties) of the [`String` type](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String).
 
+<br>
+
 ### String Properties and Methods
 
 * [`s.length`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/length) - will tell us the length of the string (UTF-16 code units)
@@ -973,6 +637,8 @@ var templateVersion = `The value is ${1*6}`
 ## JavaScript's [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 
 An [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) is an `Object` with various [properties and methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#Array_instances) we can use for working with lists in JavaScript.
+
+<br>
 
 ### Declaring JavaScript Arrays
 
@@ -1006,6 +672,8 @@ arr[5] = 56;   // element 5 now contains 56, and arr's length is now 6
 ```
 
 > NOTE: a JavaScript `Array` is really a **map**, which is a data structure that associates values with unique keys (often called a key-value pair).  JavaScript arrays are a special kind of map that uses numbers for the keys, which makes them look and behave very much like arrays in other languages.  We will encounter this **map** structure again when we look at how to create `Object`s.
+
+<br>
 
 ### `Array` Properties and Methods
 
@@ -1062,6 +730,8 @@ The `\d` means a digit (0-9) and the `{1,3}` portion means *at least one, and at
 
 There are many [special characters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#Using_special_characters) to learn with regular expressions, which we'll slowly introduce.
 
+<br>
+
 ### Declaring JavaScript `RegExp`
 
 Like `String` or `Array`, we can declare a `RegExp` using either a literal or the `RegExp` constructor:
@@ -1080,6 +750,8 @@ These flags include `g` (globally match all occurrences vs. only matching once),
 var regex = /pattern/gi;                  // find all matches (global) and ignore case
 var regex2 = new RegExp("pattern", "gi"); // same thing using the constructor instead
 ```
+
+<br>
 
 ### Understanding Regular Expression Patterns
 
@@ -1135,6 +807,8 @@ an id number *begins* with some sequence of letters, or that a name doesn't *end
 
 * Sometimes we need to specify one of a number of possible alternatives.  We do this with `|`, as in `red|green|blue` which would match any of the strings `"red"`, `"green"`, or `"blue"`.
 
+<br>
+
 ### Using `RegExp` with `String`s
 
 So far we've discussed how to declare a `RegExp`, and also some of the basics of defining search patterns.
@@ -1150,44 +824,3 @@ Now we need to look at the different ways to use our regular expression objects 
 
 There are other [methods you can call](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#Working_with_regular_expressions), and more [advanced ways to extract data](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#Using_parentheses) using RegExp, and you are encouraged to dig deeper into these concepts over time.  Thinking about matching in terms of regular expressions takes practice, and often involves inverting your logic to narrow a set of possibilities into something you can define in code.  
 
-## Practice Exercises
-
-1. Write a function `log` that takes an `Array` of `String`s and displays them on the `console`.
-2. An application uses an `Array` as a Stack (LIFO) to keep track of items in a user's shopping history.  Every time they browse to an item, you want to `addItemToHistory(item)`.  How would you implement this?
-3. Write a function `buildArray` that takes two `Number`s, and returns an `Array` filled with all numbers between the given number: `buildArray(5, 10)` should return `[5, 6, 7, 8, 9, 10]`
-4. Write a function `addDollars` that takes an `Array` of `Number`s and uses the array's `map()` method to create and return a new `Array` with each element having a `$` added to the front: `addDollars([1, 2, 3, 4])` should return `['$1', '$2', '$3', '$4']`
-5. Write a function `tidy` that takes an `Array` of `String`s and uses the array's `map()` method to create and return a new `Array` with each element having all leading/trailing whitespace removed: `tidy(['     hello', '   world     '])` should return `['hello', 'world']`.
-6. Write a function `measure` which takes an `Array` of `String`s and uses the array's `forEach()` method to determine the size of each string in the array, returning the total: `measure(['a', 'bc'])` should return `3`. Bonus: try to rewrite your code using the `Array`'s [`reduce()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce) method.
-7. Write a function `whereIsWaldo` that takes an `Array` of `String`s and uses the array's `forEach()` method to create a new `Array` with only the elements that contain the text `"waldo"` or `"Waldo`" somewhere in them: `whereIsWaldo(['Jim Waldorf, 'Lynn Waldon', 'Frank Smith'])` should return `'Jim Waldorf, 'Lynn Waldon']`.  Bonus: try to rewrite your code using the `Array`'s [`filter()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) method.
-8. Write a function `checkAges` that takes two arguments: an `Array` of ages (`Number`); and a cut-off age (`Number`).  Your function should return `true` if all of the ages in the `Array` are at least as old as the cut-off age: `checkAges([16, 18, 22, 32, 56], 19)` should return `false` and `checkAges([16, 18, 22, 32, 56], 6)` should return `true`.  Bonus: try to rewrite your code using the `Array`'s [`every()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every) method.
-9. Write a function `containsBadWord` that takes two arguments: `badWords` (an `Array` of words that can't be used), and `userName` (a `String` entered by the user).  Check to see if any of the words in `badWords` are contained within `userName`.  Return the `badWord` that was found, or `null` if none are found.  
-10. A `String` contains a Key/Value pair separated by a `":"`.  Using `String` methods, how would you extract the two parts?  Make sure you also deal with any extra spaces.  For example, all of the following should be considered the same: `"colour: blue"`, `"colour:blue"`, `"colour : blue"`, `"colour:    blue    "`.  Bonus: how could you use a `RegExp` instead?
-11. A `String` named `addresses` contains a list of street addresses.  Some of the addresses use short forms: `"St."` instead of `"Street"` and `"Rd"` instead of `"Road"`.  Using `String` methods, convert all these short forms to their full versions.
-12. Room booking codes must take the following form: room number (`1-305`) followed by `-` followed by the month as a number (`1-12`) followed by the day as a number (`1-31`).  For example, all of the following are valid: `"1-1-1"`, `"250-10-3"`, `"66-12-12"`.  Write a `RegExp` to check whether a room booking code is valid or not, which allows any of the valid forms.
-13. Write a function that takes a `String` and checks whether or not it begins with one of `"Mr."`, `"Mrs."`, or `"Ms."`.  Return `true` if it does, otherwise `false`. Bonus: try writing your solution using regular `String` methods *and* again as a `RegExp`.
-14. Write a function that takes a password `String`, and validates it according to the following rules: must be between 8-32 characters in length; must contain one Capital Letter; must contain one Number; must contain one Symbol (`!@#$%^&*-+{}`).  Return `true` if the given password is valid, otherwise `false`.
-15. Write a `RegExp` for a Canadian Postal Code, for example `"M3J 3M6"`.  Allow spaces or no spaces, capitals or lower case.
-
-## A Larger Problem Combining Everything:
-
-You are [asked to write JavaScript code](exercise.js) to process a `String` which is in the form of a [Comma-Separated Values (CSV)](https://en.wikipedia.org/wiki/Comma-separated_values) formatted data dump of user information.  The data might look something like this:
-
-```csv
-0134134,John Smith,555-567-2341,62 inches
-0134135   ,    June    Lee    ,  5554126347 ,        149 cm
-0134136,       Kim Thomas       , 5324126347, 138cm`
-```
-
-Write a series of functions to accomplish the following, building a larger program as you go.  You can begin with [exercise.js](exercise.js):
-
-1. Split the string into an `Array` of separate rows (i.e., an `Array` with rows separated by `\n`).  Bonus: how could we deal with data that includes both Unix (`\n`) and Windows (`\r\n`) line endings?
-2. Each row contains information user info: `ID`, `Name`, `Phone Number`, and `Height` info all separated by commas.  Split each row into an `Array` with all of its different fields.  You need to deal with extra and/or no whitespace between the commas.
-3. Get rid of any extra spaces around the `Name` field
-4. Using a `RegExp`, extract the Area Code from the `Phone Number` field.  All `Phone Number`s are in one of two formats: `"555-555-5555"` or `"5555555555"`.
-5. Check if the `Height` field has `"cm"` at the end.  If it does, strip that out, convert the number to inches, and turn it into a `String` in the form `"xx inches"`.  For example: `"152 cm"` should become `"59 inches"`.  
-6. After doing all of the above steps, create a new record with `ID`, `Name`, `Area Code`, `Height In Inches` and separate them with commas
-7. Combine all these processed records into a new CSV formatted string, with rows separated by `\n`.
-
-A sample solution is provided in [solution.js](solution.js).
-
-<
