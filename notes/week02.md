@@ -226,6 +226,83 @@ var doubleIt = function(num) {
 execute(doubleIt, 3); // returns 6
 ```
 
+#### Dealing with Optional and Missing Arguments
+
+Because we *can* change the number of arguments we pass to a function at runtime, we
+also have to deal with missing data, or optional parameters.  Consider the case of
+a function to calculate a player's score in a video game.  In some cases we may want to
+double a value, for example, as a bonus for doing some action a third time in a row:
+
+```js
+function updateScore(currentScore, value, bonus) {
+    return bonus ? currentScore + value * bonus : currentScore + value;
+}
+
+updateScore(10, 3);
+updateScore(10, 3);
+updateScore(10, 3, 2);
+```
+
+Here we call `updateScore` three different times, sometimes with 2 arguments, and
+once with 3.  Our `updateScore` function has been written so it will work in both cases.
+We've used a [conditional ternary operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) to
+decide whether or not to add an extra bonus score.  When we say `bonus ? ... : ...` we are
+checking to see if the `bonus` argument is *truthy* or *falsy*--did the caller provide a value for it?
+If they did, we do one thing, if not, we do another.
+
+Here's another common way you'll see code like this written, using a default value:
+
+```js
+function updateScore(currentScore, value, bonus) {
+    // See if `bonus` is truthy (has a value or is undefined) and use it, or default to 1
+    bonus = bonus || 1;
+    return currentScore + value * bonus;
+}
+```
+
+In this case, before we use the value of `bonus`, we do an extra check to see if it
+actually has a value or not.  If it does, we use that value as is; but if it doesn't, we
+instead assign it a value of `1`.  Then, our calculation will always work, since multiplying
+the value by `1` will be the same as not using a bonus.
+
+The idiom `bonus = bonus || 1` is very common in JavaScript.  It uses the
+[Logical Or Operator `||`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_Operators#Logical_OR_()) to test whether `bonus` evaluates to a value or not, and prefers that value if possible
+to the fallback default of `1`.  We could also have written it out using an `if` statements like these:
+
+```js
+function updateScore(currentScore, value, bonus) {
+    if(bonus) {
+        return currentScore + value * bonus;
+    }
+    return currentScore + value;
+}
+
+function updateScore(currentScore, value, bonus) {
+    if(!bonus) {
+        bonus = 1;
+    }
+    return currentScore + value * bonus;
+}
+```
+
+JavaScript programmers tend to use the `bonus = bonus || 1` pattern because it is
+less repetitive, using less code, and therefore less likely to introduce bugs.  We could
+shorten it even further to this:
+
+```js
+function updateScore(currentScore, value, bonus) {
+    return currentScore + value * (bonus || 1);
+}
+```
+
+> JavaScript version note: newer versions of JavaScript also support [Default Parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters), which allows us to specify a default value for any named parameter when declared.  This frees us from having to check for, and set default values in the function body.  Using default parameters, we could convert our code above to this:
+
+```js
+function updateScore(currentScore, value, bonus = 1) {
+    return currentScore + value * bonus;
+}
+```
+
 #### Return Value
 
 Functions always *return* a value, whether implicitly or explicitly. If the `return`
@@ -302,6 +379,8 @@ quite a few worth learning, but here are some to get you started:
 * [`JSON.*`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON)
     * [`JSON.parse()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse)
     * [`JSON.stringify()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
+
+<br>
 
 ## Scope
 
@@ -383,8 +462,7 @@ we can call a function *before* we declare it.
 
 ```js
 f(); // this will work, as f's declaration gets hoisted
-function f() {
-}
+function f() {}
 f(); // this will also work, because f has been declared as you expect.
 
 g(); // this will not work, since g's declaration will be hoisted, but not the assignment.
@@ -442,6 +520,8 @@ Here we expect to see `150` but instead will get `100` on the `console.`  The pr
 that we have redefined, and thus overwritten `total` inside the `increase` function.  During 
 the call to `increase`, the new local variable `total` will be used, and then go out of scope.
 After the function completes, the original global variable `total` will again be used.
+
+<br>
 
 ## Closures
 
@@ -533,30 +613,6 @@ where closures can be used to manage variable lifetimes, and associated function
 specific objects.  For now, be aware of their existence, and know that it is an advanced
 concept that will take some time to fully master.  This is only our first exposure to it.
 
-Another way we'll see closures used, is in conjunction with [Immediately-Invoked Function Expressions (IIFE)](https://en.wikipedia.org/wiki/Immediately-invoked_function_expression).  Consider
-the following rewrite of the code above:
-
-```js
-var add = (function(value) {
-    return function(n) {
-        value += n;
-        return value;
-    };
-})(10);
-
-add(1)   // returns 11
-add(2)   // returns 13
-```
-
-Here we've declared `add` to be the value of invoking the anonymous function expression
-written between the first `(...)` parentheses.  In essence, we have created a function
-that gets executed immediately, and which returns another function that we will use
-going forward in our program.
-
-This is an advanced technique to be aware of at this point, but not one you need to master
-right away.  We'll see it used, and use it ourselves, in later weeks to to avoid global variables,
-simulate block scope in JavaScript, and to choose or generate function implementations at runtime (e.g., [polyfill](https://remysharp.com/2010/10/08/what-is-a-polyfill)).
-
 <br>
 
 ## Introduction to Objects and Object-Oriented Programming
@@ -567,11 +623,13 @@ we can pass data around in a program, and all the functionality that works on th
 
 One way to think about `Object`s is to imagine that the data and the functions for working with that data are combined into one more powerful type.  
 
-Fortunately for us, the JavaScript language comes with a number of [standard, "built-in" Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects) that we use regularly.  Today, we will discuss built-in [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) and [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) Objects.
+Fortunately for us, the JavaScript language comes with a number of [standard, "built-in" Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects) that we use regularly.  Today, we will discuss the built-in [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) and [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) Objects.
 
 <br>
 
-## JavaScript's [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+## JavaScript's [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) Object
+
+A [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) is an `Object` with various [properties and methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#String_instances) we can use for working with lists in JavaScript.
 
 <br>
 
@@ -634,7 +692,9 @@ var s = "The value is " + (1 * 6);
 var templateVersion = `The value is ${1*6}` 
 ```
 
-## JavaScript's [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+<br>
+
+## JavaScript's [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) Object
 
 An [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) is an `Object` with various [properties and methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#Array_instances) we can use for working with lists in JavaScript.
 
@@ -697,130 +757,3 @@ arr[5] = 56;   // element 5 now contains 56, and arr's length is now 6
 * [`arr.map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) - creates and returns a new array constructed by calling the provided function on each element of the original array.
 
 There are more [`Array` methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#Array_instances) you can learn as you progress with JavaScript, but these will get you started.
-
-## JavaScript's [`RegExp`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
-
-A regular expression is a special string that describes a pattern to be used for matching or searching within other strings.  They are also known as a *regex* or *regexp*, and in JavaScript we refer to `RegExp` when we mean the built-in `Object` type for creating and working with regular expressions.
-
-You can think of regular expressions as a kind of mini programming language separate from JavaScript.  They are not unique to JavaScript, and learning how to write and use them will be helpful in many other programming languages.
-
-Even if you're not familiar with regular expression syntax (it takes some time to master), you've probably
-encountered similar ideas with wildcards.  Consider the following Unix command:
-
-```bash
-ls *.txt
-```
-
-Here we ask for a listing of all files whose filename *ends with* the extension `.txt`.  The `*` has a special meaning: *any character, and any number of characters*.  Both `a.txt` and `file123.txt` would be matched against this pattern, since both end with `.txt`.
-
-Regular expressions take the idea of defining patterns using characters like `*`, and extend it into a more powerful pattern matching language.  Here's an example of a regular expression that could be used to match both common spellings of the word `"colour"` and `"color"`:
-
-```js
-colou?r
-```
-
-The `?` means that the preceding character `u` is optional (it may or may not be there).
-Here's another example regular expression that could be used to match a string that starts with `id-` followed by 1, 2, or 3 digits (`id-1`, `id-12`, or `id-999`):
-
-```js
-id-\d{1,3}
-```
-
-The `\d` means a digit (0-9) and the `{1,3}` portion means *at least one, and at most three*.  Together we get *at least one digit, and at most three digits*.
-
-There are many [special characters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#Using_special_characters) to learn with regular expressions, which we'll slowly introduce.
-
-<br>
-
-### Declaring JavaScript `RegExp`
-
-Like `String` or `Array`, we can declare a `RegExp` using either a literal or the `RegExp` constructor:
-
-```js
-var regex = /colou?r/;              // regex literal uses /.../
-var regex2 = new RegExp("colou?r");
-```
-
-Regular expressions can also have [advanced search flags](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#Advanced_searching_with_flags_2),
-which indicate how the search is supposed to be performed.
-These flags include `g` (globally match all occurrences vs. only matching once),
-`i` (ignore case when matching), and `m` (match across line breaks, multi-line matching) among others.
-
-```js
-var regex = /pattern/gi;                  // find all matches (global) and ignore case
-var regex2 = new RegExp("pattern", "gi"); // same thing using the constructor instead
-```
-
-<br>
-
-### Understanding Regular Expression Patterns
-
-Regular expressions are dense, and often easier to write than to read.  It's helpful to use
-various tools to help you as you experiment with patterns, and try to understand and debug
-your own regular expressions:
-
-* [regexr.com](https://regexr.com/)
-* [Regulex](https://jex.im/regulex)
-* [regexpal.com](https://www.regexpal.com/)
-
-#### Matching Specific Characters
-
-* `\ ^ $ . * + ? ( ) [ ] { } |` all have special meaning, and if you need to match them, you have to escape them with a leading `\`.  For example: `\$` to match a `$`.
-
-* Any other character will match itself.  `abc` is a valid regular expression and means *match the letters abc*.
-
-* The `.` means *any character*.  For example `a.` would match `ab`, `a3`, or `a"`. If you need to match the `.` itself, make sure you escape it: `.\.` means *a period followed by any character*
-
-* We specify a set of possible characters using `[]`.  For example, if we wanted to match any vowel, we might do `[aeiou]`.  This says *match any of the letters a, e, i, o, or u* and would match `a` but not `t`.  We can also do the opposite, and define a negated set: `[^aeiou]` would match anything that is *not* a vowel.  With regular expressions, it can often be easier to define your patterns in terms of what they are not instead of what they are, since so many things are valid vs. a limited set of things that are not.  We can also specify a range, `[a-d]` would match any of `a, b, c, d` but not `f, g` or `h`.
-
-* Some sets are so common that we have shorthand notation.  Consider the set of single digit numbers, `[0123456789]`.  We can instead use `\d` which means the same thing.  The inverse is `\D` (capital `D`), and means `[^0123456789]` (i.e., *not one of the digits*).  If we wanted to match a number with three digits, we could use `\d\d\d`, which would match `123` or `678` or `000`.
-
-* Another commonly needed pattern is *any letter or number* and is available with `\w`, meaning `[A-Za-z0-9_]` (all upper- and lower-case letters, digits 0 to 9, and the underscore).  The inverse is available as `\W` and means `[^A-Za-z0-9_]` (everything *not* in the set of letters, numbers and underscore).
-
-* Often we need to match blank whitespace (spaces, tabs, newlines, etc.).  We can do that with `\s`, and the inverse `\S` (anything not a whitespace).  For example, suppose we wanted to allow users to enter an id number with or without a space: `\d\d\d\s?\d\d\d` would match both `123456` and `123 456`.
-
-* There are lots of other examples of pre-defined common patterns, such as `\n` (newline), `\r` (carriage return), `\t` (tab).  Consult the [MDN documentation for character classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp#Special_characters_meaning_in_regular_expressions) to lookup others.
-
-#### Define Character Matching Repetition
-
-In addition to matching a single character or character class, we can also match sequences of them,
-and define *how many* times a pattern or match can/must occur.  We do this by adding extra information
-*after* our match pattern.
-
-* `?` is used to indicate that we want to match something *once or none*.  For example, if we want to match the word `dog` without an `s`, but also to allow `dogs` (with an `s`), we can do `dogs?`.  The `?` follows the pattern (i.e., `s`) that it modifies, and indicates that it is optional.
-
-* `*` is used when we want to match *zero or more* of something.  `number \d*` would match `"number "` (no digits), `"number 1"` (one digit), and `"number 1234534123451334466600"`. 
-
-* `+` is similar to `*` but means *one or more*. `vroo+m` would match `"vroom"` but also `"vroooooooom"` and `"vroooooooooooooooooooooooooooooooom"`
-
-* We can limit the number of matches to an exact number using `{n}`, which means *match exactly `n` times*. `vroo{3}m` would only match `"vroooom"`.  We can further specify that we want a match to happen  *match `n` or more times* using `{n,}`, or use `{n,m}` to indicate we want to match *at least `n` times and no more than `m` times: `\w{8,16}` would match 8 to 16 word characters, `"ABCD1234"` or `"zA5YncUI24T_3GHO"`
-
-#### Define Positional Match Parameters or Alternatives
-
-Normally the patterns we define are used to look *anywhere* within a string.  However, sometimes
-it's important to specify *where* in the string a match is located.  For example, we might care that
-an id number *begins* with some sequence of letters, or that a name doesn't *end* with some set of characters.
-
-* `^` means start looking for the match at the *beginning* of the input string.  We could test to see that a string begins with a capital letter like so: `^[A-Z]`.
-
-* Similarly `$` means make sure that the match ends the string.  If we wanted to test that string was a filename that ended with a period and a three letter extension, we could use: `\.\w{3}$` (an escaped period, followed by exactly 3 word characters, followed by the end of the string).  This would match `"filename.txt"` but not `"filename.txt is a path"`. 
-
-* Sometimes we need to specify one of a number of possible alternatives.  We do this with `|`, as in `red|green|blue` which would match any of the strings `"red"`, `"green"`, or `"blue"`.
-
-<br>
-
-### Using `RegExp` with `String`s
-
-So far we've discussed how to declare a `RegExp`, and also some of the basics of defining search patterns.
-Now we need to look at the different ways to use our regular expression objects to perform matches.
-
-* [`RegExp.test(string)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/test) - used to test whether or not the given string matches the pattern described by the regular expression.  If a match is made, returns `true`, otherwise `false`.  `/id-\d\d\d/.test('id-123')` returns `true`, `/id-\d\d\d/.test('id-13b')` returns `false`.
-
-* [`String.match(regexp)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match) - used to find all matches of the given `RegExp` in the source `String`.  These matches are returned as an `Array` of `String`s.  For example, `'This sentence has 2 numbers in it, including the number 567'.match(/\d+/g)` will return the `Array` `['2', '567']` (notice the use of the `g` flag to find all matches globally).
-
-* [`String.replace(regexp, replacement)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace) - used to find all matches for the given `RegExp`, and returns a new `String` with those matches replaced by the replacement `String` provided.  For example, `'50      ,         60,75.'.replace(/\s*,\s*/g, ', ')` would return `'50, 60, 75.'` with all whitespace normalized around the commas.
-
-* [`String.split(RegExp)`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split) - used to break the given `String` into an `Array` of sub-strings, dividing them on the `RegExp` pattern.  For example, `'one-two--three---four----five-----six'.split(/-+/)` would return `['one', 'two', 'three', 'four', 'five', 'six']`, with elements split on any number of dashes.
-
-There are other [methods you can call](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#Working_with_regular_expressions), and more [advanced ways to extract data](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#Using_parentheses) using RegExp, and you are encouraged to dig deeper into these concepts over time.  Thinking about matching in terms of regular expressions takes practice, and often involves inverting your logic to narrow a set of possibilities into something you can define in code.  
-
