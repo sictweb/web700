@@ -31,7 +31,7 @@ Welcome to WEB700:<br /><br />
 <td headers="tbl7">
 JavaScript Continued:<br /><br />
 <ul>
-<li>Topic(s)</li>
+<li>JavaScript Functions</li><li>Built In / Global Functions</li><li>Scope &amp; Closures</li><li>Built In / Global Objects (String &amp; Array)</li>
 </ul>
 </td>
 </tr>
@@ -40,7 +40,10 @@ JavaScript Continued:<br /><br />
 <td headers="tbl7">
 Object Oriented JavaScript / ES6 Features:<br /><br />
 <ul>
-<li>Topic(s)</li>
+<li>Custom Objects using Object Literal Notation, Function Constructors & Class Keyword</li>
+<li>Error handling with try / catch / finally & throw</li>
+<li>"var" vs "let" vs "const"</li>
+<li>“this” keyword & arrow functions (lexical “this”)</li>
 </ul>
 </td>
 </tr>

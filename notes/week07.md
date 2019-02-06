@@ -15,11 +15,6 @@ layout: default
 <br>
 <br>
 
-## Suggested Readings
-
-* [Introduction to CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS)
-* [Learning to Style HTML using CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS)
-* [CSS: Cascading Style Sheets on MDN](https://developer.mozilla.org/en-US/docs/Web/CSS)
 
 ## Cascading Style Sheets (CSS)
 
