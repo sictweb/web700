@@ -36,7 +36,7 @@ JavaScript Continued:<br /><br />
 </td>
 </tr>
 <tr>
-<td headers="tbl6"><a href="/web700/notes/week03">3 - Notes (<mark>Conversion Complete</mark>)</a></td>
+<td headers="tbl6"><a href="/web700/notes/week03">3 - Notes (<mark>First Draft Complete</mark>)</a></td>
 <td headers="tbl7">
 Object Oriented JavaScript / ES6 Features:<br /><br />
 <ul>
