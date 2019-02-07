@@ -34,6 +34,7 @@ all of it.
 
 * [How does the Internet work?](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/How_does_the_Internet_work)
     * [How the Internet works in 5 minutes (video)](https://www.youtube.com/watch?v=7_LPdttKXPc)
+
 * [How the Web works](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/How_the_Web_works)
 
 <br>
@@ -43,15 +44,19 @@ all of it.
 The web runs on-top of TCP/IP networks using a number of communication protocols, including:
 
 * [IP](https://en.wikipedia.org/wiki/IP_address#IPv4_addresses) these 32-bit numbers (IPv4) are assigned to every device on the Internet (IPv6 uses 128-bit numbers).
+
 * [Domain Names](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_domain_name#Structure_of_domain_names) human-readable addresses for servers on the Internet
+
 * [Domain Name System (DNS)](https://www.cloudflare.com/learning/dns/what-is-dns/), the "Phone Book" of the Internet.  There are many popular DNS servers you can use:
     * OpenDNS: `208.67.222.222`, `208.67.220.220`
     * Cloudeflare: `1.1.1.1`, `1.0.0.1`
     * Google: `8.8.8.8`, `8.8.4.4`
     * There are lots more, but each has trade offs (privacy, [speed](https://www.dnsperf.com/#!dns-resolvers,North%20America))
+
 * [Hypertext Transfer Protocol (HTTP)](https://dev.opera.com/articles/http-basic-introduction/)
     * [How to get things on the web](https://dev.opera.com/articles/http-lets-get-it-on/)
     * [HTTP Responses](https://dev.opera.com/articles/http-response-codes/)
+
 * [Hypertext Transfer Protocol Secure (HTTPS)](https://en.wikipedia.org/wiki/HTTPS)
 
 There are many more as well (SMTP, FTP, POP, IMAP, SSH, etc).
@@ -93,10 +98,15 @@ A URL contains all the information necessary for a web client (e.g., a browser) 
 the resource.  In the URL given above we have:
 
 * protocol: `https:` - the resource is available using the HTTPS (i.e., secure HTTP) protocol
+
 * domain: `ict.senecacollege.ca` - the domain (domain name) of the server.  We could also have substituted the IP address (`142.204.140.190`), but it's easier to remember domain names.
+
 * port: Not Given - if not specified, the port is the default for HTTP `80` or `443` for HTTPS.  It could have been specified by appending `:443` like so: `https://ict.senecacollege.ca:443`
+
 * origin: combining the protocol, domain, and port gives us a unique origin, `https://ict.senecacollege.ca`.  Origins play a central role in the web's security model.
+
 * path: `/course/web222` - a filesystem-like path to the resource on the server.  It may or may not end with a file extension (e.g., you might also have seen another server use `/course/web222.html`)
+
 * query string: `?q=course/web222` - additional parameters sent to the server as part of the URL, of the form `name=value`
 
 URLs can only contain a limited set of characters, and anything outside that set has to be *encoded*.
@@ -118,8 +128,11 @@ There are various *HTTP Verbs* we can use other than `GET`, which allow us to re
 resources be returned, created, deleted, updated, etc.  The most common include:
 
 * `GET` - retrieve the data at the given URL
+
 * `POST` - create a new resource at the given URL based on the data sent along with the request in its *body*
+
 * `PUT` - update an existing resource at the given URL with the data sent along with the request in its *body*
+
 * `DELETE` - delete the resource at the given URL
 
 We can use a URL in many ways, for example, via the command line using a tool like [curl](https://curl.haxx.se/):
@@ -196,9 +209,13 @@ For example:
 In the response above, we see a number of interesting things:
 
 * `200 OK` - tells us that the requested resource was successful located and returned.
+
 * Info about the `Date`, when the response `Expires`, whether to cache it (`Cache-Control`) on the client
+
 * The `Content-Language` is English, and the `Content-Type` is `text`, and more specifically, `html` (a web page) using [UTF8 text encoding](https://en.wikipedia.org/wiki/UTF-8).
+
 * That the web `Server` is running [Apache](https://httpd.apache.org/), [OpenSSL](https://www.openssl.org/), and [PHP](http://php.net/), as well as the versions being used
+
 * Finally some non-standard `X-...` style headers are included, which are extra, user-defined bits of data, for example, that Drupal version 7 was used to create the document.  (NOTE: when you see names starting with `x-` or `x` it often means a non-standardized name is being used).
 
 After these **headers** we have a blank line (i.e., `\n\n`), followed by the **body** of our response: the actual HTML document.
@@ -320,7 +337,9 @@ We've been discussing HTTP as a way to request URLs be transferred between clien
 The web is globally distributed set of 
 
 * services - requesting *data* ([JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON), [XML](https://developer.mozilla.org/en-US/docs/XML_introduction), binary, etc) to be used in code (vs. looked at by a user)
+
 * resources, pages, documents, images, media - both static and dynamic user viewable resources (web pages), which link to other similar resources.
+
 * applications - a combination of the above, providing rich user interfaces for working with real-time data or other complex information, alone or in networked (i.e., collaborative) ways.
 
 The web can be read-only.  The web can also be interactive (video games), editable (wikis), personal (blog), and productive (e-commerce).
@@ -362,8 +381,11 @@ a routine basis, so it's good to know about them.
 * [JavaScript on MDN](https://developer.mozilla.org/bm/docs/Web/JavaScript)
     * [JavaScript Guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide)
     * [JavaScript Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)
+
 * [Eloquent JavaScript](https://eloquentjavascript.net/)
+
 * [Speaking JavaScript (ES5)](http://speakingjs.com/es5/index.html)
+
 * [Exploring ES6](http://exploringjs.com/es6/index.html)
 
 <br>
@@ -417,13 +439,13 @@ or embedded within HTML code via the HTML `<script>` element.  For the first par
 8. Enter the following line of code: 
     
     ```js 
-    console.log("Hello World!");
+console.log("Hello World!");
     ```
 
 9. Save the file and open the "Integrated Terminal" using either the "View" menu and choosing "Terminal" or using the key combination ctrl + `
 
 10. You should now see a terminal / Command Prompt at the bottom of your code.  Within this terminal, execute the following command:
-   
+    
     ```
     node Hello.js
     ```
@@ -437,41 +459,43 @@ or embedded within HTML code via the HTML `<script>` element.  For the first par
 #### Important Ideas
 
 * JavaScript is Case-Sensitive: `customerCount` is not the same thing as `CustomerCount` or `customercount`
+
 * Name things using `camelCase` (first letter lowercase, subsequent words start with uppercase) vs. `snake_case`.
+
 * Semicolons are optional in JavaScript, but highly recommended.  We'll expect you to use them in this course, and using them will make working in C++, Java, CSS, etc. much easier, since you have to use them there.
 
-* Comments work like C/C++, and can be single or multi-line
+* Comments can be single or multi-line
+    
+    ```js
+    // This is a single line comment. NOTE: the space between the // and first letter.
 
-```js
-// This is a single line comment. NOTE: the space between the // and first letter.
-
-/*
- This is a multi-line comment,
- and can be as long as you need.
- */
-```
+    /*
+        This is a multi-line comment,
+        and can be as long as you need.
+    */
+    ```
 
 * Whitespace: JavaScript will mostly ignore whitespace (spaces, tabs, newlines).  In this course we will expect you to use good indentation practices, and for your code to be clean and readable. 
+    
+    ```js
+    // This is poorly indented, and needs more whitespace
+    function add(a,b ){
+    if(!b){
+            return a;
+    }else {
+    return a+b;        
+    }}
 
-```js
-// This is poorly indented, and needs more whitespace
-function add(a,b ){
-if(!b){
-        return a;
-}else {
-return a+b;        
-}}
-
-// This is much more readable due to the use of whitespace
-function add(a, b) {
-    if(!b) {
-        return a; 
-    } else {
-        return a + b;
+    // This is much more readable due to the use of whitespace
+    function add(a, b) {
+        if(!b) {
+            return a; 
+        } else {
+            return a + b;
+        }
     }
-}
-```
-
+    ```
+    
 * JavaScript statements: a JavaScript program typically consists of a series of statements. A statement is a single-line of instruction made up of objects, expressions, variables, and events/event handlers.
 
 * Block statement: a block statement, or compound statement, is a group of statements that are treated as a single entity and are grouped within curly brackets `{...}`. Opening and closing braces need to work in pairs. For example, if you use the left brace `{` to indicate the start of a block, then you must use the right brace `}` to end it. The same matching pairs applies to single `'......'` and double `"......."` quotes to designate text strings.
@@ -480,18 +504,20 @@ function add(a, b) {
 
 * Variables are declared using the [`var` keyword](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var).  You must use the `var` keyword to precede a variable name, but you do not need to provide a type, since the initial value will set the type.
 
-> JavaScript version note: newer versions of JavaScript also support the [`let` and `const` keywords](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript#Functions#Variables) for variable declaration.  We will primarily use `var` in this course, but slowly start to add `let` and `const` as you become more familiar with the language.
+    > JavaScript version note: newer versions of JavaScript also support the [`let` and `const` keywords](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript#Functions#Variables) for variable declaration.  We will primarily use `var` in this course, but slowly start to add `let` and `const` as you become more familiar with the language.
 
-```js
-var year;
-var seasonName = "Summer";
+    ```js
+    var year;
+    var seasonName = "Summer";
 
-// Referring to and using syntax:
-year = 2018;
-console.log(seasonName, year);
-```
+    // Referring to and using syntax:
+    year = 2018;
+    console.log(seasonName, year);
+    ```
 
-* JavaScript Variables: variables must start with a letter (`a-zA-z`), underscore (`_`), or dollar sign (`$`).  They cannot be a [reserved (key) word](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Keywords). Subsequent characters can be letters, numbers, underscores.
+#### JavaScript Variables
+
+Variables must start with a letter (`a-zA-z`), underscore (`_`), or dollar sign (`$`).  They cannot be a [reserved (key) word](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Keywords). Subsequent characters can be letters, numbers, underscores.
 
 *NOTE*: If you forget to use the `var` keyword, JavaScript will still allow you to use a variable, and simply create a *global variable*.  We often refer to this as "leaking a global," and it should always be avoided:
 
@@ -501,71 +527,38 @@ b = 7;          // BAD: b is used without declaration, and is now a global
 ```
 
 * Data Types: JavaScript is a typeless language--you don't need to specify a type for your data (it will be inferred at runtime).  However, internally, the [following data types are used](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript#Overview):
+    
     * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript#Numbers) - a double-precision 64-bit floating point number.  Using `Number` you can work with both Integers and Floats.  There are also some special `Number` types, [`Infinity`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity) and [`NaN`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN).
+    
     * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript#Strings) - a sequence of Unicode characters.  JavaScript supports both single (`'...'`) and double (`"..."`) quotes when defining a `String`.
+    
     * `Boolean` - a value of `true` or `false`. We'll also see how JavaScript supports so-called *truthy* and *falsy* values that are not pure `Boolean`s.
+    
     * `Object`, which includes [`Function`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript#Functions), [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array), [`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date), and many more. - JavaScript supports object-oriented programming, and uses objects and functions as first-class members of the language.
+    
     * [`null`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null) - a value that means "this is intentionally nothing" vs. `undefined`
+    
     * [`undefined`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined) - a special value that indicates a value has never been defined.
+    
+    |Declaration|Type|Value|
+    |-----------|----|-----|
+    |`var s1 = "some text";` |`String`|`"some text"`|
+    |`var s2 = 'some text';` |`String`|`"some text"` |
+    |`var s3 = '172';`       |`String`|`"172"`|
+    |`var s4 = '172' + 4;`   |`String`|`"1724"` (concatenation vs. addition)|
+    |`var n1 = 172;`         |`Number`|`172` (integer)|
+    |`var n2 = 172.45;`      |`Number`|`172.45` (double-precision float)|
+    |`var b1 = true;`        |`Boolean`| `true` |
+    |`var b2 = false;`       |`Boolean`| `false`|
+    |`var b3 = !b2;`         |`Boolean`| `true` |
+    |`var c;`                |`undefined`| `undefined`|
+    |`var d = null;`         |`null`|`null`|
 
-|Declaration|Type|Value|
-|-----------|----|-----|
-|`var s1 = "some text";` |`String`|`"some text"`|
-|`var s2 = 'some text';` |`String`|`"some text"` |
-|`var s3 = '172';`       |`String`|`"172"`|
-|`var s4 = '172' + 4;`   |`String`|`"1724"` (concatenation vs. addition)|
-|`var n1 = 172;`         |`Number`|`172` (integer)|
-|`var n2 = 172.45;`      |`Number`|`172.45` (double-precision float)|
-|`var b1 = true;`        |`Boolean`| `true` |
-|`var b2 = false;`       |`Boolean`| `false`|
-|`var b3 = !b2;`         |`Boolean`| `true` |
-|`var c;`                |`undefined`| `undefined`|
-|`var d = null;`         |`null`|`null`|
+<br>
 
-Consider a simple program from your C course, and how it would look in JavaScript
+#### JavaScript Operators
 
-```c
- // Area of a Circle, based on https://scs.senecac.on.ca/~btp100/pages/content/input.html
- // area.c
-
- #include <stdio.h>               // for printf
-
- int main(void)
- {
-    const float pi = 3.14159f;   // pi is a constant float 
-    float radius = 4.2;          // radius is a float
-    float area;                  // area is a float
-
-    area = pi * radius * radius; // calculate area from radius
-
-    printf("Area = %f\n", area); // copy area to standard output
-
-    return 0;
-}
-```
-
-Now the same program in JavaScript:
-
-```js
-var pi = 3.14159;                       // pi is a Number 
-var radius = 4.2;                       // radius is a Number
-var area;                               // area is (currently) undefined
-
-area = pi * radius * radius;            // calculate area from radius
-
-console.log("Area = " + area + "\n");   // print area to the console
-```
-
-We could also have written it like this, using [`Math.PI`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/PI), which we'll learn about later:
-
-```js
-var radius = 4.2;                       // radius is a Number
-var area = Math.PI * radius * radius;   // calculate area from radius
-
-console.log("Area", area);              // print area to the console
-```
-
-* Common [JavaScript Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators) (there are more, but these are a good start):
+Common [JavaScript Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators) (there are more, but these are a good start):
 
 |Operator | Operation | Example |
 |---------|-----------|----------|
@@ -602,7 +595,7 @@ console.log("Area", area);              // print area to the console
 
 * JavaScript is dynamic, and variables can change value *and* type at runtime:
 
-```js
+    ```js
 var a;             // undefined
 a = 6;             // 6, Number
 a++;               // 7, Number
@@ -611,29 +604,41 @@ a += 3;            // 9, Number
 a = "Value=" + a;  // "Value=9", String
 a = !!a;           // true, Boolean
 a = null;          // null
-```
+    ```
 
-* JavaScript is a [garbage collected language](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management).  Unlike C, memory automatically gets freed at runtime when variables are not longer in scope or reachable.  We still need to be careful not to leak memory (i.e., hold onto data longer than necessary, or forever) and block the garbage collector from doing its job.
+* JavaScript is a [garbage collected language](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management).  Mmemory automatically gets freed at runtime when variables are not longer in scope or reachable.  We still need to be careful not to leak memory (i.e., hold onto data longer than necessary, or forever) and block the garbage collector from doing its job.
 
-* Strings: JavaScript doesn't distinguish between a single `char` and a multi-character `String`--everything is a `String`.  You [define a `String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) using either single (`'...'`) or double (`"..."`) quotes.  Make sure you use one or the other, but don't mix them in a single program, so as to avoid confusion.  
+* Strings: JavaScript doesn't distinguish between a single character and a multi-character `String` --everything is a `String`.  You [define a `String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) using either single (`'...'`) or double (`"..."`) quotes.  Make sure you use one or the other, but don't mix them in a single program, so as to avoid confusion.  
 
 * JavaScript version note: newer versions of ECMAScript also allow for the use of [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals).  Instead of `'` or `"`, a template literal uses \` (backticks), and you can also [interpolate expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Expression_interpolation).
 
-* A JavaScript [expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) is any code (e.g., literals, variables, operators, and expressions) that evaluates to a single value. The value may be a `Number`, `String`, an `Object`, or a logical value.
+<br>
 
-```js
+#### JavaScript Expressions
+
+A JavaScript [expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) is any code (e.g., literals, variables, operators, and expressions) that evaluates to a single value. The value may be a `Number`, `String`, an `Object`, or a logical value.
+
+    ```js
 var a = 10 /2;                        // arithmetic expression
 var b = !(10 / 2);                    // logical expression evaluates to false
 var c = "10 " + "/" + " 2";           // string, evaluates to "10 / 2"
 var f = function() { return 10 / 2;}; // function expression, f can now be called via the () operator
 var d = f();                          // f() evaluates to 10/2, or the Number 5
-```
+    ```
 
-* JavaScript execution flow is determined using the following four (4) basic control structures:
-    * Sequential: an instruction is executed when the previous one is finished.
-    * Conditional: a logical condition is used to [determine which instruction will be executed next](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals) - similar to the `if` and `switch` statements in C (which JavaScript also has).
-    * Looping: a series of [instructions are repeatedly executed](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code) until some condition is satisfied - similar to the `for` and `while` statements in C (which JavaScript also has).  There are many different types of loops in JavaScript: for example [`for` loops](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code#The_standard_for_loop) and [`while` loops](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code#while_and_do_..._while), as well as ways to [`break`](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code#Exiting_loops_with_break) out of loops or skip iterations with [`continue`](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code#Skipping_iterations_with_continue).  We'll cover other types as we learn about `Object` and `Array`.
-    * Transfer: [jump to, or invoke](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Functions) a different part of the code - similar to calling a function in C.
+<br>
+
+#### JavaScript Execution Flow
+
+JavaScript execution flow is determined using the following four (4) basic control structures:
+
+* **Sequential**: an instruction is executed when the previous one is finished.
+
+* **Conditional**: a logical condition is used to [determine which instruction will be executed next](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals) - similar to the `if` and `switch` statements in C (which JavaScript also has).
+
+* **Looping**: a series of [instructions are repeatedly executed](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code) until some condition is satisfied - similar to the `for` and `while` statements in C (which JavaScript also has).  There are many different types of loops in JavaScript: for example [`for` loops](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code#The_standard_for_loop) and [`while` loops](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code#while_and_do_..._while), as well as ways to [`break`](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code#Exiting_loops_with_break) out of loops or skip iterations with [`continue`](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code#Skipping_iterations_with_continue).  We'll cover other types as we learn about `Object` and `Array`.
+
+* **Transfer**: [jump to, or invoke](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Functions) a different part of the code - similar to calling a function in C.
 
 ```js
 /**
