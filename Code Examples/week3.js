@@ -1,6 +1,4 @@
 // NOTES
-// There is no notion of a "server" in any of the below code, so this example
-// is meant to run locally (in the integrated terminal) without a server
 // to run this example, simply type "node week3.js" into the terminal
 
 // Uncomment each function to see the example:
