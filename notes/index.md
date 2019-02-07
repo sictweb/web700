@@ -7,6 +7,8 @@ layout: default
 
 Here, you will find the links to the weekly notes.  Please also remember to refer to the [learning resources](/resources) for additional help.
 
+<mark>NOTE: Make sure all notes reference their correct week in the example code!</mark>
+
 <br>
 
 <table>
@@ -48,11 +50,14 @@ Object Oriented JavaScript / ES6 Features:<br /><br />
 </td>
 </tr>
 <tr>
-<td headers="tbl6"><a href="/web700/notes/week04">4 - Notes (<mark>TODO: Update "Getting Started With Heroku" Link</mark>)</a></td>
+<td headers="tbl6"><a href="/web700/notes/week04">4 - Notes (<mark>First Draft Complete</mark>)</a></td>
 <td headers="tbl7">
-Node.js Introduction:<br /><br />
+Formal Node.js Introduction:<br /><br />
 <ul>
-<li>Topic(s)</li>
+<li>Modules explained</li>
+<li>NPM – Node Package Manager</li>
+<li>Package.json Explained</li>
+<li>Building a simple web server using Node.js with Express.js</li>
 </ul>
 </td>
 </tr>

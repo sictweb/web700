@@ -24,7 +24,9 @@ and experience.  No one resource can begin to cover the breadth and depth of web
 Yes, you do need to read the weekly notes.  You will be tested on this material.  We will
 discuss it in class, but not cover everything.  The external links will help you understand and
 master the material.  You are advised to read some external material, but you don't need to read
-all of it.  However, make sure you *do* read Recommended Readings.
+all of it. 
+
+<br>
 
 ## Internet Architecture
 
@@ -33,6 +35,8 @@ all of it.  However, make sure you *do* read Recommended Readings.
 * [How does the Internet work?](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/How_does_the_Internet_work)
     * [How the Internet works in 5 minutes (video)](https://www.youtube.com/watch?v=7_LPdttKXPc)
 * [How the Web works](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/How_the_Web_works)
+
+<br>
 
 ### Application Protocols
 
@@ -65,6 +69,8 @@ transmit data between clients and servers.  The web is a subset of the Internet.
 Instead, it is defined as a set of [open standards](https://en.wikipedia.org/wiki/Web_standards),
 which everyone building and using the web relies upon.  Some examples of these
 standards include [HTML](https://html.spec.whatwg.org/multipage/), [HTTP](https://tools.ietf.org/html/rfc7230), [SVG](https://www.w3.org/TR/SVG11/), and many more.
+
+<br>
 
 ### HTTP Requests and Responses
 
@@ -257,6 +263,8 @@ There are dozens of response codes, but they fall into a [few categories you sho
 * `4xx` – [client error responses](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#Client_error_responses)
 * `5xx` – [server error responses](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#Server_error_responses)
 
+<br>
+
 ### Web Browsers
 
 So far we've been communicating with web servers using `curl`, but a more common
@@ -304,6 +312,8 @@ and competing things, it's common for things to break, for there to be bugs, and
 to adapt your code to work in interesting ways.  The good news is, it means there are lots
 of jobs for web developers to make sure it all keeps working.
 
+<br>
+
 ### Uniqueness of the Web as a Platform
 
 We've been discussing HTTP as a way to request URLs be transferred between clients and servers.
@@ -323,6 +333,7 @@ The web allows users to access and run remote applications *without* needing to 
 
 The web works on *every* computing platform.  You can access and use the web on desktop and mobile computers, on TVs and smartwatches, on Windows and Mac, in e-Readers and video game consoles.  The web works everywhere, and learning how to develop software for the web extends your reach into all those platforms.
 
+<br>
 
 ## Introduction to JavaScript
 
@@ -339,6 +350,8 @@ much of the software we use is built using JS.
 
 > JavaScript's many versions: JavaScript is an evolving language, and you'll hear it [referred to by a number of names](https://medium.freecodecamp.org/whats-the-difference-between-javascript-and-ecmascript-cba48c73a2b5), including: ECMAScript (or ES), ES5, ES6, ES2015, ES2017, etc.  [ECMA is the European Computer Manufacturers Association, which is the standards body responsible for the JS language](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction#JavaScript_and_the_ECMAScript_Specification). As the standard evolves, the specification goes through different versions, adding or changing features and syntax.  In this course we will primarily focus on ECMAScript 5 (ES5), which all browsers support.  We will also sometimes use newer features of the language from ECMAScript 6 (ES6), which most browsers support.  Language feature support across browsers is [maintained in this table](http://kangax.github.io/compat-table/es6/).
 
+<br>
+
 ### JavaScript Resources
 
 Throughout the coming weeks, we'll make use of a number of important online resources.
@@ -353,17 +366,16 @@ a routine basis, so it's good to know about them.
 * [Speaking JavaScript (ES5)](http://speakingjs.com/es5/index.html)
 * [Exploring ES6](http://exploringjs.com/es6/index.html)
 
+<br>
+
 ### JavaScript Environments
 
 Unlike C, which is compiled to machine code, JavaScript is meant to be run within a host
-environment.  There are many possible environments, but we will focus on the following:
+environment.  There are many possible environments, but we will focus primairly on the following:
 
-* Web Browsers, and their associated developer tools, primarily:
-    * [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/)
-    * [Firefox Developer Tools](https://developer.mozilla.org/en-US/docs/Tools)
 * [Node.js](https://nodejs.org/), and its [command line REPL (Read-Eval-Print-Loop)](http://www.tutorialsteacher.com/nodejs/nodejs-console-repl)
 
-If you haven't done so already, you should install all of the above.
+If you haven't done so already, you should install Node.js
 
 #### JavaScript Engines
 
@@ -381,7 +393,9 @@ encounter them indirectly via web browsers and in Node.js.
 It's not important to understand a lot about each of these engines at this point,
 other than to be aware that each has its own implementation of the ECMAScript standards, its own performance characteristics (i.e., some are faster at certain things), as well as its own set of bugs.
 
-#### Running JavaScript Programs
+<br>
+
+### Running JavaScript Programs
 
 JavaScript statements can be stored in an external file with a `.js` file extension,
 or embedded within HTML code via the HTML `<script>` element.  For the first part of this course, we will use [Node.js](https://nodejs.org/en/) to execute our JavaScript code from the command line within our development environment, [Visual Studio Code](https://code.visualstudio.com/)
@@ -416,21 +430,13 @@ or embedded within HTML code via the HTML `<script>` element.  For the first par
 
 11. "Hello World!" - you have just executed your first line of JavaScript code!
 
+<br>
 
 ### JavaScript Syntax
 
-#### Recommend Readings
-
-We will spend a month learning JavaScript, and there is no one best way to do it.
-The more you read and experiment the better.  The following chapters/pages give a good overview:
-
-* [Chapter 1. Basic JavaScript](http://speakingjs.com/es5/ch01.html) of [Speaking JS (ES5)](http://speakingjs.com/es5).
-* [MDN JavaScript Introduction Tutorial](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript#Functions)
-* [Chapter 1. Values, Types and Operators](https://eloquentjavascript.net/2nd_edition/01_values.html) and [Chapter 2. Program Structure](https://eloquentjavascript.net/2nd_edition/02_program_structure.html) of [Eloquent JavaScript (2nd Ed.)](https://eloquentjavascript.net/2nd_edition/).  NOTE: the [third edition](https://eloquentjavascript.net/) covers ES6, which you can also read if you like, but be aware that it uses more modern syntax.
-
 #### Important Ideas
 
-* Like C, JavaScript is Case-Sensitive: `customerCount` is not the same thing as `CustomerCount` or `customercount`
+* JavaScript is Case-Sensitive: `customerCount` is not the same thing as `CustomerCount` or `customercount`
 * Name things using `camelCase` (first letter lowercase, subsequent words start with uppercase) vs. `snake_case`.
 * Semicolons are optional in JavaScript, but highly recommended.  We'll expect you to use them in this course, and using them will make working in C++, Java, CSS, etc. much easier, since you have to use them there.
 

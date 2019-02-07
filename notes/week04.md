@@ -3,34 +3,19 @@ title: WEB700 Week 4
 layout: default
 ---
 
-## WEB700 Week 4 Notes (<mark>TODO: Update "Getting Started With Heroku" Link</mark>)
+## WEB700 Week 4 Notes
 
+### Formal Introduction to Node.js
 
-### Introduction to Node.js
+[![](/web700/media/node-logo.jpg)](https://nodejs.org)<br><br> As we learned at the beginning of this course, Node.js is actually a JavaScript runtime environment based on Chrome's V8 engine. It is a command-line program (written in C++) that you can install on your local machine or on a web-server that will take your JavaScript code and execute it.
 
-[![](/web700/media/node-logo.jpg)](https://nodejs.org)<br><br> As we learned at the beginning of this course, Node.js is actually a JavaScript runtime environment based on Chrome's V8 engine. It is a command-line program (written in C++) that you can install on your local machine or on a web-server that will take your JavaScript code and execute it. This means that we don't actually need a web browser to execute JavaScript at all - we just need a JavaScript engine. Why don't we try a short example:
-
-1.  If you haven't already, be sure to [download](https://nodejs.org) and install the current release of Node.js. If you're not sure whether or not you have Node.js installed, open the **Command Prompt** and type **node -v**. If Node.js has been installed, this will output the version.<br><br>
-2.  Make sure you have Visual Studio Code installed. This is an open-source, cross-platform development environment provided by Microsoft. While it is true that you can write your code in any text editor, Visual Studio Code works very nicely alongside Node.js and all examples going forward will assume that you are using Visual Studio Code. You can [download it here](https://code.visualstudio.com/download) <br><br>
-3.  On your Local computer, navigate to your desktop and **create a folder** called **Ex1**<br><br>
-4.  Open **Visual Studio Code** and select **File -> Open Folder**. Choose your newly created **"Ex1"** Folder and click **"Select Folder"**<br><br>
-5.  You should see an "Explorer" pane open on the left side with two items: "Open Editors" and "Ex1". Click to expand "Ex1" and locate the "New File" button ( ![](http://zenit.senecac.on.ca/~patrick.crawford/wp-content/uploads/2016/09/vscode-new-file.jpg) ). Click this and type **"hello.js".**<br><br>
-6.  You should now see your newly created "Hello.js" file in the editor. Enter the following line of code:
+Recall, our very first line of JavaScript:
     
-    ```javascript
-    console.log("Hello World!");
-    ```
-    
-    and click **File -> Save (Ctrl + S)**<br><br>
-7.  Open the **Integrated Terminal** by selecting **View -> Integrated Terminal (Ctrl + \`)** and type:
-    
-    ```bash    
-    node hello.js
-    ```
+```javascript
+console.log("Hello World!");
+```
 
-**Hello World!** This is the most basic example in Node.js - notice how we didn't need to open a web browser, scratchpad, devtools, etc? It's also important to note that the command **"node hello.js"** can be executed in any command prompt as long as the active working directory is set to wherever your **hello.js** file is located (Ex1 in this case). The Integrated Terminal is just a quick, easy way to get a command prompt running in the correct location without leaving the development environment.
-
-Regarding the code that we wrote, it's very simple; however we have made an important assumption: that we have access to a global **"console"** object. In Node.js we have access to [a number of global objects / variables](https://nodejs.org/api/globals.html) in addition to [the built-in objects that are built into the JavaScript language](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects). Some of the Node.js Globals that we will be using include:
+This is obviously a very trivial example, however we have made an important assumption: that we have access to a global **"console"** object. In Node.js we have access to [a number of global objects / variables](https://nodejs.org/api/globals.html) in addition to [the built-in objects that are built into the JavaScript language](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects). Some of the Node.js Globals that we will be using include:
 
 **[Console](https://nodejs.org/api/console.html)**
 
@@ -56,8 +41,8 @@ Some of the key elements that we will be using are:
 * For example: if our .js file is located in /Users/pcrawford/ex1.js:
 
     ```javascript
-    console.log(__dirname);
-    // outputs /Users/pcrawford
+  console.log(__dirname);
+  // outputs /Users/pcrawford
     ```
 
 **[\_\_filename](https://nodejs.org/api/globals.html#globals_filename)**
@@ -66,8 +51,8 @@ Some of the key elements that we will be using are:
 * For example: if our .js file is located in /Users/pcrawford/ex1.js:
 
     ```javascript
-    console.log(__filename);
-    // outputs /Users/pcrawford/ex1.js
+  console.log(__filename);
+  // outputs /Users/pcrawford/ex1.js
     ```
 
 **[setTimeout()](https://nodejs.org/api/timers.html#timers_settimeout_callback_delay_arg)**
@@ -79,12 +64,12 @@ Some of the key elements that we will be using are:
     *   **\[, ...arg\]** Optional arguments to pass when the callback is called.
 
 * For example:
-
+    
     ```javascript
-    // outputs "Hello after 1 second" to the console
-    setTimeout(function(){
-        console.log("Hello after 1 second");
-    }, 1000); 
+  // outputs "Hello after 1 second" to the console
+  setTimeout(function(){
+      console.log("Hello after 1 second");
+  }, 1000); 
     ```
     
 **[setInterval()](https://nodejs.org/api/timers.html#timers_setinterval_callback_delay_arg)**
@@ -99,40 +84,42 @@ Some of the key elements that we will be using are:
 For example:
 
     ```javascript
-    var count = 1; // global counter
-    var maxCount = 5; // global maximum
+  var count = 1; // global counter
+  var maxCount = 5; // global maximum
 
-    var myCountInterval = setInterval(function () {
-        console.log("Hello after " + (count++) + " second(s)");
-        checkMaximum();
-    }, 1000);
+  var myCountInterval = setInterval(function () {
+      console.log("Hello after " + (count++) + " second(s)");
+      checkMaximum();
+  }, 1000);
 
-    var checkMaximum = function () {
-        if (count > maxCount) {
-            clearInterval(myCountInterval);
-        }
-    }
+  var checkMaximum = function () {
+      if (count > maxCount) {
+          clearInterval(myCountInterval);
+      }
+  }
     ```
 
 **[require()](https://nodejs.org/api/globals.html#globals_require)**
 
 * The require function is the easiest way to include modules that exist in separate files. The basic functionality of require is that it reads a javascript file, executes the file, and then proceeds to return the exports object. More about modules and the require() function discussed below.
 
-* Now that we have written and executed our very first program with JavaScript using Node.js - why don't we try another example. This time, lets add some user input. Recall when we first discussed JavaScript in the previous course, we did not capture user input using JavaScript, but instead relied on explicitly setting test values at the top of our programs. This allowed us to have specific control over the type of input we were testing. However, it might be interesting to deal with "live data" in a pure JS environment and fortunately for us, we have access to the extensive collection of [modules](https://nodejs.org/api/modules.html) that come bundled with Node.js - more specifically, we have access to the [readline](https://nodejs.org/api/readline.html#readline_readline) module, which can be used for this purpose, for example:
+* Now that we have written and executed our very first program with JavaScript using Node.js - why don't we try another example. This time, lets add some user input. So far, we have not discussed how we can collect user input from the terminal / command prompt using JavaScript. Instead, we have relied on explicitly setting test values at the top of our programs - this allowed us to have specific control over the type of input we were testing. However, it might be interesting to deal with "live data" in a pure JS environment and fortunately for us, we have access to the extensive collection of [modules](https://nodejs.org/api/modules.html) that come bundled with Node.js - more specifically, we have access to the [readline](https://nodejs.org/api/readline.html#readline_readline) module, which can be used for this purpose, for example:
 
     ```javascript
-    var readline = require('readline');
+  var readline = require('readline');
 
-    var rl = readline.createInterface({
-      input: process.stdin,
-      output: process.stdout
-    });
+  var rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
 
-    rl.question('Enter Your Name: ', function(answer){
-      console.log('Hello ' +  answer);
-      rl.close();
-    });
+  rl.question('Enter Your Name: ', function(answer){
+    console.log('Hello ' +  answer);
+    rl.close();
+  });
     ```
+
+    (Please Note: This is not how we will be accepting user input in a server environment - it's just a fun example on how to use 'require')
 
 * Notice the first line of our code invokes the global **require()** function which returns an object from the core ["readline"](https://nodejs.org/api/readline.html#readline_readline) module, which we store in a variable named "readline". Now we have access to all of the functionality from the **readline** module, including an input/output mechanism via the [createInterface()](https://nodejs.org/api/readline.html#readline_readline_createinterface_options) method which creates a new [Interface](https://nodejs.org/api/readline.html#readline_class_interface) instance (named "r1" from above). This exposes a handy method called [question()](https://nodejs.org/api/readline.html#readline_rl_question_query_callback) that we can use to capture and output user data at the command prompt. 
 
@@ -327,7 +314,7 @@ You can start your own package.json file from scratch but it is much easier to r
 
 #### Building a simple web server using Node.js with Express.js
 
-In week 4, your going to learn more about express.js but for now let's introduce it as a module you can install from NPM that has lot's of code that wraps up more complicated code and as a result it makes writing your own web server MUCH easier than writing it from scratch in node.js
+In week 5, your going to learn more about express.js but for now let's introduce it as a module you can install from NPM that has lot's of code that wraps up more complicated code and as a result it makes writing your own web server MUCH easier than writing it from scratch in node.js
 
 First, we will install the package to our app before we even start building our server
 
@@ -418,10 +405,10 @@ app.get("/about", function(req,res){
 app.listen(HTTP_PORT, onHttpStart);
 ```  
 
-You can now run this web server by typing **node week2** from the commandline.  
+You can now run this web server by typing **node week4** from the commandline.  
 
 ```bash
-$ node week2
+$ node week4
 Express http server listening on: 8080
 ```
 
@@ -485,7 +472,7 @@ app.get("/about", function(req,res){
 });
 ```
 
-To test your server, run **node week2** to see the results on **http://localhost:8080**
+To test your server, run **node week4** to see the results on **http://localhost:8080**
 
 <br>
 
