@@ -618,13 +618,13 @@ a = null;          // null
 
 A JavaScript [expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) is any code (e.g., literals, variables, operators, and expressions) that evaluates to a single value. The value may be a `Number`, `String`, an `Object`, or a logical value.
 
-    ```js
+```js
 var a = 10 /2;                        // arithmetic expression
 var b = !(10 / 2);                    // logical expression evaluates to false
 var c = "10 " + "/" + " 2";           // string, evaluates to "10 / 2"
 var f = function() { return 10 / 2;}; // function expression, f can now be called via the () operator
 var d = f();                          // f() evaluates to 10/2, or the Number 5
-    ```
+```
 
 <br>
 
