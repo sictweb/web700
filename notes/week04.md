@@ -316,59 +316,69 @@ You can start your own package.json file from scratch but it is much easier to r
 
 In week 5, your going to learn more about express.js but for now let's introduce it as a module you can install from NPM that has lot's of code that wraps up more complicated code and as a result it makes writing your own web server MUCH easier than writing it from scratch in node.js
 
-First, we will install the package to our app before we even start building our server
+To get started:
 
-```bash
-$ npm install express
-seneca@1.0.0 C:\seneca
-`-- express@4.14.0
-  +-- accepts@1.3.3
-  | +-- mime-types@2.1.13
-  | | `-- mime-db@1.25.0
-  | `-- negotiator@0.6.1
-  +-- array-flatten@1.1.1
-  +-- content-disposition@0.5.1
-  +-- content-type@1.0.2
-  +-- cookie@0.3.1
-  +-- cookie-signature@1.0.6
-  +-- debug@2.2.0
-  | `-- ms@0.7.1
-  +-- depd@1.1.0
-  +-- encodeurl@1.0.1
-  +-- escape-html@1.0.3
-  +-- etag@1.7.0
-  +-- finalhandler@0.5.0
-  | +-- statuses@1.3.1
-  | `-- unpipe@1.0.0
-  +-- fresh@0.3.0
-  +-- merge-descriptors@1.0.1
-  +-- methods@1.1.2
-  +-- on-finished@2.3.0
-  | `-- ee-first@1.1.1
-  +-- parseurl@1.3.1
-  +-- path-to-regexp@0.1.7
-  +-- proxy-addr@1.1.2
-  | +-- forwarded@0.1.0
-  | `-- ipaddr.js@1.1.1
-  +-- qs@6.2.0
-  +-- range-parser@1.2.0
-  +-- send@0.14.1
-  | +-- destroy@1.0.4
-  | +-- http-errors@1.5.1
-  | | +-- inherits@2.0.3
-  | | `-- setprototypeof@1.0.2
-  | `-- mime@1.3.4
-  +-- serve-static@1.11.1
-  +-- type-is@1.6.14
-  | `-- media-typer@0.3.0
-  +-- utils-merge@1.0.0
-  `-- vary@1.1.0
-```
+* First, create a folder somewhere on your local machine and open it in Visual Studio Code.  
 
-npm WARN seneca@1.0.0 No description
-npm WARN seneca@1.0.0 No repository field.
+* Next, create a new .js file called "week4.js"
 
-Now if we take a look at the package.json file you can see that it has a new section that has been added for the express dependency.
+* Open the integrated terminal using the keyboard shortcut (ctrl + `` ` ``) or select “View” -> “integrated terminal” from the top menu.
+
+* Execute the command "npm init" (from above) - this will create our "package.json" file.
+
+* Now install the "express" package to our app using "npm install": 
+
+  ```bash
+  $ npm install express --save
+  seneca@1.0.0 C:\seneca
+  `-- express@4.14.0
+    +-- accepts@1.3.3
+    | +-- mime-types@2.1.13
+    | | `-- mime-db@1.25.0
+    | `-- negotiator@0.6.1
+    +-- array-flatten@1.1.1
+    +-- content-disposition@0.5.1
+    +-- content-type@1.0.2
+    +-- cookie@0.3.1
+    +-- cookie-signature@1.0.6
+    +-- debug@2.2.0
+    | `-- ms@0.7.1
+    +-- depd@1.1.0
+    +-- encodeurl@1.0.1
+    +-- escape-html@1.0.3
+    +-- etag@1.7.0
+    +-- finalhandler@0.5.0
+    | +-- statuses@1.3.1
+    | `-- unpipe@1.0.0
+    +-- fresh@0.3.0
+    +-- merge-descriptors@1.0.1
+    +-- methods@1.1.2
+    +-- on-finished@2.3.0
+    | `-- ee-first@1.1.1
+    +-- parseurl@1.3.1
+    +-- path-to-regexp@0.1.7
+    +-- proxy-addr@1.1.2
+    | +-- forwarded@0.1.0
+    | `-- ipaddr.js@1.1.1
+    +-- qs@6.2.0
+    +-- range-parser@1.2.0
+    +-- send@0.14.1
+    | +-- destroy@1.0.4
+    | +-- http-errors@1.5.1
+    | | +-- inherits@2.0.3
+    | | `-- setprototypeof@1.0.2
+    | `-- mime@1.3.4
+    +-- serve-static@1.11.1
+    +-- type-is@1.6.14
+    | `-- media-typer@0.3.0
+    +-- utils-merge@1.0.0
+    `-- vary@1.1.0
+
+  npm WARN seneca@1.0.0 No description
+  npm WARN seneca@1.0.0 No repository field.
+  ```
+
+Now if we take a look at the package.json file you can see that it has a new section that has been added for the express dependency (note: your version may be newer).
 
 ```json
   "dependencies": {
@@ -378,7 +388,7 @@ Now if we take a look at the package.json file you can see that it has a new sec
     
 This means that if we give our project to someone else now they can just type **npm install** and it will install the dependencies listed here and the app should be able to run and have everything it needs.
 
-Now let's start our week4.js file and create a web server in 13 lines of code! Create a new week4.js that looks like this:
+Now let's edit our week4.js file and create a web server in 13 lines of code! In your new week4.js file, enter the following lines of code:
 
 ```javascript
 var express = require("express");
@@ -405,10 +415,10 @@ app.get("/about", function(req,res){
 app.listen(HTTP_PORT, onHttpStart);
 ```  
 
-You can now run this web server by typing **node week4** from the commandline.  
+You can now run this web server by typing **node server.js** from the commandline.  
 
 ```bash
-$ node week4
+$ node week4.js
 Express http server listening on: 8080
 ```
 
@@ -480,7 +490,11 @@ To test your server, run **node week4** to see the results on **http://localhost
 
 If we wish to see this code run on Heroku, we follow the same procedure highlighted in the [Getting Started with Heroku](/web700/getting-started-with-heroku) guide, ie, logging in to heroku (**heroku login**), creating an app (**heroku create**) and pushing our code to the server using **git push heroku master**.
 
-However, there is one small change that we can make to our package.json file to ensure that the correct .js file is started on Heroku when we deploy our app. This is necessary if we have multiple server files for debugging and testing; as is the case with the "example code" from github - it contains multiple servers, one for each week!
+<br>
+
+#### Executing the existing code from the "Code Examples" folder
+
+If you have pulled this example straight from "Code Examples" there is one small change that we can make to our package.json file to ensure that the correct .js file is started on Heroku when we deploy our app. This is necessary if we have multiple server files for debugging and testing; as is the case with the "example code" from github - it contains multiple servers, one for each week!
 
 Fortunately, when you push your code to Heroku, the automated build process will run the command **npm start** once it is complete. This command (npm start) looks in the package.json file for the "start" property within the "scripts" property and run that command (ie, **node somefile.js**). Let’s make sure there is a start property on the scripts property of the package.json file for this example.
 
