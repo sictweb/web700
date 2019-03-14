@@ -354,6 +354,10 @@ The network tab in the dev tools is one of the core tools for debugging on the c
 
 <br>
 
+### Publishing Our Code (Heroku Guide)
+
+As a final task for this week, follow along with the "[Getting Started With Heroku](/web700/getting-started-with-heroku)" Guide.  This will allow us to place our code online and create web applications that are accessible on the Web. 
+
 ### Sources
 
 *   [Express JS](http://expressjs.com/)

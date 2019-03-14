@@ -62,11 +62,17 @@ Formal Node.js Introduction:<br /><br />
 </td>
 </tr>
 <tr>
-<td headers="tbl6"><a href="/web700/notes/week05">5 - Notes (<mark>Conversion Complete</mark>)</a></td>
+<td headers="tbl6"><a href="/web700/notes/week05">5 - Notes (<mark>First Draft Complete</mark>)</a></td>
 <td headers="tbl7">
 Express.js Introduction &amp; Deployment:<br /><br />
 <ul>
-<li>Git &amp; Heroku</li>
+<li>What is Express.js?</li>
+<li>Configuration & Settings</li>
+<li>Routing</li>
+<li>Middleware</li>
+<li>Error Handling</li>
+<li>Chrome Dev tools – Network tab, Response data</li>
+<li>Git &amp; Heroku ("Heroku Guide")</li>
 </ul>
 </td>
 </tr>
