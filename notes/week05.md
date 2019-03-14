@@ -52,7 +52,7 @@ Here are some of the commonly used application properties and methods you will t
 
 **[app.locals](https://expressjs.com/en/api.html#app.locals)**
 
-* This property allows you to attach local variables to the application, which persist throughout the life of the app. You can access local variables in templates rendered within the application (discussed in week 6 - "Template Engines – Handlebars.js").
+* This property allows you to attach local variables to the application, which persist throughout the life of the app. You can access local variables in templates rendered within the application (discussed in week 9 - "Template Engines – Handlebars.js").
 
 **[app.all()](https://expressjs.com/en/api.html#app.all)**
 
@@ -230,7 +230,7 @@ app.use(express.static("static"));
 
 Add this code to the previous example just before the first app.get route handler. The "static" string refers to the name of the directory, relative to where the server is running from, that contains the static content. The "static" string does not become part of the URL in this example, it is just specifying to express where to server static resources from.
 
-Now we can put images or css files in the /static folder, and link to them from our website. In week 6 we will cover templating and this will come in handy when we start working with html templates.  
+Now we can put images or css files in the /static folder, and link to them from our website. In week 9 we will cover templating and this will come in handy when we start working with html templates.  
   
 Try adding an image to the static folder, and including it in an \<img\> element for the main route response.
 
