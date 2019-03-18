@@ -618,7 +618,7 @@ function outputC(msg){
     return new Promise(function(resolve, reject){
         setTimeout(function(){
             console.log("C");
-            resolve("outputA() complete");
+            resolve("outputC() complete");
         },randomTime);
     });   
 }
