@@ -5,7 +5,7 @@ layout: default
 
 ## WEB700 Week 10 Notes
 
-### AJAX Review / Practical AJAX Programming
+### AJAX Introduction / Practical AJAX Programming <mark>(TODO: Remove XMLHttpRequest stuff and update example to use the Fetch API)</mark>
 
 Up until this point, everything in this course has involved logic that exists primarily on the server (server-side). However, there is one piece of technology that plays a vital role on the client side that needs to be discussed as well. This is **AJAX (Asynchronous JavaScript and XML)** - a collection of technologies used together to create a richer user experience by enabling data to be transferred between a web client (browser) and web server without the need to refresh the page.
 
@@ -189,7 +189,7 @@ fetch('https://reqres.in/api/users/')
 
 <br>
 
-### JSON Review
+### JSON Introduction
 
 As we have seen from above, the format of choice when sending data to/from a webserver using AJAX is **JSON (JavaScript Object Notation)**. This is a plain-text format that easily converts to a JavaScript object in memory. Essentially, JSON is a way to define an object using "Object Literal" notation, **outside** your application. Using the native JavaScript built-in [JSON Object](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON), we can preform the conversion from plain-text (JSON) to JavaScript Object (and vice-versa) easily. For example:
 

@@ -79,7 +79,7 @@ Express.js Introduction &amp; Deployment:<br /><br />
 <tr>
 <td headers="tbl6"><a href="/web700/notes/week06">6 - Notes (<mark>Copied Directly from WEB222 Week 5 and 6 - No Changes Made Yet and no Examples Added</mark>)</a></td>
 <td headers="tbl7">
-HTML / DOM Introduction:<br /><br />
+HTML Introduction:<br /><br />
 <ul>
 <li>(NOTE: Will have to show a "static" server here)</li>
 </ul>
@@ -88,11 +88,11 @@ HTML / DOM Introduction:<br /><br />
 <tr>
 <td headers="tbl6"><a href="/web700/notes/week07">7 - Notes (<mark>Copied Directly from WEB222 Week 8 (TODO WEEK 9) - No Changes Made Yet and no Examples Added</mark>)</a></td>
 <td headers="tbl7">
-CSS / SASS Introduction: <mark>(<mark>NOTE: Probably no time for SASS</mark>)<br /><br />
+CSS / SASS Introduction: (<mark>NOTE: Probably no time for SASS</mark>)<br /><br />
 <ul>
 <li>(NOTE: Can include Bootstrap CSS only here - link to jQuery / bootsrap js components?)</li>
 </ul>
-</mark></td>
+</td>
 </tr>
 <tr>
 <td headers="tbl6"><a href="/web700/notes/week08">8 - Notes (<mark>Conversion Complete</mark>)</a></td>
