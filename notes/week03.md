@@ -681,7 +681,9 @@ outputMessageArrow("Arrow Function");
 
 When we use the arrow (=>) syntax to create functions, we no longer need the "function" keyword and simple, one parameter / one line functions or methods can be greatly simplified as:
 
+```
 parameter => logic
+```
 
 However, if we have more than one parameter, or more than one line of logic, we can still use arrow functions to simplify the creation of anonymous functions by eliminating the "function" keyword:
 
@@ -720,6 +722,27 @@ var outputMessageArrow = () => console.log("Hello Arrow Function");
 outputMessage();
 outputMessageArrow();
 ``` 
+
+<br>
+
+#### Implicit "return statement"
+
+Arrow functions also implicitly return the value of the statement within the funtion.  This can lead to very short, consice function declarations, ie:
+
+```javascript
+var adder = function(num1, num2) {
+    return num1 + num2
+};
+
+// is the same as:
+
+var adderArrow = (num1, num2) => num1 + num2;
+
+// invoke each function to see the result
+
+console.log(adder(2, 2));
+console.log(adderArrow(2,2));
+```
 
 <br>
 
