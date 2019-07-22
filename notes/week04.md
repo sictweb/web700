@@ -428,7 +428,7 @@ and visit the website by navigating to **http://localhost:8080**
 
 #### Sending a HTML page back from a "get" request
 
-Now that we know how to send messages back from our server, it's very simple to extend this functionality to return files (ie, HTML pages) instead.
+Now that we know how to send messages back from our server, it's very simple to extend this functionality to return files (ie, HTML pages) instead (**Note:** We will be covering HTML in greater detail in Week 6), so don't worry if you don't immediately understand the code below).  
 
 To begin, we must first create a "views" folder for our HTML files inside the working (open) folder.
 
