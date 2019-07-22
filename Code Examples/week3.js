@@ -8,7 +8,6 @@
 /////////////////////
 
 //showObjectLiteralNotation();
-//showFunctionClosures();
 //showFunctionConstructor();
 //showThisKeyword();
 //showPrototypalInheritance();
@@ -52,32 +51,6 @@ function showObjectLiteralNotation() {
     console.log("architect1.name: " + architect1.name);
     console.log("architect2.name: " + architect2.name);
 
-}
-
-function showFunctionClosures() {
-
-    console.log("\n-----------------------");
-    console.log("Function Closures");
-    console.log("-----------------------\n");
-
-    function counter() {
-        var localCounter = 0; // declare "localCounter" within the "counter()" function scope
-
-        return function () { // return a new function that references "localCounter"
-            localCounter++; // increment it by 1
-            return localCounter; // return the value of "localcounter"
-        };
-
-    }
-
-    // call the counter() function and get a reference to the new function
-    var count = counter();
-
-    // call the new function
-
-    console.log("count(): " + count());
-    console.log("count(): " + count());
-    console.log("count(): " + count());
 }
 
 function showFunctionConstructor() {
