@@ -225,31 +225,31 @@ Finally - our server is setup and ready to serve the index.html file at our main
         <title>API Test</title>
         <script>
             function makeAJAXRequest(method, url, data){
-                let httpRequest = new XMLHttpRequest();
-                httpRequest.open(method, url);
-                if(data){
-                    httpRequest.setRequestHeader("Content-Type", "application/json");
-                    httpRequest.send(JSON.stringify(data));
-                }else{
-                    httpRequest.send();
-                }
+                if(data){ // Make an AJAX call using the provided data & method
+                    fetch(url, { 
+                        method: method,
+                        body: JSON.stringify(data),
+                        headers: { 'Content-Type': 'application/json'} 
+                    })
+                    .then(response => response.json())
+                    .then(json => {
+                        console.log(json);   
+                    });
 
-                httpRequest.onreadystatechange = () => {
-                    if (httpRequest.readyState === 4) {
-                        if (httpRequest.status === 200) {
-                            console.log(JSON.parse(httpRequest.responseText));
-                        }else{
-                            console.log("Error getting Data");
-                        }
-                    }
+                }else{  // Make an AJAX call without providing data using the method
+                    fetch(url, { method: method })
+                    .then(response => response.json())
+                    .then(json => {
+                        console.log(json);   
+                    });
                 }
             }
             function getAllUsers(){
-                    makeAJAXRequest("GET", "/api/users");
+                 makeAJAXRequest("GET", "/api/users");
             }
 
             function addNewUser(){
-                    makeAJAXRequest("POST", "/api/users", {fName: "Bob", lName: "Jones"});
+                 makeAJAXRequest("POST", "/api/users", {fName: "Bob", lName: "Jones"});
             }
 
             function getUserById(){

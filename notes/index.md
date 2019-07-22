@@ -99,7 +99,15 @@ CSS / SASS Introduction: (<mark>NOTE: Probably no time for SASS</mark>)<br /><br
 <td headers="tbl7">
 Forms Introduction / Processing Forms with Express.js:<br /><br />
 <ul>
-<li>Topic(s)</li>
+<li>HTML Forms Review</li>
+<li>Processing Forms in Express.js
+<ul>
+<li>HTTP Post & Urlencoded data</li>
+<li>Content-Type in POST header & enctype in HTML forms</li>
+<li>body-parser module (urlencoded form data)</li>
+<li>Multer module (multipart form data – file uploads)</li>
+</ul>
+</li>
 </ul>
 </td>
 </tr>
@@ -108,7 +116,22 @@ Forms Introduction / Processing Forms with Express.js:<br /><br />
 <td headers="tbl7">
 Template Engines – Handlebars.js:<br /><br />
 <ul>
-<li>Topic(s)</li>
+<li>Template Engines in Express.js
+<ul>
+<li>What is a Template Engine / Why do we need one</li>
+</ul>
+</li>
+<li>Handlebars.js
+<ul>
+<li>Including the express-handlebars module</li>
+<li>Getting Started with Handlebars.js &amp; Samples</li>
+<li>Block Expressions / Helpers</li>
+<li>Built-In Helpers
+<ul>if, unless, each</ul>
+</li>
+<li>Partials</li>
+</ul>
+</li>
 </ul>
 </td>
 </tr>
@@ -117,7 +140,14 @@ Template Engines – Handlebars.js:<br /><br />
 <td headers="tbl7">
 Introduction to AJAX &amp; "REST" API:<br /><br />
 <ul>
-<li>Topic(s)</li>
+<li>What is AJAX? Why do we need it?</li>
+<li>Requesting data (JSON) on the Client Side using JavaScript
+<ul>
+<li>Fetch API Introduction</li>
+</ul>
+</li>
+<li>Processing AJAX Requests on the server and returning data</li>
+<li>RESTful API Introduction</li>
 </ul>
 </td>
 </tr>
@@ -126,7 +156,10 @@ Introduction to AJAX &amp; "REST" API:<br /><br />
 <td headers="tbl7">
 Introduction to Postgres / Sequelize ORM:<br /><br />
 <ul>
-<li>Topic(s)</li>
+<li>Setting up a “Postgres” Database</li>
+<li>Downloading the “sequelize” &amp; “pg” modules</li>
+<li>Object-Relational Mapping Explained &amp; Requesting Data</li>
+<li>Returning &amp; Formatting data using Handlebars.js</li>
 </ul>
 </td>
 </tr>
@@ -135,7 +168,9 @@ Introduction to Postgres / Sequelize ORM:<br /><br />
 <td headers="tbl7">
 Security Considerations:<br /><br />
 <ul>
-<li>Topic(s)</li>
+<li>HTTPS</li>
+<li>Letsencypt.org, free https certificates forever</li>
+<li>Password Encryption, bcrypt.js</li>
 </ul>  
 </td>
 </tr>
