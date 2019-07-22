@@ -212,7 +212,7 @@ Now try visiting **http://localhost:8080** in your browser to view your website.
 
 Try visiting a route that is not the home route "/" or "/headers". You should see the 404 Page Not Found message to indicate this route is not valid for this website.
 
-Now that we have covered handling basic routes for a page and how to accept get requests that can respond with data; the next question is: "how do we respond to requests for things like images, or css files?"
+Now that we have covered handling basic routes for a page and how to accept get requests that can respond with data; the next question is: "how do we respond to requests for things like images, or css files?" (**NOTE:** CSS will be discussed in greater detail in week 7)
 
 <br>
 
