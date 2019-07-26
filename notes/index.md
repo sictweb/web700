@@ -86,7 +86,7 @@ HTML Introduction:<br /><br />
 </td>
 </tr>
 <tr>
-<td headers="tbl6"><a href="/web700/notes/week07">7 - Notes (<mark>Copied Directly from WEB222 Week 8 & Week 9 - No Changes Made Yet and no Examples Added</mark>)</a></td>
+<td headers="tbl6"><a href="/web700/notes/week07">7 - Notes (<mark>Early first Draft Complete - No Examples Added</mark>)</a></td>
 <td headers="tbl7">
 CSS / SASS Introduction: (<mark>NOTE: Probably no time for SASS</mark>)<br /><br />
 <ul>

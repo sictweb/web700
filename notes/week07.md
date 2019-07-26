@@ -5,18 +5,7 @@ layout: default
 
 ## WEB700 Week 7 Notes
 
-<br>
-
-# WEB222 WEEK 8
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
-## Cascading Style Sheets (CSS)
+### Cascading Style Sheets (CSS)
 
 In HTML5 we don't include markup related to how our page should look; instead we focus on
 its structure, layout, and organization.  We put all this information in style sheets: text
@@ -30,7 +19,13 @@ Consider how much of an impact CSS can have on the same HTML:
 * [CSS Zen Garden HTML file](zengarden.html)
 * [CSS Zen Garden CSS file](zengarden-style.css)
 
-## CSS Syntax
+<br>
+
+> **NOTE**: Before we proceed to discuss CSS and it's syntax, it's important to note that these notes have been divided into two parts, since the content is longer than usual.  If the entire topic cannot be covered during a lecture period, the 2nd half (Part 2 - "Box Model") will be given during the lab period
+
+<br>
+
+### CSS Syntax
 
 CSS syntax is made up of *rules*, which are broken into two parts:
 
@@ -65,7 +60,9 @@ p {
 
 This indicates we want all `<p></p>` elements in the document to have red, centered, underlined text.
 
-## Where to Put CSS
+<br>
+
+### Where to Put CSS
 
 CSS can come from a number of sources in an HTML page:
 
@@ -78,7 +75,7 @@ Browsers apply styles to elements using a priority order that matches the list a
 If more than one style rule is specified for an element, the browser will prefer whatever
 is defined in Inline styles over Internal Embedded, Internal Embedded over External files, etc.  
 
-### Inline Example
+#### Inline Example
 
 CSS rules can be placed directly on an element via the `style` attribute:
 
@@ -86,7 +83,7 @@ CSS rules can be placed directly on an element via the `style` attribute:
 <div style="background-color: green">...</div>
 ```
 
-### Internal Embedded
+#### Internal Embedded
 
 If we want to apply the same CSS rules to more than one element, it makes more sense to
 *not* duplicate them on every element's `style` attribute.  One solution is to use an internal embedded
@@ -103,7 +100,7 @@ If we want to apply the same CSS rules to more than one element, it makes more s
 </style>
 ```
 
-### External File(s)
+#### External File(s)
 
 Putting large amounts of CSS in `<style>` elements makes our HTML harder to read and maintain
 (CSS is about separating style from structure), and also causes our page to perform worse
@@ -145,11 +142,13 @@ to have even more `.css` files get loaded at runtime:
 In this example, the popular [Font Awesome](https://fontawesome.com/) CSS library for font icons
 has been imported via a `.css` file.
 
-## CSS Selectors
+<br>
+
+### CSS Selectors
 
 We've already learned a few CSS Selectors when we discussed `querySelector()` and
 `querySelectorAll()`.  The word `Selector` refers to the fact that these methods take
-a CSS Selector and return DOM elements that match.  For example:
+a CSS Selector and return elements that match.  For example:
 
 * `document.querySelector('#output')` would return the element with attribute `id="output"`
 * `document.querySelectorAll('.logo')` would return all elements with a class of `logo`
@@ -157,7 +156,7 @@ a CSS Selector and return DOM elements that match.  For example:
 
 These same selectors, and many more, can also be used in our CSS rulesets.
 
-### Tag/Type Selectors
+#### Tag/Type Selectors
 
 The name of an HTML element can be used to specify the styles associated with all
 elements of the given type.  For example, to [indent all `<p>` text](https://developer.mozilla.org/en-US/docs/Web/CSS/text-indent) in our document, we could do this:
@@ -168,7 +167,7 @@ p {
 }
 ```
 
-### Class Selectors
+#### Class Selectors
 
 Often we want to apply styles to *some* but not *all* elements of a certain kind.  Perhaps
 we only want some of our page's `<p>` elements to have a particular look.  To achieve this, 
@@ -233,7 +232,7 @@ An element can also have multiple classes applied, each one adding different sty
 <p class="invisible example">This is a paragraph that uses two classes at once.</p>
 ```
 
-### ID Selectors
+#### ID Selectors
 
 In many cases, we have only a single element that should use styles.  Using a type
 or class selector would be overly broad, and so we tend to use an `id` instead.
@@ -253,9 +252,9 @@ it must be unique.
 When we use the `id` as a selector, we prefix it with the `#` symbol.  Notice that
 the HTML does *not* use the `#` symbol though.
 
-### Contextual Selectors
+#### Contextual Selectors
 
-Another common way to write selectors is to use the position of elements in the DOM.
+Another common way to write selectors is to use the position (context) of elements.
 The *context selector* indicates the context, or placement/nesting (i.e., determined by the
 parent node) of the element.
 
@@ -277,7 +276,7 @@ elements, we could do this:
 </div>
 ```
 
-### Grouping Selectors
+#### Grouping Selectors
 
 As our CSS grows, it's common that we'll notice that we're repeating the same things
 multiple times.  Instead of doing this, we can group a number of selectors together into
@@ -305,7 +304,9 @@ and `<body>` elements (they don't have a height by default, and will only be as 
 the content within them).  We've also declared some font and color information for all the
 headings we want to use.
 
-## Containers for Styling
+<br>
+
+### Containers for Styling
 
 We've discussed `<div>` and `<span>` in the past, but their purpose may not have been clear.
 Why bother wrapping other elements in `<div>...</div>` or `<span>...</span>` when they don't
@@ -346,7 +347,9 @@ to group and apply styling, we can use one or both.  Consider the following:
 </div>
 ```
 
-## CSS Units
+<br>
+
+### CSS Units
 
 Many CSS values require units to be specified, for example, font sizes, widths, heights, etc.
 At first you might think that we should specify things in pixels; however, browsers need to work
@@ -391,7 +394,9 @@ Here's an example that uses a number of the units mentioned above:
 <div class="box"></div>
 ```
 
-## CSS Colours (`color`)
+<br>
+
+### CSS Colours (`color`)
 
 CSS allows us to define colour values for many declarations.  We do so by specifying
 a colour using one of the following notations:
@@ -402,7 +407,9 @@ a colour using one of the following notations:
 
 The easiest way to understand this is using a [Colour Picker tool](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Colors/Color_picker_tool), which lets you visually see the difference in changing values.
 
-## CSS Properties and Values
+<br>
+
+### CSS Properties and Values
 
 A *property* is assigned to a selector in order to manipulate its style.  The [CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference) are defined as part of the CSS standard.
 When you want to know how one of them works, or which values you can assign, you can look at the documentation
@@ -432,7 +439,9 @@ p {
 The [`text-decoration`](https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration) property is defined
 to take one of a number of values, each of which is also defined in the standard.
 
-## Exploring CSS Properties and Values in the Dev Tools
+<br>
+
+### Exploring CSS Properties and Values in the Dev Tools
 
 By far the best way to learn about CSS is to look at how other sites use it.  When you find
 something on the web that you think looks interesting, open your browser's dev tools and inspect
@@ -444,7 +453,9 @@ You can look at the specific properties specified for an element, or see all the
 (i.e., everything, including all default values).  You can also try toggling these on and off, or
 double-click the values to enter your own.
 
-## CSS `text` Properties
+<br>
+
+### CSS `text` Properties
 
 There are [dozens of properties that affect how text is rendered](https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Fundamentals).  These include
 things like the color, spacing, margins, font characteristics, etc.
@@ -463,7 +474,7 @@ p {
 }
 ```
 
-### `font` Properties
+#### `font` Properties
 
 We can use the `font-family` property to specify a font, or list of fonts, for the
 browser to apply to an element.  The font must be available on the user's computer,
@@ -494,7 +505,7 @@ h5 {
 }
 ```
 
-### Web Fonts - `@font-face`
+#### Web Fonts - `@font-face`
 
 Modern browsers also allow [custom fonts to be included](https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Web_fonts#Web_fonts) as external files, and downloaded
 as needed by the web site.  This is often the preferred method for designers, who don't
@@ -537,7 +548,7 @@ p {
 }
 ```
 
-### `font-size` property
+#### `font-size` property
 
 Using the [`font-size`](https://developer.mozilla.org/en-US/docs/Web/CSS/font-size) property, font sizes
 can be given in fixed or relative units, depending on how we want our text to scale on different devices:
@@ -560,7 +571,7 @@ p {
 }
 ```
 
-### Text Effects
+#### Text Effects
 
 There are numerous effects that can be added to text (or any element), many beyond
 the scope of this initial exploration of CSS.  Here are a few simple examples to
@@ -592,7 +603,9 @@ the `ellipsis`.
 <span class="movie-title">Pirates of the Caribbean: The Curse of the Black Perl</span>
 ```
 
-## `background` Properties
+<br>
+
+### `background` Properties
 
 Every element has a background that we can modify.  We might, for example, want to
 specify that the background be a certain colour; or we might want to use an image,
@@ -611,7 +624,9 @@ div.wallpaper {
 }
 ```
 
-## Styling Links
+<br>
+
+### Styling Links
 
 We can control the way that links (i.e., `<a>`) appear in our document.  By default
 they will have a solid blue underline, and when visited, a purple solid underline.
@@ -642,76 +657,9 @@ a:hover, a:active {
 }
 ```
 
-## CSS and the DOM via JavaScript
+<br>
 
-We've been discussing CSS in the context of HTML, but we also need to explore how to
-work with it via JavaScript.  The DOM provides us a [number of methods](https://developer.mozilla.org/en-US/docs/Web/API/CSS_Object_Model/Using_dynamic_styling_information)
-for examining and changing the CSS styles associated with elements.
-
-First, we can use a DOM element's [`style`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style) property.
-Doing so gives us access to the inline `style` attribute of the element.
-We can get or set particular CSS property values via the `style` element using *camelCase* versions
-of the CSS property names.  For example, `background-color` becomes `backgroundColor`, while `width` remains `width`.
-
-```js
-// Change the background colour of all paragraphs to red
-var elems = document.querySelectorAll('p');
-for(var i = 0, len = elems.length; i < len; i++) {
-    elems[i].style.backgroundColor = 'red';
-}
-```
-
-Usually we don't need (or want) to alter properties one by one via the DOM.  Instead,
-it's more common to add or remove classes to elements, which pre-define a set of properties.
-
-Similar to an element's `style` property, we can also use its `classList` property.  It has
-a number of useful [methods](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList#Methods):
-
-* `add()` - adds one (or more) class names to the element.  If any of them are already present, they are ignored.
-* `remove()` - removes one (or more) class names from the element.
-* `toggle()` - toggles a class name on (adds it) or off (removes it), depending on the current state.
-* `contains()` - checks if the specified class name is already defined for this element.
-* `replace()` - replaces an old class name with the new one.
-
-Using classes and `classList`, it's possible for us to define various states for our UI
-by creating multiple classes, and then add/remove them at runtime as the program runs
-and data changes.
-
-Imagine you were creating a media player, and needed to show lists of songs and videos.
-Some of the media has been played by the user, and some is new.  We can define classes
-for both, and then use JavaScript to apply the correct class to each:
-
-```html
-<style>
-    .media-played {
-        background: gray;
-    }
-
-    .media-new {
-        border: dashed red;
-    }
-</style>
-...
-<script>
-    // Loop through an array of media objects, and set the class for each one
-    mediaItems.forEach(function(media) {
-        var mediaElem = document.getElementById(media.id);
-        if(media.played) {
-            mediaElem.add('media-played');
-        } else {
-            mediaElem.add('media-new');
-        }
-    });
-
-    // When the user plays one of the media items, change it's display 
-    function mediaPlayed(media) {
-        var mediaElem = document.getElementById(media.id);
-        mediaElem.replace('media-new', 'media-played');
-    }
-</script>
-```
-
-## Exercise: Using Third-Party CSS Libraries
+### Using Third-Party CSS Libraries
 
 We've been focused on the mechanics of writing CSS ourselves, and this is an
 important skill.  In addition, it's a good idea to know how to use third-party
@@ -719,7 +667,7 @@ CSS libraries created by other developers.  There are many pre-existing CSS
 libraries and frameworks we can use to help us create the web pages and apps
 we desire.
 
-### How to use Third-Party CSS
+#### How to use Third-Party CSS
 
 There is a general pattern to using any CSS library in your web page.
 
@@ -729,7 +677,7 @@ There is a general pattern to using any CSS library in your web page.
 4. See if the CSS library you want to use is available via a [Content Delivery Network (CDN)](https://en.wikipedia.org/wiki/Content_delivery_network).  Try searching for your chosen library on [cdnjs](https://cdnjs.com/) or another CDN.
 5. Read the docs for your library to see if you need to include any special markup, classes, or other info in your HTML file in order for things to work.  CSS libraries operate on HTML, and sometimes they will expect it to be in a particular format.
 
-### Popular CSS Libraries
+#### Popular CSS Libraries
 
 Here's a list of some popular CSS libraries and frameworks to get you started.
 
@@ -756,7 +704,6 @@ and playful animations and effects to spice up our HTML:
 * [CSShake](http://elrumordelaluz.github.io/csshake/) - more animations for HTML elements ([CDN link](https://cdnjs.com/libraries/csshake))
 * [CSSgram](https://una.im/CSSgram/) - Instagram style filters for HTML images
 
-
 Another common problem CSS can solve is what to do while we wait for things to finish
 loading:
 
@@ -774,26 +721,15 @@ expanded scope.  There are many to choose from, including:
 * [UIKit](https://getuikit.com/) - lightweight toolkit for building web app front-ends
 * [Semantic UI](https://semantic-ui.com/) - UI framework, lots of responsive components ([CDN link](https://cdnjs.com/libraries/semantic-ui))
 
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-# WEB222 WEEK 9
-<br>
-<br>
-<br>
-<br>
-<br>
 <br>
 
-## CSS Continued
+## WEB700 Week 7 Notes (Part 2)
+
+<br>
 
 ### Box Model
 
-All elements in the DOM can be considered to be a box.  The [Box Model](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model)
+All elements can be considered to be a box.  The [Box Model](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model)
 is a specification for how all the various attributes of an element's sizing
 relate to each other.  A "box" is made up of four distinct parts:
 
@@ -909,22 +845,15 @@ the largest of the two.  Consider the following CSS:
 
 Here the stylesheet calls for a `<p>` element to have `20px` of whitespace above it.
 However, since the `<h1>` has `25px` of whitespace below it, when the two are placed
-in the DOM one after the other, the distance between them will be `25px` vs. `45px`
+one after the other, the distance between them will be `25px` vs. `45px`
 (i.e., the browser won't apply both margins, but just make sure that both margins are
 honoured).
 
-### `display` Property
+#### `display` Property
 
-CSS lets us control how an element gets displayed in the DOM.  This is a large
+CSS lets us control how an element gets displayed.  This is a large
 topic, and we'll give an overview of some of the most common display types.  Further
 study is required to fully appreciate the subtleties of each layout method.
-
-Up to this point we've been talking a lot about the DOM, a tree of nodes for every
-element in our document.  At this stage it's also useful to understand that in addition
-to the DOM tree, [a browser also creates a *render tree*](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction), which is a tree of nodes
-as they will should be rendered based on CSS.  A node may exist in the DOM tree but not
-in the render tree, for example.  The nodes in the DOM tree can also have very different
-rendering applied based on the type of display we specify.
 
 Perhaps the easiest way to get started understanding display types is to look at
 what `display: none;` does:
@@ -1039,7 +968,7 @@ online CSS learning games:
     }
     ```
 
-### `position` Property
+#### `position` Property
 
 Many web interface designs require more sophisticated element positioning than
 simply allowing everything to flow.  Sometimes we need very precise control
@@ -1055,7 +984,7 @@ to override the defaults provided by the browser.
 * [`fixed`](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Positioning#Fixed_positioning) - elements are positioned separate from normal flow, and get positioned relative to the viewport.
 * [`sticky`](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Positioning#position_sticky) - a hybrid of `relative` and `fixed`, allowing an element to be positioned relatively, but then "stick" when scrolling or resizing the viewport.  This is often used for headings, which can be scrolled up, but then stay in place as you continue down into the document.
 
-### `z-index` Property
+#### `z-index` Property
 
 In addition to controlling how elements are positioned in the X and Y planes,
 we can also *stack* elements on top of each other in different layers.  We achieve
@@ -1068,7 +997,7 @@ using a `z-index` higher than `0` will place the content on top of anything belo
 The `z-index` is often used with `position` to place content in arbitrary positions
 overtop of other content.  For example, a [lightbox](https://unsplash.com/photos/mtMFJz071Cs) that appears over a site's content to show an image.
 
-### `overflow` Property
+#### `overflow` Property
 
 When the contents on an element are too large to be displayed, we have options
 as to how the browser will display the overflowing content.  To do this, we
@@ -1079,7 +1008,9 @@ work with the [`overflow`, `overflow-x`, `overflow-y`](https://developer.mozilla
 * `auto` - only include scroll bars when necessary, content is clipped and and scroll if required
 * `hidden` - content is clipped, no scroll bars provided.
 
-## Layout Example
+<br>
+
+### Layout Example
 
 In this in-class example we'll create a simple blog post style layout using HTML and CSS.
 

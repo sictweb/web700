@@ -92,7 +92,7 @@ Each test will commence at the start of the corresponding **Lecture** period (we
 
 <tr>
 <td>6</td>
-  <td><ul><li>HTML / DOM Introduction</li></ul></td>
+  <td><ul><li>HTML Introduction</li></ul></td>
 <td>
 <ul>
 <li>Assignment&nbsp;4</li>

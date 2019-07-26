@@ -88,24 +88,24 @@ The server listens for requests, and fulfills (or rejects) those requests by ret
 #### URLs
 
 Web resources are reachable via unique identifiers called a *Uniform Resource Locator* or
-*URL*.  Consider the URL for this course's outline:
+*URL*.  Consider the URL for the official Node.js documentation (A JavaScript runtime that we will use throught this course):
 
-[https://ict.senecacollege.ca/course/web222?q=course/web222](https://ict.senecacollege.ca/course/web222?q=course/web222)
+[https://nodejs.org/en/docs/](https://nodejs.org/en/docs/)
 
 A URL contains all the information necessary for a web client (e.g., a browser) to request
 the resource.  In the URL given above we have:
 
 * protocol: `https:` - the resource is available using the HTTPS (i.e., secure HTTP) protocol
 
-* domain: `ict.senecacollege.ca` - the domain (domain name) of the server.  We could also have substituted the IP address (`142.204.140.190`), but it's easier to remember domain names.
+* domain: `nodejs.org` - the domain (domain name) of the server.  We could also have substituted the IP address (`104.20.23.46`), but it's easier to remember domain names.
 
-* port: Not Given - if not specified, the port is the default for HTTP `80` or `443` for HTTPS.  It could have been specified by appending `:443` like so: `https://ict.senecacollege.ca:443`
+* port: Not Given - if not specified, the port is the default for HTTP `80` or `443` for HTTPS.  It could have been specified by appending `:443` like so: `https://nodejs.org:443`
 
-* origin: combining the protocol, domain, and port gives us a unique origin, `https://ict.senecacollege.ca`.  Origins play a central role in the web's security model.
+* origin: combining the protocol, domain, and port gives us a unique origin, `https://nodejs.org`.  Origins play a central role in the web's security model.
 
-* path: `/course/web222` - a filesystem-like path to the resource on the server.  It may or may not end with a file extension (e.g., you might also have seen another server use `/course/web222.html`)
+* path: `/en/docs` - a filesystem-like path to the resource on the server.  It may or may not end with a file extension.
 
-* query string: `?q=course/web222` - additional parameters sent to the server as part of the URL, of the form `name=value`
+* query string: Not Given - The query string contains additional parameters sent to the server as a part of the URL in the form `name=value`, ie:`?property1=value1&property2=value2` 
 
 URLs can only contain a limited set of characters, and anything outside that set has to be *encoded*.
 This includes things like spaces, non-ASCII characters, Unicode, etc.
@@ -115,12 +115,12 @@ This includes things like spaces, non-ASCII characters, Unicode, etc.
 A URL describes the location (i.e., server, pathname) and how to interpret (i.e., which protocol) a resource on the Internet.  To get the resource, we need to request it by sending a properly formatted HTTP Request to the appropriate server (host):
 
 ```http
-GET /course/web222 HTTP/1.1 
-Host: ict.senecacollege.ca 
+GET /en/docs HTTP/2 
+Host: nodejs.org 
 ```
 
-Here we do a `GET` request using HTTP version 1.1 for the resource at the path `/course/web222`
-on the server named `ict.senecacollege.ca`.
+Here we do a `GET` request using HTTP version 2 for the resource at the path `/en/docs`
+on the server named `nodejs.org`.
 
 There are various *HTTP Verbs* we can use other than `GET`, which allow us to request that
 resources be returned, created, deleted, updated, etc.  The most common include:
@@ -136,27 +136,12 @@ resources be returned, created, deleted, updated, etc.  The most common include:
 We can use a URL in many ways, for example, via the command line using a tool like [curl](https://curl.haxx.se/):
 
 ```bash
-$ curl https://ict.senecacollege.ca/course/web222?q=course/web222
+$ curl https://nodejs.org/en/docs/
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
-  "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
-<html lang="en" dir="ltr"
-  xmlns:content="http://purl.org/rss/1.0/modules/content/"
-  xmlns:dc="http://purl.org/dc/terms/"
-  xmlns:foaf="http://xmlns.com/foaf/0.1/"
-  xmlns:og="http://ogp.me/ns#"
-  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-  xmlns:sioc="http://rdfs.org/sioc/ns#"
-  xmlns:sioct="http://rdfs.org/sioc/types#"
-  ...
-  <p>School of ICT | Faculty of Applied Science and Engineering Technology | Seneca College | Toronto, Canada<br /><a href="/contact-us">Questions? Click here to contact us.</a></p>
-
-</section> <!-- /.block -->
-  </div>
-</footer>
-  <script src="//ict.senecacollege.ca/sites/default/files/public_files/advagg_js/js__i11V-7AETPhfL9YzRpXBpECwVkYyQ_ahu2eHxES_mK0__Tgy2Gm7LmUJY8GXZeWxVbS51f3txED35LX1ul4UiOfk__wTFB7oqRI9plmqzTHohaf0cp34LSVimp29dS48vpVW4.js"></script>
-</body>
-</html> 
+<!DOCTYPE html>
+<html lang="en" >
+...
+</html>
 ```
 
 #### Responses
@@ -166,28 +151,25 @@ information about the response, and possibly the resource being requested.  Let'
 but this time ask that it `--include` the response headers:
 
 ```bash
-$ curl --include https://ict.senecacollege.ca/course/web222?q=course/web222
+$ curl --include https://nodejs.org/en/docs/
 
-HTTP/1.1 200 OK
-Date: Thu, 30 Aug 2018 20:14:30 GMT
-Server: Apache/2.4.29 (Unix) OpenSSL/1.0.2l PHP/5.6.30
-X-Powered-By: PHP/5.6.30
-Expires: Sun, 19 Nov 1978 05:00:00 GMT
-Cache-Control: no-cache, must-revalidate, post-check=0, pre-check=0
-Content-Language: en
-X-Generator: Drupal 7 (http://drupal.org)
-Transfer-Encoding: chunked
-Content-Type: text/html; charset=utf-8
+HTTP/2 200 
+date: Fri, 26 Jul 2019 18:57:35 GMT
+content-type: text/html
+set-cookie: __cfduid=da9eda0bdcd9e97e879074e4b64bfcc221564167455; expires=Sat, 25-Jul-20 18:57:35 GMT; path=/; domain=.nodejs.org; HttpOnly
+last-modified: Tue, 23 Jul 2019 21:05:15 GMT
+cf-cache-status: HIT
+age: 46
+expires: Fri, 26 Jul 2019 22:57:35 GMT
+cache-control: public, max-age=14400
+expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+server: cloudflare
+cf-ray: 4fc899a5ae3ee1ce-ORD
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
-  "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
-<html lang="en" dir="ltr"
-  xmlns:content="http://purl.org/rss/1.0/modules/content/"
-  xmlns:dc="http://purl.org/dc/terms/"
-  xmlns:foaf="http://xmlns.com/foaf/0.1/"
-  xmlns:og="http://ogp.me/ns#"
-  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+<!DOCTYPE html>
+<html lang="en" >
 ...
+</html>
 ```
 
 In this case, we see a two-part structure: first a set of **Response Headers**; then
@@ -241,30 +223,24 @@ and later in the headers we are given a new `Location` to try.  Notice there is 
 Let's try following the suggested redirect URL:
 
 ```bash
-$ curl --include https://ict.senecacollege.ca/Course/CourseNotFound?=web000
+$ curl --include https://nodejs.org/en/information/
 
-HTTP/1.1 404 Not Found
-Date: Thu, 30 Aug 2018 20:29:11 GMT
-Server: Apache/2.4.29 (Unix) OpenSSL/1.0.2l PHP/5.6.30
-X-Powered-By: PHP/5.6.30
-Expires: Sun, 19 Nov 1978 05:00:00 GMT
-Cache-Control: no-cache, must-revalidate, post-check=0, pre-check=0
-Content-Language: en
-Link: </?q=Course/CourseNotFound>; rel="canonical",</?q=node/891>; rel="shortlink"
-X-Generator: Drupal 7 (http://drupal.org)
-Content-Type: text/html; charset=utf-8
+HTTP/2 404 
+date: Fri, 26 Jul 2019 19:07:01 GMT
+content-type: text/html
+set-cookie: __cfduid=d0b713cfdc46825de8ec5b40699788a151564168021; expires=Sat, 25-Jul-20 19:07:01 GMT; path=/; domain=.nodejs.org; HttpOnly
+cf-cache-status: HIT
+age: 34
+expires: Fri, 26 Jul 2019 23:07:01 GMT
+cache-control: public, max-age=14400
+expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+server: cloudflare
+cf-ray: 4fc8a774897755a4-ORD
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
-  "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
-<html lang="en" dir="ltr"
-  xmlns:content="http://purl.org/rss/1.0/modules/content/"
-  xmlns:dc="http://purl.org/dc/terms/"
-  xmlns:foaf="http://xmlns.com/foaf/0.1/"
-  xmlns:og="http://ogp.me/ns#"
-  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-  xmlns:sioc="http://rdfs.org/sioc/ns#"
-  xmlns:sioct="http://rdfs.org/sioc/types#"
-  ...
+<!DOCTYPE html>
+<html lang="en" >
+...
+</html>
 ```
 
 Now a third response code has been returned, [`404 Not Found`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404) as well as another HTML page
