@@ -5,9 +5,7 @@ layout: default
 
 ## WEB700 Week 2 Notes
 
-<br>
-
-## Functions
+### Functions
 
 A function is a *subprogram*, or a smaller portion of code that
 can be called (i.e., invoked) by another part of your program, another function,
@@ -599,7 +597,7 @@ concept that will take some time to fully master.  This is only our first exposu
 
 <br>
 
-## Introduction to Objects and Object-Oriented Programming
+### Introduction to Objects and Object-Oriented Programming
 
 In object-oriented languages like JavaScript, we are able to combine data and functionality into
 higher order types, which both contain data and allow us to work with that data.  In other words,
@@ -611,13 +609,13 @@ Fortunately for us, the JavaScript language comes with a number of [standard, "b
 
 <br>
 
-## JavaScript's [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) Object
+### JavaScript's [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) Object
 
 A [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) is an `Object` with various [properties and methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#String_instances) we can use for working with lists in JavaScript.
 
 <br>
 
-### Declaring JavaScript Strings
+#### Declaring JavaScript Strings
 
 Here are a few examples of how you can declare a `String` in JavaScript, first using a
 string literal, followed by a call to the [`new` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new) and the `String` object's constructor function:
@@ -678,7 +676,7 @@ var templateVersion = `The value is ${1*6}`
 
 <br>
 
-## JavaScript's [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) Object
+### JavaScript's [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) Object
 
 An [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) is an `Object` with various [properties and methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#Array_instances) we can use for working with lists in JavaScript.
 

@@ -5,9 +5,7 @@ layout: default
 
 ## WEB700 Week 1 Notes
 
-<br>
-
-## Preface
+### Preface
 
 The web is the most ubiquitous computing platform in the world.  As a developer, learning the web
 takes time.  There are hundreds of languages, libraries, frameworks, and tools to be learned, some old, some built yesterday, and all being mixed together at once.
@@ -28,7 +26,7 @@ all of it.
 
 <br>
 
-## Internet Architecture
+### Internet Architecture
 
 ### Overview
 
@@ -354,7 +352,7 @@ The web works on *every* computing platform.  You can access and use the web on 
 
 <br>
 
-## Introduction to JavaScript
+### Introduction to JavaScript
 
 The first web technology we will learn is JavaScript.  JavaScript (often shortened to JS)
 is a lightweight, interpreted or JIT (i.e., Just In Time) compiled language.

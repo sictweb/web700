@@ -5,86 +5,7 @@ layout: default
 
 ## WEB700 Week 6 Notes
 
-<br>
-
-# WEB222 WEEK 5
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
-
-## Running a Development Web Environment
-
-Developing for the web requires at least 3 things pieces of software:
-
-1. a proper code editor which, is aware of HTML, JavaScript, and CSS
-1. a web client (i.e., browser), with developer and debugging tools
-1. a web server
-
-### Code Editor
-
-For our code editor, we will be using [Visual Studio Code](https://code.visualstudio.com/),
-which is a free ([open source](https://github.com/Microsoft/vscode)) code editor created
-and maintained by Microsoft.  It also works on Windows, macOS, and Linux.  Make
-sure you have downloaded and installed it on all the computers you will use for
-web development.
-
-### Web Client
-
-For our web client we will use the many web browsers we introduced in Week 1, namely:
-
-* Google [Chrome](https://www.google.com/chrome/) for desktop and Android
-* [Microsoft Edge](https://www.microsoft.com/en-ca/windows/microsoft-edge) and Internet Explorer (IE)
-* Apple [Safari and Safari for iOS](https://www.apple.com/ca/safari/)
-* [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/)
-* [Opera](https://www.opera.com/)
-
-There are many more, and you are highly encouraged to install as many as possible.
-
-### Web Server
-
-We will also need a **web server** to host our web pages and applications.  Installing
-and running a web server can be complicated.  Industry grade web servers like
-[Apache](http://httpd.apache.org/) and [nginx](https://www.nginx.com/) are free
-and can be installed and run on your local computer; however, they
-are much more complicated and powerful than anything we will need for hosting
-our initial web pages.
-
-For our purposes, we will use a simple node.js based http-server.  In order to
-use it, do the following:
-
-1. Make sure you have installed [node.js](https://nodejs.org/en/) on your computer.
-1. In a terminal window, navigate to the directory that you want your web server to host. For example `cd my-website`
-1. Now start the web server by running the following command: `npx http-server`.
-
-This will download and run the necessary software, and show you the following message:
-
-```
-Starting up http-server, serving ./
-Available on:
-  http://127.0.0.1:8080
-  http://192.168.2.124:8080
-Hit CTRL-C to stop the server
-```
-
-You can now open your web browser to `http://127.0.0.1:8080` and load your files.
-This uses the `http` protocol, and connects you to the special IP address
-`127.0.0.1`, also known as [localhost](https://en.wikipedia.org/wiki/Localhost)
-(i.e., you can also use `http://localhost:8080`).  The localhost IP address always
-refers to *this* computer, and allows you to connect network clients to your own
-machine.  The final `:8080` portion of the URL is a port number.  Together,  
-`http://127.0.0.1:8080` means *connect using HTTP to my local computer on port 8080.*
-
-When you are done testing your web site, stop the web server by pressing `CTRL-C`
-in your terminal window.  To run the server again, use `npx http-server`.
-
-*NOTE: the second IP address will be different than the above, but 127.0.0.1 will always be correct.*
-
-## HTML
+### HTML
 
 HTML is the [HyperText Markup Language](https://en.wikipedia.org/wiki/HTML).  It
 allows us to write *content* in a document, just as we would in a file created by 
@@ -99,7 +20,7 @@ When talking about HTML's markup, we'll often refer to the following terms:
 * [attribute](https://developer.mozilla.org/en-US/docs/Glossary/Attribute): optional characteristics of an element defined using the style `name` or `name="value"`, for example `<p id="error-message" hidden>There was an error downloading the file</p>`.  Here two attributes are included with the `p` element: an `id` with value `"error-message"` (in quotes), and the `hidden` attribute (note: not all attributes need to have a value).  [Full list of common attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes).
 * [entity](https://developer.mozilla.org/en-US/docs/Glossary/Entity): special text that should not be confused for HTML markup.  Entities begin with `&` and end with `;`.  For example, if you need to use the `<` character in your document, you need to use `&lt;` instead, since `<` would be interpreted as part of an HTML tag. `&nbsp;` is a single whitespace and `&amp;` is the `&` symbol.  [Full list of named entities](https://dev.w3.org/html5/html-author/charref).
 
-## HTML Document
+#### HTML Document
 
 First [HTML page ever created](http://info.cern.ch/hypertext/WWW/TheProject.html) was
 built by [Tim Berners-Lee](https://en.wikipedia.org/wiki/Tim_Berners-Lee) on August 6, 1991.
@@ -110,7 +31,7 @@ Since then, the web has gone through many versions:
 * xHTML - a rewrite of HTML using XML in 2000
 * [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5) - the current standard.
 
-## Basic HTML5 Document
+#### Basic HTML5 Document
 
 Here's a basic HTML5 web page:
 
@@ -142,33 +63,59 @@ Let's break this down and look at what's happening.
 
 Now let's try creating and loading this file in our browser:
 
-1. Make a directory on your computer called `my-website`
-1. Create a new file in `my-website` named `index.html`
-1. Use Visual Studio Code to open your `my-website/index.html` file
-1. Copy the HTML we just discussed above, and paste it into your editor
-1. Save your `index.html` file 
-1. In a terminal, navigate to your `my-website` directory
-1. Start a web server by typing `npx http-server`
-1. Open your web browser (Chrome, Firefox, etc) and enter `http://localhost:8080` in the URL bar
-1. Make sure you can see a new page with `Hello World!` in black text.
+During the last couple of classes we learned how to create a simple web server using [Node.js](https://nodejs.org/en/) with the [Express.js](https://expressjs.com/) module.  We will be using this code once again to create a local web server, which will be responsible for returning requests for our HTML document on the default route,  ie "/".
+
+**NOTE:** Try to familiarize yourself with these steps, as we will be doing this over and over in class, ever time we wish to create a new web server.  A more detailed guide can be found as a part of [the week 4 notes](week04) ("Building a simple web server using Node.js with Express.js") as well as within the [Heroku Guide](getting-started-with-heroku).
+
+1. Make a directory on your computer called `test-server`
+2. Open Visual Studio Code and choose **File &gt; Open** to open your newly created `test-server` folder
+3. Create a new file called `server.js`
+4. Open the Integrated terminal useing the keyboard shortcut (ctrl + `` ` ``) or select "View" -> "integrated terminal" from the top menu.  
+3. Run the **npm init** command to generate your `package.json` file (you can choose all of the defaults)
+4. Run the command `npm install express --save`
+5. Enter the following code for your `server.js` file
+
+    ```javascript
+    var HTTP_PORT = process.env.PORT || 8080;
+    var path = require("path");
+    var express = require("express");
+    var app = express();
+
+    // setup a 'route' to listen on the default url path
+    app.get("/", (req, res) => {
+        res.sendFile(path.join(__dirname,"/views/hello.html"));
+    });
+
+    // setup http server to listen on HTTP_PORT
+    app.listen(HTTP_PORT, function(){ console.log('server listening on: ' + HTTP_PORT )});
+    ```
+
+6. Create a new folder in `test-server` named `views`
+7. Within the `views` folder, create a file called `hello.html`
+8. Open the newly created `hello.html` file and paste the html code from above and save the file
+9. Go back to the Integrated terminal and type the command `node server.js`.  You should see the message: `server listening on: 8080`
+10. Open your web browser (Chrome, Firefox, etc) and enter `http://localhost:8080` in the URL bar
+11. Make sure you can see a new page with `Hello World!` in black text.
 
 Now let's make a change to our document:
 
-1. Go back to your editor and change the `index.html` file so that instead of `Hello World!` you have `This is my web page.`
-1. Save your `index.html` file.
-1. Go back to your browser and hit the **Refresh** button.
-1. Make sure your web page now says `This is my web page.`
+1. Go back to your editor and change the `hello.html` file so that instead of `Hello World!` you have `This is my web page.`
+2. Save your `hello.html` file.
+3. Go back to your browser and hit the **Refresh** button.
+4. Make sure your web page now says `This is my web page.`
 
 Every time we update anything in our web page, we have to refresh the web page in our browser.
 The web server will serve the most recent version of the file on disk when it is
 requested.
 
-## Common HTML Elements
+<br>
+
+### Common HTML Elements
 
 There are dozens of [HTML elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) you'll learn
 and use, but the following is a good set to get you started.
 
-### Metadata
+#### Metadata
 
 Information *about* the document vs. the document's content goes in various [metadata elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Document_metadata):
 
@@ -176,7 +123,7 @@ Information *about* the document vs. the document's content goes in various [met
 * [`<meta>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta) - metadata that can't be included via other elements
 * [`<title>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta) - the document's title
 
-### Content Sections
+#### Content Sections
 
 These are [organizational blocks within the document](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Content_sectioning), helping give structure to the content and
 provide clues to browsers, screen readers, and other software about how to present the content:
@@ -187,7 +134,7 @@ provide clues to browsers, screen readers, and other software about how to prese
 * [`<h1>, <h2>, ..., <h6>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h1) - (sub) headers for different sections of content
 * [`<footer>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer) - end material (author, copyright, links)
 
-### Text Content
+#### Text Content
 
 We organize [content into "boxes,"](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Text_content) some of which have unique layout characteristics.
 
@@ -198,7 +145,7 @@ We organize [content into "boxes,"](https://developer.mozilla.org/en-US/docs/Web
 * [`<p>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p) - a paragraph
 * [`<blockquote>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote) - an extended quotation
 
-### Inline Text
+#### Inline Text
 
 We also use [elements within larger text content](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Inline_text_semantics) to indicate that certain words or phrases are to be shown differently:
 
@@ -207,7 +154,7 @@ We also use [elements within larger text content](https://developer.mozilla.org/
 * [`<em>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em) - adds emphasis to the text (often in italics)
 * [`<span>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span) - another generic container, used to define CSS styles
 
-### Multimedia
+#### Multimedia
 
 In addition to text, HTML5 also defines a number of rich [media elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Image_and_multimedia):
 
@@ -216,36 +163,15 @@ In addition to text, HTML5 also defines a number of rich [media elements](https:
 * [`<video>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video) - an element used to embed video in a document
 * [`<canvas>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas) - a graphical area (rectangle) used to draw with either 2D or 3D using JavaScript.
 
-### Scripting
+#### Scripting
 
 We create dynamic web content and applications through the use of scripting:
 
 * [`<script>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script) - used to embed executable code in a document, typically JavaScript.
 
-## Examples:
-
-* [Lists: ordered and unordered](list-example.html)
-* [Anchors: creating hyperlinks](anchor-example.html)
-* [Images: using img](img-example.html)
-* [Text: text sections](text-example.html)
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-# WEB222 WEEK 6
-<br>
-<br>
-<br>
-<br>
-<br>
 <br>
 
-
-
-## HTML Element Types: Block vs. Inline
+### HTML Element Types: Block vs. Inline
 
 Visual HTML elements are categorized into one of two groups:
 
@@ -267,7 +193,9 @@ Within this block, we also encounter a number of other inline elements.  First, 
 However, we also see the `<em>` and `<b>` elements being used.  These will affect their content, but not
 create a new block; rather, they will continue to flow inline in their container (the `<p>` element).
 
-## Empty Elements
+<br>
+
+### Empty Elements
 
 Many of the elements we've seen so far begin with an opening tag, and end with a closing tag: `<body></body>`.
 However, not all elements need to be closed.  Some elements have no *content*, and therefore don't need
@@ -283,7 +211,9 @@ We use a `<br>` when we want to tell the browser to insert a newline (similar to
 Other examples of empty elements include `<hr>` (for a horizontal line), `<meta>` for including metadata
 in the `<head>`, and [a dozen others](https://developer.mozilla.org/en-US/docs/Glossary/Empty_element).
 
-## Grouping Elements
+<br>
+
+### Grouping Elements
 
 Often we need to group elements in our page together. We have a number of pre-defined element container options for how to achieve this, depending on what kind of content we are creating, and where it is in the document:
 
@@ -307,7 +237,9 @@ In such cases we have two options:
 </div>
 ```
 
-## Tables
+<br>
+
+### Tables
 
 Sometimes our data is tabular in nature, and we need to present it in a grid.  A number of elements are used to create them:
 
@@ -365,7 +297,9 @@ for example: have an element span two columns (`colspan="2"`) or have a heading 
 </table>
 ```
 
-## Multimedia: `<img>`, `<audio>`, `<video>`
+<br>
+
+### Multimedia: `<img>`, `<audio>`, `<video>`
 
 HTML5 has built in support for including images, videos, and audio along with text.
 We specify the media source we want to use, and also how to present it to the user
@@ -414,7 +348,9 @@ Including video is very similar to audio:
 NOTE: the `<audio>` and `<video>` elements must use source URLs that point to actual audio or video files
 and not to a YouTube URL or some other source that is actually an HTML page.
 
-## Including Scripts
+<br>
+
+### Including Scripts
 
 We've spent a good portion of the course learning about JavaScript.  So far, all of our code has
 been written in a stand-alone form, executed in the Firefox Scratchpad, or by using node.js.
@@ -429,7 +365,7 @@ such an element in the form of the [`<script>` element](https://developer.mozill
 
 We can use `<script>` in one of two ways.
 
-### Inline Scripts
+#### Inline Scripts
 
 First, we can embed our JavaScript program directly within the content area of a `<script>` element:
 
@@ -464,7 +400,8 @@ scripts:
     console.log(msg);
 </script>
 ```
-### External Scripts Linked via URL
+
+#### External Scripts Linked via URL
 
 As our JavaScript programs get larger, embedding them directly within the HTML file via an inline `<script>`
 starts to become unwieldy.  For very small scripts, and debugging or experimentation, inline scripts are fine.
@@ -527,8 +464,9 @@ We can combine both of these methods, and include as many scripts as we need.  T
     </body>
 </html>
 ```
+<br>
 
-## Validating HTML
+### Validating HTML
 
 It's clear that learning to write proper and correct HTML is going to take practice.  There are
 lots of elements to get used to, and learn to use in conjunction.  Also each has various attributes

@@ -326,7 +326,7 @@ To get started:
 
 * Execute the command "npm init" (from above) - this will create our "package.json" file.
 
-* Now install the "express" package to our app using "npm install": 
+* Now install the "express" package to our app using "npm install express --save": 
 
   ```bash
   $ npm install express --save
@@ -389,6 +389,8 @@ Now if we take a look at the package.json file you can see that it has a new sec
 This means that if we give our project to someone else now they can just type **npm install** and it will install the dependencies listed here and the app should be able to run and have everything it needs.
 
 Now let's edit our week4.js file and create a web server in 13 lines of code! In your new week4.js file, enter the following lines of code:
+
+**NOTE** In the below example, we will be returning *HTML formatted* text to create hyperlinks between various *routes* within our simple website.  Working with express to define routes and the specific rules of HTML are described in [week 5](week05) &amp; [week 6](week06) respectfully.
 
 ```javascript
 var express = require("express");

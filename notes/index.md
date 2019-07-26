@@ -77,7 +77,7 @@ Express.js Introduction &amp; Deployment:<br /><br />
 </td>
 </tr>
 <tr>
-<td headers="tbl6"><a href="/web700/notes/week06">6 - Notes (<mark>Copied Directly from WEB222 Week 5 and 6 - No Changes Made Yet and no Examples Added</mark>)</a></td>
+<td headers="tbl6"><a href="/web700/notes/week06">6 - Notes (<mark>No WEB222 Examples Added</mark>)</a></td>
 <td headers="tbl7">
 HTML Introduction:<br /><br />
 <ul>
