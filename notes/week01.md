@@ -193,7 +193,7 @@ Content-Type: text/html; charset=utf-8
 ```
 
 In this case, we see a two-part structure: first a set of **Response Headers**; then
-the actual HTML **Response Body**.  The two are separated by a blank line.  The headers
+the  **Response Body** formatted using HTML (Discussed in detail in week 6).  The two are separated by a blank line.  The headers
 provide extra metadata about the response, the resource being returned, the server, etc.
 
 [HTTP Headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers) are well defined,
