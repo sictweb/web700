@@ -79,16 +79,19 @@ Express.js Introduction &amp; Deployment:<br /><br />
 <tr>
 <td headers="tbl6"><a href="/web700/notes/week06">6 - Notes (<mark>First Draft Complete</mark>)</a></td>
 <td headers="tbl7">
-HTML Introduction:<br /><br />
+HTML5 Introduction:<br /><br />
 <ul>
-<li>(NOTE: Will have to show a "static" server here)</li>
+<li>Document Structure</li>
+<li>Common Elements (Containers, Lists, Tables, Multimedia)</li>
+<li>Grouping Eleemnts using Semantic HTML</li>
+<li>Including Scripts (Inline &amp; External)</li>
 </ul>
 </td>
 </tr>
 <tr>
 <td headers="tbl6"><a href="/web700/notes/week07">7 - Notes (<mark>Early first Draft Complete - No Examples Added</mark>)</a></td>
 <td headers="tbl7">
-CSS / SASS Introduction: (<mark>NOTE: Probably no time for SASS</mark>)<br /><br />
+CSS Introduction: (<mark>NOTE: Probably no time for SASS</mark>)<br /><br />
 <ul>
 <li>(NOTE: Can include Bootstrap CSS only here - link to jQuery / bootsrap js components?)</li>
 </ul>

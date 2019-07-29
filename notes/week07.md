@@ -1007,12 +1007,3 @@ work with the [`overflow`, `overflow-x`, `overflow-y`](https://developer.mozilla
 * `scroll` - always include scroll bars, content is clipped and and scroll if required
 * `auto` - only include scroll bars when necessary, content is clipped and and scroll if required
 * `hidden` - content is clipped, no scroll bars provided.
-
-<br>
-
-### Layout Example
-
-In this in-class example we'll create a simple blog post style layout using HTML and CSS.
-
-* [Initial HTML with no CSS](layout/no-css.html)
-* [Final version with CSS](layout/with-css.html)
