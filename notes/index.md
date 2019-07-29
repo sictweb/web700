@@ -7,8 +7,6 @@ layout: default
 
 Here, you will find the links to the weekly notes.  Please also remember to refer to the [learning resources](/resources) for additional help.
 
-<mark>NOTE: Make sure all notes reference their correct week in the example code!</mark>
-
 <br>
 
 <table>
@@ -17,7 +15,7 @@ Here, you will find the links to the weekly notes.  Please also remember to refe
 <th id="tbl7">Theme</th>
 </tr>
 <tr>
-<td headers="tbl6"><a href="/web700/notes/week01">1 - Notes (<mark>First Draft Complete</mark>)</a></td>
+<td headers="tbl6"><a href="/web700/notes/week01">1 - Notes</a></td>
 <td headers="tbl7">
 Welcome to WEB700:<br /><br />
 <ul>
@@ -29,7 +27,7 @@ Welcome to WEB700:<br /><br />
 </td>
 </tr>
 <tr>
-<td headers="tbl6"><a href="/web700/notes/week02">2 - Notes (<mark>First Draft Complete</mark>)</a></td>
+<td headers="tbl6"><a href="/web700/notes/week02">2 - Notes</a></td>
 <td headers="tbl7">
 JavaScript Continued:<br /><br />
 <ul>
@@ -38,7 +36,7 @@ JavaScript Continued:<br /><br />
 </td>
 </tr>
 <tr>
-<td headers="tbl6"><a href="/web700/notes/week03">3 - Notes (<mark>First Draft Complete</mark>)</a></td>
+<td headers="tbl6"><a href="/web700/notes/week03">3 - Notes</a></td>
 <td headers="tbl7">
 Object Oriented JavaScript / ES6 Features:<br /><br />
 <ul>
@@ -50,7 +48,7 @@ Object Oriented JavaScript / ES6 Features:<br /><br />
 </td>
 </tr>
 <tr>
-<td headers="tbl6"><a href="/web700/notes/week04">4 - Notes (<mark>First Draft Complete</mark>)</a></td>
+<td headers="tbl6"><a href="/web700/notes/week04">4 - Notes</a></td>
 <td headers="tbl7">
 Formal Node.js Introduction:<br /><br />
 <ul>
@@ -62,7 +60,7 @@ Formal Node.js Introduction:<br /><br />
 </td>
 </tr>
 <tr>
-<td headers="tbl6"><a href="/web700/notes/week05">5 - Notes (<mark>First Draft Complete</mark>)</a></td>
+<td headers="tbl6"><a href="/web700/notes/week05">5 - Notes</a></td>
 <td headers="tbl7">
 Express.js Introduction &amp; Deployment:<br /><br />
 <ul>
@@ -77,7 +75,7 @@ Express.js Introduction &amp; Deployment:<br /><br />
 </td>
 </tr>
 <tr>
-<td headers="tbl6"><a href="/web700/notes/week06">6 - Notes (<mark>First Draft Complete</mark>)</a></td>
+<td headers="tbl6"><a href="/web700/notes/week06">6 - Notes</a></td>
 <td headers="tbl7">
 HTML5 Introduction:<br /><br />
 <ul>
@@ -89,16 +87,17 @@ HTML5 Introduction:<br /><br />
 </td>
 </tr>
 <tr>
-<td headers="tbl6"><a href="/web700/notes/week07">7 - Notes (<mark>Early first Draft Complete - No Examples Added</mark>)</a></td>
+<td headers="tbl6"><a href="/web700/notes/week07">7 - Notes</a></td>
 <td headers="tbl7">
-CSS Introduction: (<mark>NOTE: Probably no time for SASS</mark>)<br /><br />
+CSS Introduction:<br /><br />
 <ul>
-<li>(NOTE: Can include Bootstrap CSS only here - link to jQuery / bootsrap js components?)</li>
+<li>Selectors, Web Colors, Units, Properties &amp; Values, Fonts</li>
+<li>Box Model, Display &amp; Positioning, Layout</li>
 </ul>
 </td>
 </tr>
 <tr>
-<td headers="tbl6"><a href="/web700/notes/week08">8 - Notes (<mark>Conversion Complete</mark>)</a></td>
+<td headers="tbl6"><a href="/web700/notes/week08">8 - Notes</a></td>
 <td headers="tbl7">
 Forms Introduction / Processing Forms with Express.js:<br /><br />
 <ul>
@@ -115,7 +114,7 @@ Forms Introduction / Processing Forms with Express.js:<br /><br />
 </td>
 </tr>
 <tr>
-<td headers="tbl6"><a href="/web700/notes/week09">9 - Notes (<mark>Conversion Complete</mark>)</a></td>
+<td headers="tbl6"><a href="/web700/notes/week09">9 - Notes</a></td>
 <td headers="tbl7">
 Template Engines – Handlebars.js:<br /><br />
 <ul>
@@ -139,7 +138,7 @@ Template Engines – Handlebars.js:<br /><br />
 </td>
 </tr>
 <tr>
-<td headers="tbl6"><a href="/web700/notes/week10">10 - Notes (<mark>Conversion Complete</mark>)</a></td>
+<td headers="tbl6"><a href="/web700/notes/week10">10 - Notes</a></td>
 <td headers="tbl7">
 Introduction to AJAX &amp; "REST" API:<br /><br />
 <ul>
@@ -155,7 +154,7 @@ Introduction to AJAX &amp; "REST" API:<br /><br />
 </td>
 </tr>
 <tr>
-<td headers="tbl6"><a href="/web700/notes/week11">11 - Notes (<mark>Conversion Complete</mark>)</a></td>
+<td headers="tbl6"><a href="/web700/notes/week11">11 - Notes</a></td>
 <td headers="tbl7">
 Introduction to Postgres / Sequelize ORM:<br /><br />
 <ul>
@@ -167,7 +166,7 @@ Introduction to Postgres / Sequelize ORM:<br /><br />
 </td>
 </tr>
 <tr>
-<td headers="tbl6"><a href="/web700/notes/week12">12 - Notes (<mark>Conversion Complete</mark>)</a></td>
+<td headers="tbl6"><a href="/web700/notes/week12">12 - Notes</a></td>
 <td headers="tbl7">
 Security Considerations:<br /><br />
 <ul>
