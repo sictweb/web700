@@ -580,7 +580,7 @@ a = !!a;           // true, Boolean
 a = null;          // null
     ```
 
-* JavaScript is a [garbage collected language](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management).  Mmemory automatically gets freed at runtime when variables are not longer in scope or reachable.  We still need to be careful not to leak memory (i.e., hold onto data longer than necessary, or forever) and block the garbage collector from doing its job.
+* JavaScript is a [garbage collected language](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management).  Memory automatically gets freed at runtime when variables are not longer in scope or reachable.  We still need to be careful not to leak memory (i.e., hold onto data longer than necessary, or forever) and block the garbage collector from doing its job.
 
 * Strings: JavaScript doesn't distinguish between a single character and a multi-character `String` --everything is a `String`.  You [define a `String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) using either single (`'...'`) or double (`"..."`) quotes.  Make sure you use one or the other, but don't mix them in a single program, so as to avoid confusion.  
 
