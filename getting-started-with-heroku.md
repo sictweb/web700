@@ -43,7 +43,7 @@ The best thing - **getting started is free!** - This is where we come in:
 
 *   Proceed to install git with the default settings. Once this is complete, you can verify that it is installed correctly by opening a command prompt / terminal and issuing the command **git \-\-version**. This should output something like: git version 2.10.1 ( ... ). If it does not output the installed version of git, then something is wrong and it is not installed correctly.  
 
-*   Next, we need the **"Heroku CLI"** - a command line interface to our Heroku account. This can be [downloaded here](https://devcenter.heroku.com/articles/heroku-cli#download-and-install). Proceed to the page and download the Heroku CLI for your operating system.  
+*   Next, we need the **"Heroku CLI"** - a command line interface to our Heroku account. This can be [downloaded here](https://devcenter.heroku.com/articles/heroku-cli#download-and-install). Proceed to the page and download the Heroku CLI for your operating system.  **NOTE**: If you're using Visual Studio Code with MyApps, Heroku can be installed using the command: "npm install -g heroku" from the Integrated Terminal.
 
 *   Next, install the Heroku CLI with the default settings. Once this is complete, you can verify that it is installed correctly by once again opening a command prompt / terminal and issuing the command **heroku \-\-version**. This should output something like: heroku-cli/5.6.18-9f6df83 ( ... ) go1.7.5\. If it does not output the installed version of the Heroku CLI, then something is wrong and it is not installed correctly.  
 

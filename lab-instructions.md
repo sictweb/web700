@@ -1,61 +1,81 @@
 ---
-title: Lab Instructions
+title: MyApps Instructions
 layout: default
 ---
 
-## Writing Code In the Lab
+## Writing Code In the Lab / Learning Commons
 
-(rough)
+During this course, you may wish to use the computers in the Learning Commons or one of Seneca's many Windows-based Lab computers to write your code.  Like other courses offered at Seneca, we have made this possible by making the required software available through MyApps.  
 
-mmkay, rough instructions:
+While it's recommended that you use your own Linux / Unix based platform (Or one of the pre-configured Mac Labs), we understand that it's not always possible.  If this is indeed the case, please follow these instructions to get Visual Studio, Git and Node.js up and running using MyApps.
 
-after logging in:
+1.  Click on the "Seneca MyApps" shortcut on the desktop to open up the main web interface for MyApps (This may already be open after logging on)
 
-Click on the "SenecaMyApps" shortcut on the desktop (if it opens up an old version of internet explorer (not Edge) open up a different browser, ie Edge, and enter the URL: myapps.senecacollege.ca/sso (although - this didn't work on a second machine that I tried)
+2.  On the right corner (under your name), you should see a "Search Apps" field: 
+    
+    ![MyApps Search](/web700/media/myapps-search.png)
 
-You will then be presented with an opportunity to enter your credentials
+3.  Search for the text "VSCode"
+    
+    ![MyApps Search - VSCode](/web700/media/VSCode-search.png )
 
-Finally, A new webpage should open up
+4.  This should effectively trim the results down to a single result (VSCode + Node + Git).  Hover over the result to reveal a "Launch" button:
+    
+    ![Launch VSCode](/web700/media/lauch-vsCode.png)
 
-on the right (under your user name) you should see a "Search Apps" field:
+5.  Click the "Launch" Button.  This should open the "Cloudpaging Player" with our VSCode + Node + Git combo added to the bottom:
+    
+    ![Cloudpaging Player](/web700/media/cloudpaging-player.png)
+        
+    You should also notice that a folder has opened up containing the following shortcuts:
 
-Search for VSCode and you should see the following single search result.
+    ![MyApps Shortcuts Folder](/web700/media/myapps-shortcuts-folder.png)
 
-Hit the "Launch Button" and the "Cloudpaging Player should open (see screenshot)
+6.  Click on the "Code - Shortcut" shortcut to open Visual Studio Code.
 
-A folder should also open up that contains the following shortcuts (see screenshot):
 
-Code - Shortcut
-git-bash - Shortcut
-git-cmd - Shortcut
-node - Shortcut
+**Before you do anything in Visual Studio Code**, you must change the "Default Shell" that will be used by our Integrated Terminal in Visual Studio Code:
 
-Double click on the "Code - Shortcut" shortcut
+1.  With Visual Studio Code open and focused, enter the keyboard shortcut: **Shift + Ctrl + P**.  This will bring up a command prompt with various options:
+    
+    ![VS Code Prompt](/web700/media/vs-code-prompt.png)
 
-This should open Visual Studio Code
+2.  Type "Shell" and you should see the following options:
+    
+    ![VS Code Prompt - Shell](/web700/media/vs-code-prompt-shell.png)
 
-Before we can do anything else, we must enter the command Shift + Ctrl + P to bring up a command prompt (see screenshot)
+3.  Click the first option "Terminal: Select Default Shell"  You should then see the below options: 
+    
+    ![VS Code Prompt - Shell Options](/web700/media/vs-code-prompt-shell-options.png)
 
-(screenshot)
+4.  Lastly, Click the bottom option: "Git Bash"
 
-Type "Shell" and you should see the following options:
 
-(screenshot)
+This should correctly configure your development environment within MyApps.  To confirm this, open up the Integrated Terminal and try entering the commands:
 
-Click the first option "Terminal: Select Default Shell"  You should then see the below options:
-
-(screenshot)
-
-Click the bottom one "Git Bash
-
-You can now proceed to use Visual Studio Code as normal.  To confirm that you're using the right default shell,  you can enter the commands:
-
+```
 git --version
-node -version
+```
 
-and see the current versions
+and 
+
+```
+node --version
+```
+
+You should see that the commands are found and the current version numbers are displayed in the Terminal.
+
+**Congratulations** your development environment is properly configured.  Happy Coding!
+
+ 
 
 
-NOTE: Heroku can be installed using the command: npm install -g heroku
+
+
+
+
+
+
+
 
 
