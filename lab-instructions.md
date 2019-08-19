@@ -56,3 +56,6 @@ node -version
 and see the current versions
 
 
+NOTE: Heroku can be installed using the command: npm install -g heroku
+
+
