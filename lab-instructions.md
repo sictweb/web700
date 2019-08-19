@@ -11,7 +11,7 @@ mmkay, rough instructions:
 
 after logging in:
 
-Click on the "SenecaMyApps" shortcut on the desktop (if it opens up an old version of internet explorer (not Edge) open up a different browser, ie Edge, and enter the URL: myapps.senecacollege.ca/sso
+Click on the "SenecaMyApps" shortcut on the desktop (if it opens up an old version of internet explorer (not Edge) open up a different browser, ie Edge, and enter the URL: myapps.senecacollege.ca/sso (although - this didn't work on a second machine that I tried)
 
 You will then be presented with an opportunity to enter your credentials
 
