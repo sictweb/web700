@@ -109,7 +109,7 @@ Each test will commence at the start of the corresponding **Lecture** period (we
 
 <tr>
 <td>7</td>
-<td><ul><li>CSS / SASS Introduction</li></ul></td>
+<td><ul><li>CSS Introduction</li></ul></td>
 <td>
 <ul>
 <li>Test 3

@@ -61,8 +61,6 @@ There are several required online resources:
 * [Bootstrap (version 3) CSS documentation](https://getbootstrap.com/docs/3.3/css/)  
 Links to other topics (e.g. Getting started, etc.) are on that page
 
-* [SASS Documentation](https://sass-lang.com/)
-
 * Node Reference
   * [Node.js Documentation](https://nodejs.org/en/docs/)
   * (Suggested) [nodejitsu](https://docs.nodejitsu.com/)
