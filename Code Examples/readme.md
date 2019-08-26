@@ -1,6 +1,6 @@
-# Web 322 examples
+# WEB700 examples
 
-The repo contains examples for the WEB 322 course for Seneca College.
+The repo contains examples for the WEB700 course for Seneca College.
 
 ## Contents
 
