@@ -196,13 +196,16 @@ In order to set this up correctly and get express to understand the file above, 
         };
     
         res.render('viewData', {
-            data: someData
+            data: someData,
+            layout: false // do not use the default Layout (main.hbs)
         });
         
     });
     ```
     
-    Now, the route no longer returns a string consisting of our HTML + data using res.send(), but instead invokes the [render](http://expressjs.com/en/api.html#res.render) method on the [response](http://expressjs.com/en/api.html#res) object (res). We pass the name of our new file without the extension (ie: "viewData" instead of "viewData.hbs"), and "data" object to hold all of our data (someData).
+    Now, the route no longer returns a string consisting of our HTML + data using res.send(), but instead invokes the [render](http://expressjs.com/en/api.html#res.render) method on the [response](http://expressjs.com/en/api.html#res) object (res). We pass the name of our new file without the extension (ie: "viewData" instead of "viewData.hbs"), and "data" object to hold all of our data (someData). 
+    
+    **NOTE** Newer versions of Express Handlebars require the layout to be explicitly set to "false" if not using a default layout (see "Layouts / Default Layout" below)
 
 If you have followed all of the steps above, your server.js should look something like this:
 
@@ -233,7 +236,8 @@ app.get("/viewData", function(req,res){
     };
 
     res.render('viewData', {
-        data: someData
+        data: someData,
+        layout: false // do not use the default Layout (main.hbs)
     });
 
 });
@@ -537,7 +541,8 @@ var someData = {
 };
 
 res.render('viewData', {
-    data: someData
+    data: someData,
+    layout: false // do not use the default Layout (main.hbs)
 });
 ```
 
