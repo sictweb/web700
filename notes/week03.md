@@ -660,7 +660,7 @@ console.log("I will not be executed");
 
 ### Arrow Functions
 
-ES6 has introduced many new keywords, constructs, syntax and functionality to the JavaScript language (for a full list, refer back to the [Compatibility Table](https://kangax.github.io/compat-table/es6/)). We cannot possibly discuss it all here, so we must concentrate on new syntax / functionality that is likely to be encountered when learning some of the frameworks in this course (ie: Node.js / Express.js, MongoDB, etc. ).
+ES6 has introduced many new keywords, constructs, syntax and functionality to the JavaScript language (for a full list, refer back to the [Compatibility Table](https://kangax.github.io/compat-table/es6/)). We cannot possibly discuss it all here, so we must concentrate on new syntax / functionality that is likely to be encountered when learning some of the frameworks in this course (ie: Node.js / Express.js, Postgres, etc. ).
 
 One new concept that you will notice right away (or may have already noticed), is that there's a new operator: "=>" that we can use to declare anonymous functions – or "arrow functions":
 

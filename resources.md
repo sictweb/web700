@@ -71,8 +71,6 @@ Links to other topics (e.g. Getting started, etc.) are on that page
 
 * [Sequelize Documentation](http://docs.sequelizejs.com/)
 
-* [Mongoose Documentation](https://mongoosejs.com/docs/guide.html)
-
 <br>
 
 Oh, and you should must know (and love!) the series of RFCs that describe HTTP, [7230](https://tools.ietf.org/html/rfc7230) through 7235. If you want a friendlier introduction to [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol), read its Wikipedia article.

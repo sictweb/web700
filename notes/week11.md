@@ -11,7 +11,7 @@ layout: default
 
 Fortunately, there are many different database systems that we can leverage to accomplish this notion of "data persistence". These range from powerful "relational" database systems, including: [Microsoft SQL Server](https://www.microsoft.com/en-us/sql-server/), [Oracle](https://www.oracle.com/database/), [MySQL](https://www.mysql.com/), [PostgreSQL](https://www.postgresql.org/), and [many others](https://en.wikipedia.org/wiki/List_of_relational_database_management_systems) as well as "NoSQL" database systems such as [Amazon's DynamoDB](https://aws.amazon.com/dynamodb/), [Azure DocumentDB](https://azure.microsoft.com/en-us/services/documentdb/) and [MongoDB](https://www.mongodb.com/).
 
-In WEB700, we will be focusing on [PostgreSQL](https://www.postgresql.org/) and [MongoDB](https://www.mongodb.com/) - this week, we will look at how we can work with a PostgreSQL database in a node.js environment.
+In WEB700, we will be focusing on [PostgreSQL](https://www.postgresql.org/) - this week, we will look at how we can work with a PostgreSQL database in a node.js environment.
 
 #### PostgreSQL (Postgres)
 

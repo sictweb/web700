@@ -7,7 +7,7 @@ layout: default
 
 ### Security Considerations
 
-This week we will be covering some of the important items related to the security of websites and web applications. We will cover HTTPS communications at a high level, setting up SSL certificates with node.js, and getting our own free HTTPS SSL certificates from a trusted source. We will also cover how to encrypt and store passwords in mongodb and a common library used to do password encryption with node.js. Lastly, we will cover some additional topics related to accessing resources between domains and security standards in place to protect your website against malicious scripts or documents.
+This week we will be covering some of the important items related to the security of websites and web applications. We will cover HTTPS communications at a high level, setting up SSL certificates with node.js, and getting our own free HTTPS SSL certificates from a trusted source. We will also cover how to encrypt and decrypt passwords using a common library used to do password encryption with node.js. Lastly, we will cover some additional topics related to accessing resources between domains and security standards in place to protect your website against malicious scripts or documents.
 
 <br>
 
