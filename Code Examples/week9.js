@@ -34,7 +34,8 @@ app.get("/viewdata", (req, res) => {
   }];
 
   res.render("viewdata", {
-    employees: employees
+    employees: employees,
+    layout: false // do not use the default Layout (main.hbs)
   });
 });
 

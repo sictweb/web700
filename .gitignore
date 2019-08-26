@@ -1,6 +1,5 @@
 node_modules
 temp
-week5-assets/photos/*
 week8-assets/photos/*
-week12-assets/server.crt
-week12-assets/server.key
+**/week12-assets/server.crt
+**/week12-assets/server.key

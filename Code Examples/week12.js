@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const exphbs = require("express-handlebars");
-const clientSessions = require("client-sessions");
 const fs = require("fs");
 const http = require("http");
 const https = require("https");
@@ -36,18 +35,6 @@ function onHttpsStart() {
   console.log("Express https server listening on: " + HTTPS_PORT);
 }
 
-// This is a helper middleware function that checks if a user is logged in
-// we can use it in any route that we want to protect against unauthenticated access.
-// A more advanced version of this would include checks for authorization as well after
-// checking if the user is authenticated
-function ensureLogin(req, res, next) {
-  if (!req.session.user) {
-    res.redirect("/login");
-  } else {
-    next();
-  }
-}
-
 // Register handlerbars as the rendering engine for views
 app.set("views", WEEK12ASSETS);
 app.engine(".hbs", exphbs({ extname: ".hbs" }));
@@ -57,13 +44,6 @@ app.set("view engine", ".hbs");
 // like images, css files, etc.
 app.use(express.static(WEEK12ASSETS));
 
-// Setup client-sessions
-app.use(clientSessions({
-  cookieName: "session", // this is the object name that will be added to 'req'
-  secret: "week12example_web700", // this should be a long un-guessable string.
-  duration: 2 * 60 * 1000, // duration of the session in milliseconds (2 minutes)
-  activeDuration: 1000 * 60 // the session will be extended by this many ms each request (1 minute)
-}));
 
 // Parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -75,55 +55,49 @@ app.get("/", (req, res) => {
 
 // Display the login html page
 app.get("/login", (req, res) => {
-  res.render("login", { });
+  res.render("login", { 
+    layout: false // do not use the default Layout (main.hbs)
+  });
 });
 
-// The login route that adds the user to the session
+// Process the login route
 app.post("/login", (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
 
   if(username === "" || password === "") {
     // Render 'missing credentials'
-    return res.render("login", { errorMsg: "Missing credentials." });
+    return res.render("login", { 
+      errorMsg: "Missing credentials.",
+      layout: false // do not use the default Layout (main.hbs)
+     });
   }
 
   if(username === user.username && password === user.password) {
-    // Add the user on the session and redirect them to the dashboard page.
-    // We have to copy the user properties here rather than use
-    // req.session.user = user;
-    // If we did that, it would set req.session.user to be a REFERENCE to the user object
-    // and when we delete the password your user won't be able to log back in after logging out.
-    // The password would be deleted from both the req.session.user AND the user const
-    req.session.user = {
-      username: user.username,
-      password: user.password,
-      email: user.email
-    };
-    // delete the password from the session for security purposes
-    // you should never send a users password back to the client
-    // even if the password AND session are encrypted. There is just
-    // no need for it.
-    delete req.session.user.password;
+    // redirect the user to the dashboard page
     res.redirect("/dashboard");
   } else {
     // render 'invalid username or password'
-    res.render("login", { errorMsg: "invalid username or password!"});
+    res.render("login", { 
+      errorMsg: "invalid username or password!",
+      layout: false // do not use the default Layout (main.hbs)
+    });
   }
 });
 
-// Log a user out by destroying their session
-// and redirecting them to /login
+// redirect the user to the logout page
 app.get("/logout", (req, res) => {
-  req.session.reset();
   res.redirect("/login");
 });
 
 // An authenticated route that requires the user to be logged in.
 // Notice the middleware 'ensureLogin' that comes before the function
 // that renders the dashboard page
-app.get("/dashboard", ensureLogin, (req, res) => {
-  res.render("dashboard", {user: req.session.user});
+app.get("/dashboard", (req, res) => {
+  res.render("dashboard", {
+    user: {username: user.username, email: user.email }, // since we only have one user, we simply return it to the view
+    layout: false // do not use the default Layout (main.hbs)
+  });
 });
 
 // This use() will not allow requests to go beyond it
