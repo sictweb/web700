@@ -17,9 +17,8 @@ The examples require some preparation ahead of time to be able to pull them down
 
 After installing Git you will be able to clone this repository.
 
-You will need to also install other applications to run the examples once the repository is cloned.
+You will need to also install Node.js to run the examples once the repository is cloned.
 * [node.js](https://nodejs.org/en/download/) Get the 64 bit version.
-* [Mongo DB](https://www.mongodb.com/download-center?jmp=nav#community) Get the 64 bit version.
 
 <a name="a2"></a>
 ## Running the examples locally
@@ -28,8 +27,6 @@ One you have cloned the repo you will want to make sure you are in the main fold
 
 The main step is to run npm install in the repo to install all the packages that the examples are dependant on.
 > `npm install`
-
-The week 8 example requires MongoDB to be running as well. See the class notes for instructions on that.
 
 When you want to deploy one of the examples to Heroku you will need to edit the package.json file for the `start` property uder scripts. Change the command to the example you want Heroku to run.
 
