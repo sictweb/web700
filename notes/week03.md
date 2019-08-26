@@ -727,7 +727,7 @@ outputMessageArrow();
 
 #### Implicit "return statement"
 
-Arrow functions also implicitly return the value of the statement within the funtion.  This can lead to very short, consice function declarations, ie:
+Arrow functions also implicitly return the value of the statement within the function.  This can lead to very short, consice function declarations, ie:
 
 ```javascript
 var adder = function(num1, num2) {
