@@ -479,10 +479,10 @@ console.log("Hello World!");
 
     ```js
     var year;
-    var seasonName = "Summer";
+    var seasonName = "Fall";
 
     // Referring to and using syntax:
-    year = 2018;
+    year = 2019;
     console.log(seasonName, year);
     ```
 
