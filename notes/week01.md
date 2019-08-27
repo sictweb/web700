@@ -223,24 +223,21 @@ and later in the headers we are given a new `Location` to try.  Notice there is 
 Let's try following the suggested redirect URL:
 
 ```bash
-$ curl --include https://nodejs.org/en/information/
+$ curl --include curl --include https://ict.senecacollege.ca/Course/CourseNotFound?=web000
 
-HTTP/2 404 
-date: Fri, 26 Jul 2019 19:07:01 GMT
-content-type: text/html
-set-cookie: __cfduid=d0b713cfdc46825de8ec5b40699788a151564168021; expires=Sat, 25-Jul-20 19:07:01 GMT; path=/; domain=.nodejs.org; HttpOnly
-cf-cache-status: HIT
-age: 34
-expires: Fri, 26 Jul 2019 23:07:01 GMT
-cache-control: public, max-age=14400
-expect-ct: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
-server: cloudflare
-cf-ray: 4fc8a774897755a4-ORD
+HTTP/1.1 404 Not Found
+Date: Tue, 27 Aug 2019 13:08:55 GMT
+Server: Apache/2.4.6 (CentOS) mpm-itk/2.4.7-04 OpenSSL/1.0.2k-fips mod_fcgid/2.3.9 PHP/5.6.40
+X-Powered-By: PHP/5.6.40
+Expires: Sun, 19 Nov 1978 05:00:00 GMT
+Cache-Control: no-cache, must-revalidate, post-check=0, pre-check=0
+Content-Language: en
+Link: </?q=Course/CourseNotFound>; rel="canonical",</?q=node/891>; rel="shortlink"
+X-Generator: Drupal 7 (http://drupal.org)
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=utf-8
 
-<!DOCTYPE html>
-<html lang="en" >
 ...
-</html>
 ```
 
 Now a third response code has been returned, [`404 Not Found`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404) as well as another HTML page
