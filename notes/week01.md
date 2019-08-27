@@ -196,7 +196,7 @@ In the response above, we see a number of interesting things:
 
 * The origin server is using `cloudflare` to handle the request.
 
-* The content has been in a [proxy cache](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching) (`age`) for 46 days.
+* The content has been in a [proxy cache](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching) (`age`) for 46 seconds.
 
 After these **headers** we have a blank line (i.e., `\n\n`), followed by the **body** of our response: the actual HTML document.
 
