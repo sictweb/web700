@@ -184,19 +184,19 @@ and can be upper- or lower-case:
 
 For example:
 
-`Content-Language: en`, where `Content-Language` is the **name** and `en` is the **value**.
+`content-type: text/html`, where `content-type` is the **name** and `text/html` is the **value**.
 
 In the response above, we see a number of interesting things:
 
 * `200 OK` - tells us that the requested resource was successful located and returned.
 
-* Info about the `Date`, when the response `Expires`, whether to cache it (`Cache-Control`) on the client
+* Info about the `Date`, when the response `Expires`, whether to cache it (`cache-control`) on the client
 
-* The `Content-Language` is English, and the `Content-Type` is `text`, and more specifically, `html` (a web page) using [UTF8 text encoding](https://en.wikipedia.org/wiki/UTF-8).
+* The `Content-Type` is `text`, and more specifically, `html` (a web page) using [UTF8 text encoding](https://en.wikipedia.org/wiki/UTF-8).
 
-* That the web `Server` is running [Apache](https://httpd.apache.org/), [OpenSSL](https://www.openssl.org/), and [PHP](http://php.net/), as well as the versions being used
+* The origin server is using `cloudflare` to handle the request.
 
-* Finally some non-standard `X-...` style headers are included, which are extra, user-defined bits of data, for example, that Drupal version 7 was used to create the document.  (NOTE: when you see names starting with `x-` or `x` it often means a non-standardized name is being used).
+* The content has been in a [proxy cache](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching) (`age`) for 46 days.
 
 After these **headers** we have a blank line (i.e., `\n\n`), followed by the **body** of our response: the actual HTML document.
 
