@@ -644,6 +644,8 @@ The chaining actually occurs further down in the ".then()" method of each promis
 // ...
 reject();
 console.log("I will still be executed");
+resolve(); // This promise will not be "resolved", since the resolve() call came after reject()
+           // this also works the other way around.  A promise has been "settled" once reject or resolve has been called
 // ...
 ```
 
