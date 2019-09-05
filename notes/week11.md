@@ -21,7 +21,7 @@ From the PostgreSQL site, [postgresql.org](https://www.postgresql.org):
 
 This is a great choice for us for multiple reasons; it is open source, highly available, standards compliant and most importantly, works nicely with node.js.
 
-To get started, we need to **add a Postgre database (DB)** to a new (or existing) **Heroku application**. For specific instructions (and to refresh your memory) on creating a new application in Heroku, refer to the [Getting Started with Heroku](http://zenit.senecac.on.ca/~patrick.crawford/index.php/web322/course-notes/getting-started-with-heroku/) guide.
+To get started, we need to **add a Postgre database (DB)** to a new (or existing) **Heroku application**. For specific instructions (and to refresh your memory) on creating a new application in Heroku, refer to the [Getting Started with Heroku](/web700/getting-started-with-heroku) guide.
 
 Once your app is up and running, [log into Heroku](https://id.heroku.com/login) and find your application on the dashboard - it should have an automatically generated name, like "cryptic-garden-34394". Next, follow the steps to set up your free Postgres database!
 

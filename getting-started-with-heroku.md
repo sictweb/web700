@@ -7,7 +7,7 @@ layout: default
 
 ![](/web700/media/heroku-logo-300x100.png)
 
-The main server environment that we will be using in WEB322 is **Heroku**. From their website:
+The main server environment that we will be using in WEB700 is **Heroku**. From their website:
 
 > "Heroku is a cloud platform that lets companies build, deliver, monitor and scale apps — we're the fastest way to go from idea to URL, bypassing all those infrastructure headaches."
 
