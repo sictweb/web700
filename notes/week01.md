@@ -77,8 +77,8 @@ standards include [HTML](https://html.spec.whatwg.org/multipage/), [HTTP](https:
 
 ### HTTP Requests and Responses
 
-The Hypertext Transfer Protocol is a **stateless**, **client-server** model for formatting
-requests and responses between computers on the Internet.  This means one computer
+The Hypertext Transfer Protocol is a **stateless**, **client-server** model for [formatting
+requests and responses](https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages) between computers on the Internet.  This means one computer
 makes a request (the client) to another (the server), and after the response is returned,
 the connection is closed.
 
