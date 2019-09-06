@@ -88,7 +88,7 @@ The server listens for requests, and fulfills (or rejects) those requests by ret
 #### URLs
 
 Web resources are reachable via unique identifiers called a *Uniform Resource Locator* or
-*URL*.  Consider the URL for the official Node.js documentation (A JavaScript runtime that we will use throught this course):
+*URL*.  Consider the URL for the official Node.js documentation (A JavaScript runtime that we will use throughout this course):
 
 [https://nodejs.org/en/docs/](https://nodejs.org/en/docs/)
 
