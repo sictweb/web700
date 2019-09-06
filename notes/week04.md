@@ -484,7 +484,7 @@ app.get("/about", function(req,res){
 });
 ```
 
-To test your server, run **node week4** to see the results on **http://localhost:8080**
+To test your server, run **node week4.js** to see the results on **http://localhost:8080**
 
 <br>
 
