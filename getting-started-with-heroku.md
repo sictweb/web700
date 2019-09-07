@@ -94,7 +94,7 @@ The best thing - **getting started is free!** - This is where we come in:
 
     Be sure to save your file before moving on.  
 
-1.  Next, issue the following command from the integrated terminal: **git init** - this will initialize a local git repository in your helloworld folder. You will notice that an icon in the left bar has a new message - It is highlighted with the text "99+". This represents all of the files that must be added to our local git repo. Click the button and type "first commit" for the message in the "Message" box. Once this is done, click the checkmark above the message box to commit your changes.  
+1.  Next, issue the following command from the integrated terminal: **git init** - this will initialize a local git repository in your helloworld folder. You will notice that an icon in the left bar now has a blue icon showing a number. This represents all of the files that must be added to our local git repo. Click the button and type "first commit" for the message in the "Message" box. Once this is done, click the checkmark above the message box to commit your changes.  
     
     **NOTE:** If, at this point, you receive the error: "Git: Failed to execute git", try executing the following commands in the integrated terminal:  
 
