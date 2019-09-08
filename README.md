@@ -1,6 +1,6 @@
 ## WEB700 - Web Programming Foundations
 
-![Working on a Laptop](https://raw.githubusercontent.com/sictweb/resources/master/computer-image-2.jpg) 
+![Source Code](/Web700/media/source-code.jpg) 
 
 
 Welcome to WEB700: "Web Programming Foundations".  As budding Database Application Developers, you will need to gain a strong understanding of the current Web Application landscape.  As you are aware, databases provide the persistence capability for most modern Web Applications and the notion of DBaaS or "Database as a Service" has been increasing in popularity.  Companies like Amazon, Microsoft, Google and Oracle all provide DBaaS products in some form to help meet the needs modern Web Applications.
