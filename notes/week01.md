@@ -62,8 +62,6 @@ There are many more as well (SMTP, FTP, POP, IMAP, SSH, etc).
 We often use the terms "Web" and "Internet" interchangeably, however, they aren't
 the same.
 
-![Tim Berners-Lee (left) invented the web, and Vint Cert (right) invented the internet](https://pbs.twimg.com/media/Dl8QP8WU4AIk6ap.jpg)
-
 The *World Wide Web* (WWW) runs on top of the Internet using HTTP, and
 allows us to access web services, request resources (i.e., pages, images), and
 transmit data between clients and servers.  The web is a subset of the Internet.
