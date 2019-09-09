@@ -330,12 +330,6 @@ JavaScript provides a number of [built-in global functions](https://developer.mo
 * [`encodeURI()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURI)
 * [`encodeURIComponent()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent)
 
-There are also global functions that exist for historical reasons, but should be avoided for performance,
-usability, and/or security reasons:
-
-* [`eval()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval) dangerous to parse and run user-defined strings
-* [`prompt()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt) and [`alert()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/alert) synchronous calls that block the UI thread.
-
 Most of JavaScripts "standard library" comes in the form of *methods* on global objects
 vs. global functions.  A *method* is a function that is bound to a variable belonging
 to an object, also known as a *property*.  We'll be covering these in more depth later, but
