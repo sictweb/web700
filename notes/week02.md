@@ -195,13 +195,14 @@ function execute(fn, n) {
 // 1. Call the `execute` function, passing an anonymous function, which squares its argument, and the value 3
 execute(function(n) {
     return n * n;
-}, 3);
+}, 3); // returns 9
 
+// 2. declare a method to "double" the value of its argument
 var doubleIt = function(num) {
     return num * 2;
 }
 
-// 2. Again call `execute`, but this time pass `doubleIt` as the function argument
+// Again call `execute`, but this time pass `doubleIt` as the function argument
 execute(doubleIt, 3); // returns 6
 ```
 
