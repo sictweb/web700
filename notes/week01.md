@@ -473,8 +473,6 @@ console.log("Hello World!");
 
 * Variables are declared using the [`var` keyword](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var).  You must use the `var` keyword to precede a variable name, but you do not need to provide a type, since the initial value will set the type.
 
-    > JavaScript version note: newer versions of JavaScript also support the [`let` and `const` keywords](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript#Functions#Variables) for variable declaration.  We will primarily use `var` in this course, but slowly start to add `let` and `const` as you become more familiar with the language.
-
     ```js
     var year;
     var seasonName = "Fall";
@@ -559,8 +557,6 @@ Common [JavaScript Operators](https://developer.mozilla.org/en-US/docs/Web/JavaS
 |`<=`     | Less Than Or Equal | `3 < 10` and `3 <=3` |
 |`typeof` | Type Of | `typeof "Hello"` gives `'string'`, `typeof 6` gives `'number'`|
 | `cond ? a : b` | Ternary | `status = (age >= 18) ? 'adult' : 'minor';` |
-
-> JavaScript version note: you may encounter `=>` in JavaScript code, which looks very similar to `<=` or `>=`.  If you see `=>` it is an [arrow function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), which is new ES6 syntax for declaring a function expression.  We will slowly introduce this syntax, especially in later courses.
 
 * JavaScript is dynamic, and variables can change value *and* type at runtime:
 
