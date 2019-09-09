@@ -247,7 +247,7 @@ the value by `1` will be the same as not using a bonus.
 
 The idiom `bonus = bonus || 1` is very common in JavaScript.  It uses the
 [Logical Or Operator `||`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_Operators#Logical_OR_()) to test whether `bonus` evaluates to a value or not, and prefers that value if possible
-to the fallback default of `1`.  We could also have written it out using an `if` statements like these:
+to the fallback default of `1`.  We could also have written it out using `if` statements like these:
 
 ```js
 function updateScore(currentScore, value, bonus) {
@@ -256,6 +256,8 @@ function updateScore(currentScore, value, bonus) {
     }
     return currentScore + value;
 }
+
+// OR
 
 function updateScore(currentScore, value, bonus) {
     if(!bonus) {
