@@ -359,7 +359,7 @@ quite a few worth learning, but here are some to get you started:
 
 ## Scope
 
-JavaScript variables are *declared* with the `var` keyword (or `let`, `const` in es6).  We often
+JavaScript variables are *declared* with the `var` keyword.  We often
 *assign* a value when we *declare* it, though we don't have to do both at once:
 
 ```js
