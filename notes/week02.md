@@ -23,13 +23,12 @@ Learning to write code in terms of functions takes practice.  JavaScript support
 [functional programming](https://en.wikipedia.org/wiki/Functional_programming). Web
 applications are composed of lots of small components that need to get wired together
 using functions, have to share data (i.e., state), and interoperate with other code
-built into the browser, or in third-party frameworks, libraries, and components.
+in third-party frameworks, libraries, and components.
 
 We use JavaScript functions in a number of ways.  First, we encapsulate
 a series of statements into higher-order logic, giving a name to a set of repeatable
 steps we can call in different ways and places in our code.  Second, we use them
-to define actions to be performed in response to events, whether user initiated or
-triggered by the browser.  Third, we use them to define behaviours for objects, what
+to define actions to be performed in response to events.  Third, we use them to define behaviours for objects, what
 is normally called a *member function* or *method*.  Fourth, we use them to define
 *constructor* functions, which are used to create new objects.  We'll look at all
 of these in the coming weeks.
