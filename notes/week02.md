@@ -332,8 +332,7 @@ JavaScript provides a number of [built-in global functions](https://developer.mo
 
 Most of JavaScripts "standard library" comes in the form of *methods* on global objects
 vs. global functions.  A *method* is a function that is bound to a variable belonging
-to an object, also known as a *property*.  We'll be covering these in more depth later, but
-here are some examples
+to an object, also known as a *property*.  There are a number of [standard built-in objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects) available; the following list highlights some of the common ones that we will be using in this course:
 
 * [`console.*`](https://developer.mozilla.org/en-US/docs/Web/API/console).  There are
 quite a few worth learning, but here are some to get you started:
