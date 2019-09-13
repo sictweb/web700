@@ -5,7 +5,7 @@ layout: default
 
 ## WEB700 Week 10 Notes
 
-### AJAX Introduction / Practical AJAX Programming <mark>(TODO: Remove XMLHttpRequest stuff and update example to use the Fetch API)</mark>
+### AJAX Introduction / Practical AJAX Programming
 
 Up until this point, everything in this course has involved logic that exists primarily on the server (server-side). However, there is one piece of technology that plays a vital role on the client side that needs to be discussed as well. This is **AJAX (Asynchronous JavaScript and XML)** - a collection of technologies used together to create a richer user experience by enabling data to be transferred between a web client (browser) and web server without the need to refresh the page.
 
