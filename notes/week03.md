@@ -39,88 +39,94 @@ So, if we wanted to create an object with the following properties:
 
 and methods...
 
-*   **setAge** (simple "setter" to set a new value for the "age" property)
-*   **setName** (simple "setter" to set a new value for the "name" property)
+*   **setName** ("setter" to set a new value for the "name" property)
+*   **setAge** ("setter" to set a new value for the "age" property)
+*   **getName** ("getter" to get the current value of the "name" property)
+*   **getAge** ("getter" to get the current value of the "age" property)
 
 using "Object Literal" notation, we would write the code:
-
 
 ```javascript
 var architect = {name: "Joe",
                   age: 34,
                   occupation: "Architect",
+                  setName: function(newName){this.name = newName},
                   setAge: function(newAge){this.age = newAge},
-                  setName: function(newName){this.name = newName}
+                  getName: function(){return this.name},
+                  getAge: function(){return this.name}
                  };
 ``` 
 
-which creates a simple "architect" objet. Notice how we used the **"this"** keyword whenever we referred to one of the properties of the object inside one of it's methods. This is due to the fact that when a method is executed, "age" (for example) might already exist in the global scope, or within the scope of the function as a local variable. To be absolutely sure that we are referring to the correct "age" property of the current object, we must refer to the "execution context" - ie: the object that is actually making a call to this method. We know the object has an "age" property, so in order to be more specific about _which_ age variable that we want to change, we leverage the keyword **this**. "this" will refer to the "execution context", ie: the object that called the function! So, **"this.age"** can be read literally as **"the age property on this object"**, which is exactly the property that we wish to edit.
-
-Now, if we want to create more objects with these same properties & methods, we can leverage JavaScripts native [Object.create()](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/create) method:
+and access the data (properties) and functions (methods) using the following code, ie:
 
 ```javascript
-Object.create(proto[, propertiesObject])
+console.log(architect.name); // "Joe"
+// or
+console.log(architect.getName()); // "Joe"
 ```
 
-This method will create a brand new object and use an existing object as it's **prototype** (explained further down). In practice, this will give the new object all of the properties, methods and values of the existing object while still being it's own, new instance. For example, if we wish to create two new _architect_ objects, we can simply call **Object.create()** with our previous **architect** object as the first parameter:
+Notice how we used the **"this"** keyword whenever we referred to one of the properties of the object inside one of its methods. This is due to the fact that when a method is executed, "age" (for example) might already exist in the global scope, or within the scope of the function as a local variable. To be absolutely sure that we are referring to the correct "age" property of the current object, we must refer to the "execution context" - ie: the object that is actually making a call to this method. We know the object has an "age" property, so in order to be more specific about _which_ age variable that we want to change, we leverage the keyword **this**. "this" will refer to the "execution context", ie: the object that called the function! So, **"this.age"** can be read literally as **"the age property on this object"**, which is exactly the property that we wish to edit.
+
+However, while "this" allows us to be specific with which **properties** that we refer to in our **methods**, it can lead to some confusing scenarios. For example, what if we added a new "outputNameDelay()" method to our architect object that writes the architect's name to the console after 1 second (1000 milliseconds):
 
 ```javascript
-var architect1 = Object.create(architect);
-var architect2 = Object.create(architect);
-```
-
-Now both **architect1** and **architect2** are new objects that have the same properties, methods and values as the original **architect** object. However, because they are each their own instance, we can change their properties and manipulate their data as single entities:
-
-```javascript
-architect2.setName("Mary");
-
-console.log(architect1.name); // "Joe"
-console.log(architect2.name); // "Mary"
+// ...
+outputNameDelay: function(){
+  setTimeout(function(){
+    console.log(this.name);
+  },1000);
+}
+// ...
+architect.outputNameDelay(); // outputs undefined
 ``` 
+
+Everything looks correct and we have made proper use of the "this", however because the setTimeout function is not executed as a method of our architect object, we end up with "undefined" being output to the console. There are a number of fixes for this issue (most noteworthy is the new "arrow function" syntax - discussed below), however one common way is to introduce a local variable (often named "that") into the current scope that **holds a reference to "this"**
+
+```javascript
+// ...
+outputNameDelay: function(){
+    var that = this;
+    setTimeout(function(){
+    console.log(that.name);
+    },1000);
+}
+// ...
+architect.outputNameDelay(); // outputs "Joe"
+```
+    
+Now, we aren't using the "this" keyword from within the setTimeout() function, but rather "that" from our outputNameDelay function and everything works as it should! (ie, "that" points to architect, since it was the architect that invoked the outputNameDelay method).
 
 <br>
 
-### Creating Objects (Function Constructor)
+### Creating Objects ("class" keyword)
 
-One of the more advanced & powerful ways of creating complex objects in JavaScript is by using **"Function Constructors"** and the ["new" operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new). Essentially, we can specify how instances of each "new" object will be created by writing a function that follows a specific pattern - for example:
-
-```javascript
-// Declare a function to initialize our "new" object with
-// properties (ie: "objectProperty")
-function myObjectInitializer(initialVal){
-  this.objectProperty = initialVal;
-}
-
-// add methods (ie: "objectMethod") to the myObjectInitializer function prototype
-myObjectInitializer.prototype.objectMethod = function(){ return this.objectProperty };
-
-// create a new object and initialize the objectProperty with the value "Hello"
-var myObject = new myObjectInitializer("Hello");
-
-// execute the "objectMethod" on the new object
-console.log(myObject.objectMethod()); // "Hello"
-```
-
-In the above example, we are using a function to define all of the properties of the object (later created using the "new" operator), in the same way that we declare properties in a "class" in C++. These properties (declared using the "this" keyword) will get added to the new object once the "new" operator is used to create a new "instance". Additionally, because we are using a function to define the new object, we can leverage the function properties to initialize the new object with some values - in this case, we set "objectProperty" to "Hello".
-
-We can define the methods of the new object in either the function (using this.functionName = function(){};) or on the prototype of the function (as in the above example). It is generally preferred to add the methods to the function prototype, since all new objects created using this function constructor (ie: myObjectInitializer) will have access to it's prototype once they are created (using "new"). A second added benefit is if we were to change this function later in the code, all of our objects would be updated to use the new code (since they're all referring to the method in the prototype).
-
-To illustrate this concept, why don’t we recreate our “architect” object using this method:
+If we wish to create multipe objects of the same "type" (ie: that have the same properties and methods, but with different values), we can leverage the "class" and "new" keywords, ie:
 
 ```javascript
-function architect(setName, setAge){
-  this.name = setName;
-  this.age = setAge;
-  this.occupation = "architect";
+class architect{
+  
+  constructor(setName, setAge){
+      this.name = setName;
+      this.age = setAge;
+      this.occupation = "architect";
+  }
+
+  setName(newName){this.name = newName}
+
+  setAge(newAge){this.age = newAge}
+
+  getName(){return this.name;}
+
+  getAge(){return this.age;}
+
 }
 
-architect.prototype.setName = function(newName){this.name = newName};
-architect.prototype.setAge = function(newAge){this.age = newAge};
-architect.prototype.getName = function(){return this.name};
-architect.prototype.getAge = function(){return this.age};
+// define new "architect objects using the "new" keyword with the "architect" class
 
 var architect1 = new architect("Joe", 34);
 var architect2 = new architect("Mary", 49);
+
+// samples of accessing properties and methods on both objects
 
 console.log(architect1.name); // "Joe"
 
@@ -128,106 +134,11 @@ console.log(architect1.getName()); // "Joe"
 console.log(architect2.getName()); // "Mary"
 ```
 
-A few key things to note when using the above method to create objects:
-
-*   New "architect" objects (ie: "architect1" & "architect2") have their own **name**, **age**, & **occupation** properties
-*   New "architect" objects do not have any methods directly, however they all refer to the same prototype (architect.prototype) which contains all of the methods. These methods can work with the correct data for each new architect object, because they are utilizing the "this" keyword.
-
-<br>
-
-### "this" keyword
-
-As we have seen, when we create objects in JavaScript, we make regular use of the "this" keyword. This is an important concept in JavaScript, so before we move on to Prototypal Inheritance, let's just do a quick review:
-
-
-**"this" always holds a reference to the "context" of the function (ie: the object actually invoking the function).**
-
-
-So, when we declare an object with methods, we always make sure that each method refers to the properties in the object with the "this" keyword. This is because we wish to be specific about which property that we wish to reference and "this" always points to the object invoking the method. So, the **architect1.setName()** method will always work with the **architect1.name** property and similarly, the **architect2.setName()** method will always work with the architect2.name
-
-While "this" allows us to be specific with which **properties** that we refer to in our **methods**, it can lead to some confusing scenarios. For example, what if we added a new "outputNameDelay()" method to our architect object that writes the architect's name to the console after 1 second (1000 milliseconds):
-
-```javascript
-// ...
-architect.prototype.outputNameDelay = function(){
-  setTimeout(function(){
-    console.log(this.name);
-  },1000);
-}
-// ...
-architect2.outputNameDelay(); // outputs undefined
-``` 
-
-Everything looks correct and we have made proper use of the "this", however because the setTimeout function is not executed as a method of our architect object, we end up with "undefined" being output to the console. There are a number of fixes for this issue (most noteworthy is the new "arrow function" syntax - discussed below), however one common way is to introduce a local variable (often named "that") into the current scope that **holds a reference to "this"**
-
-```javascript
-// ...
-architect.prototype.outputNameDelay = function(){
-    var that = this;
-    setTimeout(function(){
-    console.log(that.name);
-    },1000);
-};
-// ...
-architect2.outputNameDelay(); // outputs "Mary"
-```
-    
-Now, we aren't using the "this" keyword from within the setTimeout() function, but rather "that" from our outputNameDelay function and everything works as it should! (ie, "that" points to architect2, since it was the architect2 that invoked the outputNameDelay method).
-
-<br>
-
-### Prototypal Inheritance
-
-Prototypal Inheritance is a very interesting and complex topic in JavaScript. There's a lot to learn about how it is implemented in the language, however for our purposes we will primarily concentrate on how it impacts our objects / object creation when using the Function Constructor notation. For a full treatment of Objects & Prototypal inheritence, see: [Introducing JavaScript objects](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects) from MDN's "Learn web development" series.
-
-So far, we have seen how to create our "architect" object using this notation. We actually made use of the "Prototype" property of the "architect" function to define the methods of our new architect objects (see above). Essentially, what is happening here is that when we refer to a Constructor Function's prototype (ie "architect.prototype"), we are really referring to another, separate object that all future instances of "architect" (ie: "architect1" and "architect2") will reference via their own internal property "\_\_proto\_\_" (or "\[\[prototype\]\]").
-
-So, why is this so important for us? Well, when you make a call to a method or reference a property on any object, the JavaScript runtime will actually check for their existence on the object's prototype as well as the object itself. Therefore, it can be said that "architect1" and "architect2" **inherit** getName(), setName(), getAge() and setAge() from their prototype and any future properties or methods declared on the prototype will be automatically picked up by each new / existing instance! This is easy to verify using the built in Object.getPrototypeof() function, for example:
-
-```javascript
-// ...
-console.log(architect2); // outputs: { name: 'Mary', age: 49, occupation: 'architect' }
-
-console.log(Object.getPrototypeOf(architect2)); // outputs: { setName: [Function], 
-                                                //            setAge: [Function],
-                                                //            getName: [Function],
-                                                //            getAge: [Function] }
-// ...
-```
-
-From the above code, it is clear that the "architect2" instance does not actually have it's **own** methods, but we can invoke them on the architect2 object and the JavaScript runtime will check its prototype for their existence and execute them as though they were. This actually happens often in JavaScript and is the reason that when we create a String (for example), we have access to properties like .length or methods like .split(), .slice(), .substr(), etc. (see: [String.prototype on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/prototype)). We didn't have to specify each of those properties / methods, however we automatically **inherited them** from the global String Object's prototype.
-
-To see why this concept is so powerful, why don't we add a new method to the architect prototype **after** we create our architect1 & architect2 instances:
-
-```javascript
-function architect(setName, setAge){
-    this.name = setName;
-    this.age = setAge;
-    this.occupation = "architect";
-}
-
-architect.prototype.setName = function(newName){this.name = newName},
-architect.prototype.setAge = function(newAge){this.age = newAge},
-architect.prototype.getName = function(){return this.name},
-architect.prototype.getAge = function(){return this.age}
-
-var architect1 = new architect("Joe", 34);
-var architect2 = new architect("Mary", 49);
-
-architect.prototype.newMethod = function(){ 
-    return "Hello: " + this.name; 
-};
-
-console.log(architect2.newMethod()); // outputs: "Hello: Mary"
-``` 
-
-As you can see from above, we are able to add a new method (newMethod) to the architect prototype at any time and because all architect instances (ie: architect2) use that prototype, they automatically get access to the method!
-
 <br>
 
 ### Advanced JavaScript / ES6 Features
 
-So far, we have learned quite a bit about JavaScript; from how it handles simple and complex custom / built-in Objects to design patterns like closures, functions as parameters, etc. However, for us to properly understand some of the examples in the upcoming weeks, we need to discuss a few advanced techniques as well as new syntax / methods from the new ES6 (ECMAScript 6) standard. An important thing to note however, is that **ES6** is **still being implemented** across desktop & mobile browsers as well as JavaScript runtimes. Most of what we will discuss will be understood by modern browsers and 100% of the topics below will be understood by Node.js. However, it is a good idea to reference the following [ES6 Compatibility Table](https://kangax.github.io/compat-table/es6/) if you are unsure whether your target browser will fully understand the feature that you wish to use.
+So far, we have learned quite a bit about JavaScript; from its dynamically typed variables, to complex custom / built-in Objects. However, for us to properly understand some of the examples in the upcoming weeks, we need to discuss a few advanced techniques as well as new syntax / methods from the new ES6 (ECMAScript 6) standard. 
 
 <br>
 
@@ -276,42 +187,6 @@ As we know, JavaScript is a **dynamically typed language** and we declare our va
     ```
 
 As we can see from the above examples, **let** & **const** behave more like variable declarations in C / C++. While still being dynamically typed, they will respect the scope in which they are declared and cannot be referenced before they are declared.
-
-<br>
-
-### Creating Objects ("class" keyword)
-
-ES6 has introduced some "syntax sugar" to allow us to create objects in a more intuitive, familiar way using the "class" keyword. It's important to note however, that we are still using prototypal inheritance and the process of creating objects is still the same (see "Creating Objects (Function Constructor)" above). If we take the example from "Creating Objects (Function Constructor)" and use the "class" keyword instead, we can use the following code:
-
-```javascript
-class architect{
-  
-  constructor(setName, setAge){
-      this.name = setName;
-      this.age = setAge;
-      this.occupation = "architect";
-  }
-
-  setName(newName){this.name = newName}
-
-  setAge(newAge){this.age = newAge}
-
-  getName(){return this.name;}
-
-  getAge(){return this.age;}
-
-}
-
-var architect1 = new architect("Joe", 34);
-var architect2 = new architect("Mary", 49);
-
-console.log(architect1.name); // "Joe"
-
-console.log(architect1.getName()); // "Joe"
-console.log(architect2.getName()); // "Mary"
-```
-
-Notice how we specify a "constructor" function to take initialization parameters, as well as specify all of the methods within the "class" block. We are still creating objects using the method illustrated in the "Function Constructor" pattern (above), however this syntax is much more intuitive. Additionally, we can leverage the ["extends"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/extends) and ["super"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super) keywords to create objects which inherit from other objects easily (for a detailed example, see [this great article from medium.com](https://medium.com/ecmascript-2015/es6-classes-and-inheritance-607804080906)).
 
 <br>
 
@@ -446,7 +321,7 @@ Notice how the code below the "throw" statement does not get executed, and the f
 
 So far, while learning JavaScript, we have seen a number of circumstances where ["asynchronous"](https://developer.mozilla.org/en-US/docs/Glossary/Asynchronous) code is used. That is, once the code has been invoked, it does not block the main thread of execution while it's working. Once it's complete, an event is triggered (at an undetermined time) and we can write code to work with the result of the asynchronous operation. A classic example of this is a simple AJAX request using the [HXMLHttpRequest](https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest) object from the client side (web browser). Once we [send()](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/send) the request, code is executed that works outside of our main sequence of execution to establish the connection, make a request, etc. If we assign a function to the value of the XMLHttpRequest object's [onreadystatechange](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/onreadystatechange) property, we can execute some code at a later, undetermined time (maybe the request is to a particularly slow server) and handle the updated status of the request. The important thing to understand is that we can still execute code in a sequential fashion **after** we initiate the request!
 
-To see this in action, we can invoke the global [setTimeout](https://nodejs.org/api/timers.html#timers_settimeout_callback_delay_args) function (as we did in our architect.prototype.outputNameDelay function) to create a situation in which the execution of code takes some time to complete, ie:
+To see this in action, we can invoke the global [setTimeout](https://nodejs.org/api/timers.html#timers_settimeout_callback_delay_args) function (as we did in our architect.outputNameDelay function) to create a situation in which the execution of code takes some time to complete, ie:
 
 
 ```javascript
@@ -750,15 +625,15 @@ console.log(adderArrow(2,2));
 
 #### Lexical "this"
 
-Arrow functions are great for creating simplified code that is easier to read (sometimes referred to as "syntax sugar"), however there is another very useful and slightly misleading feature that we have yet to discuss: the notion of a "lexical 'this'". Recall that when we added the "outputNameDelay" method to the architect prototype, we had to overcome the issue with "this" pointing at the incorrect object by introducing a new local variable, "that":
+Arrow functions are great for creating simplified code that is easier to read (sometimes referred to as "syntax sugar"), however there is another very useful and slightly misleading feature that we have yet to discuss: the notion of a "lexical 'this'". Recall that when we added the "outputNameDelay" method to the architect object, we had to overcome the issue with "this" pointing at the incorrect object by introducing a new local variable, "that":
 
 ```javascript
-architect.prototype.outputNameDelay = function(){
+outputNameDelay: function(){
     var that = this;
     setTimeout(function(){
     console.log(that.name);
     },1000);
-};
+}
 ``` 
 
 While this does solve the problem, wouldn't it be better if we didn't have to always create a new local variable to sit in for "this"? Fortunately, arrow functions actually use a "lexical this" instead of their own value for "this", so functions defined using the arrow notation use the "this" value of their parent scope. This insures that if an arrow function is invoked in a different context than the one in which it is defined (like the above example), the value of "this" will not change.
@@ -766,9 +641,9 @@ While this does solve the problem, wouldn't it be better if we didn't have to al
 Now, we can re-write the above function using an arrow function to achieve the same result without having to introduce any new variables to handle the "this" issue. Additionally, because it's such a simple function, we can transform it into a single line:
 
 ```javascript
-architect.prototype.outputNameDelay = function(){
+outputNameDelay: function(){
     setTimeout(() => { console.log(this.name); }, 1000);
-};
+}
 ``` 
 
 This is a typical use of arrow functions, ie to simplify a scenario in which we need to declare a function in place, often as a parameter to other functions. We don't have to concern ourselves with how "this" will behave in the new context and the added "syntax sugar" makes the operation much simpler to read and shorter to code.
@@ -802,5 +677,4 @@ In addition, arrow functions **do not** have any notion of the [arguments](https
 ### Sources
 
 *   [MDN - Working with Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects)
-*   [MDN - Prototypal Inheritance](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance#Prototypal_inheritance)
 *   [JavaScript Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)
