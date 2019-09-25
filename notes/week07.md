@@ -146,16 +146,6 @@ has been imported via a `.css` file.
 
 ### CSS Selectors
 
-We've already learned a few CSS Selectors when we discussed `querySelector()` and
-`querySelectorAll()`.  The word `Selector` refers to the fact that these methods take
-a CSS Selector and return elements that match.  For example:
-
-* `document.querySelector('#output')` would return the element with attribute `id="output"`
-* `document.querySelectorAll('.logo')` would return all elements with a class of `logo`
-* `document.querySelectorAll('img')` would return all `<img>` elements
-
-These same selectors, and many more, can also be used in our CSS rulesets.
-
 #### Tag/Type Selectors
 
 The name of an HTML element can be used to specify the styles associated with all
