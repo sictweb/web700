@@ -65,7 +65,7 @@ Now let's try creating and loading this file in our browser:
 
 During the last couple of classes we learned how to create a simple web server using [Node.js](https://nodejs.org/en/) with the [Express.js](https://expressjs.com/) module.  We will be using this code once again to create a local web server, which will be responsible for returning requests for our HTML document on the default route,  ie "/".
 
-**NOTE:** Try to familiarize yourself with these steps, as we will be doing this over and over in class, ever time we wish to create a new web server.  A more detailed guide can be found as a part of [the week 4 notes](week04) ("Building a simple web server using Node.js with Express.js") as well as within the [Heroku Guide](/web700/getting-started-with-heroku).
+**NOTE:** Try to familiarize yourself with these steps, as we will be doing this over and over in class, every time we wish to create a new web server.  A more detailed guide can be found as a part of [the week 4 notes](week04) ("Building a simple web server using Node.js with Express.js") as well as within the [Heroku Guide](/web700/getting-started-with-heroku).
 
 1. Make a directory on your computer called `test-server`
 2. Open Visual Studio Code and choose **File &gt; Open** to open your newly created `test-server` folder
