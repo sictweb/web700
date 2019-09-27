@@ -81,7 +81,7 @@ HTML5 Introduction:<br /><br />
 <ul>
 <li>Document Structure</li>
 <li>Common Elements (Containers, Lists, Tables, Multimedia)</li>
-<li>Grouping Eleemnts using Semantic HTML</li>
+<li>Grouping Elements using Semantic HTML</li>
 <li>Including Scripts (Inline &amp; External)</li>
 </ul>
 </td>
