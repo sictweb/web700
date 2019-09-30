@@ -261,11 +261,15 @@ There are 5 types of middleware:
 
 **[Built in middleware](http://expressjs.com/en/guide/using-middleware.html#middleware.built-in)**
 
-* Starting with Expres 4.x there is no more built in middleware except the static middleware for serving static files. we mentioned how to use the express.static() middleware above in the serving static files section.
+* In the latest version of Express, there are three built-in middleware functions (the latter two, available only in Express 4.16.0 and above): 
+
+  * [express.static](http://expressjs.com/en/4x/api.html#express.static) - Mentioned in the "serving static files" section
+  * [express.json](http://expressjs.com/en/4x/api.html#express.json) - Used to parse incoming requests with JSON payloads.
+  * [express.urlencoded](http://expressjs.com/en/4x/api.html#express.urlencoded) - Used to parse incoming requests with URL-encoded payloads (typically form POST submissions)
 
 **[Third party middleware](http://expressjs.com/en/guide/using-middleware.html#middleware.third-party)**
 
-* With express 4.x, previously included middleware that did common things like handle cookies, parse the body of a form submission, or handle file uploads, have been moved to third party middleware packages. This way you can add them as you need them and reduce bloat in your system. If you're never going to handle file uploads, why have middleware loaded? [A great list of some of the most popular third party middleware is available here.](http://expressjs.com/en/resources/middleware.html)
+* With express 4.x, previously included middleware that did common things like handle cookies or handle file uploads, have been moved to third party middleware packages. This way you can add them as you need them and reduce bloat in your system. If you're never going to handle file uploads, why have middleware loaded? [A great list of some of the most popular third party middleware is available here.](http://expressjs.com/en/resources/middleware.html)
 
 <br>
 
