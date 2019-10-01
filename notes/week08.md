@@ -13,7 +13,7 @@ In this week's lecture, we are going to learn about processing forms on a web pa
 
 #### HTML Forms 
 
-Let's first discuss the typical HTML elements used in an HTML form and look at some of the newer input types that work in HTML5 websites. There are really just a few core html elements that you need to know to build forms on the web: form, label, input, textarea, and button. <input> however, has many different types that can be used for the 'type' attribute. A summary is provided below for reference.
+Let's first discuss the typical HTML elements used in an HTML form and look at some of the newer input types that work in HTML5 websites. There are really just a few core html elements that you need to know to build forms on the web: form, label, input, textarea, and button. &lt;input&gt; however, has many different types that can be used for the 'type' attribute. A summary is provided below for reference.
 
 **[\<form\>](http://www.w3schools.com/tags/tag_form.asp)**
 
