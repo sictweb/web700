@@ -478,8 +478,8 @@ to provide valid HTML.
 
 In order to make sure that your HTML is valid, you can use an HTML Validator.  There are a few available online:
 
-* https://html5.validator.nu/
-* https://validator.w3.org/
+* [https://html5.validator.nu/](https://html5.validator.nu/)
+* [https://validator.w3.org/](https://validator.w3.org/)
 
 Both allow you to enter a URL to an existing web page, or enter HTML directly in a text field.  They
 will then attempt to parse your HTML and report back on any errors or warnings, for example: an element missing 
