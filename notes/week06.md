@@ -352,74 +352,11 @@ and not to a YouTube URL or some other source that is actually an HTML page.
 
 ### Including Scripts
 
-We've spent a good portion of the course learning about JavaScript.  So far, all of our code has
-been written in a stand-alone form, executed in the Firefox Scratchpad, or by using node.js.
-
-Our ultimate goal is to be able to run our JavaScript programs within web pages and applications.
-To do that, we need a way to include JavaScript code in an HTML file.  Obviously HTML isn't anything
-like JavaScript, so we can't simply type our code in the middle of an HTML file and expect the browser
-to understand it.
-
-Instead, we need an HTML element that can be used to contain (or link to) our JavaScript code.  HTML provides
-such an element in the form of the [`<script>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script).
-
-We can use `<script>` in one of two ways.
-
-#### Inline Scripts
-
-First, we can embed our JavaScript program directly within the content area of a `<script>` element:
-
-```html
-<!doctype html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Web Page with Script</title>
-    </head>
-
-    <body>
-        <script>
-            console.log('Hello World!');
-        </script>
-    </body>
-</html>
-```
-
-Such `<script>` elements can occur anywhere in your HTML, though it is common to put them at the end of the `<body>`.
-We can also include more than one, and each shares a common global environment, which is useful for combining
-scripts:
-
-```html
-<script>
-    // Define a global variable `msg` with a String
-    var msg = "Hello World!";
-</script>
-
-<script>
-    // Access the global variable `msg`, defined in another <script>, but within the same JS environment
-    console.log(msg);
-</script>
-```
+JavaScript is an extremely versatile language.  So far, we have been using it in the context of creating a web server using Node.js and the Express.js framework.  However, it can also be executed within the context of a web *browser* (Chrome, Firefox, etc.).  While we will not be focusing on writing client-side JavaScript in this course, it is still valuable to know how to include scripts in your HTML code.  For example, the JavaScript code included with the [Bootstrap Framework](https://getbootstrap.com/docs/4.3/getting-started/introduction/).  
 
 #### External Scripts Linked via URL
 
-As our JavaScript programs get larger, embedding them directly within the HTML file via an inline `<script>`
-starts to become unwieldy.  For very small scripts, and debugging or experimentation, inline scripts are fine.
-However, HTML and JavaScript aren't the same thing, and it's useful to separate them into their own files for
-a number of reasons.
-
-First, browsers can cache files to improve load times on a web site.  If you embed a large JavaScript file in
-the HTML, it can't be cached.
-
-Second, your HTML becomes harder to read.  Instead of looking at semantic content about the structure of your page,
-now you have script mixed in too.  This can make it harder to understand what you're looking at while debugging.
-
-Third, there are lots of tools for HTML, and even more for JavaScript, that only work when fed the proper file type.
-For example, we often use linters or bundling tools in JavaScript.  We can't do that if our JavaScript is combined
-with HTML markup.
-
-For these and other reasons, it's common to move your JavaScript programs to separate files with a `.js` file extension.
-We then tell the browser to load and run these files as needed via our `<script>` tag like so:
+To reference an "external script" within your HTML code, the following &lt;script&gt; code can be used.  This JavaScript file can be located either on your working server, or somewhere on the web (accessible via it's full URL).
 
 ```html
 <!doctype html>
@@ -435,16 +372,15 @@ We then tell the browser to load and run these files as needed via our `<script>
 </html>
 ```
 
-In this case, we have no content within our `<script>` element, and instead include a `src="script.js"`
-attribute.  Much like the `<img>` element, a `<script>` can include a `src` URL to load at runtime.
+Notice how we include a `src="script.js"` attribute.  Much like the `<img>` element, a `<script>` can include a `src` URL to load at runtime.
 The browser will begin by loading your `.html` file, and when it encounters the `<script src="script.js">` element,
 it will begin to download `script.js` from the web server, and then run the program it contains. 
 
-We can combine both of these methods, and include as many scripts as we need.  The scripts we include can be:
+Using this syntax, we can include as many scripts as we need.  The scripts we include can be:
 
-* embedded inline in the HTML
-* a relative URL to the same web server that served the HTML file
 * an absolute URL to another web server somewhere else on the web
+* a relative URL to the same web server that served the HTML file
+* embedded inline in the HTML (by placing JavaScript content within the &lt;script&gt; element - not as common, and not used in this course)
 
 ```html
 <!doctype html>
