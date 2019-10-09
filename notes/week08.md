@@ -25,7 +25,7 @@ Let's first discuss the typical HTML elements used in an HTML form and look at s
 
 **[\<input\>](http://www.w3schools.com/tags/tag_input.asp)**
 
-* The input element has many different values that can be used for it's 'type' attribute. The most common are: button, checkbox, date, file, password, radio, and text. Each type determines how the input will appear in the browser to the user. The full documentation about each type of input element is specified in the link for input's.
+* The input element has many different values that can be used for it's 'type' attribute. The most common are: [text](https://www.w3schools.com/tags/att_input_type_text.asp) [button](https://www.w3schools.com/tags/att_input_type_button.asp), [checkbox](https://www.w3schools.com/tags/att_input_type_checkbox.asp), [radio](https://www.w3schools.com/tags/att_input_type_radio.asp), [password](https://www.w3schools.com/tags/att_input_type_password.asp), [date](https://www.w3schools.com/tags/att_input_type_date.asp), and [file](https://www.w3schools.com/tags/att_input_type_file.asp). Each type determines how the input will appear in the browser to the user. The full documentation about each type of input element is specified in the links.
 
 **[\<textarea\>](http://www.w3schools.com/tags/tag_textarea.asp)**
 
@@ -47,27 +47,27 @@ Let's first discuss the typical HTML elements used in an HTML form and look at s
 
 Let's make a small form right here on this page that "submits" the data and writes to the console after attempting to submit. Our form will be responsible for creating a new user for a site that asks for a username to use, email address, name, password, and a radio button that asks if they would like to be subscribed to a monthly newsletter.
 
-<form onsubmit="console.log('form Submitted'); return false;">
+<form method="post" action="https://postman-echo.com/post">
 <table style="border: 1px dashed #cdcdcd;padding:6px;">
 <tbody>
 <tr>
 <td><label for="username">Choose a username:</label></td>
-<td><input style="width:100%" id="username" type="text" placeholder="A Username you'd like to use"></td>
+<td><input style="width:100%" id="username" name="username" type="text" placeholder="A Username you'd like to use"></td>
 </tr>
 <tr>
 <td><label for="email">Your Email:</label></td>
-<td><input style="width:100%" id="email" type="text" placeholder="Email address"><p></p>
+<td><input style="width:100%" id="email" name="email" type="text" placeholder="Email address"><p></p>
 </td></tr><tr>
 <td><label for="name">Your Name:</label></td>
-<td><input style="width:100%" id="name" type="text" placeholder="Your name"></td>
+<td><input style="width:100%" id="name" name="name" type="text" placeholder="Your name"></td>
 </tr>
 <tr>
 <td><label for="password">Your Password:</label></td>
-<td><input style="width:100%" id="password" type="password"></td>
+<td><input style="width:100%" id="password" name="password" type="password"></td>
 </tr>
 <tr>
 <td><label for="passwordconfirm">Confirm Password:</label></td>
-<td><input style="width:100%" id="passwordconfirm" type="password"></td>
+<td><input style="width:100%" id="passwordconfirm" name="passwordconfirm" type="password"></td>
 </tr>
 <tr>
 <td colspan="2">
@@ -90,7 +90,7 @@ Let's make a small form right here on this page that "submits" the data and writ
 The code for this form looks like this:
 
 ```html
-<form onsubmit="console.log('form Submitted'); return false;">
+<form method="post" action="https://postman-echo.com/post">
   <table style="border: 1px dashed #cdcdcd;padding:6px;">
     <tbody>
       <tr>
@@ -98,23 +98,23 @@ The code for this form looks like this:
           <label for="username">Choose a username:</label>
         </td>
         <td>
-          <input  style="width:100%" id="username" type="text" placeholder="A Username you'd like to use" />
+          <input  style="width:100%" id="username" name="username" type="text" placeholder="A Username you'd like to use" />
         </td>
       </tr>
       <tr>
         <td><label for="email">Your Email:</label></td>
-        <td><input style="width:100%" id="email" type="text" placeholder="Email address" />
+        <td><input style="width:100%" id="email" name="email" type="text" placeholder="Email address" />
           <tr>
             <td><label for="name">Your Name:</label></td>
-            <td><input style="width:100%" id="name" type="text" placeholder="Your name" /></td>
+            <td><input style="width:100%" id="name" name="name" type="text" placeholder="Your name" /></td>
           </tr>
           <tr>
             <td><label for="password">Your Password:</label></td>
-            <td><input style="width:100%" id="password" type="password" /></td>
+            <td><input style="width:100%" id="password" name="password" type="password" /></td>
           </tr>
           <tr>
             <td><label for="passwordconfirm">Confirm Password:</label></td>
-            <td><input style="width:100%" id="passwordconfirm" type="password" /></td>
+            <td><input style="width:100%" id="passwordconfirm" name="passwordconfirm" type="password" /></td>
           </tr>
           <tr>
             <td colspan="2">
