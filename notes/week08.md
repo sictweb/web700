@@ -25,7 +25,7 @@ Let's first discuss the typical HTML elements used in an HTML form and look at s
 
 **[\<input\>](http://www.w3schools.com/tags/tag_input.asp)**
 
-* The input element has many different values that can be used for it's 'type' attribute. The most common are: [text](https://www.w3schools.com/tags/att_input_type_text.asp) [button](https://www.w3schools.com/tags/att_input_type_button.asp), [checkbox](https://www.w3schools.com/tags/att_input_type_checkbox.asp), [radio](https://www.w3schools.com/tags/att_input_type_radio.asp), [password](https://www.w3schools.com/tags/att_input_type_password.asp), [date](https://www.w3schools.com/tags/att_input_type_date.asp), and [file](https://www.w3schools.com/tags/att_input_type_file.asp). Each type determines how the input will appear in the browser to the user. The full documentation about each type of input element is specified in the links.
+* The input element has many different values that can be used for it's 'type' attribute. The most common are: [text](https://www.w3schools.com/tags/att_input_type_text.asp), [button](https://www.w3schools.com/tags/att_input_type_button.asp), [checkbox](https://www.w3schools.com/tags/att_input_type_checkbox.asp), [radio](https://www.w3schools.com/tags/att_input_type_radio.asp), [password](https://www.w3schools.com/tags/att_input_type_password.asp), [date](https://www.w3schools.com/tags/att_input_type_date.asp), and [file](https://www.w3schools.com/tags/att_input_type_file.asp). Each type determines how the input will appear in the browser to the user. The full documentation about each type of input element is specified in the links.
 
 **[\<textarea\>](http://www.w3schools.com/tags/tag_textarea.asp)**
 
