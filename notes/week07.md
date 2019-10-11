@@ -865,41 +865,7 @@ what `display: none;` does:
 ```
 
 When an element uses a display type of `none`, nothing will be painted to the screen.
-This includes the element itself, but also any of its children.  This allows us
-to create UI or aspects of a page but not display them...yet.  For example, we might
-want to reveal a dialog box, information message, image, or the like only in response
-to the user performing some action (e.g., clicking a button).  Or, we might want
-to remove something like a loading screen when the web page is fully loaded:
-
-```html
-<style>
-    /* Place a semi-transparent box over the entire screen at startup */
-    #loading {
-        position: fixed; /* position this element by specifying top, left, etc */
-        padding: 0;
-        margin: 0;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255, 0.5); /* make it a bit see through */
-        z-index: 500; /* put this on top of other content */
-    }
-</style>
-<div id="loading">
-    <p>Loading...</p>
-</div>
-<main>
-    <!-- rest of page content here -->
-</main>
-<script>
-window.onload = function() {
-    // Remove the spinner now that the page is loaded
-    var loadingDiv = document.querySelector('#loading')
-    loadingDiv.style.display = "none";
-};
-</script>
-```
+This includes the element itself, but also any of its children.  
 
 If elements don't have a display type of `none`, they get included in the render
 tree and eventually painted to the screen. If we don't specify a display type, the default is `inline`.  With `inline`, boxes are laid out horizontally (typically left to right, unless
