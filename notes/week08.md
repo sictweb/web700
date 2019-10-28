@@ -37,7 +37,7 @@ Let's first discuss the typical HTML elements used in an HTML form and look at s
 
 * The select element serves as a "dropdown list" of options for users choose from. Used without any attributes, it behaves exactly like a dropdown list and only permits the user to select 1 (one) "option". With the addition of the ["multiple"](https://www.w3schools.com/tags/att_select_multiple.asp) attribute, we can allow the user to select more than one option. We can also specify a ["size"](https://www.w3schools.com/tags/att_select_size.asp) attribute, to show more than a single option at a time - this will work for both \<select\> and \<select multiple\> elements.
 
-[\<button\>](http://www.w3schools.com/tags/tag_button.asp)
+**[\<button\>](http://www.w3schools.com/tags/tag_button.asp)**
 
 * The button element can be used in place of an input with type submit. A button element can be used the same way as an input to reset the form or submit the form. The biggest advantage to using a button element instead of an input element to submit a form, is that the button element can have HTML content inside it. You can include images or other content that will render inside the button, whereas input elements just allow text in their "value" attribute.
 
