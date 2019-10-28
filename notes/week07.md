@@ -628,7 +628,7 @@ for example:
 
 * `a:link` - a normal, unvisited link (normally blue underline)
 * `a:visited` - a link the user has visited previously (normally purple underline)
-* `a:hover` - a link when hovered with the mouse
+* `a:hover` - a link when hovered with the mouse (**NOTE:** can also be used on other elements)
 * `a:active` - a link when it is clicked (i.e., while the mouse button is pressed)
 
 > NOTE: pseudo-classes can be used with any element, but we mention them here in relation
