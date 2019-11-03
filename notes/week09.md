@@ -110,7 +110,7 @@ Fortunately, we can leverage ["template engines" with express](https://expressjs
 
 > A template engine enables you to use static template files in your application. At runtime, the template engine replaces variables in a template file with actual values, and transforms the template into an HTML file sent to the client. This approach makes it easier to design an HTML page.
 
-This sounds like exactly what we need, however there are [many different template engines](https://strongloop.com/strongblog/compare-javascript-templates-jade-mustache-dust/) that we can choose from. Given that we are all strong HTML developers from our experience in WEB222, why not use a template engine that leverages this experience and works with regular HTML, rather than [describing html](https://www.npmjs.com/package/jade).
+This sounds like exactly what we need, however there are [many different template engines](https://strongloop.com/strongblog/compare-javascript-templates-jade-mustache-dust/) that we can choose from. Given that we have just spent some time learning and working with HTML, why not use a template engine that leverages this experience and works with regular HTML, rather than [describing html](https://www.npmjs.com/package/jade).
 
 <br>
 
