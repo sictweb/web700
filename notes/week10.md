@@ -39,8 +39,8 @@ var myRequest = new Request('https://reqres.in/api/users/', {
 
 Once the request is configured, we can "Fetch" the data using "fetch" and providing our request. This "fetch" method will return a promise that resolves with a "[response](https://developer.mozilla.org/en-US/docs/Web/API/Response)" object that has a number of [methods](https://developer.mozilla.org/en-US/docs/Web/API/Response#Methods), including:
 
-*   **response.text()** - which we can use to read the 'response' stream as JSON. This method returns a promise that will resolve into text.
-*   **response.json()** - which we can use to read the 'response' stream as JSON. This method returns a promise that will resolve into an object.
+*   **response.text()** - which we can use to read the 'response' stream. This method returns a promise that will resolve into text.
+*   **response.json()** - which we can use to read the 'response' stream. This method returns a promise that will resolve into an object.
 
 To execute the request defined above (ie: myRequest), we can wire up the "fetch" using the following code (assuming that our resource is returning JSON-formatted data).  
 
