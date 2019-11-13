@@ -3,7 +3,7 @@ title: WEB700 Week 11
 layout: default
 ---
 
-## WEB700 Week 11 Notes (<mark>TODO: Update "Getting Started With Heroku" Link</mark>)
+## WEB700 Week 11 Notes 
 
 ### Data Persistence
 
