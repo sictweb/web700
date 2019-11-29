@@ -62,7 +62,7 @@ To have Heroku run the week 5 example edit your package.json file like this:
 * week9.js - An Express.js app that uses the handlebars templating library
 * week10.js - An Express.js REST API and test client (HTML / AJAX)
 * week11.js - An Express.js demonstrating a connection to PostgreSQL database using Sequelize
-* week12.js - A more advanced Express.js app with secure HTTPS logins and client sessions
+* week12.js - A more advanced Express.js app with secure HTTPS logins
 
 <a name="a5"></a>
 ## Submitting corrections or updates
