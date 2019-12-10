@@ -201,11 +201,15 @@ const bcrypt = require('bcryptjs');
 If we wish to encrypt a plain text password (ie: "myPassword123"), we can use [bcrypt](https://en.wikipedia.org/wiki/Bcrypt) to generate a ["salt"](https://en.wikipedia.org/wiki/Salt_(cryptography)) and ["hash"](https://en.wikipedia.org/wiki/Cryptographic_hash_function) the text:
 
 ```javascript    
+
 // Encrypt the plain text: "myPassword123"
-bcrypt.genSalt(10, function(err, salt) { // Generate a "salt" using 10 rounds
-    bcrypt.hash("myPassword123", salt, function(err, hash) { // encrypt the password: "myPassword123"
-        // TODO: Store the resulting "hash" value in the DB
-    });
+bcrypt.genSalt(10)  // Generate a "salt" using 10 rounds
+.then(salt=>bcrypt.hash("myPassword123",salt)) // use the generated "salt" to encrypt the password: "myPassword123"
+.then(hash=>{
+    // TODO: Store the resulting "hash" value in the DB
+})
+.catch(err=>{
+    console.log(err); // Show any errors that occurred during the process
 });
 ```
 
@@ -213,13 +217,13 @@ Similairly, if we wish to compare the "hashed" text with plain text (to see if a
 
 ```javascript
 // Pull the password "hash" value from the DB and compare it to "myPassword123" (match)
-bcrypt.compare("myPassword123", hash).then((res) => {
-    // res === true
+bcrypt.compare("myPassword123", hash).then((result) => {
+    // result === true
 });
 
 // Pull the password "hash" value from the DB and compare it to "myPasswordABC" (does not match)
-bcrypt.compare("myPasswordABC", hash).then((res) => {
-    // res === false
+bcrypt.compare("myPasswordABC", hash).then((result) => {
+    // result === false
 });
 ```
 
