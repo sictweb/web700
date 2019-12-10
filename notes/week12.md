@@ -201,7 +201,6 @@ const bcrypt = require('bcryptjs');
 If we wish to encrypt a plain text password (ie: "myPassword123"), we can use [bcrypt](https://en.wikipedia.org/wiki/Bcrypt) to generate a ["salt"](https://en.wikipedia.org/wiki/Salt_(cryptography)) and ["hash"](https://en.wikipedia.org/wiki/Cryptographic_hash_function) the text:
 
 ```javascript    
-
 // Encrypt the plain text: "myPassword123"
 bcrypt.genSalt(10)  // Generate a "salt" using 10 rounds
 .then(salt=>bcrypt.hash("myPassword123",salt)) // use the generated "salt" to encrypt the password: "myPassword123"
