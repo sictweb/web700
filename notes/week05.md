@@ -153,7 +153,7 @@ Here is a table of the common properties and methods used on the response object
 
 **[res.status()](http://expressjs.com/en/4x/api.html#res.status)**
 
-& You can use this to send back a specific status code and appropriate response to go with it. status() is chainable before a send() so you can do operations such as: res.status(404).send(“Page Not Found”); to send a 404 response code for a resource that is not found or invalid.
+You can use this to send back a specific status code and appropriate response to go with it. status() is chainable before a send() so you can do operations such as: res.status(404).send(“Page Not Found”); to send a 404 response code for a resource that is not found or invalid.
 
 <br>
 
