@@ -27,6 +27,11 @@ footer {
 
 /* new items */
 
+a:hover{
+  font-weight: inherit;
+  text-decoration: underline;
+}
+
 .btn {
   display: inline-block;
   border: 1px solid lightblue;
