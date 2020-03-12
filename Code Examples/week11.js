@@ -55,7 +55,7 @@ sequelize.sync().then(() => {
     }).then((data) => {
       // render the "viewTable" view with the data
       res.render("viewTable", {
-        data: data,
+        data: data.map(value => value.dataValues),
         layout: false // do not use the default Layout (main.hbs)
       });
     });
