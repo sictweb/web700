@@ -407,6 +407,9 @@ sequelize.sync().then(function () {
     Name.findAll({ 
         attributes: ['fName']
     }).then(function(data){
+        // pull the data (exclusively)
+        data = data.map(value => value.dataValues);
+
         console.log("All first names");
         for(var i =0; i < data.length; i++){
             console.log(data[i].fName);
@@ -420,6 +423,9 @@ sequelize.sync().then(function () {
             id: 2
         }
     }).then(function(data){
+        // pull the data (exclusively)
+        data = data.map(value => value.dataValues);
+
         console.log("All first names where id == 2");
         for(var i =0; i < data.length; i++){
             console.log(data[i].fName);
@@ -432,6 +438,17 @@ sequelize.sync().then(function () {
 Here, we are once again using a reference to our "Name" model. This time we are using it to fetch data from the "Name" table using the [findAll()](http://docs.sequelizejs.com/class/lib/model.js~Model.html#static-method-findAll) method. This method takes a number of configuration options in it's object parameter, such as **attributes**, which allows you to limit the columns that are returned (in this case we only want 'fName') and a **where** parameter that enables us to specify conditions that the data must meet to be returned. In the above example, **id** must have a value of **2**. See the documentation for [advanced queries](http://docs.sequelizejs.com/en/latest/docs/querying/) for more detailed query information.
 
 Lastly, we can also specify an [order](http://docs.sequelizejs.com/en/latest/docs/querying/#ordering) that the returned data should be in. In the above example, we are not concerned with the order, however in the below "Putting it All Together" example, we wish to order the output by "id" (accomplished by setting the **order:** parameter to **\['id'\]**)
+
+**Note:** You will notice that in our "then" callback function(s), we have line:
+
+```js
+// pull the data (exclusively)
+data = data.map(value => value.dataValues);
+```
+
+This is to ensure that our "data" object contains the returned data (only) and nothing else.
+
+<br>
 
 <br>
 
