@@ -53,9 +53,11 @@ sequelize.sync().then(() => {
     Name.findAll({
       order: ["id"]
     }).then((data) => {
+      // pull the data (exclusively)
+      data = data.map(value => value.dataValues);
       // render the "viewTable" view with the data
       res.render("viewTable", {
-        data: data.map(value => value.dataValues),
+        data: data,
         layout: false // do not use the default Layout (main.hbs)
       });
     });
