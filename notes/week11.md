@@ -146,7 +146,7 @@ var sequelize = new Sequelize('database', 'user', 'password', {
     dialect: 'postgres',
     port: 5432,
     dialectOptions: {
-        ssl: true
+        ssl: { rejectUnauthorized: false }
     }
 });
 
