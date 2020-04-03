@@ -102,7 +102,7 @@ var sequelize = new Sequelize('database', 'user', 'password', {
     dialect: 'postgres',
     port: 5432,
     dialectOptions: {
-        ssl: true
+        ssl: { rejectUnauthorized: false }
     }
 });
 
@@ -123,30 +123,6 @@ Once you have updated your app to use the **Sequelize** module, try running it u
 ```bash
 Executing (default): SELECT 1+1 AS result
 Connection has been established successfully.
-```
-
-**NOTE**
-
-If you do not see the above output in your terminal, but instead see the error:
-
-```bash
-ConnectionError [SequelizeConnectionError]: self signed certificate
-```
-
-Change the value dialectOptions from:
-
-```js
-dialectOptions: {
-    ssl: true
-}
-```
-
-to:
-
-```js
-dialectOptions: {
-    ssl: { rejectUnauthorized: false }
-}
 ```
 
 Finally, If you see any other errors at this point, go back and check that you have entered all of your credentials correctly when creating the sequelize object. Recall: You can use Ctrl + c to stop a node.js application from running.
