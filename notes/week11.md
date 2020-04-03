@@ -304,7 +304,7 @@ var BlogEntry = sequelize.define('BlogEntry', {
 });
 ```
 
-**NOTE:** It is also possible to introduce **data validation** when we define our models. For a full list of available rules and how they're implemented, see: [Model validations](http://docs.sequelizejs.com/manual/tutorial/models-definition.html#validations) in the official documentation.
+**NOTE:** It is also possible to introduce **data validation** when we define our models. For a full list of available rules and how they're implemented, see: [Validators](https://sequelize.org/master/manual/validations-and-constraints.html) in the official documentation.
 
 <br>
 
