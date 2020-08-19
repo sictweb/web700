@@ -10,7 +10,7 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "/week6-assets/views/index.html"));
 });
 
-app.get("/ahchor-example", (req, res) => {
+app.get("/anchor-example", (req, res) => {
     res.sendFile(path.join(__dirname, "/week6-assets/views/anchor-example.html"));
 });
 

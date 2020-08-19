@@ -59,7 +59,7 @@ app.post("/register-user", upload.single("photo"), (req, res) => {
   const dataReceived = "Your submission was received:<br/><br/>" +
     "Your form data was:<br/>" + JSON.stringify(formData) + "<br/><br/>" +
     "Your File data was:<br/>" + JSON.stringify(formFile) +
-    "<br/><p>This is the image you sent:<br/><img src='/photos/" + formFile.filename + "'/>";
+    "<br/><p>This is the image you sent:<br/><img src='/photos/" + ((formFile) ? formFile.fileName : '') + "'/>";
   res.send(dataReceived);
 });
 
