@@ -45,7 +45,11 @@ The best thing - **getting started is free!** - This is where we come in:
 
 *   Next, we need the **"Heroku CLI"** - a command line interface to our Heroku account. This can be [downloaded here](https://devcenter.heroku.com/articles/heroku-cli#download-and-install). Proceed to the page and download the Heroku CLI for your operating system.  **NOTE**: If you're using Visual Studio Code with MyApps, Heroku can be installed using the command: "npm install -g heroku" from the Integrated Terminal.
 
-*   Next, install the Heroku CLI with the default settings. Once this is complete, you can verify that it is installed correctly by once again opening a command prompt / terminal and issuing the command **heroku \-\-version**. This should output something like: heroku-cli/5.6.18-9f6df83 ( ... ) go1.7.5\. If it does not output the installed version of the Heroku CLI, then something is wrong and it is not installed correctly.  
+*   Next, install the Heroku CLI with the default settings. Once this is complete, you can verify that it is installed correctly by once again opening a command prompt / terminal and issuing the command **heroku \-\-version**. This should output something like: heroku-cli/5.6.18-9f6df83 ( ... ) go1.7.5\. If it does not output the installed version of the Heroku CLI, then something is wrong and it is not installed correctly. 
+    
+    **NOTE** If you're on Windows (using PowerShell) and are unable to execute the heroku command successfully, try executing the [Set-ExecutionPolicy](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy) command with the following flags:
+
+    ```Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser```
 
 <br>
 
@@ -55,14 +59,18 @@ The best thing - **getting started is free!** - This is where we come in:
 
 1.  Open **Visual Studio Code** and Open your "helloworld" folder by clicking on the "Explorer" icon in the top left (it looks like two files) to expand the left "Explorer" pane. You should see an "Open Folder" button - click this and select to your newly created "helloworld" folder.  
 
-1.  You should now see an empty "HELLOWORLD" folder in the sidebar. To begin building our app within this folder we have to issue a few commands in Visual Studio Code's "integrated terminal". To open this use the keyboard shortcut (ctrl + `` ` ``) or select "View" -> "integrated terminal" from the top menu.  
+1.  You should now see an empty "HELLOWORLD" folder in the sidebar.
+
+1.  The first step is to create your **server.js** file in your helloworld folder either by right-clicking underneath HELLOWORLD in the Explorer pane and choosing "new file", or by clicking the new file icon next to HELLOWORLD. Name this file **server.js**  
+
+1.  Next, to begin building our app within this folder we have to issue a few commands in Visual Studio Code's "integrated terminal". To open this use the keyboard shortcut (ctrl + `` ` ``) or select "View" -> "integrated terminal" from the top menu.  
 
 1.  In the (now visible) integrated terminal, type the command **npm init** and enter the following information:  
 
     * Press enter for name (use the default)
     * Press enter for version (use the default)
     * Press enter for description (use the default)
-    * enter **server.js** for entry point:
+    * Press enter for entry point (use the default)
     * Press enter for test command (use the default)
     * Press enter for git repository (use the default)
     * Press enter for keywords (use the default)
@@ -73,8 +81,6 @@ The best thing - **getting started is free!** - This is where we come in:
 1.  This will create a package.json file under your helloworld folder. This will help us manage our dependencies later on and is always the first step creating node.js applications.  
 
 1.  Next, we must retrieve the **express** module using npm. Execute the following command from within the terminal: **npm install express** - this will create a **node_modules** folder with our new express module as well as update our **package.json** file with our dependency!  
-
-1.  The next step is to create your **server.js** file in your helloworld folder either by right-clicking underneath HELLOWORLD in the Explorer pane and choosing "new file", or by clicking the new file icon next to HELLOWORLD. Name this file **server.js**  
 
 1.  You should now be editing your **server.js** file. Enter the following code:
 
@@ -113,7 +119,15 @@ The best thing - **getting started is free!** - This is where we come in:
 
 1.  We're getting close, but not quite done yet - we need to issue one more command: **git push heroku master** - this command pushes the content of our local git repo to our new app on Heroku!  
 
-1.  To verify that this is working correctly, visit that new url that you received when creating the new app (it should still be in the integrated terminal - you just have to scroll up). You should see the text **Hello World!** from our server.js file.  
+1.  To verify that this is working correctly, visit that new url that you received when creating the new app (it should still be in the integrated terminal - you just have to scroll up). You should see the text **Hello World!** from our server.js file in the browser. 
+    
+    **NOTE:** You may want to take a look at the log files for your heroku app. These will include all of your console.log statements in your server.js file as well as other useful items.
+
+    To see the log, execute the command:
+
+    `heroku logs --tail`
+
+    from the integrated terminal.  This will show you the latest log statements as well as leave the session open so that you can see the logs in real time as your app runs.  This can help with debugging your deployed app.
 
 **Congratulations!** you have published your first Node.js application online. We will continue to do this throughout the semester so this process will become very familiar. If you would like to see your application in the Heroku dashboard, you can log into Heroku here: [https://id.heroku.com/login](https://id.heroku.com/login). You should see your newly created app waiting for you - click on it to see information about the application including recent activity, metrics, app settings, resources, etc.
 
@@ -135,4 +149,3 @@ You should now see the changes reflected in your app!
 
 *   [https://devcenter.heroku.com](https://devcenter.heroku.com)
 *   [https://www.heroku.com/](https://www.heroku.com/)
-
