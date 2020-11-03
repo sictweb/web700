@@ -14,8 +14,6 @@ files that define CSS *selectors* and *rules* for how to style our HTML elements
 CSS allows us to specify styles, layout, positioning, and other "style" properties for HTML elements.
 CSS makes it possible for a page's style information to be separated from its structure and content.
 
-<br>
-
 > **NOTE**: Before we proceed to discuss CSS and it's syntax, it's important to note that these notes have been divided into two parts, since the content is longer than usual.  If the entire topic cannot be covered during a lecture period, the 2nd half (Part 2 - "Box Model") will be given during the lab period
 
 <br>
