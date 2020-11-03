@@ -13,11 +13,6 @@ files that define CSS *selectors* and *rules* for how to style our HTML elements
 
 CSS allows us to specify styles, layout, positioning, and other "style" properties for HTML elements.
 CSS makes it possible for a page's style information to be separated from its structure and content.
-Consider how much of an impact CSS can have on the same HTML:
-
-* [CSS Zen Garden](http://www.csszengarden.com/)
-* [CSS Zen Garden HTML file](zengarden.html)
-* [CSS Zen Garden CSS file](zengarden-style.css)
 
 <br>
 
