@@ -954,3 +954,14 @@ work with the [`overflow`, `overflow-x`, `overflow-y`](https://developer.mozilla
 * `scroll` - always include scroll bars, content is clipped and and scroll if required
 * `auto` - only include scroll bars when necessary, content is clipped and and scroll if required
 * `hidden` - content is clipped, no scroll bars provided.
+
+<br>
+
+### Validating CSS
+
+If you recall from last week, we introduced an online validator to check your HTML code for errors.  There are similar tools for CSS, for example:
+
+* [https://jigsaw.w3.org/css-validator/](https://jigsaw.w3.org/css-validator/)
+
+The above allows you to enter a URL to an existing web page, or enter CSS directly in a text field.  It
+will then attempt to parse your CSS and report back on any errors or warnings.
