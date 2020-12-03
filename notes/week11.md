@@ -32,7 +32,7 @@ Once your app is up and running, [log into Heroku](https://id.heroku.com/login) 
 
 3.  Type "Heroku Postgres" into this textbox and click the "Heroku Postgres" item that comes up:![Heroku Postgres](/web700/media/heroku-screen4.png)
 
-4.  This will open a dialog window showing you that "Heroku Postgres" will be added to your application. Be sure you leave the "Plan name" to **Hobby Dev - Free** and click **Provision**  
+4.  This will open a dialog window showing you that "Heroku Postgres" will be added to your application. Be sure you leave the "Plan name" to **Hobby Dev - Free** and click **Submit Order Form**  
       
     
 5.  This will create an item (link) in your "Add-ons" section with the label: **"Heroku Postgres :: Database"**. Click this link to go to the page for your new Postgres Database instance!  
