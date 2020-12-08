@@ -326,14 +326,14 @@ sequelize.sync().then(function () {
         Task.create({
             title: "Task 1",
             description: "Task 1 description",
-            UserId: user.get('id') // set the correct Userid foreign key
+            UserId: user.id // set the correct Userid foreign key
         }).then(function(){ console.log("Task 1 created")});
 
         // Create "Task 2" for the new user
         Task.create({
             title: "Task 2",
             description: "Task 2 description",
-            UserId: user.get('id') // set the correct Userid foreign key
+            UserId: user.id // set the correct Userid foreign key
         }).then(function(){ console.log("Task 2 created")});
     });
 
