@@ -165,9 +165,6 @@ Introduction to Postgres / Sequelize ORM:<br /><br />
 </ul>
 </td>
 </tr>
-
-<!-- NOTE: Week 12 is used for normal Schedule (ie: Not 6-1-6)
-
 <tr>
 <td headers="tbl6"><a href="/web700/notes/week12">12 - Notes</a></td>
 <td headers="tbl7">
@@ -179,6 +176,4 @@ Security Considerations:<br /><br />
 </ul>  
 </td>
 </tr>
-
--->
 </tbody></table>
