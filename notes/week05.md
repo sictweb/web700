@@ -296,51 +296,29 @@ function handleClientError(err, req, res, next) {
 
 #### Debugging in Visual Studio Code
 
-Visual Studio Code has great debugging support for the node.js/express ecosystem. There is a tab on the left side of VS Code to open the debugger panel.  
-  
-![debug](/web700/media/debug.png)  
-  
-Clicking the debug button will open the panel and you will see a bar along the top of the panel for launching the debugger and configuring it.  
-  
-![launchdebug](/web700/media/launchdebug.png)  
-  
-The launcher bar has a green play button to start debugging. However, to use the debugger you will first have to configure the launch.json file by clicking the gear icon and make the _program_ property point to the main file you use to run your application.  
-  
-Here is an example of a configuration for the debugger when the main file to run the server is called week4b.js
+Visual Studio Code has great debugging support for the node.js/express ecosystem. Before we start debugging however, we need to place "breakpoints" within our code where we would like the execution to halt, so that we can inspect the values of variables and step through the code line-by-line.
 
-```json
-{
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Launch Program",
-            "program": "${workspaceRoot}/week4b.js"
-        }
-    ]
-}
-```
+To place a breakpoint, click just to the left of a line number in a file and a red circle will appear indicating the code execution will stop at this line when the debugger is running.
 
-In the example setup above the most important settings are the 'type' and 'program' properties. Using ${workspaceRoot} will reference the root of the folder that you opened in Visual Studio code.  
-  
-When the debugger is running you will see an orange bar in the bottom of VS Code and it will output info to the debug console.  
-  
-![debugrunning](/web700/media/debugrunning.png)  
-  
-Once running, any breakpoints will be active and as the code executes it will stop on the breakpoints and allow you to inspect variables and state.  
-  
-To place a breakpoint click on a line number in a file and a red circle will appear indicating the code execution will stop at this line when the debugger is running.  
-  
-![breakpoint](/web700/media/breakpoint.png)  
-  
-When the debugger is run and that line of code is hit, you will be able to inspect the state of your application while execution is paused.  
-  
-![inspectingdebugger](/web700/media/inspectingdebugger.png)  
-  
-When you are finished inspecting, you can press play to continue with execution to the next breakpoint, or stop the program with the stop button on the debugger control bar.  
-  
-![debuggercontrols](/web700/media/debuggercontrols.png)
+![breakpoint](/web700/media/breakpoint.png)
+
+Next, you will notice that there is a tab on the left side of VS Code to open the debugger panel.  Click this after you have placed your breakpoints within your code.
+
+![debug](/web700/media/debug2.png)
+
+From here, click on the first option "Run and Debug" - this will open a menu prompting you to "Select Environment".  Since we're using Node.js, choose the "Node.js (preview)" option.  You will see that the "Debug Console" has opened up, showing that our server is indeed running.  
+
+You can now open your browser and access your web app as usual.  However, this time whenever a breakpoint is encountered, the server will halt, allowing you to inspect your code:
+
+![inspectingdebugger](/web700/media/inspectingdebugger.png)
+
+When you are finished inspecting, you can press play to continue with execution to the next breakpoint, or stop the program with the stop button on the debugger control bar.
+
+![debuggercontrols](/web700/media/debuggercontrols2.png)
+
+**Note:** If if the "Debug Console" tab is still active in the "integrated terminal" after you are finished debugging, simply click on the "Terminal" tab to return to the terminal.
+
+<br>
 
 #### The browser network tab
 
