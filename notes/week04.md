@@ -33,7 +33,7 @@ Some of the key elements that we will be using are:
 
     *   Methods: process.on() (see: [eventEmitter.on()](https://nodejs.org/api/events.html#events_emitter_on_eventname_listener) & [process events](https://nodejs.org/api/process.html#process_process_events)), [process.abort()](https://nodejs.org/api/process.html#process_process_abort), [process.kill()](https://nodejs.org/api/process.html#process_process_kill_pid_signal), [process.exit()](https://nodejs.org/api/process.html#process_process_exit_code)
     *   Properties: [process.stdin](https://nodejs.org/api/process.html#process_process_stdin), [process.stdout](https://nodejs.org/api/process.html#process_process_stdout), [process.stderr](https://nodejs.org/api/process.html#process_process_stderr), [process.pid](https://nodejs.org/api/process.html#process_process_pid), [process.env](https://nodejs.org/api/process.html#process_process_env)
-    *   Events: [beforeExit](https://nodejs.org/api/process.html#process_event_beforeexit), [Exit](https://nodejs.org/api/process.html#process_event_exit), [uncaughtException](https://nodejs.org/api/process.html#process_event_uncaughtexception)
+    *   Events: [beforeExit](https://nodejs.org/api/process.html#process_event_beforeexit), [exit](https://nodejs.org/api/process.html#process_event_exit), [uncaughtException](https://nodejs.org/api/process.html#process_event_uncaughtexception)
 
 **[\_\_dirname](https://nodejs.org/api/globals.html#globals_dirname)**
 
