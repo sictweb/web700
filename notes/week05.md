@@ -300,11 +300,11 @@ Visual Studio Code has great debugging support for the node.js/express ecosystem
 
 To place a breakpoint, click just to the left of a line number in a file and a red circle will appear indicating the code execution will stop at this line when the debugger is running.
 
-![breakpoint](/media/uploads/2016/08/breakpoint.png)
+![breakpoint](/web700/media/breakpoint.png)
 
 Next, you will notice that there is a tab on the left side of VS Code.
 
-![debug](/media/uploads/2016/08/debug2.png)
+![debug](/web700/media/debug2.png)
 
 Click this after you have placed your breakpoints within your code to open the "debugger" panel.
 
@@ -312,11 +312,11 @@ From here, click on the first option "Run and Debug" - this will open a menu pro
 
 You can now open your browser and access your web app as usual.  However, this time whenever a breakpoint is encountered, the server will halt, allowing you to inspect your code:
 
-![inspectingdebugger](/media/uploads/2016/08/inspectingdebugger.png)
+![inspectingdebugger](/web700/media/inspectingdebugger.png)
 
 When you are finished inspecting, you can press play to continue with execution to the next breakpoint, or stop the program with the stop button on the debugger control bar.
 
-![debuggercontrols](/media/uploads/2016/08/debuggercontrols2.png)
+![debuggercontrols](/web700/media/debuggercontrols2.png)
 
 **Note:** If if the "Debug Console" tab is still active in the "integrated terminal" after you are finished debugging, simply click on the "Terminal" tab to return to the terminal.
 
