@@ -31,7 +31,7 @@ Each test will commence at the start of the corresponding **Lecture** period (we
 </td>
 <td>
 <ul>
-<li>Assignment&nbsp;1</li>
+<li>Assignment&nbsp;1<br>(5%)</li>
 </ul>
 </td>
 <td></td>
@@ -42,7 +42,7 @@ Each test will commence at the start of the corresponding **Lecture** period (we
   <td><ul><li>JavaScript Continued</li></ul></td>
 <td>
 <ul>
-<li>Assignment&nbsp;2</li>
+<li>Assignment&nbsp;2<br>(9%)</li>
 </ul>
 </td>
 <td>
@@ -58,7 +58,7 @@ Each test will commence at the start of the corresponding **Lecture** period (we
 <td>
 <ul>
 <li>Test 1
-<br />(Weeks 1-2)</li>
+<br />(Weeks 1-2)<br>(10%)</li>
 </ul>
 </td>
 <td></td>
@@ -69,7 +69,7 @@ Each test will commence at the start of the corresponding **Lecture** period (we
   <td><ul><li>Node.js Introduction</li></ul></td>
 <td>
 <ul>
-<li>Assignment&nbsp;3</li>
+<li>Assignment&nbsp;3<br>(9%)</li>
 </ul>
 </td>
 <td>
@@ -85,7 +85,7 @@ Each test will commence at the start of the corresponding **Lecture** period (we
 <td>
 <ul>
 <li>Test 2
-<br />(Weeks 3-4)</li>
+<br />(Weeks 3-4)<br>(10%)</li>
 </ul>
 </td>
 <td></td>
@@ -96,7 +96,7 @@ Each test will commence at the start of the corresponding **Lecture** period (we
   <td><ul><li>HTML Introduction</li></ul></td>
 <td>
 <ul>
-<li>Assignment&nbsp;4</li>
+<li>Assignment&nbsp;4<br>(9%)</li>
 </ul>
 </td>
 <td>
@@ -114,7 +114,7 @@ Each test will commence at the start of the corresponding **Lecture** period (we
 <td>
 <ul>
 <li>Test 3
-<br />(Weeks 5-6)</li>
+<br />(Weeks 5-6)<br>(10%)</li>
 </ul>
 </td>
 <td></td>
@@ -134,7 +134,7 @@ Each test will commence at the start of the corresponding **Lecture** period (we
 <td><ul><li>Forms Introduction / Processing Forms with Express.js</li></ul></td>
 <td>
 <ul>
-<li>Assignment&nbsp;5</li>
+<li>Assignment&nbsp;5<br>(9%)</li>
 </ul>
 </td>
 <td>
@@ -150,7 +150,7 @@ Each test will commence at the start of the corresponding **Lecture** period (we
 <td>
 <ul>
 <li>Test 4
-<br />(Weeks 7-8)</li>
+<br />(Weeks 7-8)<br>(10%)</li>
 </ul>
 </td>
 <td></td>
@@ -161,7 +161,7 @@ Each test will commence at the start of the corresponding **Lecture** period (we
 <td><ul><li>Introduction to AJAX & "REST" API</li></ul></td>
 <td>
 <ul>
-<li>Assignment&nbsp;6</li>
+<li>Assignment&nbsp;6<br>(9%)</li>
 </ul>
 </td>
 <td>
@@ -177,7 +177,7 @@ Each test will commence at the start of the corresponding **Lecture** period (we
 <td>
 <ul>
 <li>Test 5
-<br />(Weeks 9-10)</li>
+<br />(Weeks 9-10)<br>(10%)</li>
 </ul>
 </td>
 <td></td>
@@ -200,7 +200,7 @@ Each test will commence at the start of the corresponding **Lecture** period (we
 <td>
 <ul>
 <li>Test 6
-<br />(Weeks 11-12)</li>
+<br />(Weeks 11-12)<br>(10%)</li>
 </ul>
 </td>
 <td></td>
@@ -209,3 +209,15 @@ Each test will commence at the start of the corresponding **Lecture** period (we
 </tbody>
 </table>
 </div>
+<br />
+
+#### Summary
+
+6 Tests - 50% (10%/ea - lowest test dropped)<br>
+6 Assignments - 50% ([A1] = 5%, [A2-A6] = 9%/ea)    
+
+#### Promotion Policy
+
+* Achieve an average of 50% or better for all assignments
+* Achieve an average of 50% or better for all tests
+* Achieve a weighted average of 50% or better for the course
