@@ -308,7 +308,7 @@ Next, you will notice that there is a tab on the left side of VS Code.
 
 Click this after you have placed your breakpoints within your code to open the "debugger" panel.
 
-From here, click on the first option "Run and Debug" - this will open a menu prompting you to "Select Environment".  Since we're using Node.js, choose the "Node.js (preview)" option.  You will see that the "Debug Console" has opened up, showing that our server is indeed running.  
+From here, click on the first option "Run and Debug" - this will open a menu prompting you to "Select Environment".  Since we're using Node.js, choose the "Node.js" option.  You will see that the "Debug Console" has opened up, showing that our server is indeed running.  
 
 You can now open your browser and access your web app as usual.  However, this time whenever a breakpoint is encountered, the server will halt, allowing you to inspect your code:
 
