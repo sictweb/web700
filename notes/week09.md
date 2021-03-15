@@ -406,14 +406,14 @@ The "each" helper also exposes an "@index" variable that allows us to reference 
 
 ### Writing Custom Helpers
 
-While the built-in helpers mentioned above simplify working with data in our HTML (.hbs) files, there are many situations where it is preferable to code our _own_ helpers. For example, maybe we wish to define a container that always uses the same html pattern, such as the ["Warning" alert](https://getbootstrap.com/components/#alerts-dismissible) used in the Bootstrap framework:
+While the built-in helpers mentioned above simplify working with data in our HTML (.hbs) files, there are many situations where it is preferable to code our _own_ helpers. For example, maybe we wish to define a container that always uses the same html pattern, such as the ["Warning" alert](https://getbootstrap.com/docs/4.0/components/alerts/#dismissing) used in the Bootstrap framework:
 
 ```html
-<div class="alert alert-warning alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-    ... Some Warning Text ...
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  ... Some Warning Text ...
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>
 ```
     
