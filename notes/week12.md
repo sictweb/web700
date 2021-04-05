@@ -152,9 +152,11 @@ _Warning in Chrome_
 
 ![https self signed certificate chrome](/web700/media/https-self-signed-cert-chrome.png)
 
-Accept the warnings and add an exemption (Firefox only) and proceed to the page
+> **NOTE:** If you do not see the option to "Proceed to localhost", then typing "**thisisunsafe**" will allow you to proceed.
 
-Check out the icon to the left of the url bar like before to examine the self signed cert.
+Accept the warnings to add an exemption and proceed to the page.
+
+Click the icon to the left of the url bar like before to examine the self signed cert.
 
 _Warning in Firefox_
 
