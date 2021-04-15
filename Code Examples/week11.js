@@ -33,7 +33,8 @@ const sequelize = new Sequelize("database", "user", "password", {
   port: 5432,
   dialectOptions: {
     ssl: { rejectUnauthorized: false }
-  }
+  },
+  query:{raw:true}
 });
 
 // Define our Models - "Name"
@@ -53,8 +54,6 @@ sequelize.sync().then(() => {
     Name.findAll({
       order: ["id"]
     }).then((data) => {
-      // pull the data (exclusively)
-      data = data.map(value => value.dataValues);
       // render the "viewTable" view with the data
       res.render("viewTable", {
         data: data,
