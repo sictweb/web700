@@ -286,25 +286,17 @@ Once you have entered the above code, save the changes and try running your serv
   
 ![AJAX Request Payload](/web700/media/ajax-send2.png)
 
-If we wish to capture this information in our routes (so that we can make the appropriate updates to our data source), we must make some small modifications to our server.js file and individual routes (ie: POST to "/api/users" & PUT to "/api/users/:userId"). The first thing that we must do is include the [body-parser](https://www.npmjs.com/package/body-parser) module. Recall from week 5 - we require this module if we wish to access the "body" component of the request.
-
-After this module is added (**npm install body-parser \-\-save**), you can update the top of your server file to include the module:
+If we wish to capture this information in our routes (so that we can make the appropriate updates to our data source), we must make some small modifications to our server.js file and individual routes (ie: POST to "/api/users" & PUT to "/api/users/:userId"). The first thing that we must do is incorporate middleware to parse the incoming data. Recall from week 8 - we used "express.urlencoded()" access the "body" component of the request.  However, since we will be parsing JSON data, we must instead use "express.json()", ie:
 
 ```javascript
-const bodyParser = require('body-parser');
-```
-
-Additionally, we must include the following line before our routes, to ensure that our application can correctly access JSON formatted data from the body of the request:
-
-```javascript
-app.use(bodyParser.json());
+app.use(express.json());
 ```
 
 Now that this change has been made, we can access data passed to our API using the [req.body](https://expressjs.com/en/api.html#req.body) property. More specifically, we can update our POST & PUT routes to use req.body to fetch the new / updated **fName** and **lName** properties:
 
 ```javascript
 app.post("/api/users", (req, res) => {
-        res.json({message: "add the user: " + req.body.fName + " " + req.body.lName});
+    res.json({message: "add the user: " + req.body.fName + " " + req.body.lName});
 });
 ```
 
@@ -321,12 +313,11 @@ If you have followed the instructions above correctly, your **server.js** file s
 ```javascript
 const express = require("express");
 const path = require("path");
-const bodyParser = require('body-parser');
 const app = express();
 
 const HTTP_PORT = process.env.PORT || 8080;
 
-app.use(bodyParser.json());
+app.use(express.json());
 
 app.get("/", (req,res) => {
     res.sendFile(path.join(__dirname, "/views/index.html"));

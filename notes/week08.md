@@ -331,25 +331,11 @@ app.post("/register-user", upload.single("photo"), (req, res) => {
 
 #### Final notes
 
-[The multer library](https://github.com/expressjs/multer) is only needed when you are dealing with file uploads and multipart/form-data. If you are simply using text form data you can use the body-parser library to handle regular text submissions and access the data on req.body. You'll need to add the body-parser middleware with an app.use() call to allow it to grab the data on the request and stick it onto the req.body property so it's available to the route handler function. To set this up properly, we must:
-
-1.  Download the "body-parser" module via npm:
-
-    ```bash   
-    npm install body-parser --save 
-    ```
+[The multer library](https://github.com/expressjs/multer) is only needed when you are dealing with file uploads and multipart/form-data. If you are simply using text form data you can use the built in "express.urlencoded" middleware to handle regular text submissions and access the data on req.body. To use the middleware, we simply insert an app.use() call above our routes to set the middleware for "urlencoded" form data (normal HTTP Post data), ie:
     
-2.  Add the "body-parser" dependency using the require() function:
-
-    ```javascript    
-    const bodyParser = require('body-parser');
-    ```    
-
-3.  Near the top of your server code, make a call to app.use() to set the middleware for "urlencoded" form data (normal HTTP Post data):
-    
-    ```javascript
-    app.use(bodyParser.urlencoded({ extended: true }));
-    ```    
+```js
+app.use(express.urlencoded({ extended: true }));
+```  
 
 Anytime you have a client side form that send back data and/or file contents, you should always validate both client side **AND** server side: For example, it is important to validate the form on the client side so you can create a better user experience and inform the user if something is missing or a wrong filetype is provided right away. If a field is missing or an incorrect data type is provided, you can let the user know before you submit the form and wipe out the user's progress.
 
