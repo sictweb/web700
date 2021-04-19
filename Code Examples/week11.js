@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const exphbs = require("express-handlebars");
 const Sequelize = require("sequelize");
-const bodyParser = require("body-parser");
 
 const HTTP_PORT = process.env.PORT || 8080;
 const WEEK11ASSETS = "./week11-assets/";
@@ -15,7 +14,7 @@ function onHttpStart() {
 }
 
 // instruct the app to use the "bodyparser" middleware
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 
 // instruct the app to use express handlebars for the view engine with the .hbs extension
 app.set("views", WEEK11ASSETS);

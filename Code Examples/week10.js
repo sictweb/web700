@@ -1,11 +1,10 @@
 const express = require("express");
 const path = require("path");
-const bodyParser = require('body-parser');
 const app = express();
 
 const HTTP_PORT = process.env.PORT || 8080;
 
-app.use(bodyParser.json());
+app.use(express.json());
 
 app.get("/", (req,res) => {
     res.sendFile(path.join(__dirname, "/week10-assets/index.html"));
