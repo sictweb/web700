@@ -13,7 +13,7 @@ function onHttpStart() {
   console.log("Express http server listening on: " + HTTP_PORT);
 }
 
-// instruct the app to use the "bodyparser" middleware
+// instruct the app to use the "express.urlencoded" middleware
 app.use(express.urlencoded({ extended: true }));
 
 // instruct the app to use express handlebars for the view engine with the .hbs extension
