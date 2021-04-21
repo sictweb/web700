@@ -31,7 +31,7 @@ Let's first discuss the typical HTML elements used in an HTML form and look at s
 
 * textarea is much like an \<input type='text'\> input, except it allows multiple lines of text. Basically, it is a text box that has space to add a lot of text instead of 1 line of text in a regular text input element. The textarea is useful for capturing user input that would typically be long and detailed or several sentences long.  
   
-    <textarea style="width: 100%; height:50px;">This is what a textarea looks like. Type something in!</textarea>
+    <textarea aria-label="sample textarea" style="width: 100%; height:50px;">This is what a textarea looks like. Type something in!</textarea>
 
 **[\<select\>](http://www.w3schools.com/tags/tag_select.asp)**
 
@@ -135,7 +135,7 @@ The code for this form looks like this:
 </form>
 ```    
 
-Now that we've had a quick refresher on forms and how to build one in HTML let's look at how we can process the form on the server side with Express.js. The first thing you should know is that there are 2 types of form submissions that take place on a website: a regular text based form with normal inputs, and a form that accepts file uploads using the <input type="file"> element. A form that supports file uploading requires the enctype attribute to be set to enctype="multipart/form-data". [More information on options for the 'enctype' attribute are available here](https://www.w3schools.com/jsref/prop_form_enctype.asp)
+Now that we've had a quick refresher on forms and how to build one in HTML let's look at how we can process the form on the server side with Express.js. The first thing you should know is that there are 2 types of form submissions that take place on a website: a regular text based form with normal inputs, and a form that accepts file uploads using the &lt;input type="file"&gt; element. A form that supports file uploading requires the enctype attribute to be set to enctype="multipart/form-data". [More information on options for the 'enctype' attribute are available here](https://www.w3schools.com/jsref/prop_form_enctype.asp)
 
 <br>
 
