@@ -5,7 +5,7 @@ layout: default
 
 ## Getting Started with Heroku
 
-![](/web700/media/heroku-logo-300x100.png)
+![Heroku Logo](/web700/media/heroku-logo-300x100.png)
 
 The main server environment that we will be using in WEB700 is **Heroku**. From their website:
 
@@ -13,7 +13,7 @@ The main server environment that we will be using in WEB700 is **Heroku**. From 
 
 Essentially, Heroku manages the hardware infrastructure and deployment tasks for our node.js applications in a remote server environment. Developers using Heroku can extend their applications by incorporating components from a large [marketplace](https://elements.heroku.com/) featuring components like database servers, scheduling components, toolkits for monitoring applications, etc. all managed remotely on their servers. Developers just need to provide the code and Heroku does the rest:
 
-<iframe id="heroku-for-teams" class="" src="https://player.vimeo.com/video/165632155?api=1&amp;byline=0&amp;title=0&amp;portrait=0&amp;frameborder=0&amp;player_id=heroku-for-teams" width="656" height="369" style="width:656px; max-width:100%; margin:10px 0 15px 0;" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+<iframe title="Heroku for Teams" id="heroku-for-teams" class="" src="https://player.vimeo.com/video/165632155?api=1&amp;byline=0&amp;title=0&amp;portrait=0&amp;frameborder=0&amp;player_id=heroku-for-teams" width="656" height="369" style="width:656px; max-width:100%; margin:10px 0 15px 0;" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
 
 The best thing - **getting started is free!** - This is where we come in:
 
