@@ -332,7 +332,7 @@ JavaScript looks [similar to C/C++ or Java](https://developer.mozilla.org/en-US/
 in philosophy; it is more closely related to [Scheme](https://en.wikipedia.org/wiki/Scheme_(programming_language)) than C. For example, JavaScript is a dynamic scripting language supporting
 multiple programming styles, from [object-oriented](https://en.wikipedia.org/wiki/Object-oriented_programming) to [imperative](https://en.wikipedia.org/wiki/Imperative_programming) to [functional](https://en.wikipedia.org/wiki/Functional_programming).
 
-JavaScript is one of, if not the [most popular programming languages in the world](https://redmonk.com/sogrady/2018/08/10/language-rankings-6-18/), and has been for many years.
+JavaScript is one of, if not the [most popular programming languages in the world](https://redmonk.com/sogrady/2021/03/01/language-rankings-1-21/), and has been for many years.
 Learning JavaScript well will be a tremendous asset to any software developer, since so
 much of the software we use is built using JS.
 
