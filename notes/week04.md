@@ -7,7 +7,7 @@ layout: default
 
 ### Formal Introduction to Node.js
 
-[![Node Logo](/web700/media/node-logo.jpg)](https://nodejs.org)<br><br> As we learned at the beginning of this course, Node.js is actually a JavaScript runtime environment based on Chrome's V8 engine. It is a command-line program (written in C++) that you can install on your local machine or on a web-server that will take your JavaScript code and execute it.
+[![Node Logo](/media/node-logo.jpg)](https://nodejs.org)<br><br> As we learned at the beginning of this course, Node.js is actually a JavaScript runtime environment based on Chrome's V8 engine. It is a command-line program (written in C++) that you can install on your local machine or on a web-server that will take your JavaScript code and execute it.
 
 Recall, our very first line of JavaScript:
     

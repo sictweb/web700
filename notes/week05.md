@@ -300,11 +300,11 @@ Visual Studio Code has great debugging support for the node.js/express ecosystem
 
 To place a breakpoint, click just to the left of a line number in a file and a red circle will appear indicating the code execution will stop at this line when the debugger is running.
 
-![breakpoint](/web700/media/breakpoint.png)
+![breakpoint](/media/breakpoint.png)
 
 Next, you will notice that there is a tab on the left side of VS Code.
 
-![debug](/web700/media/debug2.png)
+![debug](/media/debug2.png)
 
 Click this after you have placed your breakpoints within your code to open the "debugger" panel.
 
@@ -312,11 +312,11 @@ From here, click on the first option "Run and Debug" - this will open a menu pro
 
 You can now open your browser and access your web app as usual.  However, this time whenever a breakpoint is encountered, the server will halt, allowing you to inspect your code:
 
-![inspectingdebugger](/web700/media/inspectingdebugger.png)
+![inspectingdebugger](/media/inspectingdebugger.png)
 
 When you are finished inspecting, you can press play to continue with execution to the next breakpoint, or stop the program with the stop button on the debugger control bar.
 
-![debuggercontrols](/web700/media/debuggercontrols2.png)
+![debuggercontrols](/media/debuggercontrols2.png)
 
 **Note:** If if the "Debug Console" tab is still active in the "integrated terminal" after you are finished debugging, simply click on the "Terminal" tab to return to the terminal.
 
@@ -328,11 +328,11 @@ Chrome, Firefox, and IE all include developer tool and each of those tools has a
 
 In Firefox, you can inspect the headers from the headers tab:  
   
-![networktab-headers](/web700/media/networktab-headers.png)  
+![networktab-headers](/media/networktab-headers.png)  
 
 And the response from the server in the response tab. The Google Chrome network tools are slightly different, however all in-browser developer toolbars essentially make the same information available.  
   
-![networktab-response](/web700/media/networktab-response.png)  
+![networktab-response](/media/networktab-response.png)  
 
 The network tab in the dev tools is one of the core tools for debugging on the client side. You can check the returned status code, see all the api requests being made, filter by just XHR requests, examine the cookies involved in the request and response, see request and response headers, and examine the data returned from a request.
 
@@ -340,7 +340,7 @@ The network tab in the dev tools is one of the core tools for debugging on the c
 
 ### Publishing Our Code (Heroku Guide)
 
-As a final task for this week, follow along with the "[Getting Started With Heroku](/web700/getting-started-with-heroku)" Guide.  This will allow us to place our code online and create web applications that are accessible on the Web. 
+As a final task for this week, follow along with the "[Getting Started With Heroku](/getting-started-with-heroku)" Guide.  This will allow us to place our code online and create web applications that are accessible on the Web. 
 
 ### Sources
 

@@ -430,7 +430,7 @@ By far the best way to learn about CSS is to look at how other sites use it.  Wh
 something on the web that you think looks interesting, open your browser's dev tools and inspect
 the CSS Styles:
 
-![Inspect CSS styles](/web700/media/inspect-css.gif)
+![Inspect CSS styles](/media/inspect-css.gif)
 
 You can look at the specific properties specified for an element, or see all the *computed* styles
 (i.e., everything, including all default values).  You can also try toggling these on and off, or

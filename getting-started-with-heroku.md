@@ -5,7 +5,7 @@ layout: default
 
 ## Getting Started with Heroku
 
-![Heroku Logo](/web700/media/heroku-logo-300x100.png)
+![Heroku Logo](/media/heroku-logo-300x100.png)
 
 The main server environment that we will be using in WEB700 is **Heroku**. From their website:
 
