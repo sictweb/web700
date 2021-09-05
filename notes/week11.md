@@ -9,9 +9,10 @@ layout: default
 
 "Data Persistence" (the ability to "persist" or "save" new, updated or deleted information) is a vital part of any web application project. For example, this could be registering new users, deleting users, updating profile information or payment data for users, viewing saved files or uploaded images, etc. etc. To truly create an "application" we must be able to work with (and persist) data.
 
-Fortunately, there are many different database systems that we can leverage to accomplish this notion of "data persistence". These range from powerful "relational" database systems, including: [Microsoft SQL Server](https://www.microsoft.com/en-us/sql-server/), [Oracle](https://www.oracle.com/database/), [MySQL](https://www.mysql.com/), [PostgreSQL](https://www.postgresql.org/), and [many others](https://en.wikipedia.org/wiki/List_of_relational_database_management_systems) as well as "NoSQL" database systems such as [Amazon's DynamoDB](https://aws.amazon.com/dynamodb/), [Azure DocumentDB](https://azure.microsoft.com/en-us/services/documentdb/) and [MongoDB](https://www.mongodb.com/).
+Fortunately, there are many different database systems that we can leverage to accomplish this notion of "data persistence". These range from powerful "relational" database systems, including: [Microsoft SQL Server](https://www.microsoft.com/en-us/sql-server/), [Oracle](https://www.oracle.com/database/), [MySQL](https://www.mysql.com/), [PostgreSQL](https://www.postgresql.org/), and [many others](https://en.wikipedia.org/wiki/List_of_relational_database_management_systems) as well as "NoSQL" database systems such as [Amazon's DynamoDB](https://aws.amazon.com/dynamodb/), [Azure Costmos DB](https://azure.microsoft.com/en-us/services/cosmos-db/) and [MongoDB](https://www.mongodb.com/).  
 
-In WEB700, we will be focusing on [PostgreSQL](https://www.postgresql.org/) - this week, we will look at how we can work with a PostgreSQL database in a node.js environment.
+However, NoSQL database systems such as those mentioned above are beyond the scope of this course and we will instead focus on the popular relational database system: "PostgreSQL". For more information on the differences between Relational database systems, and "NoSQL" database systems, please see: [https://www.ibm.com/cloud/blog/sql-vs-nosql](https://www.ibm.com/cloud/blog/sql-vs-nosql)
+
 
 #### PostgreSQL (Postgres)
 
