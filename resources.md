@@ -63,7 +63,6 @@ Links to other topics (e.g. Getting started, etc.) are on that page
 
 * Node Reference
   * [Node.js Documentation](https://nodejs.org/en/docs/)
-  * (Suggested) [nodejitsu](https://docs.nodejitsu.com/)
 
 * [Express.js Documentation](https://expressjs.com/en/4x/api.html)
 

@@ -492,5 +492,4 @@ To test your server, run **node week4.js** to see the results on **http://localh
 
 *   [https://nodejs.org](https://nodejs.org)
 *   [https://developer.mozilla.org](https://developer.mozilla.org)
-*   [https://docs.nodejitsu.com](https://docs.nodejitsu.com)
 *   [Package.json documentation](https://docs.npmjs.com/getting-started/using-a-package.json)
