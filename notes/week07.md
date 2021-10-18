@@ -585,6 +585,12 @@ the `ellipsis`.
 </style>
 <span class="movie-title">Pirates of the Caribbean: The Curse of the Black Perl</span>
 ```
+**NOTE:** The "text-overflow" property doesn't force an overflow to occur. To make text overflow its container you have to set other CSS properties on the **container**: *overflow* and *white-space*. For example:
+
+```
+overflow: hidden;
+white-space: nowrap;
+```
 
 <br>
 
