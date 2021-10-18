@@ -129,7 +129,7 @@ to have even more `.css` files get loaded at runtime:
 
 ```css
 /* Import Font Awesome */
-@import url(https://use.fontawesome.com/releases/v5.4.2/css/all.css)
+@import url(https://use.fontawesome.com/releases/v5.4.2/css/all.css);
 ```
 
 In this example, the popular [Font Awesome](https://fontawesome.com/) CSS library for font icons
@@ -524,7 +524,7 @@ For example, we can use the popular [`"Lobster"`](https://fonts.google.com/speci
 from Google by doing the following in our CSS:
 
 ```css
-@import url(https://fonts.googleapis.com/css?family=Lobster)
+@import url(https://fonts.googleapis.com/css?family=Lobster);
 
 p {
     font-family: "Lobster";
