@@ -177,7 +177,7 @@ In order to set this up correctly and get express to understand the file above, 
 3.  Our server needs to know how to handle HTML files that are formatted using handlebars, so near the top of our code (after we define our "app"), add the lines:
     
     ```javascript
-    app.engine('.hbs', exphbs({ extname: '.hbs' }));
+    app.engine('.hbs', exphbs.engine({ extname: '.hbs' }));
     app.set('view engine', '.hbs');
     ``` 
     
@@ -223,7 +223,7 @@ function onHttpStart() {
 }
 
 // Register handlebars as the rendering engine for views
-app.engine(".hbs", exphbs({ extname: ".hbs" }));
+app.engine(".hbs", exphbs.engine({ extname: ".hbs" }));
 app.set("view engine", ".hbs");
 
 app.get("/viewData", function(req,res){
@@ -429,7 +429,7 @@ To define this and other custom helpers, we need to add a "helpers" property to 
 
 {% raw %}
 ```javascript
-app.engine('.hbs', exphbs({ 
+app.engine('.hbs', exphbs.engine({ 
     extname: '.hbs',
     helpers: { 
         helper1: function(options){
@@ -601,7 +601,7 @@ It is within this {% raw %}{{{body}}}{% endraw %} placeholder that our view (.hb
 To set this up correctly and ensure that our new "main.hbs" file is the "default" layout, we need to make a simple addition to our familiar express handlebars configuration object.
 
 ```javascript
-app.engine('.hbs', exphbs({ 
+app.engine('.hbs', exphbs.engine({ 
     //...
     defaultLayout: 'main'
     //...
