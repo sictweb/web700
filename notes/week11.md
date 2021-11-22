@@ -187,7 +187,7 @@ Executing (default): INSERT INTO "Projects" ("id","title","description","created
 success!
 ```
 
-It appears that Sequelize has done some of the heavy lifting for us. To confirm that the create operation was successful and that we have indeed persisted "Project1" in a new "Project" table, go back to your **pgAdmin3** application, right-click on "**Tables (0)**" and choose "Refresh". You should now see our new "Projects" table in the list!  
+It appears that Sequelize has done some of the heavy lifting for us. To confirm that the create operation was successful and that we have indeed persisted "Project1" in a new "Project" table, go back to your **pgAdmin** application, right-click on "**Tables (0)**" and choose "Refresh". You should now see our new "Projects" table in the list!  
     
 ![pgAdmin with the Projects table](/media/heroku-screen7.png)
 
@@ -343,7 +343,7 @@ sequelize.sync().then(function () {
 });
 ```
 
-Next, try running this code and take a look at your database in pgAdmin 3. You should see that two new tables, **"Users"** and **"Tasks"** have been created, with **"Jason Bourne"** inside the "User" table and **"Task 1"** and **"Task 2"** inside the "Task" table. The two new tasks will both have a UserId matching "Jason Bourne"'s id! We have achieved the one-to-many relationship between this user and his tasks.
+Next, try running this code and take a look at your database in pgAdmin. You should see that two new tables, **"Users"** and **"Tasks"** have been created, with **"Jason Bourne"** inside the "User" table and **"Task 1"** and **"Task 2"** inside the "Task" table. The two new tasks will both have a UserId matching "Jason Bourne"'s id! We have achieved the one-to-many relationship between this user and his tasks.
 
 **NOTE:** other relationships can be defined using the following functions:
 
@@ -483,7 +483,7 @@ Now that we know to perform each of the **CRUD** operations when using the Seque
 
 To run this example locally, you will have to update your dependencies (see package.json) via **npm** in the **integrated terminal** as well as the connection to your **Postgres** database in the **server.js** file, under the comment "// define the connection to our Postgres instance".
 
-Once the application is running, you will be able to see all of the changes reflected in your Postgres database via pgAdmin 3 (don't forget to refresh your data) and every time you run the server and test the application in a browser, you will see the same, updated list of names!
+Once the application is running, you will be able to see all of the changes reflected in your Postgres database via pgAdmin (don't forget to refresh your data) and every time you run the server and test the application in a browser, you will see the same, updated list of names!
 
 <br>
 
