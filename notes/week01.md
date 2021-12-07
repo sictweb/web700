@@ -401,7 +401,7 @@ or embedded within HTML code via the HTML `<script>` element.  For the first par
 
 5. Click the "Open Folder" button and choose your newly-created "Ex1" folder.
 
-6. Next, hover your moue over the "EX1" text in the left pane; this will cause 4 icons to appear.  Click the first one (It looks like a little file with a plus (+) icon) to create a new file within the "Ex1" folder.
+6. Next, hover your mouse over the "EX1" text in the left pane; this will cause 4 icons to appear.  Click the first one (It looks like a little file with a plus (+) icon) to create a new file within the "Ex1" folder.
 
 7. Name this file "Hello.js" and press enter.  Once this is complete, "Hello.js" should be open and ready for editing.
 
