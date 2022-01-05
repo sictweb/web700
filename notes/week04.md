@@ -145,9 +145,13 @@ Node also includes a number of other extremely useful core ["modules"](https://n
 
 * The url utility module provides methods for parsing and working with a url. You can use it to get pieces of a given url string like the protocol, hostname, port, querystring parameters, anchor hash, etc
 
-**[queryString](https://nodejs.org/api/querystring.html#querystring_query_string)**
+<!-- **[queryString](https://nodejs.org/api/querystring.html#querystring_query_string)**
 
-* Similar to the url module the queryString module has utility methods for parsing and working with the query string part of a url. It can convert a query string into an object of the key value pairs and more.
+* Similar to the url module the queryString module has utility methods for parsing and working with the query string part of a url. It can convert a query string into an object of the key value pairs and more. 
+
+NOTE: This was removed because it's deprecated / considered legacy
+
+-->
 
 <br>
 
