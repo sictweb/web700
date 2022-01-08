@@ -12,7 +12,7 @@ function onHttpStart() {
 
 // Register handlerbars as the rendering engine for views
 app.set("views", "./week9-assets");
-app.engine(".hbs", exphbs({ extname: ".hbs" }));
+app.engine(".hbs", exphbs.engine({ extname: ".hbs" }));
 app.set("view engine", ".hbs");
 
 app.get("/", (req, res) => {
