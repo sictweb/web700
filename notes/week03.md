@@ -138,7 +138,7 @@ console.log(architect2.getName()); // "Mary"
 
 ### Advanced JavaScript / ES6 Features
 
-So far, we have learned quite a bit about JavaScript; from its dynamically typed variables, to complex custom / built-in Objects. However, for us to properly understand some of the examples in the upcoming weeks, we need to discuss a few advanced techniques as well as new syntax / methods from the new ES6 (ECMAScript 6) standard. 
+So far, we have learned quite a bit about JavaScript; from its dynamically typed variables, to complex custom / built-in Objects. However, for us to properly understand some of the examples in the upcoming weeks, we need to discuss a few advanced techniques as well as new syntax / methods from the ES6 (ECMAScript 6) standard. 
 
 <br>
 
