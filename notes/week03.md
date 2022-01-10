@@ -100,26 +100,29 @@ Now, we aren't using the "this" keyword from within the setTimeout() function, b
 
 ### Creating Objects ("class" keyword)
 
-If we wish to create multipe objects of the same "type" (ie: that have the same properties and methods, but with different values), we can leverage the "class" and "new" keywords, ie:
+If we wish to create multiple objects of the same "type" (ie: that have the same properties and methods, but with different values), we can leverage the "class" and "new" keywords, ie:
 
 ```javascript
 class architect{
+
+    name = ""; // default value of "" for name
+    age = 0; // default value of 0 for age
+    occupation = "architect"; // default value of "architect" for occupation
   
-  constructor(setName, setAge){
-      this.name = setName;
-      this.age = setAge;
-      this.occupation = "architect";
+    constructor(setName, setAge){
+        this.name = setName;
+        this.age = setAge;
+    }
+  
+    setName(newName){this.name = newName}
+  
+    setAge(newAge){this.age = newAge}
+  
+    getName(){return this.name;}
+  
+    getAge(){return this.age;}
+  
   }
-
-  setName(newName){this.name = newName}
-
-  setAge(newAge){this.age = newAge}
-
-  getName(){return this.name;}
-
-  getAge(){return this.age;}
-
-}
 
 // define new "architect objects using the "new" keyword with the "architect" class
 
@@ -133,6 +136,10 @@ console.log(architect1.name); // "Joe"
 console.log(architect1.getName()); // "Joe"
 console.log(architect2.getName()); // "Mary"
 ```
+
+Notice how we specify the properties (with default values), a "constructor" function to take initialization parameters, as well as specify all of the methods within the "class" block.
+
+**NOTE**: By default, the properties are declared as "public".  To create "private" properties / methods, simply use the "#" prefix for their identifier (see: ["Private class features"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields#private_instance_fields) for more information).
 
 <br>
 
