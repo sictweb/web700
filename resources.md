@@ -15,7 +15,7 @@ This page has information about and links to learning resources that you will us
    * [Getting started docs](https://code.visualstudio.com/docs)
 * Browsers (current versions of Chrome, Firefox, Safari, Opera, Edge)  
 * Browser dev tools  
-* HTTP inspector (e.g. [Postman](https://www.getpostman.com/))
+* HTTP inspector (e.g. [Thunder Client VS Code Extension](https://www.thunderclient.io/))
 * [Plunker](https://plnkr.co/)
 * [jsFiddle](https://jsfiddle.net/)
 * [jsBin](https://jsbin.com)
