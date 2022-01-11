@@ -511,6 +511,8 @@ b = 7;          // BAD: b is used without declaration, and is now a global
     
     * [`undefined`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined) - a special value that indicates a value has never been defined.
     
+    <div style="width:100%; overflow-x: auto" markdown="1">
+
     |Declaration|Type|Value|
     |-----------|----|-----|
     |`var s1 = "some text";` |`String`|`"some text"`|
@@ -526,6 +528,8 @@ b = 7;          // BAD: b is used without declaration, and is now a global
     |`var s = Symbol("Sym");` |`symbol`| `Symbol(Sym)` |
     |`var c;`                |`undefined`| `undefined`|
     |`var d = null;`         |`null`|`null`|
+
+    </div>
 
 <br>
 
