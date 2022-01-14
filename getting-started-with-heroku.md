@@ -59,7 +59,7 @@ The best thing - **getting started is free!** - This is where we come in:
 
 1.  Open **Visual Studio Code** and Open your "helloworld" folder by clicking on the "Explorer" icon in the top left (it looks like two files) to expand the left "Explorer" pane. You should see an "Open Folder" button - click this and select to your newly created "helloworld" folder.  
 
-1.  You should now see an empty "HELLOWORLD" folder in the sidebar.
+1.  You should now see an empty "HELLOWORLD" folder in the sidebar. 
 
 1.  The first step is to create your **server.js** file in your helloworld folder either by right-clicking underneath HELLOWORLD in the Explorer pane and choosing "new file", or by clicking the new file icon next to HELLOWORLD. Name this file **server.js**  
 
@@ -100,7 +100,9 @@ The best thing - **getting started is free!** - This is where we come in:
 
     Be sure to save your file before moving on.  
 
-1.  Next, issue the following command from the integrated terminal: **git init** - this will initialize a local git repository in your helloworld folder. You will notice that an icon in the left bar now has a blue icon showing a number. This represents all of the files that must be added to our local git repo. Click the button and type "first commit" for the message in the "Message" box. Once this is done, click the checkmark above the message box to commit your changes.  
+1.  Next, issue the following command from the integrated terminal: **git init** - this will initialize a local git repository in your helloworld folder. You will notice that an icon in the left bar now has a blue icon showing a number. This represents all of the files that must be added to our local git repo. 
+
+    Click the icon in the left bar and type **"first commit"** for the message in the "Message" box. Once this is done, click the checkmark above the message box to commit your changes.  
     
     **NOTE:** If, at this point, you receive the error: "Git: Failed to execute git", try executing the following commands in the integrated terminal:  
 
@@ -109,7 +111,7 @@ The best thing - **getting started is free!** - This is where we come in:
     git config --global user.name "Your Name"
     ```
 
-    Once this is complete, attempt step 9 again.  
+    Once this is complete, attempt to click the checkmark again to commit your changes.  
 
 1.  Now that our local git repo is ready to go, we have to create an application within Heroku to send our code to. This is done by issuing the following commands in the integrated terminal:
 
@@ -117,7 +119,9 @@ The best thing - **getting started is free!** - This is where we come in:
 
     * **heroku create** - this command will create our new app within Heroku! The name that it gives our app is random (you can change it later). You will know the name it has given your app by looking at the text next to creating app... done, [ _app name here_ ]. You will also see a url in the form **https://[ _app name here_ ].herokuapp.com**  
 
-1.  We're getting close, but not quite done yet - we need to issue one more command: **git push heroku master** - this command pushes the content of our local git repo to our new app on Heroku!  
+1.  We're getting close, but not quite done yet - we need to issue one more command: **git push heroku master** - this command pushes the content of our local git repo to our new app on Heroku!
+    
+    **Important Note:** If at this point, you see the error: "src refspec master does not match any" then "master" is not set as your default branch and the command **git push heroku HEAD:main** may be used instead)
 
 1.  To verify that this is working correctly, visit that new url that you received when creating the new app (it should still be in the integrated terminal - you just have to scroll up). You should see the text **Hello World!** from our server.js file in the browser. 
     
@@ -137,7 +141,8 @@ Lastly, If you would like to make modifications to your existing application, si
 1.  Click on the Source Control (Git) icon
 1.  Write an appropriate message describing your change
 1.  Click the checkmark to commit your changes
-1.  Push your changes to heroku using: **git push heroku master**
+1.  Push your changes to heroku using: **git push heroku master** (or **git push heroku HEAD:main** - see above)
+    
 
 You should now see the changes reflected in your app!
 
