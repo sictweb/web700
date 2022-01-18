@@ -167,7 +167,7 @@ more arguments.  The answer is that all JavaScript functions work this way, and 
 to "overload" your functions with different argument patterns, making them useful
 in more than one scenario.
 
-> JavaScript version note: in newer versions of JavaScript, we can also use [Rest Parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters), which allow us to specify that all final arguments to a function, no matter how many, should appear within the function as an `Array`.  There are [some advantages](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters#Difference_between_rest_parameters_and_the_arguments_object) to *not* using `arguments`, which rest parameters provide. We can convert the example above to:
+> JavaScript version note: in newer versions of JavaScript, we can also use [Rest Parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters), which allow us to specify that all final arguments to a function, no matter how many, should appear within the function as an `Array`.  There are [some advantages](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters#the_difference_between_rest_parameters_and_the_arguments_object) to *not* using `arguments`, which rest parameters provide. We can convert the example above to:
 
 ```js
 function sum(...numbers) {
