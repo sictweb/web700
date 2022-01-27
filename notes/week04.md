@@ -141,15 +141,19 @@ Node also includes a number of other extremely useful core ["modules"](https://n
 
 * This module is used to work directly with the file system to read and write files. All methods of fs have synchronous and asynchronous versions of the methods. Depending on your needs, you can make use of either type but typically it is best to use the async versions to avoid blocking the node event loop.
 
-**[url](https://nodejs.org/api/url.html#url_url)**
+<!--**[url](https://nodejs.org/api/url.html#url_url)**
 
 * The url utility module provides methods for parsing and working with a url. You can use it to get pieces of a given url string like the protocol, hostname, port, querystring parameters, anchor hash, etc
+
+NOTE: This was removed because the "parse" method is deprecated / considered legacy (use: WHATWG URL API instead, ie: const myURL = new URL('https://www.google.com/')
+
+-->
 
 <!-- **[queryString](https://nodejs.org/api/querystring.html#querystring_query_string)**
 
 * Similar to the url module the queryString module has utility methods for parsing and working with the query string part of a url. It can convert a query string into an object of the key value pairs and more. 
 
-NOTE: This was removed because it's deprecated / considered legacy
+NOTE: This was removed because it's deprecated / considered legacy (use: URLSearchParams instead, ie: const urlParams = new URLSearchParams('&foo=bar&bar=baz')
 
 -->
 
