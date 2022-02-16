@@ -659,7 +659,7 @@ This is a typical use of arrow functions, ie to simplify a scenario in which we 
 
 #### A Word of Warning
 
-Be careful when using arrow functions, as not every situation calls for a "lexical this". For example, when we declare methods on an object, we always want "this" to point to the current object, so "lexical this" doesn't make sense and arrow functions will actually fail to behave as expected:
+Be careful when using arrow functions, as not every situation calls for a "lexical this". For example, when we declare methods on an object using object literal notation, we always want "this" to point to the current object, so "lexical this" doesn't make sense and arrow functions will actually fail to behave as expected:
 
 ```javascript
 var test1obj = {
