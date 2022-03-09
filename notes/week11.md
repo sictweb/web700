@@ -120,6 +120,8 @@ sequelize
 
 Where **database** is your randomly generated Heroku Postgres Database name, **user** is your username, **password** is your password and lastly, **host** will be your Heroku Postgres Database host url. Recall: all of this information is available online via the Heroku dashboard under **Resources > Add-ons - Heroku Postgres :: Database** for your specific app
 
+> **Quick Note:** If you wish to use "raw" with [Joins / Eager Loading](https://sequelize.org/master/manual/eager-loading.html), place the `{raw: true}` option on your individual queries (see the following issue here: [https://github.com/sequelize/sequelize/issues/6408](https://github.com/sequelize/sequelize/issues/6408))
+
 Once you have updated your app to use the **Sequelize** module, try running it using our usual "**node server.js**" command. If everything was entered correctly, you should see the following message in the console:
 
 ```bash
