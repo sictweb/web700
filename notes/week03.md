@@ -6,8 +6,6 @@ layout: default
 
 ## WEB700 Week 3 Notes
 
-<br>
-
 ### Object-Oriented JavaScript
 
 So far we've been working with built-in `Objects` in JavaScript.  We can also create our own in order to model complex data types in our programs.  There are a number of ways to do this, and we'll look at a few of them now.
