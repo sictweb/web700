@@ -42,6 +42,7 @@ Object Oriented JavaScript / ES6 Features:<br /><br />
 <ul>
 <li>Custom Objects using Object Literal Notation, Function Constructors & Class Keyword</li>
 <li>Error handling with try / catch / finally & throw</li>
+<li>Promises</li>
 <li>"var" vs "let" vs "const"</li>
 <li>“this” keyword & arrow functions (lexical “this”)</li>
 </ul>
