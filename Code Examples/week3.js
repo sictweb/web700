@@ -8,11 +8,8 @@
 /////////////////////
 
 //showObjectLiteralNotation();
-//showFunctionConstructor();
-//showThisKeyword();
-//showPrototypalInheritance();
-//showVarLetConst();
 //showClassKeyword();
+//showVarLetConst();
 //showExceptionHandling();
 //showChainingPromises();
 //showArrowFunctions();
@@ -54,136 +51,6 @@ function showObjectLiteralNotation() {
 
 }
 
-function showFunctionConstructor() {
-
-    console.log("\n-----------------------");
-    console.log("Function Constructor");
-    console.log("-----------------------\n");
-
-    // Declare a function to initialize our "new" object with
-    // properties (ie: "objectProperty")
-    function myObjectInitializer(initialVal) {
-        this.objectProperty = initialVal;
-    }
-
-    // add methods (ie: "objectMethod") to the myObjectInitializer function prototype
-    myObjectInitializer.prototype.objectMethod = function () { return this.objectProperty };
-
-    // create a new object and initialize the objectProperty with the value "Hello"
-    var myObject = new myObjectInitializer("Hello");
-
-    // execute the "objectMethod" on the new object
-    console.log("myObject.objectMethod(): " + myObject.objectMethod());
-
-    function architect(setName, setAge) {
-        this.name = setName;
-        this.age = setAge;
-        this.occupation = "architect";
-    }
-
-    architect.prototype.setName = function (newName) { this.name = newName };
-    architect.prototype.setAge = function (newAge) { this.age = newAge };
-    architect.prototype.getName = function () { return this.name };
-    architect.prototype.getAge = function () { return this.age };
-
-    var architect1 = new architect("Joe", 34);
-    var architect2 = new architect("Mary", 49);
-
-    console.log("architect1.name: " + architect1.name);
-    console.log("architect1.getName()): " + architect1.getName());
-    console.log("architect2.getName(): " + architect2.getName());
-}
-
-function showThisKeyword() {
-
-    console.log("\n-----------------------");
-    console.log("'this' Keyword");
-    console.log("-----------------------\n");
-
-    function architect(setName, setAge) {
-        this.name = setName;
-        this.age = setAge;
-        this.occupation = "architect";
-    }
-
-    architect.prototype.setName = function (newName) { this.name = newName };
-    architect.prototype.setAge = function (newAge) { this.age = newAge };
-    architect.prototype.getName = function () { return this.name };
-    architect.prototype.getAge = function () { return this.age };
-
-    var architect1 = new architect("Joe", 34);
-    var architect2 = new architect("Mary", 49);
-
-    architect.prototype.outputNameDelay = function () {
-        setTimeout(function () {
-            console.log(this.name);
-        }, 1000);
-    }
-
-    architect2.outputNameDelay();
-
-    architect.prototype.outputNameDelayFixed = function () {
-        var that = this;
-        setTimeout(function () {
-            console.log(that.name);
-        }, 1000);
-    };
-
-    architect2.outputNameDelayFixed();
-}
-
-function showPrototypalInheritance() {
-
-    console.log("\n-----------------------");
-    console.log("Prototypal Inheritance");
-    console.log("-----------------------\n");
-
-    function architect(setName, setAge) {
-        this.name = setName;
-        this.age = setAge;
-        this.occupation = "architect";
-    }
-
-    architect.prototype.setName = function (newName) { this.name = newName },
-        architect.prototype.setAge = function (newAge) { this.age = newAge },
-        architect.prototype.getName = function () { return this.name },
-        architect.prototype.getAge = function () { return this.age }
-
-    var architect1 = new architect("Joe", 34);
-    var architect2 = new architect("Mary", 49);
-
-    architect.prototype.newMethod = function () {
-        return "Hello: " + this.name;
-    };
-
-    console.log("architect2.newMethod(): " + architect2.newMethod());
-}
-
-function showVarLetConst() {
-
-    console.log("\n-----------------------");
-    console.log("var vs. let vs. const");
-    console.log("-----------------------\n");
-
-    for (var i = 0; i < 5; i++) {
-        // ...
-    }
-
-    console.log("using var: " + typeof i);
-
-    for (let j = 0; j < 5; j++) {
-        // ...
-    }
-
-    console.log("using let: " + typeof j);
-
-    for (const k = 0; k < 5; k++) { // TypeError: Assignment to constant variable.
-        // ...
-    }
-
-    console.log("using const: " + typeof k);
-}
-
 function showClassKeyword(){
 
     console.log("\n-----------------------");
@@ -209,6 +76,31 @@ function showClassKeyword(){
     console.log("architect1.name: " + architect1.name);
     console.log("architect1.getName()): " + architect1.getName());
     console.log("architect2.getName(): " + architect2.getName());
+}
+
+function showVarLetConst() {
+
+    console.log("\n-----------------------");
+    console.log("var vs. let vs. const");
+    console.log("-----------------------\n");
+
+    for (var i = 0; i < 5; i++) {
+        // ...
+    }
+
+    console.log("using var: " + typeof i);
+
+    for (let j = 0; j < 5; j++) {
+        // ...
+    }
+
+    console.log("using let: " + typeof j);
+
+    for (const k = 0; k < 5; k++) { // TypeError: Assignment to constant variable.
+        // ...
+    }
+
+    console.log("using const: " + typeof k);
 }
 
 function showExceptionHandling() {
@@ -353,24 +245,29 @@ function showLexicalThis() {
     console.log("\n-----------------------");
     console.log("'Lexical This' with Arrow Functions");
     console.log("-----------------------\n");
+    
+    class architect{
+        constructor(setName, setAge){
+            this.name = setName;
+            this.age = setAge;
+            this.occupation = "architect";
+        }
 
-    function architect(setName, setAge) {
-        this.name = setName;
-        this.age = setAge;
-        this.occupation = "architect";
+        setName(newName){ this.name = newName }
+        setAge(newAge){ this.age = newAge }
+        getName(){ return this.name }
+        getAge(){ return this.age }
+        outputNameDelay() {
+            setTimeout(() => { console.log(this.name); }, 1000);
+        };
     }
-
-    architect.prototype.setName = function (newName) { this.name = newName };
-    architect.prototype.setAge = function (newAge) { this.age = newAge };
-    architect.prototype.getName = function () { return this.name };
-    architect.prototype.getAge = function () { return this.age };
-
+    
     var architect1 = new architect("Joe", 34);
     var architect2 = new architect("Mary", 49);
 
-    architect.prototype.outputNameDelay = function () {
-        setTimeout(() => { console.log(this.name); }, 1000);
-    };
+    console.log("architect1.name: " + architect1.name);
+    console.log("architect1.getName()): " + architect1.getName());
+    console.log("architect2.getName(): " + architect2.getName());
 
     architect2.outputNameDelay();
 }
