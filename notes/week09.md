@@ -598,18 +598,6 @@ As before, we will be using the standard locations for our files in the server, 
 
 It is within this {% raw %}{{{body}}}{% endraw %} placeholder that our view (.hbs) files (from our "views" directory) will actually be rendered! No longer do we have to place the same common html elements, header, navigation menu, body container, footer etc. on every single page. Now, we can specify them once in our "default" layout and render all of our views in a common location within the layout. Every view will be rendered with the same header, footer, etc.
 
-To set this up correctly and ensure that our new "main.hbs" file is the "default" layout, we need to make a simple addition to our familiar express handlebars configuration object.
-
-```javascript
-app.engine('.hbs', exphbs.engine({ 
-    //...
-    defaultLayout: 'main'
-    //...
-}));
-```
-
-By setting the "defaultLayout" property to our "main.hbs" layout, we can ensure that every time we "render" our .hbs files, the result will be placed within the {% raw %}{{{body}}}{% endraw %} placeholder of our "main" layout.
-
 If we don't wish to use the default layout for a particular view, we must explicitly set "layout: false" when we invoke the "render" function:
 
 ```javascript
@@ -619,7 +607,7 @@ res.render('viewData', {
 });
 ```
 
-Similairly, we can use a different layout by specifying it in the "layout" property, ie:
+Similarly, we can use a different layout by specifying it in the "layout" property, ie:
 
 ```javascript
 res.render('viewData', {
