@@ -180,7 +180,7 @@ Now, after accepting or adding an exception for the warning you should see your 
 
 #### Using Let's Encrypt with Node.js
 
-We won't be able to actually get Let's Encrypt working with an example in this class. The reason is that it requires a custom domain that is publicly available on the web, so that the Let's Encrypt servers can connect to it and issue a certificate. Since all of our (free) Heroku applications all use the default _**appname**_.herokuapp.com domain, they are already SSL-enabled and can be accessed by using https, for example: https://_**appname**_.herokuapp.com. If our app was using a [custom domain](https://devcenter.heroku.com/articles/custom-domains) and was upgraded to use "paid dynos" ([Hobby or above](https://devcenter.heroku.com/articles/dyno-types)), we would leverage [Heroku SSL](https://devcenter.heroku.com/articles/ssl). However, even though we will not be using Let's Encrypt, we will still discuss the main tools involved, so that you will know where to start when developing on your own applications in the future.
+We won't be able to actually get Let's Encrypt working with an example in this class. The reason is that it requires a custom domain that is publicly available on the web, so that the Let's Encrypt servers can connect to it and issue a certificate. Since all of our (free) Cyclic applications all use the default _**appname**_.cyclic.app domain, they are already SSL-enabled and can be accessed by using https, for example: https://_**appname**_.cyclic.app.
 
 There are a few libraries out there that integrate the Let's Encrypt environment into Node or the command line to allow generation of certificates: [greenlock-express](https://www.npmjs.com/package/greenlock-express), and [greenlock-cli](https://www.npmjs.com/package/greenlock-cli) are excellent tools for integrating into express or just using the command line to get certificates.
 
@@ -204,8 +204,7 @@ If we wish to encrypt a plain text password (ie: "myPassword123"), we can use [b
 
 ```javascript    
 // Encrypt the plain text: "myPassword123"
-bcrypt.hash("myPassword123",10) // Encrypt the password: "myPassword123" using a "salt" value, generated using 10 rounds
-.then(hash=>{
+ bcrypt.hash("myPassword123", 10).then(hash=>{ // Hash the password using a Salt that was generated using 10 rounds
     // TODO: Store the resulting "hash" value in the DB
 })
 .catch(err=>{

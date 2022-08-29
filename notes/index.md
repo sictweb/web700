@@ -71,7 +71,7 @@ Express.js Introduction &amp; Deployment:<br /><br />
 <li>Middleware</li>
 <li>Error Handling</li>
 <li>Chrome Dev tools – Network tab, Response data</li>
-<li>Git &amp; Heroku ("Heroku Guide")</li>
+<li>Git &amp; Cyclic ("Cyclic Guide")</li>
 </ul>
 </td>
 </tr>

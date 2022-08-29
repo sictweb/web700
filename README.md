@@ -7,7 +7,7 @@ Welcome to WEB700: "Web Programming Foundations".  As budding Database Applicati
 
 In this course we will learn some of the foundational skills necessary to build and deploy simple Web Applications that leverage this type of resource.  This will include: foundational knowledge of JavaScript (ECMAScript 6, ie: ES6), the Node.js JavaScript Runtime, the Express.js web application framework, the HTTP Protocol, HTML 5 / CSS 3 and finally, an introduction to web security. 
 
-Before we get started, please have a look around the site and familiarize yourself with the Schedule, Resources and Graded Work policies for the course.  If you're looking to get started right away, the "Heroku Guide" is a great place to start.
+Before we get started, please have a look around the site and familiarize yourself with the Schedule, Resources and Graded Work policies for the course.  If you're looking to get started right away, the "Cyclic Guide" is a great place to start.
 
 <br>
 

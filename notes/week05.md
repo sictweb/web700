@@ -338,9 +338,9 @@ The network tab in the dev tools is one of the core tools for debugging on the c
 
 <br>
 
-### Publishing Our Code (Heroku Guide)
+### Publishing Our Code (Cyclic Guide)
 
-As a final task for this week, follow along with the "[Getting Started With Heroku](/getting-started-with-heroku)" Guide.  This will allow us to place our code online and create web applications that are accessible on the Web. 
+As a final task for this week, follow along with the "[Getting Started With Cyclic](/getting-started-with-cyclic)" Guide.  This will allow us to place our code online and create web applications that are accessible on the Web. 
 
 ### Sources
 

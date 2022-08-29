@@ -22,31 +22,33 @@ From the PostgreSQL site, [postgresql.org](https://www.postgresql.org):
 
 This is a great choice for us for multiple reasons; it is open source, highly available, standards compliant and most importantly, works nicely with node.js.
 
-To get started, we need to **add a Postgre database (DB)** to a new (or existing) **Heroku application**. For specific instructions (and to refresh your memory) on creating a new application in Heroku, refer to the [Getting Started with Heroku](/getting-started-with-heroku) guide.
+To get started, proceed to [https://www.elephantsql.com](https://www.elephantsql.com) and click on the large green button: **"Get a managed database today"** and follow the below steps to set up the database:
 
-Once your app is up and running, [log into Heroku](https://id.heroku.com/login) and find your application on the dashboard - it should have an automatically generated name, like "cryptic-garden-34394". Next, follow the steps to set up your free Postgres database!
+1. Choose the "TINY TURTLE" option by clicking the **"Try now for FREE"** button
 
-1.  Click on your application to go to the configuration screen  
-      
-    
-2.  At the bottom, you will see an "Add-ons" section with a textbox "Quickly add add-ons from Elements" ![Find more add ons](/media/heroku-screen1.png)
+2. At the next screen, click the **"sign in with GitHub"** button, since we already have a GitHub account
 
-3.  Type "Heroku Postgres" into this textbox and click the "Heroku Postgres" item that comes up:![Heroku Postgres](/media/heroku-screen4.png)
+3. Next, you will need to provide a "Name" for your instance.  You may choose anything you like for this field, ie "Seneca DB Instance".
 
-4.  This will open a dialog window showing you that "Heroku Postgres" will be added to your application. Be sure you leave the "Plan name" to **Hobby Dev - Free** and click **Submit Order Form**  
-      
-    
-5.  This will create an item (link) in your "Add-ons" section with the label: **"Heroku Postgres :: Database"**. Click this link to go to the page for your new Postgres Database instance!  
-      
-    
-6.  Scroll down to the "Administration" section and click the "View Credentials" button on the right side of the page in the "Database Credentials" section. This will expand a section that lists all of the credentials that you will use when connecting to this database.  
-      
-    
-7.  Write down the following information for: **Host**, **Database**, **User**, **Port**, **Password**. Note: You can always log back on to Heroku to see these credentials if you forget them.
+4. Click the **"Select Region"** button
+
+5. At the next screen, feel free to choose whichever data center you wish.  However, keeping the default (US-East-1, depending on where you are) is fine.  Click the green **"Review"** button to proceed
+
+6.  If everything looks correct (ie: "Total" should be "Free", the name should be what you typed in, etc.), click the **"Create Instance"** button.  This will take you to the "Instances" screen.
+
+7.  Click on the name of your newly created instance, ie "Seneca DB Instance"
+
+8.  Record the following information, as we will need it later:
+    - **Server**: something like: "jelani.db.elephantsql.com" - do not include the value in brackets after ".com"
+    - **User & Default database**:  This will serve as both your user name and database name
+    - **Password**:  This is the password that you will use to connect to this instance in your code
+
+    > **NOTE** You can always log back in to ElephantSQL if you forget the server / credentials
+
 
 #### pgAdmin
 
-Now that we have our brand new Postgres database created in Heroku, why don't we try to connect to it using the most popular GUI tool for Postgres; [pgAdmin](https://www.pgadmin.org). If you're following along from the lab room, it should already be installed. However, if you're configuring your home machine, you will need to download pgAdmin:
+Now that we have our brand new Postgres database created in ElephantSQL, why don't we try to connect to it using the most popular GUI tool for Postgres; [pgAdmin](https://www.pgadmin.org). If you're following along from the lab room, it should already be installed. However, if you're configuring your home machine, you will need to download pgAdmin:
 
 *   [https://www.pgadmin.org/download/](https://www.pgadmin.org/download/)
 
@@ -55,22 +57,22 @@ Once it is installed and you have opened the app, we need to configure it to con
 1.  Right Click on the **"Servers"** icon in the left pane (Under "Browser") and select **Create > Server**  
       
     
-2.  This will open the "Create - Server" Dialog window. Proceed to enter the following information about your Postgres Database on Heroku  
+2.  This will open the "Create - Server" Dialog window. Proceed to enter the following information about your Postgres Database on ElephantSQL  
       
 
     | Field                                 | Value                                                                                                  |
     |---------------------------------------|--------------------------------------------------------------------------------------------------------|
     | **Name**                                  | This can be anything you like, ie "Test Connection"                                                    |
-    | **(Connection Tab) Host**                 | This is the host for your Heroku Postgres DB, ie: **[some identifier].compute-1.amazonaws.com**             |
-    | **(Connection Tab) Port**                 | This is the port for your Heroku Postgres DB - it should be the same as what's already there, ie: **5432** |
-    | **(Connection Tab) Maintenance database** | Enter your randomly generated Heroku Postgres Database name here                                       |
-    | **(Connection Tab) Username**             | Enter your randomly generated Heroku Postgres Database user name here                                  |
-    | **(Connection Tab) Password**             | Enter your randomly generated Heroku Postgres Database password here                                   |
-    | **(Advanced Tab) DB restriction**         | Under the "Advanced" tab in the "DB Restriction" field, enter your Heroku Postgres Database name       |
+    | **(Connection Tab) Host**                 | This is the server for your ElephantSQL Postgres DB, ie: **jelani.db.elephantsql.com**             |
+    | **(Connection Tab) Port**                 | This is the port for your ElephantSQL Postgres DB - it should be the same as what's already there, ie: **5432** |
+    | **(Connection Tab) Maintenance database** | Enter your randomly generated "User & Default database" value here                                       |
+    | **(Connection Tab) Username**             | Enter your randomly generated "User & Default database" value here                                      |
+    | **(Connection Tab) Password**             | Enter your randomly generated ElephantSQL Postgres Database password here                                   |
+    | **(Advanced Tab) DB restriction**         | Under the "Advanced" tab in the "DB Restriction" field, enter your User & Default database" value and press the "enter" key       |
     
-    Once you have entered all of your information, hit the "Ok" button and click "Servers" in the left pane to expand your server connections. If you entered valid information for the above fields, you should see your Heroku Postgres DB Connection. Expand this item and the following **"Databases (1)"** item, and you should see your database. Expand this item, as well as the nested **"Schemas (1)"** item, followed by the **"public"** item, and you should be presented with something that looks like this:
+    Once you have entered all of your information, hit the "Save" button and click "Servers" in the left pane to expand your server connections. If you entered valid information for the above fields, you should see your ElephantSQL Postgres DB Connection. Expand this item and the following **"Databases (1)"** item, and you should see your database. Expand this item, as well as the nested **"Schemas (1)"** item, followed by the **"public"** item, and you should be presented with something that looks like this:
     
-    ![heroku DB in pgAdmin](/media/Screen-Shot-2017-12-01-at-9.26.24-AM.png)
+    ![DB in pgAdmin](/media/Screen-Shot-2017-12-01-at-9.26.24-AM.png)
     
 **Success!** We will be keeping an eye on our data using this tool so leave it running in the background. Next, why don't we see if we can get our node.js server to connect to the database as well? For us to be able to connect to a relational database, we will need to use an existing module. Fortunately, **sequelize** will do exactly what we want.
 
@@ -118,7 +120,7 @@ sequelize
     });
 ```
 
-Where **database** is your randomly generated Heroku Postgres Database name, **user** is your username, **password** is your password and lastly, **host** will be your Heroku Postgres Database host url. Recall: all of this information is available online via the Heroku dashboard under **Resources > Add-ons - Heroku Postgres :: Database** for your specific app
+Where **database** is your randomly generated “User & Default database” value, **user** is also your randomly generated “User & Default database” value, **password** is your password and lastly, **host** will be your server url (as above). Recall: all of this information is available online via the ElephantSQL dashboard by clicking on your chosen instance name
 
 > **Quick Note:** If you wish to use "raw" with [Joins / Eager Loading](https://sequelize.org/master/manual/eager-loading.html), place the `{raw: true}` option on your individual queries (see the following issue here: [https://github.com/sequelize/sequelize/issues/6408](https://github.com/sequelize/sequelize/issues/6408))
 
@@ -180,7 +182,7 @@ sequelize.sync().then(function () {
 });
 ```
 
-Once again, **database** is your randomly generated Heroku Postgres Database name, **user** is your username, **password** is your password and **host** is your Heroku Postgres Database host url.
+Once again, **database** is your randomly generated “User & Default database” value, **user** is also your randomly generated “User & Default database” value, **password** is your password and lastly, **host** will be your server url.
 
 There is a lot going on in the above code - but before we walk through what everything is doing, try updating the above code with your database credentials and run it once again with **node server.js**. You should see the something very similar to the following output:
 
@@ -248,7 +250,7 @@ sequelize.sync().then(function () {
 });
 ```
 
-The [sequelize.sync()](http://docs.sequelizejs.com/class/lib/sequelize.js~Sequelize.html#instance-method-sync) operation needs to be completed before we can do anything else. This ensures that all of our models are represented in the database as tables. If we have defined a model in our code that doesn't correspond to a table in the database, **sequelize.sync()** will automatically create it (as we have seen).
+The [sequelize.sync()](https://sequelize.org/api/v6/class/src/sequelize.js~sequelize#instance-method-sync) operation needs to be completed before we can do anything else. This ensures that all of our models are represented in the database as tables. If we have defined a model in our code that doesn't correspond to a table in the database, **sequelize.sync()** will automatically create it (as we have seen).
 
 > **Important Note:** We **do not** have to sync() the database before every operation. Only once when the server starts to ensure that the models are correctly represented as tables within the database.
 
@@ -260,16 +262,16 @@ If sync() resolves successfully, we then wish to create a new record in the "Pro
 
 ### Defining Models - in detail
 
-One of the most important things we must do when working with Sequelize is to correctly [set up all of our models](http://docs.sequelizejs.com/en/latest/docs/models-definition/). Once the models are set up successfully, working with the data is simple. Since each model technically corresponds to a table within our database, what we are really doing is defining tables. Each column of a table within our database stores a specific **type** of data. In our previous example, we define the column **title** as a **STRING** and the column **description** as **TEXT** within a table called **Project**. Sequelize provides definitions for a full [list of types](http://docs.sequelizejs.com/en/latest/api/datatypes/), and each column is given a type. The following is a list of the most common types:
+One of the most important things we must do when working with Sequelize is to correctly [set up all of our models](https://sequelize.org/master/manual/models-definition.html). Once the models are set up successfully, working with the data is simple. Since each model technically corresponds to a table within our database, what we are really doing is defining tables. Each column of a table within our database stores a specific **type** of data. In our previous example, we define the column **title** as a **STRING** and the column **description** as **TEXT** within a table called **Project**. Sequelize provides definitions for a full [list of types](https://sequelize.org/master/manual/data-types.html), and each column is given a type. The following is a list of the most common types:
 
-*   [Sequelize.STRING](http://docs.sequelizejs.com/en/latest/api/datatypes/#string) - A variable length string. Default length 255
-*   [Sequelize.TEXT](http://docs.sequelizejs.com/en/latest/api/datatypes/#text) - An unlimited length text column.
-*   [Sequelize.INTEGER](http://docs.sequelizejs.com/en/latest/api/datatypes/#integer) - A 32 bit integer.
-*   [Sequelize.FLOAT](http://docs.sequelizejs.com/en/latest/api/datatypes/#float) - Floating point number (4-byte precision).
-*   [Sequelize.DOUBLE](http://docs.sequelizejs.com/en/latest/api/datatypes/#double) \- Floating point number (8-byte precision)
-*   [Sequelize.DATE](http://docs.sequelizejs.com/en/latest/api/datatypes/#date) - A datetime column
-*   [Sequelize.TIME](http://docs.sequelizejs.com/en/latest/api/datatypes/#time) - A time column
-*   [Sequelize.BOOLEAN](http://docs.sequelizejs.com/en/latest/api/datatypes/#boolean) - A boolean column
+*   **Sequelize.STRING** - A variable length string. Default length 255
+*   **Sequelize.TEXT** - An unlimited length text column.
+*   **Sequelize.INTEGER** - A 32 bit integer.
+*   **Sequelize.FLOAT** - Floating point number (4-byte precision).
+*   **Sequelize.DOUBLE** - Floating point number (8-byte precision)
+*   **Sequelize.DATE** - A datetime column
+*   **Sequelize.TIME** - A time column
+*   **Sequelize.BOOLEAN** - A boolean column
     
 So, if we want to define a model (table) that stores blog entries, we could use the following code:
 
@@ -291,9 +293,9 @@ var BlogEntry = sequelize.define('BlogEntry', {
 
 #### Model Relationships / Associations
 
-As we know from our work in earlier semesters, tables (models) can be **related** using foreign key relationships / [associations](http://docs.sequelizejs.com/class/lib/associations/base.js~Association.html). For example, say we have a table of **Users** and a table of **Tasks**, where each User could have **1 ore more** Tasks. To enforce this relationship, we would add an additional column on the Tasks table as a foreign-key to the Users table, since 1 or more Tasks could belong to a specific user. For example, "Task 1", "Task 2" and "Task 3" could all belong to "User 1", whereas "Task 4" and "Task 5" may belong to "User 2".
+As we know from our work in earlier semesters, tables (models) can be **related** using foreign key relationships / [associations](https://sequelize.org/master/class/lib/associations/base.js~Association.html). For example, say we have a table of **Users** and a table of **Tasks**, where each User could have **1 or more** Tasks. To enforce this relationship, we would add an additional column on the Tasks table as a foreign-key to the Users table, since 1 or more Tasks could belong to a specific user. For example, "Task 1", "Task 2" and "Task 3" could all belong to "User 1", whereas "Task 4" and "Task 5" may belong to "User 2".
 
-Using Sequelize models, we can easily define this relationship using the [hasMany()](http://docs.sequelizejs.com/manual/tutorial/associations.html#one-to-many-associations) method on our User model (since "User has many Task(s)"), for example:
+Using Sequelize models, we can easily define this relationship using the [hasMany()](https://sequelize.org/master/class/lib/associations/has-many.js~HasMany.html) method on our User model (since "User has many Task(s)"), for example:
 
 ```javascript
 // Define our "User" and "Task" models
@@ -349,9 +351,9 @@ Next, try running this code and take a look at your database in pgAdmin. You sho
 
 **NOTE:** other relationships can be defined using the following functions:
 
-*   [belongsTo()](http://docs.sequelizejs.com/manual/tutorial/associations.html#belongsto)
-*   [hasOne()](http://docs.sequelizejs.com/manual/tutorial/associations.html#hasone)
-*   [belongsToMany()](http://docs.sequelizejs.com/manual/tutorial/associations.html#belongs-to-many-associations)
+*   [belongsTo()](https://sequelize.org/master/class/lib/associations/belongs-to.js~BelongsTo.html)
+*   [hasOne()](https://sequelize.org/master/class/lib/associations/has-one.js~HasOne.html)
+*   [belongsToMany()](https://sequelize.org/master/class/lib/associations/belongs-to-many.js~BelongsToMany.html)
 
 <br>
 
@@ -384,12 +386,12 @@ sequelize.sync().then(function () {
         lName: "Odin"
     }).then(function(){ console.log("Kyler Odin created")});
 
-        Name.create({
+    Name.create({
         fName: "Grier",
         lName: "Garrick"
     }).then(function(){ console.log("Grier Garrick created")});
 
-        Name.create({
+    Name.create({
         fName: "Kolby",
         lName: "Greyson"
     }).then(function(){ console.log("Kolby Greyson created")});
@@ -397,7 +399,7 @@ sequelize.sync().then(function () {
 });
 ```
 
-In the above code we [create](http://docs.sequelizejs.com/manual/tutorial/instances.html#creating-persistent-instances) three new objects following the fields defined in our "Name" model. Since our "Name" model is synchronized with the database, this adds three new records - each with their own unique "id" value, as well as "createdAt" and "updatedAt" values for the implicit primary key and timestamp columns. The create function automatically persists the new object to the database and since it also returns a [promise](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise), we can execute code after the operation is complete. In this case we simply output the name to the console.
+In the above code we [create](https://sequelize.org/master/manual/instances.html#creating-persistent-instances) three new objects following the fields defined in our "Name" model. Since our "Name" model is synchronized with the database, this adds three new records - each with their own unique "id" value, as well as "createdAt" and "updatedAt" values for the implicit primary key and timestamp columns. The create function automatically persists the new object to the database and since it also returns a [promise](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise), we can execute code after the operation is complete. In this case we simply output the name to the console.
 
 <br>
 
@@ -411,7 +413,7 @@ sequelize.sync().then(function () {
     // return all first names only
     Name.findAll({ 
         attributes: ['fName']
-    }).then(function(data){
+    }).then(function(data){        
         console.log("All first names");
         for(var i =0; i < data.length; i++){
             console.log(data[i].fName);
@@ -434,9 +436,9 @@ sequelize.sync().then(function () {
 });
 ```
 
-Here, we are once again using a reference to our "Name" model. This time we are using it to fetch data from the "Name" table using the [findAll()](http://docs.sequelizejs.com/class/lib/model.js~Model.html#static-method-findAll) method. This method takes a number of configuration options in it's object parameter, such as **attributes**, which allows you to limit the columns that are returned (in this case we only want 'fName') and a **where** parameter that enables us to specify conditions that the data must meet to be returned. In the above example, **id** must have a value of **2**. See the documentation for [advanced queries](http://docs.sequelizejs.com/en/latest/docs/querying/) for more detailed query information.
+Here, we are once again using a reference to our "Name" model. This time we are using it to fetch data from the "Name" table using the [findAll()](https://sequelize.org/master/class/lib/model.js~Model.html#static-method-findAll) method. This method takes a number of configuration options in it's object parameter, such as **attributes**, which allows you to limit the columns that are returned (in this case we only want 'fName') and a **where** parameter that enables us to specify conditions that the data must meet to be returned. In the above example, **id** must have a value of **2**. See the documentation for [advanced queries](https://sequelize.org/master/manual/querying.html) for more detailed query information.
 
-Lastly, we can also specify an [order](http://docs.sequelizejs.com/en/latest/docs/querying/#ordering) that the returned data should be in. In the above example, we are not concerned with the order, however in the below "Putting it All Together" example, we wish to order the output by "id" (accomplished by setting the **order:** parameter to **\['id'\]**)
+Lastly, we can also specify an [order](https://sequelize.org/master/manual/querying.html#ordering) that the returned data should be in. In the above example, we are not concerned with the order, however in the below "Putting it All Together" example, we wish to order the output by "id" (accomplished by setting the **order:** parameter to **\['id'\]**)
 
 <br>
 
@@ -446,7 +448,6 @@ To **update** existing names in our **Name** table, we can use the following cod
 
 ```javascript
 sequelize.sync().then(function () {
-
     // update User 2's last name to "James"
     // NOTE: this also updates the "updatedAt field"
     Name.update({
@@ -458,7 +459,7 @@ sequelize.sync().then(function () {
 });
 ```
 
-In order to "update" a record in the "Name" table, we make use of the [update](http://docs.sequelizejs.com/manual/tutorial/instances.html#updating-saving-persisting-an-instance) method. This method takes two parameters: an object that contains all of the properties and (updated) values for a record, and a second object that is used to specify options for the update - most importantly, the **"where"** property. The "where" property contains an object that is used to specify exactly _which_ record should be updated. In this case, it is the row that has an **id** value of **2**.
+In order to "update" a record in the "Name" table, we make use of the [update](https://sequelize.org/master/manual/instances.html#updating---saving---persisting-an-instance) method. This method takes two parameters: an object that contains all of the properties and (updated) values for a record, and a second object that is used to specify options for the update - most importantly, the **"where"** property. The "where" property contains an object that is used to specify exactly _which_ record should be updated. In this case, it is the row that has an **id** value of **2**.
 
 <br>
 
@@ -477,7 +478,7 @@ sequelize.sync().then(function () {
 });
 ```
 
-The delete functionality is actually achieved via a method called [destroy](http://docs.sequelizejs.com/manual/tutorial/instances.html#destroying-deleting-persistent-instances). In this case, we invoke the **destroy** method on the model that contains the record that we wish to remove (ie, "Name"). It takes a single options object as it's only parameter and like the **update** function, the most important option is the **"where"** property. The "where" property contains an object that is used to specify exactly _which_ record should be removed. In this case, it is the row that has an **id** value of **3**.
+The delete functionality is actually achieved via a method called [destroy](https://sequelize.org/master/manual/instances.html#destroying---deleting-persistent-instances). In this case, we invoke the **destroy** method on the model that contains the record that we wish to remove (ie, "Name"). It takes a single options object as it's only parameter and like the **update** function, the most important option is the **"where"** property. The "where" property contains an object that is used to specify exactly _which_ record should be removed. In this case, it is the row that has an **id** value of **3**.
 
 ### Putting it All Together
 
@@ -492,5 +493,5 @@ Once the application is running, you will be able to see all of the changes refl
 ### Sources
 
 *   [https://www.postgresql.org](https://www.postgresql.org)
-*   [http://docs.sequelizejs.com/](http://docs.sequelizejs.com/)
+*   [https://sequelize.org/master/](https://sequelize.org/master/)
 *   [https://en.wikipedia.org/wiki/Object-relational\_mapping](https://en.wikipedia.org/wiki/Object-relational_mapping)
