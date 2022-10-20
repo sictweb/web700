@@ -580,16 +580,12 @@ the `ellipsis`.
 ```html
 <style>
 .movie-title {
-    text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap; 
+  text-overflow: ellipsis;
 }
 </style>
-<span class="movie-title">Pirates of the Caribbean: The Curse of the Black Perl</span>
-```
-**NOTE:** The "text-overflow" property doesn't force an overflow to occur. To make text overflow its container you have to set other CSS properties on the **container**: *overflow* and *white-space*. For example:
-
-```
-overflow: hidden;
-white-space: nowrap;
+<p class="movie-title">Pirates of the Caribbean: The Curse of the Black Perl</p>
 ```
 
 <br>
