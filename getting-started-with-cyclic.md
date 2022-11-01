@@ -188,19 +188,19 @@ With our code finally online, we can sign into Cyclic and give it access to our 
 
       ![Cyclic Create a New App](/media/cyclic-1.png)
 
-4. At the top of the page, switch to the "Link Your Own" tab and locate your private GitHub repository hosting your code (in this case "helloworld")
+5. At the top of the page, switch to the "Link Your Own" tab and begin typing the name of the your private GitHub repository hosting your code (in this case "helloworld")
 
       ![Cyclic Link GitHub](/media/cyclic-2.png)
 
-5. Once your repository is selected, click the "Connect" button
+6. You will see that the repository is not found (this is because it is 'private') - proceed to click the "Add a private repo...".  This will open a new window to configure GitHub for Cyclic.  You can leave "all repositories" selected and click "Approve and install"
 
-6. Confirm access to the repository by once again entering your GitHub password
+      ![Cyclic Link GitHub](/media/cyclic-3.png)
 
-7. Use the default settings for "Repository Access", ie: "Only Select Repositories", with your GitHub repository (ie: "helloworld" selected) and click **"Approve and Install"**
+7. Select your newly added repository from the list and click the "Connect" button
 
-      ![Github Approve and Install Cyclic](/media/cyclic-3.png)
+8. Confirm access to the repository by once again entering your GitHub password
 
-8.  Your code will now take a moment to build.  Once it's complete, you should see some confetti and the text **"You're Live!"** beneath the build log.  From here you can an click the "Go to Dashboard" button to see information about your deployed app, including the generated link to view it live!
+9.  Your code will now take a moment to build.  Once it's complete, you should see some confetti and the text **"You're Live!"** beneath the build log.  From here you can an click the "Go to Dashboard" button to see information about your deployed app, including the generated link to view it live!
 
 <br>
 
