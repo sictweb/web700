@@ -128,7 +128,7 @@ For Cyclic to gain access to our code, we must place it on GitHub.  Therefore, t
 
       ![New repository button screenshot](/media/github-1.png)
 
-3. Fill in the repository name text field with the name of your project. Also, please make sure that the "Public" option is selected (we will make it "Private" after our first deploy):
+3. Fill in the repository name text field with the name of your project. Also, please make sure that the "Private" option is selected:
 
       ![New repository page screenshot](/media/github-2.png)
 
@@ -188,7 +188,7 @@ With our code finally online, we can sign into Cyclic and give it access to our 
 
       ![Cyclic Create a New App](/media/cyclic-1.png)
 
-4. At the top of the page, switch to the "Link Your Own" tab and locate your public GitHub repository hosting your code (in this case "helloworld")
+4. At the top of the page, switch to the "Link Your Own" tab and locate your private GitHub repository hosting your code (in this case "helloworld")
 
       ![Cyclic Link GitHub](/media/cyclic-2.png)
 
@@ -204,22 +204,6 @@ With our code finally online, we can sign into Cyclic and give it access to our 
 
 <br>
 
-#### Change the GitHub Repository to "Private"
-
-Finally, we must change the visibility of the created GitHub repository (ie: "helloworld") to private.  This will not affect Cyclic's access to the app, but it will keep your course work private:
-
-1. Access your repository on GitHub and hit the "Settings" tab
-
-      ![Github Settings Tab](/media/github-settings-1.png)
-
-2.  Scroll all the way the bottom to the "Danger Zone" and click the "Change Visibility" button
-
-      ![Github Change Visibility](/media/github-settings-2.png)
-
-3.  Follow the instructions and prompts from here to change the visibility to "private".
-
-<br>
-
 #### Make Changes and Push to GitHub
 
 Finally, our code is linked to Cyclic via. GitHub!  
@@ -227,6 +211,3 @@ Finally, our code is linked to Cyclic via. GitHub!
 You should now be able to make any changes you wish and trigger a redeploy of your server on Cyclic by simply making changes locally, checking in your code using git and "pushing" it to GitHub, using the above instructions.
 
 Good luck and **Happy Coding!**
-
-
-
