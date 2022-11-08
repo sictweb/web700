@@ -454,9 +454,9 @@ The name of each property belonging to the "helpers" object corresponds to the n
     For example, consider the following helper that wraps text in a "\<strong\>" element:
     
     ```javascript
-        strong: function(options){
-            return '<strong>' + options.fn(this) + '</strong>';
-        }
+    strong: function(options){
+        return '<strong>' + options.fn(this) + '</strong>';
+    }
     ```
     
     To use this helper within our .hbs files, we use the syntax:
