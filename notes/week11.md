@@ -250,7 +250,7 @@ sequelize.sync().then(function () {
 });
 ```
 
-The [sequelize.sync()](https://sequelize.org/api/v6/class/src/sequelize.js~sequelize#instance-method-sync) operation needs to be completed before we can do anything else. This ensures that all of our models are represented in the database as tables. If we have defined a model in our code that doesn't correspond to a table in the database, **sequelize.sync()** will automatically create it (as we have seen).
+The [sequelize.sync()](https://sequelize.org/docs/v6/core-concepts/model-basics/#model-synchronization) operation needs to be completed before we can do anything else. This ensures that all of our models are represented in the database as tables. If we have defined a model in our code that doesn't correspond to a table in the database, **sequelize.sync()** will automatically create it (as we have seen).
 
 > **Important Note:** We **do not** have to sync() the database before every operation. Only once when the server starts to ensure that the models are correctly represented as tables within the database.
 
@@ -262,7 +262,7 @@ If sync() resolves successfully, we then wish to create a new record in the "Pro
 
 ### Defining Models - in detail
 
-One of the most important things we must do when working with Sequelize is to correctly [set up all of our models](https://sequelize.org/master/manual/models-definition.html). Once the models are set up successfully, working with the data is simple. Since each model technically corresponds to a table within our database, what we are really doing is defining tables. Each column of a table within our database stores a specific **type** of data. In our previous example, we define the column **title** as a **STRING** and the column **description** as **TEXT** within a table called **Project**. Sequelize provides definitions for a full [list of types](https://sequelize.org/master/manual/data-types.html), and each column is given a type. The following is a list of the most common types:
+One of the most important things we must do when working with Sequelize is to correctly [set up all of our models](https://sequelize.org/master/manual/models-definition.html). Once the models are set up successfully, working with the data is simple. Since each model technically corresponds to a table within our database, what we are really doing is defining tables. Each column of a table within our database stores a specific **type** of data. In our previous example, we define the column **title** as a **STRING** and the column **description** as **TEXT** within a table called **Project**. Sequelize provides definitions for a full [list of types](https://sequelize.org/docs/v6/core-concepts/model-basics/#data-types), and each column is given a type. The following is a list of the most common types:
 
 *   **Sequelize.STRING** - A variable length string. Default length 255
 *   **Sequelize.TEXT** - An unlimited length text column.
@@ -293,9 +293,9 @@ var BlogEntry = sequelize.define('BlogEntry', {
 
 #### Model Relationships / Associations
 
-As we know from our work in earlier semesters, tables (models) can be **related** using foreign key relationships / [associations](https://sequelize.org/master/class/lib/associations/base.js~Association.html). For example, say we have a table of **Users** and a table of **Tasks**, where each User could have **1 or more** Tasks. To enforce this relationship, we would add an additional column on the Tasks table as a foreign-key to the Users table, since 1 or more Tasks could belong to a specific user. For example, "Task 1", "Task 2" and "Task 3" could all belong to "User 1", whereas "Task 4" and "Task 5" may belong to "User 2".
+As we know from our work in earlier semesters, tables (models) can be **related** using foreign key relationships / [associations](https://sequelize.org/docs/v6/core-concepts/assocs/). For example, say we have a table of **Users** and a table of **Tasks**, where each User could have **1 or more** Tasks. To enforce this relationship, we would add an additional column on the Tasks table as a foreign-key to the Users table, since 1 or more Tasks could belong to a specific user. For example, "Task 1", "Task 2" and "Task 3" could all belong to "User 1", whereas "Task 4" and "Task 5" may belong to "User 2".
 
-Using Sequelize models, we can easily define this relationship using the [hasMany()](https://sequelize.org/master/class/lib/associations/has-many.js~HasMany.html) method on our User model (since "User has many Task(s)"), for example:
+Using Sequelize models, we can easily define this relationship using the hasMany() method on our User model (since "User has many Task(s)"), for example:
 
 ```javascript
 // Define our "User" and "Task" models
@@ -351,9 +351,9 @@ Next, try running this code and take a look at your database in pgAdmin. You sho
 
 **NOTE:** other relationships can be defined using the following functions:
 
-*   [belongsTo()](https://sequelize.org/master/class/lib/associations/belongs-to.js~BelongsTo.html)
-*   [hasOne()](https://sequelize.org/master/class/lib/associations/has-one.js~HasOne.html)
-*   [belongsToMany()](https://sequelize.org/master/class/lib/associations/belongs-to-many.js~BelongsToMany.html)
+*   belongsTo()
+*   hasOne()]
+*   belongsToMany()
 
 <br>
 
@@ -399,7 +399,7 @@ sequelize.sync().then(function () {
 });
 ```
 
-In the above code we [create](https://sequelize.org/master/manual/instances.html#creating-persistent-instances) three new objects following the fields defined in our "Name" model. Since our "Name" model is synchronized with the database, this adds three new records - each with their own unique "id" value, as well as "createdAt" and "updatedAt" values for the implicit primary key and timestamp columns. The create function automatically persists the new object to the database and since it also returns a [promise](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise), we can execute code after the operation is complete. In this case we simply output the name to the console.
+In the above code we [create](https://sequelize.org/docs/v6/core-concepts/model-instances/#a-very-useful-shortcut-the-create-method) three new objects following the fields defined in our "Name" model. Since our "Name" model is synchronized with the database, this adds three new records - each with their own unique "id" value, as well as "createdAt" and "updatedAt" values for the implicit primary key and timestamp columns. The create function automatically persists the new object to the database and since it also returns a [promise](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise), we can execute code after the operation is complete. In this case we simply output the name to the console.
 
 <br>
 
@@ -436,9 +436,9 @@ sequelize.sync().then(function () {
 });
 ```
 
-Here, we are once again using a reference to our "Name" model. This time we are using it to fetch data from the "Name" table using the [findAll()](https://sequelize.org/master/class/lib/model.js~Model.html#static-method-findAll) method. This method takes a number of configuration options in it's object parameter, such as **attributes**, which allows you to limit the columns that are returned (in this case we only want 'fName') and a **where** parameter that enables us to specify conditions that the data must meet to be returned. In the above example, **id** must have a value of **2**. See the documentation for [advanced queries](https://sequelize.org/master/manual/querying.html) for more detailed query information.
+Here, we are once again using a reference to our "Name" model. This time we are using it to fetch data from the "Name" table using the [findAll()](https://sequelize.org/docs/v6/core-concepts/model-querying-basics/#simple-select-queries) method. This method takes a number of configuration options in it's object parameter, such as **attributes**, which allows you to limit the columns that are returned (in this case we only want 'fName') and a **where** parameter that enables us to specify conditions that the data must meet to be returned. In the above example, **id** must have a value of **2**. See the documentation for [advanced queries](https://sequelize.org/master/manual/querying.html) for more detailed query information.
 
-Lastly, we can also specify an [order](https://sequelize.org/master/manual/querying.html#ordering) that the returned data should be in. In the above example, we are not concerned with the order, however in the below "Putting it All Together" example, we wish to order the output by "id" (accomplished by setting the **order:** parameter to **\['id'\]**)
+Lastly, we can also specify an [order](https://sequelize.org/docs/v6/core-concepts/model-querying-basics/#ordering) that the returned data should be in. In the above example, we are not concerned with the order, however in the below "Putting it All Together" example, we wish to order the output by "id" (accomplished by setting the **order:** parameter to **\['id'\]**)
 
 <br>
 
@@ -459,7 +459,7 @@ sequelize.sync().then(function () {
 });
 ```
 
-In order to "update" a record in the "Name" table, we make use of the [update](https://sequelize.org/master/manual/instances.html#updating---saving---persisting-an-instance) method. This method takes two parameters: an object that contains all of the properties and (updated) values for a record, and a second object that is used to specify options for the update - most importantly, the **"where"** property. The "where" property contains an object that is used to specify exactly _which_ record should be updated. In this case, it is the row that has an **id** value of **2**.
+In order to "update" a record in the "Name" table, we make use of the [update](https://sequelize.org/docs/v6/core-concepts/model-instances/#updating-an-instance) method. This method takes two parameters: an object that contains all of the properties and (updated) values for a record, and a second object that is used to specify options for the update - most importantly, the **"where"** property. The "where" property contains an object that is used to specify exactly _which_ record should be updated. In this case, it is the row that has an **id** value of **2**.
 
 <br>
 
@@ -478,7 +478,7 @@ sequelize.sync().then(function () {
 });
 ```
 
-The delete functionality is actually achieved via a method called [destroy](https://sequelize.org/master/manual/instances.html#destroying---deleting-persistent-instances). In this case, we invoke the **destroy** method on the model that contains the record that we wish to remove (ie, "Name"). It takes a single options object as it's only parameter and like the **update** function, the most important option is the **"where"** property. The "where" property contains an object that is used to specify exactly _which_ record should be removed. In this case, it is the row that has an **id** value of **3**.
+The delete functionality is actually achieved via a method called [destroy](https://sequelize.org/docs/v6/core-concepts/model-instances/#deleting-an-instance). In this case, we invoke the **destroy** method on the model that contains the record that we wish to remove (ie, "Name"). It takes a single options object as it's only parameter and like the **update** function, the most important option is the **"where"** property. The "where" property contains an object that is used to specify exactly _which_ record should be removed. In this case, it is the row that has an **id** value of **3**.
 
 ### Putting it All Together
 
