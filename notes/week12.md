@@ -97,7 +97,7 @@ Now that we have a server.crt file and a server.key file we can plug these into 
 
 Let's take our week 12 example (available on [GitHub]({{ site.github.repository_url }})) and add HTTPS to it for logins (NOTE: we will be working from the "examples" folder, so open it in Visual Studio Code once you have cloned it from the repository. Do not forget to issue the command "npm install" to obtain the required modules). In week12.js, we will need to add a require for fs to read the certificates from the file system, load the files and put them in an options object for the https server, use http and https to start the servers instead of starting it on the express app, and finally update the ports and assets locations.
 
-Add the following code underneath the "client-sessions" require statement, and before "user" is declared. We will be overriding the HTTP\_PORT and WEEK10ASSETS variables.
+Add the following code before "user" is declared. We will be overriding the HTTP\_PORT and WEEK10ASSETS variables.
 
 ```javascript
 const fs = require("fs");
