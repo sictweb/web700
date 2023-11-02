@@ -22,59 +22,43 @@ From the PostgreSQL site, [postgresql.org](https://www.postgresql.org):
 
 This is a great choice for us for multiple reasons; it is open source, highly available, standards compliant and most importantly, works nicely with node.js.
 
-To get started, proceed to [https://www.elephantsql.com](https://www.elephantsql.com) and click on the large green button: **"Get a managed database today"** and follow the below steps to set up the database:
+To get started, proceed to [https://neon.tech](https://neon.tech) and click on the green button: **"Sign in"** and log in with your GitHub account. Once you're logged in, follow the below steps to set up the database:
 
-1. Choose the "TINY TURTLE" option by clicking the **"Try now for FREE"** button
+1. in the "Get started with Neon for Free" page, enter a value for project Name, ie: **Seneca** and Database Name, ie: **SenecaDB** (We can add more databases later)
 
-2. At the next screen, click the **"sign in with GitHub"** button, since we already have a GitHub account
+2. Leave "region" as the default value and Click the **Create Project** Button.
 
-3. Next, you will need to provide a "Name" for your instance.  You may choose anything you like for this field, ie "Seneca DB Instance".
+3. At the next screen, you should see the "psql" dropdown selected. Click the **gray box** in the text to reveal your password
 
-4. Click the **"Select Region"** button
+4. Next, click the "psql" dropdown and choose **Node.js**
 
-5. At the next screen, feel free to choose whichever data center you wish.  However, keeping the default (US-East-1, depending on where you are) is fine.  Click the green **"Review"** button to proceed
+5. Copy the **PGHOST**, **PGDATABASE**, **PGUSER** and **PGPASSWORD** values and click the **"I'll Do this Later"** button
 
-6.  If everything looks correct (ie: "Total" should be "Free", the name should be what you typed in, etc.), click the **"Create Instance"** button.  This will take you to the "Instances" screen.
+## pgAdmin
 
-7.  Click on the name of your newly created instance, ie "Seneca DB Instance"
+Now that we have our brand new Postgres database created in Neon.tech, why don't we try to connect to it using the most popular GUI tool for Postgres; [pgAdmin](https://www.pgadmin.org). If you're following along from the lab room, it should already be installed. However, if you're configuring your home machine, you will need to download pgAdmin:
 
-8.  Record the following information, as we will need it later:
-    - **Server**: something like: "jelani.db.elephantsql.com" - do not include the value in brackets after ".com"
-    - **User & Default database**:  This will serve as both your user name and database name
-    - **Password**:  This is the password that you will use to connect to this instance in your code
-
-    > **NOTE** You can always log back in to ElephantSQL if you forget the server / credentials
-
-
-#### pgAdmin
-
-Now that we have our brand new Postgres database created in ElephantSQL, why don't we try to connect to it using the most popular GUI tool for Postgres; [pgAdmin](https://www.pgadmin.org). If you're following along from the lab room, it should already be installed. However, if you're configuring your home machine, you will need to download pgAdmin:
-
-*   [https://www.pgadmin.org/download/](https://www.pgadmin.org/download/)
+- [https://www.pgadmin.org/download/](https://www.pgadmin.org/download/)
 
 Once it is installed and you have opened the app, we need to configure it to connect to our database:
 
-1.  Right Click on the **"Servers"** icon in the left pane (Under "Browser") and select **Create > Server**  
-      
-    
-2.  This will open the "Create - Server" Dialog window. Proceed to enter the following information about your Postgres Database on ElephantSQL  
-      
+1.  Right Click on the **"Servers"** icon in the left pane (Under "Browser") and select **Create > Server**
+2.  This will open the "Create - Server" Dialog window. Proceed to enter the following information about your Postgres Database on Neon.tech
 
-    | Field                                 | Value                                                                                                  |
-    |---------------------------------------|--------------------------------------------------------------------------------------------------------|
-    | **Name**                                  | This can be anything you like, ie "Test Connection"                                                    |
-    | **(Connection Tab) Host**                 | This is the server for your ElephantSQL Postgres DB, ie: **jelani.db.elephantsql.com**             |
-    | **(Connection Tab) Port**                 | This is the port for your ElephantSQL Postgres DB - it should be the same as what's already there, ie: **5432** |
-    | **(Connection Tab) Maintenance database** | Enter your randomly generated "User & Default database" value here                                       |
-    | **(Connection Tab) Username**             | Enter your randomly generated "User & Default database" value here                                      |
-    | **(Connection Tab) Password**             | Enter your randomly generated ElephantSQL Postgres Database password here                                   |
-    | **(Advanced Tab) DB restriction**         | Under the "Advanced" tab in the "DB Restriction" field, enter your User & Default database" value and press the "enter" key       |
-    
-    Once you have entered all of your information, hit the "Save" button and click "Servers" in the left pane to expand your server connections. If you entered valid information for the above fields, you should see your ElephantSQL Postgres DB Connection. Expand this item and the following **"Databases (1)"** item, and you should see your database. Expand this item, as well as the nested **"Schemas (1)"** item, followed by the **"public"** item, and you should be presented with something that looks like this:
-    
-    ![DB in pgAdmin](/media/Screen-Shot-2017-12-01-at-9.26.24-AM.png)
-    
-**Success!** We will be keeping an eye on our data using this tool so leave it running in the background. Next, why don't we see if we can get our node.js server to connect to the database as well? For us to be able to connect to a relational database, we will need to use an existing module. Fortunately, **sequelize** will do exactly what we want.
+    | Field                                     | Value                                                                                                           |
+    | ----------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+    | **Name**                                  | This can be anything you like, ie "Test Connection"                                                             |
+    | **(Connection Tab) Host**                 | This is the server for your Neon.tech Postgres DB ("PGHOST" value), ie: **ab-cd-12345.us-east-2.aws.neon.tech** |
+    | **(Connection Tab) Port**                 | This is the port for your Neon.tech Postgres DB - it should be the same as what's already there, ie: **5432**   |
+    | **(Connection Tab) Maintenance database** | Enter your "PGDATABASE" value here                                                                              |
+    | **(Connection Tab) Username**             | Enter your "PGUSER" value here                                                                                  |
+    | **(Connection Tab) Password**             | Enter your "PGPASSWORD" value here                                                                              |
+
+    Once you have entered all of your information, hit the "Save" button and click "Servers" in the left pane to expand your server connections. If you entered valid information for the above fields, you should see your Neon.tech Postgres DB Connection. Expand this item and the following **"Databases (2)"** item, and you should see your database. Expand this item, as well as the nested **"Schemas (1)"** item, followed by the **"public"** item, and you should be presented with something that looks like this:
+
+    ![DB in pgAdmin](/img/pgAdmin4.png)
+
+**Success!** We will be keeping an eye on our data using this tool, so it is wise to have it running during development. Next, why don't we see if we can get our node.js server to connect to the database as well? For us to be able to connect to a relational database, we will need to use an existing module. Fortunately, **sequelize** will do exactly what we want.
 
 <br>
 
@@ -120,7 +104,7 @@ sequelize
     });
 ```
 
-Where **database** is your randomly generated “User & Default database” value, **user** is also your randomly generated “User & Default database” value, **password** is your password and lastly, **host** will be your server url (as above). Recall: all of this information is available online via the ElephantSQL dashboard by clicking on your chosen instance name
+Where **database** is your "PGDATABASE" value, **user** is your "PGUSER" value, **password** is your "PGPASSWORD" and lastly, **host** will be your "PGHOST" url (ie: "ab-cd-12345.us-east-2.aws.neon.tech").
 
 > **Quick Note:** If you wish to use "raw" with [Joins / Eager Loading](https://sequelize.org/master/manual/eager-loading.html), place the `{raw: true}` option on your individual queries (see the following issue here: [https://github.com/sequelize/sequelize/issues/6408](https://github.com/sequelize/sequelize/issues/6408))
 
