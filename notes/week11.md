@@ -56,7 +56,7 @@ Once it is installed and you have opened the app, we need to configure it to con
 
     Once you have entered all of your information, hit the "Save" button and click "Servers" in the left pane to expand your server connections. If you entered valid information for the above fields, you should see your Neon.tech Postgres DB Connection. Expand this item and the following **"Databases (2)"** item, and you should see your database. Expand this item, as well as the nested **"Schemas (1)"** item, followed by the **"public"** item, and you should be presented with something that looks like this:
 
-    ![DB in pgAdmin](/img/pgAdmin4.png)
+    ![DB in pgAdmin](/media/pgAdmin4.png)
 
 **Success!** We will be keeping an eye on our data using this tool, so it is wise to have it running during development. Next, why don't we see if we can get our node.js server to connect to the database as well? For us to be able to connect to a relational database, we will need to use an existing module. Fortunately, **sequelize** will do exactly what we want.
 
