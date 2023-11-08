@@ -28,7 +28,7 @@ To get started, proceed to [https://neon.tech](https://neon.tech) and click on t
 
 2. Leave "region" as the default value and Click the **Create Project** Button.
 
-3. At the next screen, you should see the "psql" dropdown selected. Click the **gray box** in the text to reveal your password (**NOTE** Also consider checking the "Pooled connection" checkbox if this app will be deployed in a serverless environment, such as Cyclic)
+3. At the next screen, you should see the "psql" dropdown selected. Click the gray **eye icon** to reveal your password (**NOTE** Also consider checking the "Pooled connection" checkbox if this app will be deployed in a serverless environment, such as Cyclic)
 
 4. Next, click the "psql" dropdown and choose **Node.js**
 
